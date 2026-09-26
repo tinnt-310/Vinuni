@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<robot name="fr10_standalone" xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:include filename="vehicle_dimensions.xacro"/>
+  <xacro:include filename="inertial_macros.xacro"/>
+  <xacro:include filename="fr10_arm.urdf"/>
+  <xacro:include filename="fr10_wrist.xacro"/>
+  <xacro:fr10_wrist/>
+  <link name="world"/>
+  <joint name="world_to_fr10" type="fixed">
+    <parent link="world"/><child link="fr10_base_link"/>
+  </joint>
+</robot>

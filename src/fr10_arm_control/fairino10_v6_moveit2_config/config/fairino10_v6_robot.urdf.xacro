@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="fairino10_v6_robot">
+    <xacro:arg name="initial_positions_file" default="initial_positions.yaml" />
+    <xacro:arg name="use_fake_hardware" default="true" />
+    <xacro:arg name="use_gazebo" default="false" />
+    <xacro:arg name="enable_custom_collisions" default="true" />
+    <xacro:arg name="robot_ip" default="192.168.58.2" />
+    <xacro:arg name="hardware_plugin" default="fairino_hardware_v3_9_3/FairinoHardwareInterface" />
+    <!-- Exact from wrist3_link.STL with centered tool face at local Z max and normal +Z. -->
+    <xacro:arg name="flange_xyz" default="0 0 0.106" />
+    <xacro:arg name="flange_rpy" default="0 0 0" />
+    <!-- The remaining transforms/dimensions are illustrative placeholders. -->
+    <xacro:arg name="ft_sensor_xyz" default="0 0 0" />
+    <xacro:arg name="ft_sensor_rpy" default="0 0 0" />
+    <xacro:arg name="tool_plate_xyz" default="0 0 0.030" />
+    <xacro:arg name="tool_plate_rpy" default="0 0 0" />
+    <xacro:arg name="d455_xyz" default="-0.0475 0 0.012" />
+    <xacro:arg name="d455_rpy" default="0 -1.57079632679 1.57079632679" />
+    <xacro:arg name="charging_mount_xyz" default="0.060 0 0.012" />
+    <xacro:arg name="charging_mount_rpy" default="0 0 0" />
+    <xacro:arg name="charging_connector_xyz" default="0 0 0.040" />
+    <xacro:arg name="charging_connector_rpy" default="0 0 0" />
+    <xacro:arg name="tool0_xyz" default="0 0 0.080" />
+    <xacro:arg name="tool0_rpy" default="0 0 0" />
+    <xacro:arg name="ft_sensor_radius" default="0.045" />
+    <xacro:arg name="ft_sensor_length" default="0.030" />
+    <xacro:arg name="tool_plate_size_x" default="0.140" />
+    <xacro:arg name="tool_plate_size_y" default="0.100" />
+    <xacro:arg name="tool_plate_size_z" default="0.012" />
+    <xacro:arg name="charging_mount_size_x" default="0.040" />
+    <xacro:arg name="charging_mount_size_y" default="0.050" />
+    <xacro:arg name="charging_mount_size_z" default="0.040" />
+    <xacro:arg name="connector_body_size_x" default="0.045" />
+    <xacro:arg name="connector_body_size_y" default="0.035" />
+    <xacro:arg name="connector_body_length" default="0.060" />
+    <xacro:arg name="connector_tip_radius" default="0.012" />
+    <xacro:arg name="connector_tip_length" default="0.020" />
+
+    <!-- Import fairino10_v6_robot urdf file -->
+    <xacro:include filename="$(find fairino_description)/urdf/fairino10_v6.urdf" />
+    <xacro:include filename="$(find fairino_description)/urdf/fr10_end_effector.xacro" />
+
+    <!-- Gazebo needs an explicit fixed root. Without this joint, reaction
+         forces from position control move the entire robot model. -->
+    <xacro:if value="$(arg use_gazebo)">
+        <link name="world" />
+        <joint name="world_to_base" type="fixed">
+            <parent link="world" />
+            <child link="base_link" />
+        </joint>
+    </xacro:if>
+
+    <!-- Keep the Gazebo model plugin before ros2_control's non-URDF extension. -->
+    <xacro:if value="$(arg use_gazebo)">
+        <gazebo>
+            <plugin name="gazebo_ros2_control" filename="libgazebo_ros2_control.so">
+                <parameters>$(find fairino10_v6_moveit2_config)/config/ros2_controllers.yaml</parameters>
+            </plugin>
+        </gazebo>
+    </xacro:if>
+
+    <xacro:fr10_end_effector
+        use_gazebo="$(arg use_gazebo)"
+        enable_custom_collisions="$(arg enable_custom_collisions)"
+        flange_xyz="$(arg flange_xyz)" flange_rpy="$(arg flange_rpy)"
+        ft_sensor_xyz="$(arg ft_sensor_xyz)" ft_sensor_rpy="$(arg ft_sensor_rpy)"
+        tool_plate_xyz="$(arg tool_plate_xyz)" tool_plate_rpy="$(arg tool_plate_rpy)"
+        d455_xyz="$(arg d455_xyz)" d455_rpy="$(arg d455_rpy)"
+        charging_mount_xyz="$(arg charging_mount_xyz)"
+        charging_mount_rpy="$(arg charging_mount_rpy)"
+        charging_connector_xyz="$(arg charging_connector_xyz)"
+        charging_connector_rpy="$(arg charging_connector_rpy)"
+        tool0_xyz="$(arg tool0_xyz)" tool0_rpy="$(arg tool0_rpy)"
+        ft_sensor_radius="$(arg ft_sensor_radius)"
+        ft_sensor_length="$(arg ft_sensor_length)"
+        tool_plate_size_x="$(arg tool_plate_size_x)"
+        tool_plate_size_y="$(arg tool_plate_size_y)"
+        tool_plate_size_z="$(arg tool_plate_size_z)"
+        charging_mount_size_x="$(arg charging_mount_size_x)"
+        charging_mount_size_y="$(arg charging_mount_size_y)"
+        charging_mount_size_z="$(arg charging_mount_size_z)"
+        connector_body_size_x="$(arg connector_body_size_x)"
+        connector_body_size_y="$(arg connector_body_size_y)"
+        connector_body_length="$(arg connector_body_length)"
+        connector_tip_radius="$(arg connector_tip_radius)"
+        connector_tip_length="$(arg connector_tip_length)" />
+
+    <!-- Import control_xacro -->
+    <xacro:include filename="fairino10_v6_robot.ros2_control.xacro" />
+
+    <xacro:fairino10_v6_robot_ros2_control
+        name="FR10System"
+        initial_positions_file="$(arg initial_positions_file)"
+        use_fake_hardware="$(arg use_fake_hardware)"
+        use_gazebo="$(arg use_gazebo)"
+        robot_ip="$(arg robot_ip)"
+        hardware_plugin="$(arg hardware_plugin)" />
+
+</robot>

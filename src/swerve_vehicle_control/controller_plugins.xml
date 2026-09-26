@@ -1,0 +1,22 @@
+<library path="swerve_controller_plugin">
+  <class name="my_ur_control_cpp/SwerveDriveController"
+         type="my_ur_control_cpp::SwerveDriveController"
+         base_class_type="controller_interface::ControllerInterface">
+    <description>
+      Swerve drive controller with direct ros2_control interface access.
+      Handles inverse kinematics (cmd_vel → steering angles + drive velocities),
+      Moore-Penrose pseudoinverse forward kinematics (all 4 wheels → vx/vy/omega),
+      odometry computation, and optional TF publishing (publish_tf parameter).
+      
+      Requires 8 command interfaces:
+        - Revolute{1-4}_to_base_link/position (steering)
+        - Wheel{1-4}_to_Revolute{1-4}/velocity (drive)
+      
+      Requires 16 state interfaces:
+        - Revolute{1-4}_to_base_link/position (steering feedback)
+        - Revolute{1-4}_to_base_link/velocity
+        - Wheel{1-4}_to_Revolute{1-4}/velocity (drive feedback)
+        - Wheel{1-4}_to_Revolute{1-4}/position
+    </description>
+  </class>
+</library>

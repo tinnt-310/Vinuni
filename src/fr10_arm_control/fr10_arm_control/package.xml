@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<package format="3">
+<name>fr10_arm_control</name><version>0.1.0</version><description>Modular fr10_arm_control for Vinuni vehicle.</description><maintainer email="tin@example.com">Tin</maintainer><license>See retained upstream source notices</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<depend>controller_manager</depend>
+<depend>joint_trajectory_controller</depend>
+<depend>fairino10_v6_moveit2_config</depend>
+<depend>launch</depend>
+<depend>launch_ros</depend>
+<export><build_type>ament_cmake</build_type></export>
+</package>

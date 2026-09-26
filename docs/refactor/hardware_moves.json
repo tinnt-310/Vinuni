@@ -1,0 +1,10 @@
+[
+  [
+    "src/fr10",
+    "src/hardware_interface/fr10_driver/vendor_reference"
+  ],
+  [
+    "src/plc",
+    "src/hardware_interface/plc_bridge"
+  ]
+]

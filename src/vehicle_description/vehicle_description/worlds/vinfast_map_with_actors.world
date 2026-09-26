@@ -1,0 +1,193 @@
+<?xml version="1.0" ?>
+<sdf version='1.7'>
+  <world name='default'>
+    <light name='sun' type='directional'>
+      <cast_shadows>1</cast_shadows>
+      <pose>0 0 10 0 -0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <direction>-0.5 0.1 -0.9</direction>
+      <spot>
+        <inner_angle>0</inner_angle>
+        <outer_angle>0</outer_angle>
+        <falloff>0</falloff>
+      </spot>
+    </light>
+    <model name='ground_plane'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>50</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Grey</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <gravity>0 0 -9.8</gravity>
+    <magnetic_field>6e-06 2.3e-05 -4.2e-05</magnetic_field>
+    <atmosphere type='adiabatic'/>
+    <physics type='ode'>
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>1000</real_time_update_rate>
+    </physics>
+    <scene>
+      <ambient>0.4 0.4 0.4 1</ambient>
+      <background>0.7 0.7 0.7 1</background>
+      <shadows>1</shadows>
+    </scene>
+    <audio>
+      <device>default</device>
+    </audio>
+    <wind/>
+    <spherical_coordinates>
+      <surface_model>EARTH_WGS84</surface_model>
+      <latitude_deg>0</latitude_deg>
+      <longitude_deg>0</longitude_deg>
+      <elevation>0</elevation>
+      <heading_deg>0</heading_deg>
+    </spherical_coordinates>
+
+    <!-- ======================== -->
+    <!-- STATIC OBSTACLES (Dumpster, barriers, etc.) -->
+    <!-- ======================== -->
+    <model name='Dumpster'>
+      <static>1</static>
+      <pose>-8.49539 -9.11169 0.001376 2e-06 -0 0</pose>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <box>
+              <size>1.0 1.0 1.0</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <box>
+              <size>1.0 1.0 1.0</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.3 0.3 0.3 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- ======================== -->
+    <!-- ACTOR: Người đi bộ        -->
+    <!-- ======================== -->
+    <actor name="pedestrian_1">
+      <!-- Vị trí ban đầu của actor (x, y, z, roll, pitch, yaw) -->
+      <pose>6.0 3.0 0.0 0 0 1.57</pose>
+
+      <!-- Skin: hình dáng người đi bộ (dùng file DAE có sẵn của Gazebo) -->
+      <skin>
+        <filename>file://media/models/walk.dae</filename>
+        <scale>1.0</scale>
+      </skin>
+
+      <!-- Animation: file chứa chuyển động (walk = đi bộ) -->
+      <animation name="walking">
+        <filename>file://media/models/walk.dae</filename>
+        <scale>1.0</scale>
+        <!-- Tự động xoay người theo hướng di chuyển -->
+        <interpolate_x>true</interpolate_x>
+      </animation>
+
+      <!-- Script điều khiển waypoint -->
+      <script>
+        <!--
+          CÁCH TẠO WAYPOINT:
+          - Mỗi <waypoint> gồm <time> (giây) và <pose> (x y z roll pitch yaw)
+          - Actor sẽ di chuyển TUYẾN TÍNH từ waypoint này đến waypoint tiếp theo
+          - Thời gian là thời điểm actor đến waypoint đó (tính từ lúc bắt đầu)
+          - Pose: x(m), y(m), z(m), roll(rad), pitch(rad), yaw(rad)
+          - <interpolate_x>true</interpolate_x> làm actor tự xoay theo hướng đi
+          - <loop>true</loop> làm actor lặp lại quỹ đạo sau khi kết thúc
+
+          VÍ DỤ: Actor đi từ (6,3) → (6,8) → (10,8) → (10,3) → quay về (6,3)
+          Thời gian: 0s ở (6,3), 5s đến (6,8), 10s đến (10,8), 15s đến (10,3), 20s về (6,3)
+        -->
+        <trajectory id="0" type="walking">
+          <!-- Waypoint 0: Bắt đầu tại (6, 3) hướng lên (yaw=1.57 = 90°) -->
+          <waypoint>
+            <time>0.0</time>
+            <pose>6.0 3.0 0.0 0 0 1.57</pose>
+          </waypoint>
+          <!-- Waypoint 1: Đi thẳng lên (6, 8) trong 5 giây -->
+          <waypoint>
+            <time>5.0</time>
+            <pose>6.0 8.0 0.0 0 0 1.57</pose>
+          </waypoint>
+          <!-- Waypoint 2: Rẽ phải sang (10, 8) trong 5 giây tiếp (yaw=0 = hướng Đông) -->
+          <waypoint>
+            <time>10.0</time>
+            <pose>10.0 8.0 0.0 0 0 0.0</pose>
+          </waypoint>
+          <!-- Waypoint 3: Đi xuống (10, 3) trong 5 giây (yaw=-1.57 = hướng Nam) -->
+          <waypoint>
+            <time>15.0</time>
+            <pose>10.0 3.0 0.0 0 0 -1.57</pose>
+          </waypoint>
+          <!-- Waypoint 4: Rẽ trái về (6, 3) trong 5 giây (yaw=3.14 = hướng Tây) -->
+          <waypoint>
+            <time>20.0</time>
+            <pose>6.0 3.0 0.0 0 0 3.14</pose>
+          </waypoint>
+        </trajectory>
+
+        <!-- Lặp lại quỹ đạo vô hạn -->
+        <loop>true</loop>
+
+        <!-- Tự động khởi động script khi world load -->
+        <auto_start>true</auto_start>
+      </script>
+    </actor>
+
+  </world>
+</sdf>

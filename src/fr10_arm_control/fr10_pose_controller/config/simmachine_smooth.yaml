@@ -1,0 +1,14 @@
+fr10_pose_controller:
+  ros__parameters:
+    controller:
+      # Measured at 0.30: SimMachine reached 0.4248 rad/s and crossed the
+      # immutable 1 degree command/feedback lag barrier.  Keep the barrier and
+      # reduce only this operational test profile.
+      joint_velocity_scale: 0.20
+      joint_acceleration_scale: 0.4472135955
+      joint_jerk_scale: 0.20
+      pose_policies:
+        free_space:
+          joint_velocity_scale: 0.20
+          joint_acceleration_scale: 0.4472135955
+          joint_jerk_scale: 0.20

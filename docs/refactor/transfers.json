@@ -1,0 +1,542 @@
+[
+  {
+    "old": "src/thietkemoi/thanxe_new_description/urdf/thanxe_new.trans",
+    "new": "src/vehicle_description/urdf/thanxe_new.trans",
+    "original_retained": true
+  },
+  {
+    "old": "src/thietkemoi/thanxe_new_description/urdf/camera.xacro",
+    "new": "src/vehicle_description/urdf/camera.xacro",
+    "original_retained": true
+  },
+  {
+    "old": "src/thietkemoi/thanxe_new_description/urdf/vehicle_dimensions.xacro",
+    "new": "src/vehicle_description/urdf/vehicle_dimensions.xacro",
+    "original_retained": true
+  },
+  {
+    "old": "src/thietkemoi/thanxe_new_description/urdf/ur10_with_charge.xacro",
+    "new": "src/vehicle_description/urdf/ur10_with_charge.xacro",
+    "original_retained": true
+  },
+  {
+    "old": "src/thietkemoi/thanxe_new_description/urdf/inertial_macros.xacro",
+    "new": "src/vehicle_description/urdf/inertial_macros.xacro",
+    "original_retained": true
+  },
+  {
+    "old": "src/thietkemoi/thanxe_new_description/urdf/materials.xacro",
+    "new": "src/vehicle_description/urdf/materials.xacro",
+    "original_retained": true
+  },
+  {
+    "old": "src/thietkemoi/thanxe_new_description/urdf/swerve_module.xacro",
+    "new": "src/vehicle_description/urdf/swerve_module.xacro",
+    "original_retained": true
+  },
+  {
+    "old": "src/thietkemoi/thanxe_new_description/urdf/thanxe_new.xacro",
+    "new": "src/vehicle_description/urdf/thanxe_new.xacro",
+    "original_retained": true
+  },
+  {
+    "old": "src/thietkemoi/thanxe_new_description/urdf/fr10_wrist.xacro",
+    "new": "src/vehicle_description/urdf/fr10_wrist.xacro",
+    "original_retained": true
+  },
+  {
+    "old": "src/thietkemoi/thanxe_new_description/urdf/d435_simulation.xacro",
+    "new": "src/vehicle_description/urdf/d435_simulation.xacro",
+    "original_retained": true
+  },
+  {
+    "old": "src/thietkemoi/thanxe_new_description/urdf/fr10_arm.urdf",
+    "new": "src/vehicle_description/urdf/fr10_arm.urdf",
+    "original_retained": true
+  },
+  {
+    "old": "src/thietkemoi/thanxe_new_description/urdf/complete_car.urdf",
+    "new": "src/vehicle_description/urdf/complete_car.urdf",
+    "original_retained": true
+  },
+  {
+    "old": "src/thietkemoi/thanxe_new_description/urdf/complete_visual.xacro",
+    "new": "src/vehicle_description/urdf/complete_visual.xacro",
+    "original_retained": true
+  },
+  {
+    "old": "src/thietkemoi/thanxe_new_description/urdf/ros2_control.xacro",
+    "new": "src/vehicle_description/urdf/ros2_control.xacro",
+    "original_retained": true
+  },
+  {
+    "old": "src/thietkemoi/thanxe_new_description/urdf/dynamic_obstacle.urdf",
+    "new": "src/vehicle_description/urdf/dynamic_obstacle.urdf",
+    "original_retained": true
+  },
+  {
+    "old": "src/thietkemoi/thanxe_new_description/urdf/vehicle_chassis.xacro",
+    "new": "src/vehicle_description/urdf/vehicle_chassis.xacro",
+    "original_retained": true
+  },
+  {
+    "old": "src/thietkemoi/thanxe_new_description/urdf/body_sensors.xacro",
+    "new": "src/vehicle_description/urdf/body_sensors.xacro",
+    "original_retained": true
+  },
+  {
+    "old": "src/thietkemoi/thanxe_new_description/urdf/thanxe_new.gazebo",
+    "new": "src/vehicle_description/urdf/thanxe_new.gazebo",
+    "original_retained": true
+  },
+  {
+    "old": "src/thietkemoi/thanxe_new_description/meshes/Wheel1_1.stl",
+    "new": "src/vehicle_description/meshes/Wheel1_1.stl",
+    "original_retained": true
+  },
+  {
+    "old": "src/thietkemoi/thanxe_new_description/meshes/base_link.stl",
+    "new": "src/vehicle_description/meshes/base_link.stl",
+    "original_retained": true
+  },
+  {
+    "old": "src/thietkemoi/thanxe_new_description/meshes/base_link1.stl",
+    "new": "src/vehicle_description/meshes/base_link1.stl",
+    "original_retained": true
+  },
+  {
+    "old": "src/thietkemoi/thanxe_new_description/meshes/Revolute2_1.stl",
+    "new": "src/vehicle_description/meshes/Revolute2_1.stl",
+    "original_retained": true
+  },
+  {
+    "old": "src/thietkemoi/thanxe_new_description/meshes/Wheel4_1.stl",
+    "new": "src/vehicle_description/meshes/Wheel4_1.stl",
+    "original_retained": true
+  },
+  {
+    "old": "src/thietkemoi/thanxe_new_description/meshes/Revolute3_1.stl",
+    "new": "src/vehicle_description/meshes/Revolute3_1.stl",
+    "original_retained": true
+  },
+  {
+    "old": "src/thietkemoi/thanxe_new_description/meshes/Revolute4_1.stl",
+    "new": "src/vehicle_description/meshes/Revolute4_1.stl",
+    "original_retained": true
+  },
+  {
+    "old": "src/thietkemoi/thanxe_new_description/meshes/Wheel2_1.stl",
+    "new": "src/vehicle_description/meshes/Wheel2_1.stl",
+    "original_retained": true
+  },
+  {
+    "old": "src/thietkemoi/thanxe_new_description/meshes/dausac.stl",
+    "new": "src/vehicle_description/meshes/dausac.stl",
+    "original_retained": true
+  },
+  {
+    "old": "src/thietkemoi/thanxe_new_description/meshes/cong_sac.stl",
+    "new": "src/vehicle_description/meshes/cong_sac.stl",
+    "original_retained": true
+  },
+  {
+    "old": "src/thietkemoi/thanxe_new_description/meshes/Revolute1_1.stl",
+    "new": "src/vehicle_description/meshes/Revolute1_1.stl",
+    "original_retained": true
+  },
+  {
+    "old": "src/thietkemoi/thanxe_new_description/meshes/jlr_ccs2_centered.stl",
+    "new": "src/vehicle_description/meshes/jlr_ccs2_centered.stl",
+    "original_retained": true
+  },
+  {
+    "old": "src/thietkemoi/thanxe_new_description/meshes/Wheel3_1.stl",
+    "new": "src/vehicle_description/meshes/Wheel3_1.stl",
+    "original_retained": true
+  },
+  {
+    "old": "src/thietkemoi/thanxe_new_description/worlds/test.world",
+    "new": "src/vehicle_description/worlds/test.world",
+    "original_retained": true
+  },
+  {
+    "old": "src/thietkemoi/thanxe_new_description/worlds/charging.world",
+    "new": "src/vehicle_description/worlds/charging.world",
+    "original_retained": true
+  },
+  {
+    "old": "src/thietkemoi/thanxe_new_description/worlds/vinfast_realmap_copy.world",
+    "new": "src/vehicle_description/worlds/vinfast_realmap_copy.world",
+    "original_retained": true
+  },
+  {
+    "old": "src/thietkemoi/thanxe_new_description/worlds/vinfast_map.world",
+    "new": "src/vehicle_description/worlds/vinfast_map.world",
+    "original_retained": true
+  },
+  {
+    "old": "src/thietkemoi/thanxe_new_description/worlds/new.world",
+    "new": "src/vehicle_description/worlds/new.world",
+    "original_retained": true
+  },
+  {
+    "old": "src/thietkemoi/thanxe_new_description/worlds/vinfast_realmap.world",
+    "new": "src/vehicle_description/worlds/vinfast_realmap.world",
+    "original_retained": true
+  },
+  {
+    "old": "src/thietkemoi/thanxe_new_description/worlds/vinfast_map_with_actors.world",
+    "new": "src/vehicle_description/worlds/vinfast_map_with_actors.world",
+    "original_retained": true
+  },
+  {
+    "old": "src/thietkemoi/thanxe_new_description/config/vehicle_geometry.yaml",
+    "new": "src/vehicle_description/config/vehicle_geometry.yaml",
+    "original_retained": true
+  },
+  {
+    "old": "src/models/model.sdf",
+    "new": "src/vehicle_description/models/model.sdf",
+    "original_retained": true
+  },
+  {
+    "old": "src/models/drc_practice_blue_cylinder/model.config",
+    "new": "src/vehicle_description/models/drc_practice_blue_cylinder/model.config",
+    "original_retained": true
+  },
+  {
+    "old": "src/models/drc_practice_blue_cylinder/model.sdf",
+    "new": "src/vehicle_description/models/drc_practice_blue_cylinder/model.sdf",
+    "original_retained": true
+  },
+  {
+    "old": "src/models/drc_practice_blue_cylinder/model-1_4.sdf",
+    "new": "src/vehicle_description/models/drc_practice_blue_cylinder/model-1_4.sdf",
+    "original_retained": true
+  },
+  {
+    "old": "src/models/drc_practice_blue_cylinder/meshes/cylinder.dae",
+    "new": "src/vehicle_description/models/drc_practice_blue_cylinder/meshes/cylinder.dae",
+    "original_retained": true
+  },
+  {
+    "old": "src/models/drc_practice_orange_jersey_barrier/model.config",
+    "new": "src/vehicle_description/models/drc_practice_orange_jersey_barrier/model.config",
+    "original_retained": true
+  },
+  {
+    "old": "src/models/drc_practice_orange_jersey_barrier/model.sdf",
+    "new": "src/vehicle_description/models/drc_practice_orange_jersey_barrier/model.sdf",
+    "original_retained": true
+  },
+  {
+    "old": "src/models/drc_practice_orange_jersey_barrier/model-1_4.sdf",
+    "new": "src/vehicle_description/models/drc_practice_orange_jersey_barrier/model-1_4.sdf",
+    "original_retained": true
+  },
+  {
+    "old": "src/models/drc_practice_orange_jersey_barrier/meshes/jersey_barrier.dae",
+    "new": "src/vehicle_description/models/drc_practice_orange_jersey_barrier/meshes/jersey_barrier.dae",
+    "original_retained": true
+  },
+  {
+    "old": "src/models/parking_slot/model.config",
+    "new": "src/vehicle_description/models/parking_slot/model.config",
+    "original_retained": true
+  },
+  {
+    "old": "src/models/parking_slot/parking_slot.sdf",
+    "new": "src/vehicle_description/models/parking_slot/parking_slot.sdf",
+    "original_retained": true
+  },
+  {
+    "old": "src/models/drc_practice_white_jersey_barrier/model.config",
+    "new": "src/vehicle_description/models/drc_practice_white_jersey_barrier/model.config",
+    "original_retained": true
+  },
+  {
+    "old": "src/models/drc_practice_white_jersey_barrier/model.sdf",
+    "new": "src/vehicle_description/models/drc_practice_white_jersey_barrier/model.sdf",
+    "original_retained": true
+  },
+  {
+    "old": "src/models/drc_practice_white_jersey_barrier/model-1_4.sdf",
+    "new": "src/vehicle_description/models/drc_practice_white_jersey_barrier/model-1_4.sdf",
+    "original_retained": true
+  },
+  {
+    "old": "src/models/drc_practice_white_jersey_barrier/meshes/jersey_barrier.dae",
+    "new": "src/vehicle_description/models/drc_practice_white_jersey_barrier/meshes/jersey_barrier.dae",
+    "original_retained": true
+  },
+  {
+    "old": "src/models/napsac/napsac.sdf",
+    "new": "src/vehicle_description/models/napsac/napsac.sdf",
+    "original_retained": true
+  },
+  {
+    "old": "src/models/napsac/napsac.config",
+    "new": "src/vehicle_description/models/napsac/napsac.config",
+    "original_retained": true
+  },
+  {
+    "old": "src/models/cong_sac/model.config",
+    "new": "src/vehicle_description/models/cong_sac/model.config",
+    "original_retained": true
+  },
+  {
+    "old": "src/models/cong_sac/model.sdf",
+    "new": "src/vehicle_description/models/cong_sac/model.sdf",
+    "original_retained": true
+  },
+  {
+    "old": "src/models/cong_sac/meshes/cong_sac.stl",
+    "new": "src/vehicle_description/models/cong_sac/meshes/cong_sac.stl",
+    "original_retained": true
+  },
+  {
+    "old": "src/models/tram_sac_VF/model.config",
+    "new": "src/vehicle_description/models/tram_sac_VF/model.config",
+    "original_retained": true
+  },
+  {
+    "old": "src/models/tram_sac_VF/model.sdf",
+    "new": "src/vehicle_description/models/tram_sac_VF/model.sdf",
+    "original_retained": true
+  },
+  {
+    "old": "src/models/tram_sac_VF/backup",
+    "new": "src/vehicle_description/models/tram_sac_VF/backup",
+    "original_retained": true
+  },
+  {
+    "old": "src/models/tram_sac_VF/meshes/Logo_VF.stl",
+    "new": "src/vehicle_description/models/tram_sac_VF/meshes/Logo_VF.stl",
+    "original_retained": true
+  },
+  {
+    "old": "src/models/tram_sac_VF/meshes/tru_sac1.stl",
+    "new": "src/vehicle_description/models/tram_sac_VF/meshes/tru_sac1.stl",
+    "original_retained": true
+  },
+  {
+    "old": "src/models/tram_sac_VF/meshes/napsac.stl",
+    "new": "src/vehicle_description/models/tram_sac_VF/meshes/napsac.stl",
+    "original_retained": true
+  },
+  {
+    "old": "src/models/tram_sac_VF/meshes/cong_sac1.stl",
+    "new": "src/vehicle_description/models/tram_sac_VF/meshes/cong_sac1.stl",
+    "original_retained": true
+  },
+  {
+    "old": "src/models/tram_sac_VF/meshes/tru.stl",
+    "new": "src/vehicle_description/models/tram_sac_VF/meshes/tru.stl",
+    "original_retained": true
+  },
+  {
+    "old": "src/models/tram_sac_VF/meshes/icon.stl",
+    "new": "src/vehicle_description/models/tram_sac_VF/meshes/icon.stl",
+    "original_retained": true
+  },
+  {
+    "old": "src/models/tram_sac_VF/meshes/cong_sac.stl",
+    "new": "src/vehicle_description/models/tram_sac_VF/meshes/cong_sac.stl",
+    "original_retained": true
+  },
+  {
+    "old": "src/models/tram_sac_VF/meshes/tramsac.stl",
+    "new": "src/vehicle_description/models/tram_sac_VF/meshes/tramsac.stl",
+    "original_retained": true
+  },
+  {
+    "old": "src/models/tram_sac_VF/meshes/newcar.stl",
+    "new": "src/vehicle_description/models/tram_sac_VF/meshes/newcar.stl",
+    "original_retained": true
+  },
+  {
+    "old": "src/models/tram_sac_VF/meshes/old_data/car.stl",
+    "new": "src/vehicle_description/models/tram_sac_VF/meshes/old_data/car.stl",
+    "original_retained": true
+  },
+  {
+    "old": "src/models/tram_sac_VF/meshes/old_data/cong_sac1.stl",
+    "new": "src/vehicle_description/models/tram_sac_VF/meshes/old_data/cong_sac1.stl",
+    "original_retained": true
+  },
+  {
+    "old": "src/models/tram_sac_VF/meshes/old_data/car1.stl",
+    "new": "src/vehicle_description/models/tram_sac_VF/meshes/old_data/car1.stl",
+    "original_retained": true
+  },
+  {
+    "old": "src/models/tram_sac_VF/meshes/old_data/cong_sac.stl",
+    "new": "src/vehicle_description/models/tram_sac_VF/meshes/old_data/cong_sac.stl",
+    "original_retained": true
+  },
+  {
+    "old": "src/models/dumpster/model.config",
+    "new": "src/vehicle_description/models/dumpster/model.config",
+    "original_retained": true
+  },
+  {
+    "old": "src/models/dumpster/model.sdf",
+    "new": "src/vehicle_description/models/dumpster/model.sdf",
+    "original_retained": true
+  },
+  {
+    "old": "src/models/dumpster/model-1_4.sdf",
+    "new": "src/vehicle_description/models/dumpster/model-1_4.sdf",
+    "original_retained": true
+  },
+  {
+    "old": "src/models/dumpster/model-1_3.sdf",
+    "new": "src/vehicle_description/models/dumpster/model-1_3.sdf",
+    "original_retained": true
+  },
+  {
+    "old": "src/models/dumpster/materials/scripts/dumpster.material",
+    "new": "src/vehicle_description/models/dumpster/materials/scripts/dumpster.material",
+    "original_retained": true
+  },
+  {
+    "old": "src/models/dumpster/materials/textures/Dumpster_Spec.png",
+    "new": "src/vehicle_description/models/dumpster/materials/textures/Dumpster_Spec.png",
+    "original_retained": true
+  },
+  {
+    "old": "src/models/dumpster/materials/textures/Dumpster_Diffuse.png",
+    "new": "src/vehicle_description/models/dumpster/materials/textures/Dumpster_Diffuse.png",
+    "original_retained": true
+  },
+  {
+    "old": "src/models/dumpster/meshes/dumpster.dae",
+    "new": "src/vehicle_description/models/dumpster/meshes/dumpster.dae",
+    "original_retained": true
+  },
+  {
+    "old": "src/models/electric_car/electric_car.sdf",
+    "new": "src/vehicle_description/models/electric_car/electric_car.sdf",
+    "original_retained": true
+  },
+  {
+    "old": "src/models/electric_car/model.config",
+    "new": "src/vehicle_description/models/electric_car/model.config",
+    "original_retained": true
+  },
+  {
+    "old": "src/thietkemoi/thanxe_new_description/maps/map_name.yaml",
+    "new": "src/vehicle_bringup/maps/map_name.yaml",
+    "original_retained": true
+  },
+  {
+    "old": "src/thietkemoi/thanxe_new_description/maps/my_vinfast_map.yaml",
+    "new": "src/vehicle_bringup/maps/my_vinfast_map.yaml",
+    "original_retained": true
+  },
+  {
+    "old": "src/thietkemoi/thanxe_new_description/maps/my_vinfast_map.xcf",
+    "new": "src/vehicle_bringup/maps/my_vinfast_map.xcf",
+    "original_retained": true
+  },
+  {
+    "old": "src/thietkemoi/thanxe_new_description/maps/my_vinfast_map1.pgm",
+    "new": "src/vehicle_bringup/maps/my_vinfast_map1.pgm",
+    "original_retained": true
+  },
+  {
+    "old": "src/thietkemoi/thanxe_new_description/maps/my_vinfast_map.pgm",
+    "new": "src/vehicle_bringup/maps/my_vinfast_map.pgm",
+    "original_retained": true
+  },
+  {
+    "old": "src/thietkemoi/thanxe_new_description/maps/map_name.pgm",
+    "new": "src/vehicle_bringup/maps/map_name.pgm",
+    "original_retained": true
+  },
+  {
+    "old": "src/thietkemoi/thanxe_new_description/maps/my_vinfast_map_old.pgm",
+    "new": "src/vehicle_bringup/maps/my_vinfast_map_old.pgm",
+    "original_retained": true
+  },
+  {
+    "old": "src/thietkemoi/thanxe_new_description/config/display.rviz",
+    "new": "src/vehicle_description/rviz/display.rviz",
+    "original_retained": true
+  },
+  {
+    "old": "src/thietkemoi/thanxe_new_description/config/visualize_all.rviz",
+    "new": "src/vehicle_bringup/rviz/visualize_all.rviz",
+    "original_retained": true
+  },
+  {
+    "old": "src/thietkemoi/thanxe_new_description/config/SLAM.rviz",
+    "new": "src/vehicle_bringup/rviz/SLAM.rviz",
+    "original_retained": true
+  },
+  {
+    "old": "src/thietkemoi/thanxe_new_description/config/mapper_params_online_async.yaml",
+    "new": "src/vehicle_bringup/config/mapper_params_online_async.yaml",
+    "original_retained": true
+  },
+  {
+    "old": "src/thietkemoi/thanxe_new_description/config/nav2_params.yaml",
+    "new": "src/vehicle_bringup/config/nav2_params.yaml",
+    "original_retained": true
+  },
+  {
+    "old": "src/my_ur_control_cpp/src/swerve_drive.cpp",
+    "new": "src/swerve_vehicle_control/src/swerve_drive.cpp",
+    "original_retained": true
+  },
+  {
+    "old": "src/my_ur_control_cpp/src/swerve_controller_plugin.cpp",
+    "new": "src/swerve_vehicle_control/src/swerve_controller_plugin.cpp",
+    "original_retained": true
+  },
+  {
+    "old": "src/my_ur_control_cpp/src/god_view_2.cpp",
+    "new": "src/swerve_vehicle_control/src/god_view_2.cpp",
+    "original_retained": true
+  },
+  {
+    "old": "src/my_ur_control_cpp/src/goal_sender.cpp",
+    "new": "src/swerve_vehicle_control/src/goal_sender.cpp",
+    "original_retained": true
+  },
+  {
+    "old": "src/my_ur_control_cpp/include/my_ur_control_cpp/swerve_controller_plugin.hpp",
+    "new": "src/swerve_vehicle_control/include/swerve_vehicle_control/swerve_controller_plugin.hpp",
+    "original_retained": true
+  },
+  {
+    "old": "src/my_ur_control_cpp/controller_plugins.xml",
+    "new": "src/swerve_vehicle_control/controller_plugins.xml",
+    "original_retained": true
+  },
+  {
+    "old": "src/my_ur_control_cpp/src/ccs2_detector_node.cpp",
+    "new": "src/charger_detection/src/ccs2_detector_node.cpp",
+    "original_retained": true
+  },
+  {
+    "old": "src/my_ur_control_cpp/src/solvepnp.cpp",
+    "new": "src/charger_detection/src/solvepnp.cpp",
+    "original_retained": true
+  },
+  {
+    "old": "src/my_ur_control_cpp/src/depth_heatmap.cpp",
+    "new": "src/charger_detection/src/depth_heatmap.cpp",
+    "original_retained": true
+  },
+  {
+    "old": "src/my_ur_control_cpp/include/ccs2_socket_detector/ccs2_detector_node.hpp",
+    "new": "src/charger_detection/include/charger_detection/ccs2_detector_node.hpp",
+    "original_retained": true
+  },
+  {
+    "old": "src/thietkemoi/thanxe_new_description/launch/display.launch.py",
+    "new": "src/vehicle_description/launch/display.launch.py",
+    "original_retained": true
+  }
+]

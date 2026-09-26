@@ -1,0 +1,4077 @@
+[
+  {
+    "path": "src/README.md",
+    "role": "unclear",
+    "reason": "Retained pending review; no evidence sufficient for removal"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/package.xml",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/CMakeLists.txt",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/AGENTS.md",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/README.md",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/launch/fr10_pose_controller.launch.py",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/config/ros2_controllers.yaml",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/config/controller.yaml",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/config/simmachine_smooth.yaml",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/include/fr10_pose_controller/joint_otg.hpp",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/include/fr10_pose_controller/collision_validated_ik_provider.hpp",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/include/fr10_pose_controller/cartesian_path.hpp",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/include/fr10_pose_controller/fr10_analytical_ik.hpp",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/include/fr10_pose_controller/math_utils.hpp",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/include/fr10_pose_controller/ros_control_backend.hpp",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/include/fr10_pose_controller/cartesian_route_planner.hpp",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/include/fr10_pose_controller/ik_provider.hpp",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/include/fr10_pose_controller/moveit_ik_provider.hpp",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/include/fr10_pose_controller/cartesian_trajectory.hpp",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/include/fr10_pose_controller/pre_insert_planner.hpp",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/include/fr10_pose_controller/continuous_ik.hpp",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/include/fr10_pose_controller/diagnostic_display.hpp",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/include/fr10_pose_controller/core_types.hpp",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/include/fr10_pose_controller/realtime_buffer.hpp",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/include/fr10_pose_controller/motion_controller.hpp",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/include/fr10_pose_controller/motion_adapter_runtime.hpp",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/include/fr10_pose_controller/robot_backend.hpp",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/include/fr10_pose_controller/linear_insert_planner.hpp",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/include/fr10_pose_controller/node_parameters.hpp",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/src/cartesian_trajectory_detail.inc",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/src/node_parameters.cpp",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/src/continuous_ik.cpp",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/src/moveit_ik_provider.cpp",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/src/pre_insert_planner.cpp",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/src/motion_adapter.cpp",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/src/cartesian_route_planner.cpp",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/src/fr10_pose_controller_node.cpp",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/src/joint_otg.cpp",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/src/motion_controller.cpp",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/src/fr10_analytical_ik.cpp",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/src/ros_control_backend.cpp",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/src/cartesian_path.cpp",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/src/cartesian_trajectory.cpp",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/src/linear_insert_planner.cpp",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/test/test_motion_controller.cpp",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/test/test_joint_retargeting.cpp",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/test/simmachine/test_joint_retarget_runtime.py",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/test/simmachine/test_workspace_runtime.py",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/test/simmachine/test_cartesian_runtime.py",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/test/simmachine/test_ros_startup.py",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/test/simmachine/test_joint_multi_runtime.py",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/test/simmachine/sdk_log_monitor.py",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/test/simmachine/benchmark_smoothness_speed.py",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/test/simmachine/test_shutdown_runtime.py",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/test/simmachine/test_extended_fake_runtime.py",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/test/simmachine/test_activation_hold_runtime.py",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/test/simmachine/ros_health.py",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/test/simmachine/benchmark_servoj_reference.py",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/test/simmachine/test_fake_runtime.py",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/test/simmachine/run_full_simmachine_suite.py",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/test/simmachine/auto_insert.py",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/test/simmachine/test_joint_direction_runtime.py",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/test/simmachine/metrics.py",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/test/simmachine/test_mode_switch_runtime.py",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/test/simmachine/test_rate_runtime.py",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/test/simmachine/test_loop_soak_runtime.py",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/test/simmachine/generate_campaign_artifacts.py",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/test/simmachine/common.py",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/test/simmachine/test_controlled_stop_runtime.py",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/test/simmachine/test_cartesian_long_distance.py",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/test/simmachine/test_docker_motion_review.py",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/test/simmachine/test_insertion_fsm_simulated.py",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/test/simmachine/test_cartesian_retarget_runtime.py",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/test/simmachine/test_two_mode_runtime.py",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/test/simmachine/test_joint_runtime.py",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/test/simmachine/generate_final_test_matrix.py",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/test/simmachine/test_joint_retarget_matrix_runtime.py",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/test/simmachine/safe_joint_target.py",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/test/simmachine/test_extended_capture_basin.py",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/test/core/test_diagnostic_display.cpp",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/test/core/test_workspace.cpp",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/test/core/test_analytical_ik.cpp",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/test/core/test_joint_otg_matrix.cpp",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/test/core/test_reference_lag_stop.cpp",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/test/core/test_path_time_parameterizer.cpp",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/test/core/fr10_kinematic_probe.cpp",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/test/core/test_retarget_safety_extended.cpp",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/test/core/extended_test_support.hpp",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/test/core/test_moveit_collision_provider.cpp",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/test/core/test_precision_insertion_extended.cpp",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/test/core/test_library_consumer.cpp",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/test/core/test_cartesian_path.cpp",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/test/core/test_realtime_buffer.cpp",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/test/core/test_invalid_commands.cpp",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/test/core/test_command_arbitration.cpp",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/test/core/test_support.hpp",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/test/core/test_insertion_planners.cpp",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/test/core/test_kinematics_extended.cpp",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/fr10_pose_controller/test/abi/test_fairino_v393_abi.py",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/frcobot_ros2/API_Instruction.pdf",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/frcobot_ros2/ErrorCode_lnstruction.pdf",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/frcobot_ros2/README.md",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/frcobot_ros2/fairino_description/package.xml",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/frcobot_ros2/fairino_description/CMakeLists.txt",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/frcobot_ros2/fairino_description/rviz/.setup_assistant",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/frcobot_ros2/fairino_description/urdf/fairino10_v6.urdf",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/frcobot_ros2/fairino_description/urdf/fr10_end_effector.xacro",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/frcobot_ros2/fairino_description/meshes/fairino10_v6/upperarm_link.STL",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/frcobot_ros2/fairino_description/meshes/fairino10_v6/forearm_link.STL",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/frcobot_ros2/fairino_description/meshes/fairino10_v6/wrist3_link.STL",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/frcobot_ros2/fairino_description/meshes/fairino10_v6/wrist1_link.STL",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/frcobot_ros2/fairino_description/meshes/fairino10_v6/base_link.STL",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/frcobot_ros2/fairino_description/meshes/fairino10_v6/shoulder_link.STL",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/frcobot_ros2/fairino_description/meshes/fairino10_v6/wrist2_link.STL",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/frcobot_ros2/fairino_hardware_v3_9_3/package.xml",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/frcobot_ros2/fairino_hardware_v3_9_3/CMakeLists.txt",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/frcobot_ros2/fairino_hardware_v3_9_3/fairino_remotecmdinterface_para.yaml",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/frcobot_ros2/fairino_hardware_v3_9_3/fairino_hardware.xml",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/frcobot_ros2/fairino_hardware_v3_9_3/.vscode/settings.json",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/frcobot_ros2/fairino_hardware_v3_9_3/.vscode/c_cpp_properties.json",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/frcobot_ros2/fairino_hardware_v3_9_3/.vscode/tasks.json",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/frcobot_ros2/fairino_hardware_v3_9_3/include/fairino_hardware/CNDE_thread.hpp",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/frcobot_ros2/fairino_hardware_v3_9_3/include/fairino_hardware/fairino_hardware_interface.hpp",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/frcobot_ros2/fairino_hardware_v3_9_3/include/fairino_hardware/version_control.h",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/frcobot_ros2/fairino_hardware_v3_9_3/include/fairino_hardware/data_type_def.h",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/frcobot_ros2/fairino_hardware_v3_9_3/include/fairino_hardware/global_val_def.hpp",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/frcobot_ros2/fairino_hardware_v3_9_3/include/fairino_hardware/visibility_control.h",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/frcobot_ros2/fairino_hardware_v3_9_3/include/fairino_hardware/command_server.hpp",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/frcobot_ros2/fairino_hardware_v3_9_3/src/command_server.cpp",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/frcobot_ros2/fairino_hardware_v3_9_3/src/fairino_hardware_interface.cpp",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/frcobot_ros2/fairino_hardware_v3_9_3/src/global_val_def.cpp",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/frcobot_ros2/fairino_hardware_v3_9_3/src/CNDE_thread.cpp",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/frcobot_ros2/fairino_hardware_v3_9_3/src/command_server_node.cpp",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/frcobot_ros2/fairino_hardware_v3_9_3/examples/include/srv_test_client.hpp",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/frcobot_ros2/fairino_hardware_v3_9_3/examples/src/srv_test_client.cpp",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/frcobot_ros2/fairino_hardware_v3_9_3/examples/src/main.cpp",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/frcobot_ros2/fairino_hardware_v3_9_3/libfairino/include/robot.h",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/frcobot_ros2/fairino_hardware_v3_9_3/libfairino/include/robot_types.h",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/frcobot_ros2/fairino_hardware_v3_9_3/libfairino/include/robot_error.h",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/frcobot_ros2/fairino_hardware_v3_9_3/libfairino/lib/libfairino.so",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/frcobot_ros2/fairino_hardware_v3_9_3/libfairino/lib/libfairino.so.2.3.3",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/frcobot_ros2/fairino_hardware_v3_9_3/libfairino/lib/libfairino.so.2",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/frcobot_ros2/fairino_msgs/package.xml",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/frcobot_ros2/fairino_msgs/CMakeLists.txt",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/frcobot_ros2/fairino_msgs/.vscode/c_cpp_properties.json",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/frcobot_ros2/fairino_msgs/srv/RemoteScriptContent.srv",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/frcobot_ros2/fairino_msgs/srv/RemoteCmdInterface.srv",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/frcobot_ros2/fairino_msgs/msg/RobotNonrtState.msg",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/frcobot_ros2/fairino10_v6_moveit2_config/package.xml",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/frcobot_ros2/fairino10_v6_moveit2_config/.setup_assistant",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/frcobot_ros2/fairino10_v6_moveit2_config/CMakeLists.txt",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/frcobot_ros2/fairino10_v6_moveit2_config/launch/warehouse_db.launch.py",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/frcobot_ros2/fairino10_v6_moveit2_config/launch/demo.launch.py",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/frcobot_ros2/fairino10_v6_moveit2_config/launch/spawn_controllers.launch.py",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/frcobot_ros2/fairino10_v6_moveit2_config/launch/rsp.launch.py",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/frcobot_ros2/fairino10_v6_moveit2_config/launch/move_group.launch.py",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/frcobot_ros2/fairino10_v6_moveit2_config/launch/moveit_rviz.launch.py",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/frcobot_ros2/fairino10_v6_moveit2_config/launch/gazebo.launch.py",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/frcobot_ros2/fairino10_v6_moveit2_config/launch/static_virtual_joint_tfs.launch.py",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/frcobot_ros2/fairino10_v6_moveit2_config/launch/setup_assistant.launch.py",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/frcobot_ros2/fairino10_v6_moveit2_config/config/fairino10_v6_robot.srdf",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/frcobot_ros2/fairino10_v6_moveit2_config/config/fairino10_v6_robot.ros2_control.xacro",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/frcobot_ros2/fairino10_v6_moveit2_config/config/ros2_controllers.yaml",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/frcobot_ros2/fairino10_v6_moveit2_config/config/pilz_cartesian_limits.yaml",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/frcobot_ros2/fairino10_v6_moveit2_config/config/initial_positions.yaml",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/frcobot_ros2/fairino10_v6_moveit2_config/config/kinematics.yaml",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/frcobot_ros2/fairino10_v6_moveit2_config/config/moveit_controllers.yaml",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/frcobot_ros2/fairino10_v6_moveit2_config/config/fairino10_v6_robot.urdf.xacro",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/frcobot_ros2/fairino10_v6_moveit2_config/config/moveit.rviz",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/frcobot_ros2/fairino10_v6_moveit2_config/config/joint_limits.yaml",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/fr10/frcobot_ros2/fairino10_v6_moveit2_config/worlds/fr10_force_test.world",
+    "role": "arm_control",
+    "reason": "Retained FAIRINO/MoveIt vendor and standalone FR10 control; no motion-code changes"
+  },
+  {
+    "path": "src/thietkemoi/thanxe_new_description/package.xml",
+    "role": "unclear",
+    "reason": "Retained pending review; no evidence sufficient for removal"
+  },
+  {
+    "path": "src/thietkemoi/thanxe_new_description/setup.cfg",
+    "role": "unclear",
+    "reason": "Retained pending review; no evidence sufficient for removal"
+  },
+  {
+    "path": "src/thietkemoi/thanxe_new_description/setup.py",
+    "role": "unclear",
+    "reason": "Retained pending review; no evidence sufficient for removal"
+  },
+  {
+    "path": "src/thietkemoi/thanxe_new_description/launch/gazebo.launch.py",
+    "role": "unclear",
+    "reason": "Retained pending review; no evidence sufficient for removal"
+  },
+  {
+    "path": "src/thietkemoi/thanxe_new_description/launch/display.launch.py",
+    "role": "description",
+    "reason": "Reference-checked transfer to src/vehicle_description/launch/display.launch.py"
+  },
+  {
+    "path": "src/thietkemoi/thanxe_new_description/launch/complete.launch.py",
+    "role": "unclear",
+    "reason": "Retained pending review; no evidence sufficient for removal"
+  },
+  {
+    "path": "src/thietkemoi/thanxe_new_description/urdf/thanxe_new.trans",
+    "role": "description",
+    "reason": "Reference-checked transfer to src/vehicle_description/urdf/thanxe_new.trans"
+  },
+  {
+    "path": "src/thietkemoi/thanxe_new_description/urdf/camera.xacro",
+    "role": "description",
+    "reason": "Reference-checked transfer to src/vehicle_description/urdf/camera.xacro"
+  },
+  {
+    "path": "src/thietkemoi/thanxe_new_description/urdf/vehicle_dimensions.xacro",
+    "role": "description",
+    "reason": "Reference-checked transfer to src/vehicle_description/urdf/vehicle_dimensions.xacro"
+  },
+  {
+    "path": "src/thietkemoi/thanxe_new_description/urdf/ur10_with_charge.xacro",
+    "role": "description",
+    "reason": "Reference-checked transfer to src/vehicle_description/urdf/ur10_with_charge.xacro"
+  },
+  {
+    "path": "src/thietkemoi/thanxe_new_description/urdf/inertial_macros.xacro",
+    "role": "description",
+    "reason": "Reference-checked transfer to src/vehicle_description/urdf/inertial_macros.xacro"
+  },
+  {
+    "path": "src/thietkemoi/thanxe_new_description/urdf/materials.xacro",
+    "role": "description",
+    "reason": "Reference-checked transfer to src/vehicle_description/urdf/materials.xacro"
+  },
+  {
+    "path": "src/thietkemoi/thanxe_new_description/urdf/swerve_module.xacro",
+    "role": "description",
+    "reason": "Reference-checked transfer to src/vehicle_description/urdf/swerve_module.xacro"
+  },
+  {
+    "path": "src/thietkemoi/thanxe_new_description/urdf/thanxe_new.xacro",
+    "role": "description",
+    "reason": "Reference-checked transfer to src/vehicle_description/urdf/thanxe_new.xacro"
+  },
+  {
+    "path": "src/thietkemoi/thanxe_new_description/urdf/fr10_wrist.xacro",
+    "role": "description",
+    "reason": "Reference-checked transfer to src/vehicle_description/urdf/fr10_wrist.xacro"
+  },
+  {
+    "path": "src/thietkemoi/thanxe_new_description/urdf/d435_simulation.xacro",
+    "role": "description",
+    "reason": "Reference-checked transfer to src/vehicle_description/urdf/d435_simulation.xacro"
+  },
+  {
+    "path": "src/thietkemoi/thanxe_new_description/urdf/fr10_arm.urdf",
+    "role": "description",
+    "reason": "Reference-checked transfer to src/vehicle_description/urdf/fr10_arm.urdf"
+  },
+  {
+    "path": "src/thietkemoi/thanxe_new_description/urdf/complete_car.urdf",
+    "role": "description",
+    "reason": "Reference-checked transfer to src/vehicle_description/urdf/complete_car.urdf"
+  },
+  {
+    "path": "src/thietkemoi/thanxe_new_description/urdf/complete_visual.xacro",
+    "role": "description",
+    "reason": "Reference-checked transfer to src/vehicle_description/urdf/complete_visual.xacro"
+  },
+  {
+    "path": "src/thietkemoi/thanxe_new_description/urdf/ros2_control.xacro",
+    "role": "description",
+    "reason": "Reference-checked transfer to src/vehicle_description/urdf/ros2_control.xacro"
+  },
+  {
+    "path": "src/thietkemoi/thanxe_new_description/urdf/dynamic_obstacle.urdf",
+    "role": "description",
+    "reason": "Reference-checked transfer to src/vehicle_description/urdf/dynamic_obstacle.urdf"
+  },
+  {
+    "path": "src/thietkemoi/thanxe_new_description/urdf/vehicle_chassis.xacro",
+    "role": "description",
+    "reason": "Reference-checked transfer to src/vehicle_description/urdf/vehicle_chassis.xacro"
+  },
+  {
+    "path": "src/thietkemoi/thanxe_new_description/urdf/body_sensors.xacro",
+    "role": "description",
+    "reason": "Reference-checked transfer to src/vehicle_description/urdf/body_sensors.xacro"
+  },
+  {
+    "path": "src/thietkemoi/thanxe_new_description/urdf/thanxe_new.gazebo",
+    "role": "description",
+    "reason": "Reference-checked transfer to src/vehicle_description/urdf/thanxe_new.gazebo"
+  },
+  {
+    "path": "src/thietkemoi/thanxe_new_description/config/display.rviz",
+    "role": "description",
+    "reason": "Reference-checked transfer to src/vehicle_description/rviz/display.rviz"
+  },
+  {
+    "path": "src/thietkemoi/thanxe_new_description/config/my_controllers.yaml",
+    "role": "unclear",
+    "reason": "Retained pending review; no evidence sufficient for removal"
+  },
+  {
+    "path": "src/thietkemoi/thanxe_new_description/config/vehicle_geometry.yaml",
+    "role": "description",
+    "reason": "Reference-checked transfer to src/vehicle_description/config/vehicle_geometry.yaml"
+  },
+  {
+    "path": "src/thietkemoi/thanxe_new_description/config/visualize_all.rviz",
+    "role": "bringup",
+    "reason": "Reference-checked transfer to src/vehicle_bringup/rviz/visualize_all.rviz"
+  },
+  {
+    "path": "src/thietkemoi/thanxe_new_description/config/SLAM.rviz",
+    "role": "bringup",
+    "reason": "Reference-checked transfer to src/vehicle_bringup/rviz/SLAM.rviz"
+  },
+  {
+    "path": "src/thietkemoi/thanxe_new_description/config/combine_controller.yaml",
+    "role": "unclear",
+    "reason": "Retained pending review; no evidence sufficient for removal"
+  },
+  {
+    "path": "src/thietkemoi/thanxe_new_description/config/mapper_params_online_async.yaml",
+    "role": "bringup",
+    "reason": "Reference-checked transfer to src/vehicle_bringup/config/mapper_params_online_async.yaml"
+  },
+  {
+    "path": "src/thietkemoi/thanxe_new_description/config/nav2_params.yaml",
+    "role": "bringup",
+    "reason": "Reference-checked transfer to src/vehicle_bringup/config/nav2_params.yaml"
+  },
+  {
+    "path": "src/thietkemoi/thanxe_new_description/maps/map_name.yaml",
+    "role": "bringup",
+    "reason": "Reference-checked transfer to src/vehicle_bringup/maps/map_name.yaml"
+  },
+  {
+    "path": "src/thietkemoi/thanxe_new_description/maps/my_vinfast_map.yaml",
+    "role": "bringup",
+    "reason": "Reference-checked transfer to src/vehicle_bringup/maps/my_vinfast_map.yaml"
+  },
+  {
+    "path": "src/thietkemoi/thanxe_new_description/maps/my_vinfast_map.xcf",
+    "role": "bringup",
+    "reason": "Reference-checked transfer to src/vehicle_bringup/maps/my_vinfast_map.xcf"
+  },
+  {
+    "path": "src/thietkemoi/thanxe_new_description/maps/my_vinfast_map1.pgm",
+    "role": "bringup",
+    "reason": "Reference-checked transfer to src/vehicle_bringup/maps/my_vinfast_map1.pgm"
+  },
+  {
+    "path": "src/thietkemoi/thanxe_new_description/maps/my_vinfast_map.pgm",
+    "role": "bringup",
+    "reason": "Reference-checked transfer to src/vehicle_bringup/maps/my_vinfast_map.pgm"
+  },
+  {
+    "path": "src/thietkemoi/thanxe_new_description/maps/map_name.pgm",
+    "role": "bringup",
+    "reason": "Reference-checked transfer to src/vehicle_bringup/maps/map_name.pgm"
+  },
+  {
+    "path": "src/thietkemoi/thanxe_new_description/maps/my_vinfast_map_old.pgm",
+    "role": "bringup",
+    "reason": "Reference-checked transfer to src/vehicle_bringup/maps/my_vinfast_map_old.pgm"
+  },
+  {
+    "path": "src/thietkemoi/thanxe_new_description/resource/analysis.py",
+    "role": "unclear",
+    "reason": "Offline analysis/test resource; no deletion inferred"
+  },
+  {
+    "path": "src/thietkemoi/thanxe_new_description/resource/3planner.png",
+    "role": "unclear",
+    "reason": "Offline analysis/test resource; no deletion inferred"
+  },
+  {
+    "path": "src/thietkemoi/thanxe_new_description/resource/thanxe_new_description",
+    "role": "unclear",
+    "reason": "Offline analysis/test resource; no deletion inferred"
+  },
+  {
+    "path": "src/thietkemoi/thanxe_new_description/meshes/Wheel1_1.stl",
+    "role": "description",
+    "reason": "Reference-checked transfer to src/vehicle_description/meshes/Wheel1_1.stl"
+  },
+  {
+    "path": "src/thietkemoi/thanxe_new_description/meshes/base_link.stl",
+    "role": "description",
+    "reason": "Reference-checked transfer to src/vehicle_description/meshes/base_link.stl"
+  },
+  {
+    "path": "src/thietkemoi/thanxe_new_description/meshes/base_link1.stl",
+    "role": "description",
+    "reason": "Reference-checked transfer to src/vehicle_description/meshes/base_link1.stl"
+  },
+  {
+    "path": "src/thietkemoi/thanxe_new_description/meshes/Revolute2_1.stl",
+    "role": "description",
+    "reason": "Reference-checked transfer to src/vehicle_description/meshes/Revolute2_1.stl"
+  },
+  {
+    "path": "src/thietkemoi/thanxe_new_description/meshes/Wheel4_1.stl",
+    "role": "description",
+    "reason": "Reference-checked transfer to src/vehicle_description/meshes/Wheel4_1.stl"
+  },
+  {
+    "path": "src/thietkemoi/thanxe_new_description/meshes/Revolute3_1.stl",
+    "role": "description",
+    "reason": "Reference-checked transfer to src/vehicle_description/meshes/Revolute3_1.stl"
+  },
+  {
+    "path": "src/thietkemoi/thanxe_new_description/meshes/Revolute4_1.stl",
+    "role": "description",
+    "reason": "Reference-checked transfer to src/vehicle_description/meshes/Revolute4_1.stl"
+  },
+  {
+    "path": "src/thietkemoi/thanxe_new_description/meshes/Wheel2_1.stl",
+    "role": "description",
+    "reason": "Reference-checked transfer to src/vehicle_description/meshes/Wheel2_1.stl"
+  },
+  {
+    "path": "src/thietkemoi/thanxe_new_description/meshes/dausac.stl",
+    "role": "description",
+    "reason": "Reference-checked transfer to src/vehicle_description/meshes/dausac.stl"
+  },
+  {
+    "path": "src/thietkemoi/thanxe_new_description/meshes/cong_sac.stl",
+    "role": "description",
+    "reason": "Reference-checked transfer to src/vehicle_description/meshes/cong_sac.stl"
+  },
+  {
+    "path": "src/thietkemoi/thanxe_new_description/meshes/Revolute1_1.stl",
+    "role": "description",
+    "reason": "Reference-checked transfer to src/vehicle_description/meshes/Revolute1_1.stl"
+  },
+  {
+    "path": "src/thietkemoi/thanxe_new_description/meshes/jlr_ccs2_centered.stl",
+    "role": "description",
+    "reason": "Reference-checked transfer to src/vehicle_description/meshes/jlr_ccs2_centered.stl"
+  },
+  {
+    "path": "src/thietkemoi/thanxe_new_description/meshes/Wheel3_1.stl",
+    "role": "description",
+    "reason": "Reference-checked transfer to src/vehicle_description/meshes/Wheel3_1.stl"
+  },
+  {
+    "path": "src/thietkemoi/thanxe_new_description/thanxe_new_description/__init__.py",
+    "role": "unclear",
+    "reason": "Retained pending review; no evidence sufficient for removal"
+  },
+  {
+    "path": "src/thietkemoi/thanxe_new_description/worlds/test.world",
+    "role": "description",
+    "reason": "Reference-checked transfer to src/vehicle_description/worlds/test.world"
+  },
+  {
+    "path": "src/thietkemoi/thanxe_new_description/worlds/charging.world",
+    "role": "description",
+    "reason": "Reference-checked transfer to src/vehicle_description/worlds/charging.world"
+  },
+  {
+    "path": "src/thietkemoi/thanxe_new_description/worlds/vinfast_realmap_copy.world",
+    "role": "description",
+    "reason": "Reference-checked transfer to src/vehicle_description/worlds/vinfast_realmap_copy.world"
+  },
+  {
+    "path": "src/thietkemoi/thanxe_new_description/worlds/vinfast_map.world",
+    "role": "description",
+    "reason": "Reference-checked transfer to src/vehicle_description/worlds/vinfast_map.world"
+  },
+  {
+    "path": "src/thietkemoi/thanxe_new_description/worlds/new.world",
+    "role": "description",
+    "reason": "Reference-checked transfer to src/vehicle_description/worlds/new.world"
+  },
+  {
+    "path": "src/thietkemoi/thanxe_new_description/worlds/vinfast_realmap.world",
+    "role": "description",
+    "reason": "Reference-checked transfer to src/vehicle_description/worlds/vinfast_realmap.world"
+  },
+  {
+    "path": "src/thietkemoi/thanxe_new_description/worlds/vinfast_map_with_actors.world",
+    "role": "description",
+    "reason": "Reference-checked transfer to src/vehicle_description/worlds/vinfast_map_with_actors.world"
+  },
+  {
+    "path": "src/thietkemoi/thanxe_new_description/test/test_copyright.py",
+    "role": "unclear",
+    "reason": "Offline analysis/test resource; no deletion inferred"
+  },
+  {
+    "path": "src/thietkemoi/thanxe_new_description/test/test_flake8.py",
+    "role": "unclear",
+    "reason": "Offline analysis/test resource; no deletion inferred"
+  },
+  {
+    "path": "src/thietkemoi/thanxe_new_description/test/test_pep257.py",
+    "role": "unclear",
+    "reason": "Offline analysis/test resource; no deletion inferred"
+  },
+  {
+    "path": "src/my_ur_control_cpp/package.xml",
+    "role": "unclear",
+    "reason": "Retained pending review; no evidence sufficient for removal"
+  },
+  {
+    "path": "src/my_ur_control_cpp/CMakeLists.txt",
+    "role": "unclear",
+    "reason": "Retained pending review; no evidence sufficient for removal"
+  },
+  {
+    "path": "src/my_ur_control_cpp/controller_plugins.xml",
+    "role": "vehicle_control",
+    "reason": "Reference-checked transfer to src/swerve_vehicle_control/controller_plugins.xml"
+  },
+  {
+    "path": "src/my_ur_control_cpp/.vscode/settings.json",
+    "role": "unclear",
+    "reason": "Retained pending review; no evidence sufficient for removal"
+  },
+  {
+    "path": "src/my_ur_control_cpp/include/my_ur_control_cpp/swerve_controller_plugin.hpp",
+    "role": "vehicle_control",
+    "reason": "Reference-checked transfer to src/swerve_vehicle_control/include/swerve_vehicle_control/swerve_controller_plugin.hpp"
+  },
+  {
+    "path": "src/my_ur_control_cpp/include/ccs2_socket_detector/ccs2_detector_node.hpp",
+    "role": "charger_detection",
+    "reason": "Reference-checked transfer to src/charger_detection/include/charger_detection/ccs2_detector_node.hpp"
+  },
+  {
+    "path": "src/my_ur_control_cpp/src/donghocnghich.cpp",
+    "role": "unused",
+    "reason": "UR10 joint names, not launched by FR10 vehicle; retained without relabelling as FR10"
+  },
+  {
+    "path": "src/my_ur_control_cpp/src/depth_heatmap.cpp",
+    "role": "charger_detection",
+    "reason": "Reference-checked transfer to src/charger_detection/src/depth_heatmap.cpp"
+  },
+  {
+    "path": "src/my_ur_control_cpp/src/swerve_drive.cpp",
+    "role": "vehicle_control",
+    "reason": "Reference-checked transfer to src/swerve_vehicle_control/src/swerve_drive.cpp"
+  },
+  {
+    "path": "src/my_ur_control_cpp/src/goal_sender.cpp",
+    "role": "vehicle_control",
+    "reason": "Reference-checked transfer to src/swerve_vehicle_control/src/goal_sender.cpp"
+  },
+  {
+    "path": "src/my_ur_control_cpp/src/solvepnp.cpp",
+    "role": "charger_detection",
+    "reason": "Reference-checked transfer to src/charger_detection/src/solvepnp.cpp"
+  },
+  {
+    "path": "src/my_ur_control_cpp/src/ccs2_detector_node.cpp",
+    "role": "charger_detection",
+    "reason": "Reference-checked transfer to src/charger_detection/src/ccs2_detector_node.cpp"
+  },
+  {
+    "path": "src/my_ur_control_cpp/src/plugin.cpp",
+    "role": "unused",
+    "reason": "UR10 joint names, not launched by FR10 vehicle; retained without relabelling as FR10"
+  },
+  {
+    "path": "src/my_ur_control_cpp/src/swerve_controller_plugin.cpp",
+    "role": "vehicle_control",
+    "reason": "Reference-checked transfer to src/swerve_vehicle_control/src/swerve_controller_plugin.cpp"
+  },
+  {
+    "path": "src/my_ur_control_cpp/src/god_view_2.cpp",
+    "role": "vehicle_control",
+    "reason": "Reference-checked transfer to src/swerve_vehicle_control/src/god_view_2.cpp"
+  },
+  {
+    "path": "src/ccs2_socket_detector/package.xml",
+    "role": "charger_detection",
+    "reason": "Retained ROS message ABI used by detector"
+  },
+  {
+    "path": "src/ccs2_socket_detector/CMakeLists.txt",
+    "role": "charger_detection",
+    "reason": "Retained ROS message ABI used by detector"
+  },
+  {
+    "path": "src/ccs2_socket_detector/msg/SocketDetection.msg",
+    "role": "charger_detection",
+    "reason": "Retained ROS message ABI used by detector"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Gazebo_Simulation/Universal_Robots_ROS2_Gazebo_Simulation.humble.repos",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Gazebo_Simulation/.pre-commit-config.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Gazebo_Simulation/LICENSE",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Gazebo_Simulation/README.md",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Gazebo_Simulation/ci_status.md",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Gazebo_Simulation/.clang-format",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Gazebo_Simulation/CONTRIBUTING.md",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Gazebo_Simulation/ur_simulation_gazebo/package.xml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Gazebo_Simulation/ur_simulation_gazebo/CMakeLists.txt",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Gazebo_Simulation/ur_simulation_gazebo/launch/ur_sim_control.launch.py",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Gazebo_Simulation/ur_simulation_gazebo/launch/ur_sim_moveit.launch.py",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Gazebo_Simulation/ur_simulation_gazebo/config/ur_controllers.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Gazebo_Simulation/ur_simulation_gazebo/test/test_common.py",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Gazebo_Simulation/ur_simulation_gazebo/test/test_gazebo.py",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Gazebo_Simulation/.github/workflows/reusable_ici.yml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Gazebo_Simulation/.github/workflows/humble-binary-main.yml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Gazebo_Simulation/.github/workflows/ci-format.yml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Gazebo_Simulation/.github/workflows/humble-semi-binary-testing.yml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Gazebo_Simulation/.github/workflows/humble-binary-testing.yml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Gazebo_Simulation/.github/workflows/humble-semi-binary-main.yml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Gazebo_Simulation/.github/workflows/ci-ros-lint.yml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/package.xml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/CMakeLists.txt",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/.pre-commit-config.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/LICENSE",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/README.md",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/ci_status.md",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/.gitignore",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/CONTRIBUTING.md",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/model.pdf",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/CHANGELOG.rst",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/rviz/view_robot.rviz",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/launch/view_ur.launch.py",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/doc/structure.svg",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/doc/structure.drawio",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/urdf/ur.urdf.xacro",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/urdf/ur_macro.xacro",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/urdf/ur.ros2_control.xacro",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/urdf/inc/ur_transmissions.xacro",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/urdf/inc/ur_common.xacro",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/config/initial_positions.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/config/ur20/visual_parameters.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/config/ur20/default_kinematics.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/config/ur20/physical_parameters.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/config/ur20/joint_limits.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/config/ur15/visual_parameters.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/config/ur15/default_kinematics.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/config/ur15/physical_parameters.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/config/ur15/joint_limits.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/config/ur5/visual_parameters.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/config/ur5/default_kinematics.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/config/ur5/physical_parameters.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/config/ur5/joint_limits.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/config/ur30/visual_parameters.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/config/ur30/default_kinematics.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/config/ur30/physical_parameters.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/config/ur30/joint_limits.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/config/ur5e/visual_parameters.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/config/ur5e/default_kinematics.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/config/ur5e/physical_parameters.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/config/ur5e/joint_limits.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/config/ur16e/visual_parameters.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/config/ur16e/default_kinematics.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/config/ur16e/physical_parameters.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/config/ur16e/joint_limits.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/config/ur18/visual_parameters.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/config/ur18/default_kinematics.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/config/ur18/physical_parameters.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/config/ur18/joint_limits.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/config/ur12e/visual_parameters.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/config/ur12e/default_kinematics.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/config/ur12e/physical_parameters.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/config/ur12e/joint_limits.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/config/ur8long/visual_parameters.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/config/ur8long/default_kinematics.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/config/ur8long/physical_parameters.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/config/ur8long/joint_limits.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/config/ur10e/visual_parameters.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/config/ur10e/default_kinematics.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/config/ur10e/physical_parameters.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/config/ur10e/joint_limits.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/config/ur3e/visual_parameters.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/config/ur3e/default_kinematics.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/config/ur3e/physical_parameters.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/config/ur3e/joint_limits.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/config/ur10/visual_parameters.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/config/ur10/default_kinematics.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/config/ur10/physical_parameters.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/config/ur10/joint_limits.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/config/ur10/backup_joint_limits.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/config/ur7e/visual_parameters.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/config/ur7e/default_kinematics.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/config/ur7e/physical_parameters.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/config/ur7e/joint_limits.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/config/ur3/visual_parameters.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/config/ur3/default_kinematics.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/config/ur3/physical_parameters.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/config/ur3/joint_limits.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/.github/workflows/reusable_ici.yml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/.github/workflows/humble-binary-main.yml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/.github/workflows/ci-format.yml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/.github/workflows/humble-binary-testing.yml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/.github/workflows/ci-ros-lint.yml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur20/LICENSE.txt",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur20/visual/shoulder.dae",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur20/visual/forearm.dae",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur20/visual/base.dae",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur20/visual/wrist3.dae",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur20/visual/wrist2.dae",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur20/visual/UR20_DIFF_8bit_2K.png",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur20/visual/wrist1.dae",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur20/visual/upperarm.dae",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur20/collision/wrist2.stl",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur20/collision/forearm.stl",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur20/collision/wrist1.stl",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur20/collision/shoulder.stl",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur20/collision/wrist3.stl",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur20/collision/upperarm.stl",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur20/collision/base.stl",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur15/LICENSE.txt",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur15/visual/shoulder.dae",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur15/visual/UR15_DIFF_8bit_2K.jpg",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur15/visual/forearm.dae",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur15/visual/base.dae",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur15/visual/wrist3.dae",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur15/visual/wrist2.dae",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur15/visual/wrist1.dae",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur15/visual/upperarm.dae",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur15/collision/wrist2.stl",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur15/collision/forearm.stl",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur15/collision/wrist1.stl",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur15/collision/shoulder.stl",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur15/collision/wrist3.stl",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur15/collision/upperarm.stl",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur15/collision/base.stl",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur5/visual/shoulder.dae",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur5/visual/forearm.dae",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur5/visual/base.dae",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur5/visual/wrist3.dae",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur5/visual/wrist2.dae",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur5/visual/wrist1.dae",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur5/visual/upperarm.dae",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur5/collision/wrist2.stl",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur5/collision/forearm.stl",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur5/collision/wrist1.stl",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur5/collision/shoulder.stl",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur5/collision/wrist3.stl",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur5/collision/upperarm.stl",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur5/collision/base.stl",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur30/LICENSE.txt",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur30/visual/forearm.dae",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur30/visual/UR30_DIFF_8bit_2K.png",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur30/visual/upperarm.dae",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur30/collision/forearm.stl",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur30/collision/upperarm.stl",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur5e/visual/shoulder.dae",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur5e/visual/forearm.dae",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur5e/visual/base.dae",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur5e/visual/wrist3.dae",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur5e/visual/wrist2.dae",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur5e/visual/wrist1.dae",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur5e/visual/upperarm.dae",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur5e/collision/wrist2.stl",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur5e/collision/forearm.stl",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur5e/collision/wrist1.stl",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur5e/collision/shoulder.stl",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur5e/collision/wrist3.stl",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur5e/collision/upperarm.stl",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur5e/collision/base.stl",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur16e/visual/forearm.dae",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur16e/visual/upperarm.dae",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur16e/collision/forearm.stl",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur16e/collision/upperarm.stl",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur18/LICENSE.txt",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur18/visual/UR18_DIFF_8bit_2K.jpg",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur18/visual/forearm.dae",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur18/visual/upperarm.dae",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur18/collision/forearm.stl",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur18/collision/upperarm.stl",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur8long/LICENSE.txt",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur8long/visual/forearm.dae",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur8long/visual/UR8Long_DIFF_8bit_2K.jpg",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur8long/visual/upperarm.dae",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur8long/collision/forearm.stl",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur8long/collision/upperarm.stl",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur10e/visual/shoulder.dae",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur10e/visual/forearm.dae",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur10e/visual/base.dae",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur10e/visual/wrist3.dae",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur10e/visual/wrist2.dae",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur10e/visual/wrist1.dae",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur10e/visual/upperarm.dae",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur10e/collision/wrist2.stl",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur10e/collision/forearm.stl",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur10e/collision/wrist1.stl",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur10e/collision/shoulder.stl",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur10e/collision/wrist3.stl",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur10e/collision/upperarm.stl",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur10e/collision/base.stl",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur3e/visual/shoulder.dae",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur3e/visual/forearm.dae",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur3e/visual/base.dae",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur3e/visual/wrist3.dae",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur3e/visual/wrist2.dae",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur3e/visual/wrist1.dae",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur3e/visual/upperarm.dae",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur3e/collision/wrist2.stl",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur3e/collision/forearm.stl",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur3e/collision/wrist1.stl",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur3e/collision/shoulder.stl",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur3e/collision/wrist3.stl",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur3e/collision/upperarm.stl",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur3e/collision/base.stl",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur10/visual/shoulder.dae",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur10/visual/forearm.dae",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur10/visual/base.dae",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur10/visual/wrist3.dae",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur10/visual/wrist2.dae",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur10/visual/wrist1.dae",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur10/visual/upperarm.dae",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur10/collision/wrist2.stl",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur10/collision/forearm.stl",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur10/collision/wrist1.stl",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur10/collision/shoulder.stl",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur10/collision/wrist3.stl",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur10/collision/upperarm.stl",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur10/collision/base.stl",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur3/visual/shoulder.dae",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur3/visual/forearm.dae",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur3/visual/base.dae",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur3/visual/wrist3.dae",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur3/visual/wrist2.dae",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur3/visual/wrist1.dae",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur3/visual/upperarm.dae",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur3/collision/wrist2.stl",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur3/collision/forearm.stl",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur3/collision/wrist1.stl",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur3/collision/shoulder.stl",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur3/collision/wrist3.stl",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur3/collision/upperarm.stl",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/meshes/ur3/collision/base.stl",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/test/test_view_ur_launch.py",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Description/test/test_ur_urdf_xacro.py",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/Universal_Robots_ROS2_Driver.humble.repos",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/.pre-commit-config.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/LICENSE",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/README.md",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/.dir-locals.el",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ci_status.md",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/Universal_Robots_ROS2_Driver-not-released.humble.repos",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/.clang-format",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/.gitignore",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/CONTRIBUTING.md",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_dashboard_msgs/package.xml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_dashboard_msgs/CMakeLists.txt",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_dashboard_msgs/CHANGELOG.rst",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_dashboard_msgs/srv/AddToLog.srv",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_dashboard_msgs/srv/GetLoadedProgram.srv",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_dashboard_msgs/srv/RawRequest.srv",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_dashboard_msgs/srv/IsProgramRunning.srv",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_dashboard_msgs/srv/Popup.srv",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_dashboard_msgs/srv/GetRobotMode.srv",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_dashboard_msgs/srv/IsProgramSaved.srv",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_dashboard_msgs/srv/Load.srv",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_dashboard_msgs/srv/GetProgramState.srv",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_dashboard_msgs/srv/IsInRemoteControl.srv",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_dashboard_msgs/srv/GetSafetyMode.srv",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_dashboard_msgs/msg/RobotMode.msg",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_dashboard_msgs/msg/ProgramState.msg",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_dashboard_msgs/msg/SafetyMode.msg",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_dashboard_msgs/action/SetMode.action",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_calibration/package.xml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_calibration/CMakeLists.txt",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_calibration/README.md",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_calibration/CHANGELOG.rst",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_calibration/launch/calibration_correction.launch.py",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_calibration/doc/conf.py",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_calibration/doc/calibration_example_corrected.png",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_calibration/doc/usage.rst",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_calibration/doc/calibration_example.png",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_calibration/doc/index.rst",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_calibration/doc/calibration_uncorrected.png",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_calibration/doc/algorithm.rst",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_calibration/include/ur_calibration/calibration.hpp",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_calibration/include/ur_calibration/calibration_consumer.hpp",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_calibration/src/calibration_consumer.cpp",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_calibration/src/calibration.cpp",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_calibration/src/calibration_correction.cpp",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_calibration/test/calibration_test.cpp",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_moveit_config/package.xml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_moveit_config/CMakeLists.txt",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_moveit_config/CHANGELOG.rst",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_moveit_config/rviz/view_robot.rviz",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_moveit_config/launch/ur_moveit.launch.py",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_moveit_config/srdf/ur.srdf.xacro",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_moveit_config/srdf/ur_macro.srdf.xacro",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_moveit_config/ur_moveit_config/launch_common.py",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_moveit_config/ur_moveit_config/__init__.py",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_moveit_config/config/controllers.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_moveit_config/config/ur_servo.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_moveit_config/config/kinematics.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_moveit_config/config/joint_limits.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_moveit_config/config/ompl_planning.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/package.xml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/CMakeLists.txt",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/hardware_interface_plugin.xml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/README.md",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/CHANGELOG.rst",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/launch/ur18.launch.py",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/launch/ur3.launch.py",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/launch/test_joint_trajectory_controller.launch.py",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/launch/test_forward_velocity_controller.launch.py",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/launch/ur_dashboard_client.launch.py",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/launch/ur30.launch.py",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/launch/ur_control.launch.py",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/launch/ur20.launch.py",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/launch/ur12e.launch.py",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/launch/ur15.launch.py",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/launch/test_scaled_joint_trajectory_controller.launch.py",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/launch/ur7e.launch.py",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/launch/ur10.launch.py",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/launch/ur16e.launch.py",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/launch/ur10e.launch.py",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/launch/ur5.launch.py",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/launch/ur8long.launch.py",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/launch/ur3e.launch.py",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/launch/ur5e.launch.py",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/scripts/start_ursim.sh",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/scripts/tool_communication.py",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/scripts/example_move.py",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/scripts/wait_dashboard_server.sh",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/doc/conf.py",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/doc/controller_stopper.rst",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/doc/trajectory_until_node.rst",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/doc/overview.rst",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/doc/setup_tool_communication.rst",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/doc/usage.rst",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/doc/features.rst",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/doc/make.bat",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/doc/index.rst",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/doc/ROS_INTERFACE.md",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/doc/robot_state_helper.rst",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/doc/architecture_coarse.svg",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/doc/installation/ursim_docker.rst",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/doc/installation/installation.rst",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/doc/installation/install_urcap_cb3.rst",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/doc/installation/robot_setup.rst",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/doc/installation/install_urcap_e_series.rst",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/doc/installation/toc.rst",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/doc/installation/real_time.rst",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/doc/installation/initial_setup_images/cb3_01_welcome.png",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/doc/installation/initial_setup_images/family_photo.png",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/doc/installation/initial_setup_images/cb3_10_prog_structure_urcaps.png",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/doc/installation/initial_setup_images/es_10_prog_structure_urcaps.png",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/doc/installation/initial_setup_images/cb3_05_urcaps_installed.png",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/doc/installation/initial_setup_images/es_01_welcome.png",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/doc/installation/initial_setup_images/cb3_11_program_view_excontrol.png",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/doc/installation/initial_setup_images/cb3_07_installation_excontrol.png",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/doc/installation/initial_setup_images/es_11_program_view_excontrol.png",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/doc/installation/initial_setup_images/es_05_urcaps_installed.png",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/doc/installation/initial_setup_images/es_07_installation_excontrol.png",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/doc/usage/controllers.rst",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/doc/usage/startup.rst",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/doc/resources/ros2_control_ur_driver.drawio",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/doc/resources/README.md",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/doc/resources/2021-10_ROS_World_2021_Making_a_robot_ROS2_powered.pdf",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/config/ur7e_update_rate.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/config/test_goal_publishers_config.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/config/ur15_update_rate.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/config/ur10_update_rate.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/config/test_velocity_goal_publishers_config.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/config/ur3_update_rate.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/config/ur10e_update_rate.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/config/ur5_update_rate.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/config/ur12e_update_rate.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/config/ur8long_update_rate.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/config/ur30_update_rate.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/config/ur3e_update_rate.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/config/ur5e_update_rate.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/config/ur_controllers.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/config/ur18_update_rate.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/config/ur16e_update_rate.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/config/ur20_update_rate.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/include/ur_robot_driver/dashboard_client_ros.hpp",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/include/ur_robot_driver/urcl_log_handler.hpp",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/include/ur_robot_driver/trajectory_until_node.hpp",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/include/ur_robot_driver/robot_state_helper.hpp",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/include/ur_robot_driver/hardware_interface.hpp",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/include/ur_robot_driver/controller_stopper.hpp",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/src/dashboard_client_node.cpp",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/src/robot_state_helper_node.cpp",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/src/hardware_interface.cpp",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/src/dashboard_client_ros.cpp",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/src/controller_stopper_node.cpp",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/src/robot_state_helper.cpp",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/src/controller_stopper.cpp",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/src/ur_ros2_control_node.cpp",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/src/urscript_interface.cpp",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/src/urcl_log_handler.cpp",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/src/trajectory_until_node.cpp",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/resources/rtde_output_recipe.txt",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/resources/rs485-1.0.urcap",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/resources/externalcontrol-1.0.5.urcap",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/resources/rtde_input_recipe.txt",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/resources/ros_control.urscript",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/examples/examples.py",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/examples/force_mode.py",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/examples/move_until_example.py",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/ur_robot_driver/__init__.py",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/test/test_mock_hardware.py",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/test/integration_test_tool_contact.py",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/test/dashboard_client.py",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/test/test_common.py",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/test/integration_test_force_mode.py",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/test/integration_test_passthrough_controller.py",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/test/launch_args.py",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/test/integration_test_config_controller.py",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/test/integration_test_scaled_joint_controller.py",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/test/integration_test_controller_switch.py",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/test/integration_test_trajectory_until.py",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/test/robot_driver.py",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/test/urscript_interface.py",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/test/integration_test_component_lifecycle.py",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/test/integration_test_io_controller.py",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur/package.xml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur/CMakeLists.txt",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur/CHANGELOG.rst",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/.github/release.yml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/.github/dockerursim/Dockerfile",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/.github/dockerursim/safety.conf.UR5",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/.github/dockerursim/build_and_run_docker_ursim.sh",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/.github/dockerursim/.vol/default.installation",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/.github/dockerursim/.vol/programs.UR5",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/.github/dockerursim/.vol/default.variables",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/.github/dockerursim/ursim/run",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/.github/workflows/humble-semi-binary-build.yml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/.github/workflows/humble-binary-build.yml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/.github/workflows/ci-format.yml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/.github/workflows/iron-binary-main.yml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/.github/workflows/coverage-build.yml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/.github/workflows/check_links.yml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_controllers/package.xml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_controllers/CMakeLists.txt",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_controllers/controller_plugins.xml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_controllers/README.md",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_controllers/CHANGELOG.rst",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_controllers/doc/traj_without_speed_scaling.png",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_controllers/doc/index.rst",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_controllers/doc/traj_with_speed_scaling.png",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_controllers/include/ur_controllers/freedrive_mode_controller.hpp",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_controllers/include/ur_controllers/ur_configuration_controller.hpp",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_controllers/include/ur_controllers/speed_scaling_state_broadcaster.hpp",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_controllers/include/ur_controllers/tool_contact_controller.hpp",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_controllers/include/ur_controllers/passthrough_trajectory_controller.hpp",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_controllers/include/ur_controllers/scaled_joint_trajectory_controller.hpp",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_controllers/include/ur_controllers/gpio_controller.hpp",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_controllers/include/ur_controllers/force_mode_controller.hpp",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_controllers/src/scaled_joint_trajectory_controller.cpp",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_controllers/src/tool_contact_controller_parameters.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_controllers/src/scaled_joint_trajectory_controller_parameters.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_controllers/src/ur_configuration_controller.cpp",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_controllers/src/speed_scaling_state_broadcaster_parameters.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_controllers/src/speed_scaling_state_broadcaster.cpp",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_controllers/src/tool_contact_controller.cpp",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_controllers/src/freedrive_mode_controller_parameters.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_controllers/src/force_mode_controller_parameters.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_controllers/src/passthrough_trajectory_controller_parameters.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_controllers/src/freedrive_mode_controller.cpp",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_controllers/src/gpio_controller_parameters.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_controllers/src/force_mode_controller.cpp",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_controllers/src/passthrough_trajectory_controller.cpp",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_controllers/src/gpio_controller.cpp",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_controllers/src/ur_configuration_controller_parameters.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_controllers/test/freedrive_mode_controller_params.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_controllers/test/test_load_force_mode_controller.cpp",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_controllers/test/test_load_freedrive_mode_controller.cpp",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_controllers/test/force_mode_controller_params.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_bringup/package.xml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_bringup/CMakeLists.txt",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_bringup/CHANGELOG.rst",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_bringup/launch/ur18.launch.py",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_bringup/launch/ur3.launch.py",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_bringup/launch/test_joint_trajectory_controller.launch.py",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_bringup/launch/test_forward_velocity_controller.launch.py",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_bringup/launch/ur_dashboard_client.launch.py",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_bringup/launch/ur30.launch.py",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_bringup/launch/ur_control.launch.py",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_bringup/launch/ur20.launch.py",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_bringup/launch/ur12e.launch.py",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_bringup/launch/ur15.launch.py",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_bringup/launch/test_scaled_joint_trajectory_controller.launch.py",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_bringup/launch/ur7e.launch.py",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_bringup/launch/ur10.launch.py",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_bringup/launch/ur16e.launch.py",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_bringup/launch/ur10e.launch.py",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_bringup/launch/ur5.launch.py",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_bringup/launch/ur8long.launch.py",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_bringup/launch/ur3e.launch.py",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_bringup/launch/ur5e.launch.py",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_bringup/scripts/start_ursim.sh",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_bringup/config/test_goal_publishers_config.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_bringup/config/ur10_update_rate.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_bringup/config/test_velocity_goal_publishers_config.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_bringup/config/ur3_update_rate.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_bringup/config/ur10e_update_rate.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_bringup/config/ur5_update_rate.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_bringup/config/ur8long_update_rate.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_bringup/config/ur3e_update_rate.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_bringup/config/ur5e_update_rate.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_bringup/config/ur_controllers.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_bringup/config/ur18_update_rate.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_bringup/config/ur16e_update_rate.yaml",
+    "role": "unclear",
+    "reason": "Standalone UR ecosystem not in vehicle bringup; internally referenced"
+  },
+  {
+    "path": "src/models/package.xml",
+    "role": "unclear",
+    "reason": "Retained pending review; no evidence sufficient for removal"
+  },
+  {
+    "path": "src/models/model.sdf",
+    "role": "description",
+    "reason": "Reference-checked transfer to src/vehicle_description/models/model.sdf"
+  },
+  {
+    "path": "src/models/CMakeLists.txt",
+    "role": "unclear",
+    "reason": "Retained pending review; no evidence sufficient for removal"
+  },
+  {
+    "path": "src/models/drc_practice_blue_cylinder/model.config",
+    "role": "description",
+    "reason": "Reference-checked transfer to src/vehicle_description/models/drc_practice_blue_cylinder/model.config"
+  },
+  {
+    "path": "src/models/drc_practice_blue_cylinder/model.sdf",
+    "role": "description",
+    "reason": "Reference-checked transfer to src/vehicle_description/models/drc_practice_blue_cylinder/model.sdf"
+  },
+  {
+    "path": "src/models/drc_practice_blue_cylinder/model-1_4.sdf",
+    "role": "description",
+    "reason": "Reference-checked transfer to src/vehicle_description/models/drc_practice_blue_cylinder/model-1_4.sdf"
+  },
+  {
+    "path": "src/models/drc_practice_blue_cylinder/meshes/cylinder.dae",
+    "role": "description",
+    "reason": "Reference-checked transfer to src/vehicle_description/models/drc_practice_blue_cylinder/meshes/cylinder.dae"
+  },
+  {
+    "path": "src/models/drc_practice_orange_jersey_barrier/model.config",
+    "role": "description",
+    "reason": "Reference-checked transfer to src/vehicle_description/models/drc_practice_orange_jersey_barrier/model.config"
+  },
+  {
+    "path": "src/models/drc_practice_orange_jersey_barrier/model.sdf",
+    "role": "description",
+    "reason": "Reference-checked transfer to src/vehicle_description/models/drc_practice_orange_jersey_barrier/model.sdf"
+  },
+  {
+    "path": "src/models/drc_practice_orange_jersey_barrier/model-1_4.sdf",
+    "role": "description",
+    "reason": "Reference-checked transfer to src/vehicle_description/models/drc_practice_orange_jersey_barrier/model-1_4.sdf"
+  },
+  {
+    "path": "src/models/drc_practice_orange_jersey_barrier/meshes/jersey_barrier.dae",
+    "role": "description",
+    "reason": "Reference-checked transfer to src/vehicle_description/models/drc_practice_orange_jersey_barrier/meshes/jersey_barrier.dae"
+  },
+  {
+    "path": "src/models/parking_slot/model.config",
+    "role": "description",
+    "reason": "Reference-checked transfer to src/vehicle_description/models/parking_slot/model.config"
+  },
+  {
+    "path": "src/models/parking_slot/parking_slot.sdf",
+    "role": "description",
+    "reason": "Reference-checked transfer to src/vehicle_description/models/parking_slot/parking_slot.sdf"
+  },
+  {
+    "path": "src/models/drc_practice_white_jersey_barrier/model.config",
+    "role": "description",
+    "reason": "Reference-checked transfer to src/vehicle_description/models/drc_practice_white_jersey_barrier/model.config"
+  },
+  {
+    "path": "src/models/drc_practice_white_jersey_barrier/model.sdf",
+    "role": "description",
+    "reason": "Reference-checked transfer to src/vehicle_description/models/drc_practice_white_jersey_barrier/model.sdf"
+  },
+  {
+    "path": "src/models/drc_practice_white_jersey_barrier/model-1_4.sdf",
+    "role": "description",
+    "reason": "Reference-checked transfer to src/vehicle_description/models/drc_practice_white_jersey_barrier/model-1_4.sdf"
+  },
+  {
+    "path": "src/models/drc_practice_white_jersey_barrier/meshes/jersey_barrier.dae",
+    "role": "description",
+    "reason": "Reference-checked transfer to src/vehicle_description/models/drc_practice_white_jersey_barrier/meshes/jersey_barrier.dae"
+  },
+  {
+    "path": "src/models/napsac/napsac.sdf",
+    "role": "description",
+    "reason": "Reference-checked transfer to src/vehicle_description/models/napsac/napsac.sdf"
+  },
+  {
+    "path": "src/models/napsac/napsac.config",
+    "role": "description",
+    "reason": "Reference-checked transfer to src/vehicle_description/models/napsac/napsac.config"
+  },
+  {
+    "path": "src/models/cong_sac/model.config",
+    "role": "description",
+    "reason": "Reference-checked transfer to src/vehicle_description/models/cong_sac/model.config"
+  },
+  {
+    "path": "src/models/cong_sac/model.sdf",
+    "role": "description",
+    "reason": "Reference-checked transfer to src/vehicle_description/models/cong_sac/model.sdf"
+  },
+  {
+    "path": "src/models/cong_sac/meshes/cong_sac.stl",
+    "role": "description",
+    "reason": "Reference-checked transfer to src/vehicle_description/models/cong_sac/meshes/cong_sac.stl"
+  },
+  {
+    "path": "src/models/tram_sac_VF/model.config",
+    "role": "description",
+    "reason": "Reference-checked transfer to src/vehicle_description/models/tram_sac_VF/model.config"
+  },
+  {
+    "path": "src/models/tram_sac_VF/model.sdf",
+    "role": "description",
+    "reason": "Reference-checked transfer to src/vehicle_description/models/tram_sac_VF/model.sdf"
+  },
+  {
+    "path": "src/models/tram_sac_VF/backup",
+    "role": "description",
+    "reason": "Reference-checked transfer to src/vehicle_description/models/tram_sac_VF/backup"
+  },
+  {
+    "path": "src/models/tram_sac_VF/meshes/Logo_VF.stl",
+    "role": "description",
+    "reason": "Reference-checked transfer to src/vehicle_description/models/tram_sac_VF/meshes/Logo_VF.stl"
+  },
+  {
+    "path": "src/models/tram_sac_VF/meshes/tru_sac1.stl",
+    "role": "description",
+    "reason": "Reference-checked transfer to src/vehicle_description/models/tram_sac_VF/meshes/tru_sac1.stl"
+  },
+  {
+    "path": "src/models/tram_sac_VF/meshes/napsac.stl",
+    "role": "description",
+    "reason": "Reference-checked transfer to src/vehicle_description/models/tram_sac_VF/meshes/napsac.stl"
+  },
+  {
+    "path": "src/models/tram_sac_VF/meshes/cong_sac1.stl",
+    "role": "description",
+    "reason": "Reference-checked transfer to src/vehicle_description/models/tram_sac_VF/meshes/cong_sac1.stl"
+  },
+  {
+    "path": "src/models/tram_sac_VF/meshes/tru.stl",
+    "role": "description",
+    "reason": "Reference-checked transfer to src/vehicle_description/models/tram_sac_VF/meshes/tru.stl"
+  },
+  {
+    "path": "src/models/tram_sac_VF/meshes/icon.stl",
+    "role": "description",
+    "reason": "Reference-checked transfer to src/vehicle_description/models/tram_sac_VF/meshes/icon.stl"
+  },
+  {
+    "path": "src/models/tram_sac_VF/meshes/cong_sac.stl",
+    "role": "description",
+    "reason": "Reference-checked transfer to src/vehicle_description/models/tram_sac_VF/meshes/cong_sac.stl"
+  },
+  {
+    "path": "src/models/tram_sac_VF/meshes/tramsac.stl",
+    "role": "description",
+    "reason": "Reference-checked transfer to src/vehicle_description/models/tram_sac_VF/meshes/tramsac.stl"
+  },
+  {
+    "path": "src/models/tram_sac_VF/meshes/newcar.stl",
+    "role": "description",
+    "reason": "Reference-checked transfer to src/vehicle_description/models/tram_sac_VF/meshes/newcar.stl"
+  },
+  {
+    "path": "src/models/tram_sac_VF/meshes/old_data/car.stl",
+    "role": "description",
+    "reason": "Reference-checked transfer to src/vehicle_description/models/tram_sac_VF/meshes/old_data/car.stl"
+  },
+  {
+    "path": "src/models/tram_sac_VF/meshes/old_data/cong_sac1.stl",
+    "role": "description",
+    "reason": "Reference-checked transfer to src/vehicle_description/models/tram_sac_VF/meshes/old_data/cong_sac1.stl"
+  },
+  {
+    "path": "src/models/tram_sac_VF/meshes/old_data/car1.stl",
+    "role": "description",
+    "reason": "Reference-checked transfer to src/vehicle_description/models/tram_sac_VF/meshes/old_data/car1.stl"
+  },
+  {
+    "path": "src/models/tram_sac_VF/meshes/old_data/cong_sac.stl",
+    "role": "description",
+    "reason": "Reference-checked transfer to src/vehicle_description/models/tram_sac_VF/meshes/old_data/cong_sac.stl"
+  },
+  {
+    "path": "src/models/dumpster/model.config",
+    "role": "description",
+    "reason": "Reference-checked transfer to src/vehicle_description/models/dumpster/model.config"
+  },
+  {
+    "path": "src/models/dumpster/model.sdf",
+    "role": "description",
+    "reason": "Reference-checked transfer to src/vehicle_description/models/dumpster/model.sdf"
+  },
+  {
+    "path": "src/models/dumpster/model-1_4.sdf",
+    "role": "description",
+    "reason": "Reference-checked transfer to src/vehicle_description/models/dumpster/model-1_4.sdf"
+  },
+  {
+    "path": "src/models/dumpster/model-1_3.sdf",
+    "role": "description",
+    "reason": "Reference-checked transfer to src/vehicle_description/models/dumpster/model-1_3.sdf"
+  },
+  {
+    "path": "src/models/dumpster/materials/scripts/dumpster.material",
+    "role": "description",
+    "reason": "Reference-checked transfer to src/vehicle_description/models/dumpster/materials/scripts/dumpster.material"
+  },
+  {
+    "path": "src/models/dumpster/materials/textures/Dumpster_Spec.png",
+    "role": "description",
+    "reason": "Reference-checked transfer to src/vehicle_description/models/dumpster/materials/textures/Dumpster_Spec.png"
+  },
+  {
+    "path": "src/models/dumpster/materials/textures/Dumpster_Diffuse.png",
+    "role": "description",
+    "reason": "Reference-checked transfer to src/vehicle_description/models/dumpster/materials/textures/Dumpster_Diffuse.png"
+  },
+  {
+    "path": "src/models/dumpster/meshes/dumpster.dae",
+    "role": "description",
+    "reason": "Reference-checked transfer to src/vehicle_description/models/dumpster/meshes/dumpster.dae"
+  },
+  {
+    "path": "src/models/electric_car/electric_car.sdf",
+    "role": "description",
+    "reason": "Reference-checked transfer to src/vehicle_description/models/electric_car/electric_car.sdf"
+  },
+  {
+    "path": "src/models/electric_car/model.config",
+    "role": "description",
+    "reason": "Reference-checked transfer to src/vehicle_description/models/electric_car/model.config"
+  }
+]

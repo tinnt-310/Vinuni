@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:include filename="$(find realsense2_description)/urdf/_d435.urdf.xacro"/>
+  <xacro:include filename="d435_simulation.xacro"/>
+  <!-- Proposed aluminium mounting pieces; dimensions in metres, density 2700 kg/m3.
+       These are simulation brackets, not manufacturer mounting CAD. -->
+  <xacro:macro name="wrist_support_box" params="name xyz size_x size_y size_z">
+    <link name="${name}">
+      <visual>
+        <geometry><box size="${size_x} ${size_y} ${size_z}"/></geometry>
+        <material name="mount_aluminium"><color rgba="0.55 0.58 0.62 1"/></material>
+      </visual>
+      <collision><geometry><box size="${size_x} ${size_y} ${size_z}"/></geometry></collision>
+      <xacro:inertial_box mass="${2700*size_x*size_y*size_z}" x="${size_x}" y="${size_y}" z="${size_z}">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+      </xacro:inertial_box>
+    </link>
+    <joint name="plate_to_${name}" type="fixed">
+      <parent link="plate_frame"/><child link="${name}"/>
+      <origin xyz="${xyz}" rpy="0 0 0"/>
+    </joint>
+  </xacro:macro>
+  <xacro:macro name="fr10_wrist" params="">
+    <link name="plate_frame"/>
+    <joint name="wrist3_to_plate" type="fixed">
+      <parent link="wrist3_link"/><child link="plate_frame"/>
+      <!-- Fixed mechanical clocking of the plate: no upstream-joint or world compensation.
+           At the reference FR10 pose with j6=0, plate +Y is up and +Z is outward. -->
+      <origin xyz="0 0 0.106" rpy="0 0 ${pi}"/>
+    </joint>
+
+    <!-- Backplate touches the flange at Z=0 and carries both assemblies. -->
+    <xacro:wrist_support_box name="wrist_mount_backplate" xyz="0 0.055 -0.004" size_x="0.12" size_y="0.19" size_z="0.008"/>
+    <xacro:wrist_support_box name="camera_support_left" xyz="-0.025 -0.0125 0.014" size_x="0.008" size_y="0.012" size_z="0.028"/>
+    <xacro:wrist_support_box name="camera_support_right" xyz="0.025 -0.0125 0.014" size_x="0.008" size_y="0.012" size_z="0.028"/>
+    <xacro:wrist_support_box name="camera_rear_mount" xyz="0 -0.0125 0.030" size_x="0.07" size_y="0.012" size_z="0.004"/>
+    <xacro:wrist_support_box name="charger_support_left" xyz="-0.045 0.09 0.015" size_x="0.012" size_y="0.02" size_z="0.03"/>
+    <xacro:wrist_support_box name="charger_support_right" xyz="0.045 0.09 0.015" size_x="0.012" size_y="0.02" size_z="0.03"/>
+    <xacro:wrist_support_box name="charger_rear_mount" xyz="0 0.09 0.033" size_x="0.12" size_y="0.10" size_z="0.006"/>
+    <xacro:wrist_support_box name="charger_cradle_left" xyz="-0.056 0.09 0.063" size_x="0.008" size_y="0.10" size_z="0.06"/>
+    <xacro:wrist_support_box name="charger_cradle_right" xyz="0.056 0.09 0.063" size_x="0.008" size_y="0.10" size_z="0.06"/>
+
+    <!-- CAD is in mm, centered at its bounding-box midpoint during export.
+         Its mating face points along +Z. Mass retains the former 3 kg tool
+         assumption; box inertia is a simulation approximation, not CAD data. -->
+    <link name="charging_connector_link">
+      <visual>
+        <geometry><mesh filename="package://vehicle_description/meshes/jlr_ccs2_centered.stl"/></geometry>
+        <material name="connector_dark"><color rgba="0.15 0.15 0.17 1"/></material>
+      </visual>
+      <collision>
+        <geometry><box size="0.112964099279084 0.135 0.125"/></geometry>
+      </collision>
+      <xacro:inertial_box mass="3.0" x="0.112964099279084" y="0.135" z="0.125">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+      </xacro:inertial_box>
+    </link>
+    <joint name="plate_to_charging_connector" type="fixed">
+      <parent link="plate_frame"/><child link="charging_connector_link"/>
+      <origin xyz="0 0.09 0.09" rpy="0 0 0"/>
+    </joint>
+    <!-- Legacy visual-consumer alias, not a substitute for FR10 IK. -->
+    <link name="Charge_link"/>
+    <joint name="connector_to_charge_alias" type="fixed">
+      <parent link="charging_connector_link"/><child link="Charge_link"/>
+    </joint>
+    <link name="charging_tcp"/>
+    <joint name="connector_to_tcp" type="fixed">
+      <parent link="charging_connector_link"/><child link="charging_tcp"/>
+      <origin xyz="0 0 0.0625" rpy="0 0 0"/>
+    </joint>
+
+    <!-- This frame is centered on the REAR face, in plate axes. -->
+    <link name="d435_mount_frame"/>
+    <joint name="plate_to_d435_mount" type="fixed">
+      <parent link="plate_frame"/><child link="d435_mount_frame"/>
+      <origin xyz="0 -0.0125 0.030" rpy="0 0 0"/>
+    </joint>
+    <!-- Official d435.dae camera_link bounds:
+         X [-.0207547,.0043], Y [-.0624142,.0275001], Z [-.0125,.0125].
+         Camera X->plate Z, camera Y->plate X, camera Z->plate Y.
+         The official macro adds (.0106,.0175,.0125) from bottom screw
+         to camera_link. Account for that instead of assuming a centered mesh. -->
+    <xacro:sensor_d435 parent="d435_mount_frame" name="camera"
+                       use_nominal_extrinsics="true" add_plug="false">
+      <origin xyz="-0.00004295 -0.0125 0.0101547" rpy="${-pi/2} ${-pi/2} 0"/>
+    </xacro:sensor_d435>
+    <link name="arm_camera_link_optical"/>
+    <joint name="camera_optical_alias" type="fixed">
+      <parent link="camera_depth_optical_frame"/><child link="arm_camera_link_optical"/>
+    </joint>
+    <xacro:d435_simulation/>
+  </xacro:macro>
+</robot>

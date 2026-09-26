@@ -1,0 +1,13 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 125
+
+    fairino10_controller:
+      type: position_controllers/JointGroupPositionController
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+fairino10_controller:
+  ros__parameters:
+    joints: [j1, j2, j3, j4, j5, j6]

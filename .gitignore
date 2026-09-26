@@ -1,0 +1,36 @@
+# ROS 2
+build/
+install/
+log/
+build_grouped/
+install_grouped/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Gazebo temporary/log
+.gazebo/
+*.log
+
+# CMake
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+
+# Temporary / backup
+*.bak
+*.tmp
+*~

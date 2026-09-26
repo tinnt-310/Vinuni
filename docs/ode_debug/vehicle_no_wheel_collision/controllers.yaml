@@ -1,0 +1,48 @@
+controller_manager:
+  ros__parameters:
+    drive_controller:
+      type: velocity_controllers/JointGroupVelocityController
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+    joint_trajectory_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+    steering_controller:
+      type: position_controllers/JointGroupPositionController
+    update_rate: 100
+    use_sim_time: true
+drive_controller:
+  ros__parameters:
+    joints:
+    - Wheel1_to_Revolute1
+    - Wheel2_to_Revolute2
+    - Wheel3_to_Revolute3
+    - Wheel4_to_Revolute4
+joint_trajectory_controller:
+  ros__parameters:
+    action_monitor_rate: 20.0
+    allow_nonzero_velocity_at_trajectory_end: false
+    allow_partial_joints_goal: false
+    command_interfaces:
+    - position
+    joints:
+    - j1
+    - j2
+    - j3
+    - j4
+    - j5
+    - j6
+    state_interfaces:
+    - position
+    - velocity
+    state_publish_rate: 100.0
+steering_controller:
+  ros__parameters:
+    joints:
+    - Revolute1_to_base_link
+    - Revolute2_to_base_link
+    - Revolute3_to_base_link
+    - Revolute4_to_base_link
+    pid:
+      d: 10.0
+      i: 0.0
+      p: 300.0

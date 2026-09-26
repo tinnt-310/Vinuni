@@ -1,0 +1,180 @@
+fr10_pose_controller:
+  ros__parameters:
+    controller:
+      # Pose and Joint modes always command through ros2_control. The selected
+      # ros2_control hardware plugin is the sole low-level actuator owner.
+      backend: ros_control
+      robot_ip: 192.168.58.2
+
+      input_joint_topic: /joint_command
+      joint_input_unit: degrees
+      # Sole public POSE endpoint. One final socket pose autonomously executes
+      # CURRENT -> PRE_INSERT (FREE_SPACE) -> TARGET (INSERTION).
+      input_pose_topic: /charging_port/raw_pose
+      # Empty command: strict linear TARGET -> PRE_INSERT using the retained
+      # INSERTION policy. This is an action, not a third public control mode.
+      retract_topic: /fr10_motion/retract
+      controlled_stop_topic: /fr10_motion/controlled_stop
+      joint_state_topic: /joint_states
+      command_topic: /fairino10_controller/commands
+      base_frame: base_link
+      joint_names: [j1, j2, j3, j4, j5, j6]
+
+      diagnostics:
+        # FLANGE is the exact tool mounting-face center in the unified runtime
+        # display. The FLANGE-to-TCP transform is read from robot_description;
+        # it is not duplicated here as a second geometry authority.
+        flange_frame: flange_link
+        # Independent of both the 125 Hz control loop and 10 Hz status/FK
+        # publisher. This is the comparison cadence; a human-readable block is
+        # emitted only when its displayed motion/state content changes.
+        status_log_rate_hz: 1.0
+
+      # Universal actuator period. Physical and simulated targets are resolved
+      # to joints and streamed through the joint-only ros2_control bridge.
+      control_rate_hz: 125.0
+      max_joint_reference_lead_rad: 0.017453292519943295
+      feedback_timeout_s: 0.050
+      # Deprecated compatibility parameter: fresh last-sent lead violations
+      # now start braking immediately, without freezing or waiting N ticks.
+      # Cartesian insertion retains its independent path-fault persistence.
+      reference_lag_persistence_samples: 1
+      goal_stable_samples: 5
+      joint_goal_tolerance_rad: 0.002
+      cartesian_position_tolerance_m: 0.002
+      cartesian_angular_tolerance_rad: 0.05235987 # 3 deg
+      # FREE_SPACE monitor profile. High-speed joint-space motion may trail its
+      # timed reference along the route; geometric/collision validation and the
+      # independent 1 deg joint-reference lead guard remain active.
+      cartesian_tracking_lag_tolerance_m: 0.050
+      cartesian_fault_persistence_s: 0.150
+
+      # Public JOINT-mode triad: v=k, a=sqrt(k), jerk=k.
+      joint_velocity_scale: 0.7
+      joint_acceleration_scale: 0.8366600265340756
+      joint_jerk_scale: 0.7
+      cartesian_linear_scale: 0.4
+      cartesian_angular_scale: 0.3
+      # Ruckig time laws have at least a 200 ms acceleration/deceleration
+      # boundary and end PRE_INSERT with qdot=qddot=0 before insertion.
+      minimum_ramp_time_s: 0.20
+      # Internal POSE execution policies. They are not public modes;
+      # ControlMode remains exactly JOINT or POSE. These scaling factors are
+      # always multiplied against (and therefore bounded by) limits: below;
+      # they never redefine the configured deployment boundary.
+      pose_policies:
+        free_space:
+          # Full configured deployment envelope: up to 0.80 m/s TCP and the
+          # per-joint velocity bounds declared under limits below.
+          joint_velocity_scale: 1.0
+          joint_acceleration_scale: 1.0
+          joint_jerk_scale: 1.0
+          linear_scale: 1.0
+          angular_scale: 0.75
+        insertion:
+          # Joint triad k=0.25; Cartesian k=0.01875 gives 15 mm/s from the
+          # configured 0.80 m/s deployment boundary. Cartesian acceleration
+          # uses sqrt(k) internally and jerk uses k.
+          joint_velocity_scale: 0.25
+          joint_acceleration_scale: 0.50
+          joint_jerk_scale: 0.25
+          linear_scale: 0.01875
+          angular_scale: 0.25
+          # Precision motion retains the fast 24 ms fault response and does
+          # not inherit the relaxed FREE_SPACE inertia filter above.
+          cartesian_tracking_lag_tolerance_m: 0.030
+          cartesian_fault_persistence_s: 0.024
+      lock_orientation: false
+      # Warning threshold only. Large goals are still planned with dense
+      # quaternion SLERP unless lock_orientation is explicitly true.
+      max_angular_deviation_rad: 0.35
+      # Reject a newly received PoseStamped if its timestamp is older than
+      # this. Silence after a valid goal never cancels that goal.
+      max_measurement_age_s: 0.40
+
+      # Local MoveIt IK runs on a managed worker, never on the 125 Hz loop.
+      kinematics_group: fairino10_v6_group
+      kinematics_tip_link: tool0
+      kinematics_safety_link: wrist3_link
+      ik_timeout_s: 0.05
+      collision_checking:
+        enabled: true
+        # Dynamic MoveIt PlanningScene/CollisionObject meshes are consumed on
+        # the managed planning side; no collision call enters the 125 Hz tick.
+        planning_scene_topic: /monitored_planning_scene
+        collision_object_topic: /collision_object
+        planning_scene_world_topic: /planning_scene_world
+      cartesian_path_resolution_m: 0.005
+      cartesian_path_resolution_rad: 0.02
+      cartesian_path_max_waypoints: 2000
+      # Engineering trace tolerances; these are not certified safety limits.
+      cartesian_path_deviation_tolerance_m: 0.002
+      cartesian_trajectory_max_samples: 250000
+      continuous_ik_max_joint_step_rad: 0.35
+      ik_fk_position_tolerance_m: 0.001
+      ik_fk_orientation_tolerance_rad: 0.01
+      joint_change_tolerance_rad: 0.0005
+      pose_position_change_tolerance_m: 0.00005
+      pose_angular_change_tolerance_rad: 0.002
+
+      singularity:
+        wrist_min_abs_rad: 0.13962634015954636  # 8 deg
+        elbow_min_abs_rad: 0.2617993877991494   # 15 deg
+        max_wrist_reach_m: 1.65
+        # Engineering radial exclusion cylinder. FR10 wrist-center geometry
+        # has a 0.159 m shoulder offset.
+        min_wrist_radius_m: 0.160
+        max_jacobian_condition: 30.0
+
+      # FREE_SPACE keeps all singularity barriers active and uses a direct
+      # joint interpolation followed by a deterministic cylindrical fallback.
+      # Every accepted waypoint and timed sample is validated against the live
+      # PlanningScene. INSERTION never bends its invariant straight segment.
+      singularity_avoidance:
+        enabled: true
+        # These legacy offsets are used only by the generic CARTESIAN_LINEAR
+        # fallback. The two-mode runtime uses the deterministic cylindrical
+        # radius below for FREE_SPACE and disables bending in INSERTION.
+        detour_clearances_m: [0.05, 0.10, 0.15]
+        joint_space_step_rad: 0.03
+        cylindrical_detour_radius_m: 0.350
+
+      # Closed-form model parameters are cross-checked against MoveIt FK at
+      # startup. Update these whenever the URDF tool transform changes.
+      analytical_ik:
+        enabled: true
+        shoulder_height_m: 0.180
+        upper_arm_length_m: 0.700
+        forearm_length_m: 0.586
+        wrist_1_offset_m: 0.159
+        wrist_2_offset_m: 0.114
+        wrist3_to_tip_translation_m: [0.060, 0.0, 0.268]
+        wrist3_to_tip_quaternion_xyzw: [0.0, 0.0, 0.0, 1.0]
+        min_target_reach_m: 0.060
+        max_target_reach_m: 1.750
+        seed_weights: [1.0, 1.0, 1.0, 0.5, 0.5, 0.25]
+        model_position_tolerance_m: 0.00005
+        model_orientation_tolerance_rad: 0.00005
+
+      insertion:
+        pre_insert_distance_m: 0.250
+        min_pre_insert_distance_m: 0.050
+        max_pre_insert_distance_m: 0.400
+        local_axis: [0.0, 0.0, 1.0]
+        max_insertion_distance_m: 0.400
+        max_orientation_change_rad: 0.0174532925199433  # 1 deg
+        perpendicular_tolerance_m: 0.002
+
+      limits:
+        # FR10 URDF joint bounds, radians. Update only when the vendor model changes.
+        min_joint_position_rad: [-3.0543, -4.6251, -2.8274, -4.6251, -3.0543, -3.0543]
+        max_joint_position_rad: [3.0543, 1.4835, 2.8274, 1.4835, 3.0543, 3.0543]
+        max_joint_velocity_rad_s: [1.50, 1.50, 1.50, 2.0, 2.0, 2.0]
+        max_joint_acceleration_rad_s2: [3.5, 3.5, 3.5, 4.5, 4.5, 4.5]
+        max_joint_jerk_rad_s3: [20.0, 20.0, 20.0, 30.0, 30.0, 30.0]
+        max_linear_velocity_m_s: 0.80
+        max_linear_acceleration_m_s2: 2.50
+        max_linear_jerk_m_s3: 15.0
+        max_angular_velocity_rad_s: 1.20
+        max_angular_acceleration_rad_s2: 3.50
+        max_angular_jerk_rad_s3: 20.0

@@ -1,0 +1,35 @@
+# This config file is used by ros2_control
+controller_manager:
+  ros__parameters:
+    update_rate: 125  # Hz matching 8ms FAIRINO hardware ServoJ
+
+    fairino10_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+    ft_sensor:
+      type: force_torque_sensor_broadcaster/ForceTorqueSensorBroadcaster
+
+fairino10_controller:
+  ros__parameters:
+    joints:
+      - j1
+      - j2
+      - j3
+      - j4
+      - j5
+      - j6
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+    open_loop_control: true
+    allow_nonzero_velocity_at_trajectory_end: true
+
+ft_sensor:
+  ros__parameters:
+    sensor_name: ft_sensor
+    frame_id: ft_sensor_link

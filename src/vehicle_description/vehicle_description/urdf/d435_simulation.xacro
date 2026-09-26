@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <!-- Gazebo sensor is independent of the official RealSense visual/TF model.
+       Preserve existing image/depth topic names used by CCS2 perception. -->
+  <xacro:macro name="d435_simulation" params="">
+    <gazebo reference="camera_link">
+      <sensor type="depth" name="arm_camera_sensor">
+        <always_on>true</always_on><update_rate>10</update_rate>
+        <visualize>false</visualize>
+        <camera name="arm_camera">
+          <horizontal_fov>0.8</horizontal_fov>
+          <image><width>1280</width><height>720</height><format>R8G8B8</format></image>
+          <clip><near>0.02</near><far>50</far></clip>
+        </camera>
+        <plugin name="arm_camera_controller" filename="libgazebo_ros_camera.so">
+          <ros><namespace>/arm_camera</namespace></ros>
+          <camera_name>arm_camera_sensor</camera_name>
+          <frame_name>camera_depth_optical_frame</frame_name>
+          <min_depth>0.02</min_depth><max_depth>50</max_depth>
+        </plugin>
+      </sensor>
+    </gazebo>
+  </xacro:macro>
+</robot>

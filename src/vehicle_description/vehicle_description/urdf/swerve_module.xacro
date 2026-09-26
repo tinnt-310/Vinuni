@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <!-- New 420mm wheel and a fork sized for it. Original 250mm CAD is retained
+       as legacy assets, not distorted to fit an incompatible wheel. -->
+  <xacro:macro name="fork_box" params="xyz sx sy sz">
+    <visual><origin xyz="${xyz}"/><geometry><box size="${sx} ${sy} ${sz}"/></geometry><material name="gold"/></visual>
+    <collision><origin xyz="${xyz}"/><geometry><box size="${sx} ${sy} ${sz}"/></geometry></collision>
+  </xacro:macro>
+  <xacro:macro name="swerve_module" params="index x y">
+    <xacro:property name="drop" value="${vehicle['wheel_axle_drop']}"/>
+    <xacro:property name="fork_width" value="${vehicle['wheel_width']+0.040}"/>
+    <link name="Revolute${index}_1">
+      <xacro:inertial_box mass="3" x="0.08" y="${fork_width}" z="${drop}"><origin xyz="0 0 ${-drop/2}"/></xacro:inertial_box>
+      <xacro:fork_box xyz="0 0 -0.008" sx="0.08" sy="${fork_width}" sz="0.016"/>
+      <xacro:fork_box xyz="0 ${(fork_width-0.012)/2} ${-(drop+0.016)/2}" sx="0.08" sy="0.012" sz="${drop-0.016}"/>
+      <xacro:fork_box xyz="0 ${-(fork_width-0.012)/2} ${-(drop+0.016)/2}" sx="0.08" sy="0.012" sz="${drop-0.016}"/>
+    </link>
+    <joint name="Revolute${index}_to_base_link" type="continuous">
+      <parent link="base_link"/><child link="Revolute${index}_1"/><origin xyz="${x} ${y} ${steering_axis_height}"/>
+      <axis xyz="0 0 1"/><limit effort="10000" velocity="30"/>
+    </joint>
+    <link name="Wheel${index}_1">
+      <xacro:inertial_cylinder mass="15" radius="${vehicle['wheel_radius']}" length="${vehicle['wheel_width']}"><origin xyz="0 0 0" rpy="${pi/2} 0 0"/></xacro:inertial_cylinder>
+      <visual><origin rpy="${pi/2} 0 0"/><geometry><cylinder radius="${vehicle['wheel_radius']}" length="${vehicle['wheel_width']}"/></geometry><material name="black"/></visual>
+      <collision><origin rpy="${pi/2} 0 0"/><geometry><cylinder radius="${vehicle['wheel_radius']}" length="${vehicle['wheel_width']}"/></geometry></collision>
+      <visual><origin rpy="${pi/2} 0 0"/><geometry><cylinder radius="0.06" length="${vehicle['wheel_width']+0.002}"/></geometry><material name="gold"/></visual>
+    </link>
+    <joint name="Wheel${index}_to_Revolute${index}" type="continuous"><parent link="Revolute${index}_1"/><child link="Wheel${index}_1"/><origin xyz="0 0 ${-drop}"/><axis xyz="0 1 0"/><limit effort="10000" velocity="30"/></joint>
+  </xacro:macro>
+</robot>

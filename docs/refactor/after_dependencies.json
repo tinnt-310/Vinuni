@@ -1,0 +1,762 @@
+[
+  {
+    "source": "vehicle_bringup",
+    "kind": "buildtool_depend",
+    "target": "ament_cmake"
+  },
+  {
+    "source": "vehicle_bringup",
+    "kind": "depend",
+    "target": "vehicle_description"
+  },
+  {
+    "source": "vehicle_bringup",
+    "kind": "depend",
+    "target": "swerve_vehicle_control"
+  },
+  {
+    "source": "vehicle_bringup",
+    "kind": "depend",
+    "target": "fr10_arm_control"
+  },
+  {
+    "source": "vehicle_bringup",
+    "kind": "depend",
+    "target": "charger_detection"
+  },
+  {
+    "source": "vehicle_bringup",
+    "kind": "depend",
+    "target": "gazebo_ros"
+  },
+  {
+    "source": "vehicle_bringup",
+    "kind": "depend",
+    "target": "gazebo_ros2_control"
+  },
+  {
+    "source": "vehicle_bringup",
+    "kind": "depend",
+    "target": "controller_manager"
+  },
+  {
+    "source": "vehicle_bringup",
+    "kind": "depend",
+    "target": "rviz2"
+  },
+  {
+    "source": "vehicle_bringup",
+    "kind": "depend",
+    "target": "xacro"
+  },
+  {
+    "source": "vehicle_bringup",
+    "kind": "depend",
+    "target": "python3-yaml"
+  },
+  {
+    "source": "vehicle_bringup",
+    "kind": "depend",
+    "target": "launch"
+  },
+  {
+    "source": "vehicle_bringup",
+    "kind": "depend",
+    "target": "launch_ros"
+  },
+  {
+    "source": "src/vehicle_bringup/CMakeLists.txt",
+    "kind": "cmake/dependency",
+    "target": "ament_cmake"
+  },
+  {
+    "source": "src/vehicle_bringup/CMakeLists.txt",
+    "kind": "cmake/install",
+    "target": "DIRECTORY launch/ DESTINATION share/${PROJECT_NAME}/launch)"
+  },
+  {
+    "source": "src/vehicle_bringup/CMakeLists.txt",
+    "kind": "cmake/install",
+    "target": "DIRECTORY config/ DESTINATION share/${PROJECT_NAME}/config)"
+  },
+  {
+    "source": "src/vehicle_bringup/CMakeLists.txt",
+    "kind": "cmake/install",
+    "target": "DIRECTORY maps/ DESTINATION share/${PROJECT_NAME}/maps)"
+  },
+  {
+    "source": "src/vehicle_bringup/CMakeLists.txt",
+    "kind": "cmake/install",
+    "target": "DIRECTORY rviz/ DESTINATION share/${PROJECT_NAME}/rviz)"
+  },
+  {
+    "source": "src/vehicle_bringup/launch/simulation.launch.py",
+    "kind": "launch/package",
+    "target": "vehicle_bringup"
+  },
+  {
+    "source": "src/vehicle_bringup/launch/simulation.launch.py",
+    "kind": "launch/package",
+    "target": "vehicle_bringup"
+  },
+  {
+    "source": "src/vehicle_bringup/launch/simulation.launch.py",
+    "kind": "launch/package",
+    "target": "vehicle_bringup"
+  },
+  {
+    "source": "src/vehicle_bringup/launch/simulation.launch.py",
+    "kind": "launch/package",
+    "target": "swerve_vehicle_control"
+  },
+  {
+    "source": "src/vehicle_bringup/launch/simulation.launch.py",
+    "kind": "launch/package",
+    "target": "fr10_arm_control"
+  },
+  {
+    "source": "src/vehicle_bringup/launch/simulation.launch.py",
+    "kind": "launch/package",
+    "target": "gazebo_ros"
+  },
+  {
+    "source": "src/vehicle_bringup/launch/simulation.launch.py",
+    "kind": "launch/package",
+    "target": "vehicle_description"
+  },
+  {
+    "source": "src/vehicle_bringup/launch/simulation.launch.py",
+    "kind": "launch/package",
+    "target": "vehicle_bringup"
+  },
+  {
+    "source": "src/vehicle_bringup/config/simulation.xacro",
+    "kind": "xacro/package",
+    "target": "vehicle_description/urdf/complete_visual.xacro"
+  },
+  {
+    "source": "src/vehicle_bringup/config/simulation.xacro",
+    "kind": "xacro/package",
+    "target": "swerve_vehicle_control/config/ros2_control.xacro"
+  },
+  {
+    "source": "src/vehicle_bringup/config/simulation.xacro",
+    "kind": "xacro/package",
+    "target": "fr10_arm_control/config/ros2_control.xacro"
+  },
+  {
+    "source": "vehicle_description",
+    "kind": "buildtool_depend",
+    "target": "ament_cmake"
+  },
+  {
+    "source": "vehicle_description",
+    "kind": "depend",
+    "target": "xacro"
+  },
+  {
+    "source": "vehicle_description",
+    "kind": "depend",
+    "target": "robot_state_publisher"
+  },
+  {
+    "source": "vehicle_description",
+    "kind": "depend",
+    "target": "joint_state_publisher"
+  },
+  {
+    "source": "vehicle_description",
+    "kind": "depend",
+    "target": "joint_state_publisher_gui"
+  },
+  {
+    "source": "vehicle_description",
+    "kind": "depend",
+    "target": "rviz2"
+  },
+  {
+    "source": "vehicle_description",
+    "kind": "depend",
+    "target": "fairino_description"
+  },
+  {
+    "source": "vehicle_description",
+    "kind": "depend",
+    "target": "realsense2_description"
+  },
+  {
+    "source": "src/vehicle_description/CMakeLists.txt",
+    "kind": "cmake/dependency",
+    "target": "ament_cmake"
+  },
+  {
+    "source": "src/vehicle_description/CMakeLists.txt",
+    "kind": "cmake/install",
+    "target": "FILES"
+  },
+  {
+    "source": "src/vehicle_description/CMakeLists.txt",
+    "kind": "cmake/install",
+    "target": "DIRECTORY meshes/ DESTINATION share/${PROJECT_NAME}/meshes)"
+  },
+  {
+    "source": "src/vehicle_description/CMakeLists.txt",
+    "kind": "cmake/install",
+    "target": "DIRECTORY worlds/ DESTINATION share/${PROJECT_NAME}/worlds)"
+  },
+  {
+    "source": "src/vehicle_description/CMakeLists.txt",
+    "kind": "cmake/install",
+    "target": "DIRECTORY models/ DESTINATION share/${PROJECT_NAME}/models)"
+  },
+  {
+    "source": "src/vehicle_description/CMakeLists.txt",
+    "kind": "cmake/install",
+    "target": "DIRECTORY config/ DESTINATION share/${PROJECT_NAME}/config)"
+  },
+  {
+    "source": "src/vehicle_description/CMakeLists.txt",
+    "kind": "cmake/install",
+    "target": "DIRECTORY rviz/ DESTINATION share/${PROJECT_NAME}/rviz)"
+  },
+  {
+    "source": "src/vehicle_description/CMakeLists.txt",
+    "kind": "cmake/install",
+    "target": "DIRECTORY launch/ DESTINATION share/${PROJECT_NAME}/launch)"
+  },
+  {
+    "source": "src/vehicle_description/launch/display.launch.py",
+    "kind": "launch/package",
+    "target": "vehicle_description"
+  },
+  {
+    "source": "src/vehicle_description/urdf/vehicle_dimensions.xacro",
+    "kind": "xacro/package",
+    "target": "vehicle_description/config/vehicle_geometry.yaml')['vehicle']}"
+  },
+  {
+    "source": "src/vehicle_description/urdf/ur10_with_charge.xacro",
+    "kind": "xacro/package",
+    "target": "ur_description/urdf/inc/ur_transmissions.xacro"
+  },
+  {
+    "source": "src/vehicle_description/urdf/ur10_with_charge.xacro",
+    "kind": "xacro/package",
+    "target": "ur_description/urdf/inc/ur_common.xacro"
+  },
+  {
+    "source": "src/vehicle_description/urdf/ur10_with_charge.xacro",
+    "kind": "xacro/package",
+    "target": "ur_description/urdf/ur.ros2_control.xacro"
+  },
+  {
+    "source": "src/vehicle_description/urdf/fr10_wrist.xacro",
+    "kind": "mesh/resource",
+    "target": "vehicle_description/meshes/jlr_ccs2_centered.stl"
+  },
+  {
+    "source": "src/vehicle_description/urdf/fr10_wrist.xacro",
+    "kind": "xacro/package",
+    "target": "realsense2_description/urdf/_d435.urdf.xacro"
+  },
+  {
+    "source": "src/vehicle_description/urdf/fr10_arm.urdf",
+    "kind": "mesh/resource",
+    "target": "fairino_description/meshes/fairino10_v6/base_link.STL"
+  },
+  {
+    "source": "src/vehicle_description/urdf/fr10_arm.urdf",
+    "kind": "mesh/resource",
+    "target": "fairino_description/meshes/fairino10_v6/base_link.STL"
+  },
+  {
+    "source": "src/vehicle_description/urdf/fr10_arm.urdf",
+    "kind": "mesh/resource",
+    "target": "fairino_description/meshes/fairino10_v6/shoulder_link.STL"
+  },
+  {
+    "source": "src/vehicle_description/urdf/fr10_arm.urdf",
+    "kind": "mesh/resource",
+    "target": "fairino_description/meshes/fairino10_v6/shoulder_link.STL"
+  },
+  {
+    "source": "src/vehicle_description/urdf/fr10_arm.urdf",
+    "kind": "mesh/resource",
+    "target": "fairino_description/meshes/fairino10_v6/upperarm_link.STL"
+  },
+  {
+    "source": "src/vehicle_description/urdf/fr10_arm.urdf",
+    "kind": "mesh/resource",
+    "target": "fairino_description/meshes/fairino10_v6/upperarm_link.STL"
+  },
+  {
+    "source": "src/vehicle_description/urdf/fr10_arm.urdf",
+    "kind": "mesh/resource",
+    "target": "fairino_description/meshes/fairino10_v6/forearm_link.STL"
+  },
+  {
+    "source": "src/vehicle_description/urdf/fr10_arm.urdf",
+    "kind": "mesh/resource",
+    "target": "fairino_description/meshes/fairino10_v6/forearm_link.STL"
+  },
+  {
+    "source": "src/vehicle_description/urdf/fr10_arm.urdf",
+    "kind": "mesh/resource",
+    "target": "fairino_description/meshes/fairino10_v6/wrist1_link.STL"
+  },
+  {
+    "source": "src/vehicle_description/urdf/fr10_arm.urdf",
+    "kind": "mesh/resource",
+    "target": "fairino_description/meshes/fairino10_v6/wrist1_link.STL"
+  },
+  {
+    "source": "src/vehicle_description/urdf/fr10_arm.urdf",
+    "kind": "mesh/resource",
+    "target": "fairino_description/meshes/fairino10_v6/wrist2_link.STL"
+  },
+  {
+    "source": "src/vehicle_description/urdf/fr10_arm.urdf",
+    "kind": "mesh/resource",
+    "target": "fairino_description/meshes/fairino10_v6/wrist2_link.STL"
+  },
+  {
+    "source": "src/vehicle_description/urdf/fr10_arm.urdf",
+    "kind": "mesh/resource",
+    "target": "fairino_description/meshes/fairino10_v6/wrist3_link.STL"
+  },
+  {
+    "source": "src/vehicle_description/urdf/fr10_arm.urdf",
+    "kind": "mesh/resource",
+    "target": "fairino_description/meshes/fairino10_v6/wrist3_link.STL"
+  },
+  {
+    "source": "src/vehicle_description/urdf/body_sensors.xacro",
+    "kind": "xacro/package",
+    "target": "realsense2_description/urdf/_d455.urdf.xacro"
+  },
+  {
+    "source": "fr10_arm_control",
+    "kind": "buildtool_depend",
+    "target": "ament_cmake"
+  },
+  {
+    "source": "fr10_arm_control",
+    "kind": "depend",
+    "target": "controller_manager"
+  },
+  {
+    "source": "fr10_arm_control",
+    "kind": "depend",
+    "target": "joint_trajectory_controller"
+  },
+  {
+    "source": "fr10_arm_control",
+    "kind": "depend",
+    "target": "fairino10_v6_moveit2_config"
+  },
+  {
+    "source": "fr10_arm_control",
+    "kind": "depend",
+    "target": "launch"
+  },
+  {
+    "source": "fr10_arm_control",
+    "kind": "depend",
+    "target": "launch_ros"
+  },
+  {
+    "source": "src/fr10_arm_control/CMakeLists.txt",
+    "kind": "cmake/dependency",
+    "target": "ament_cmake"
+  },
+  {
+    "source": "src/fr10_arm_control/CMakeLists.txt",
+    "kind": "cmake/install",
+    "target": "DIRECTORY launch/ DESTINATION share/${PROJECT_NAME}/launch)"
+  },
+  {
+    "source": "src/fr10_arm_control/CMakeLists.txt",
+    "kind": "cmake/install",
+    "target": "DIRECTORY config/ DESTINATION share/${PROJECT_NAME}/config)"
+  },
+  {
+    "source": "src/fr10_arm_control/launch/moveit_demo.launch.py",
+    "kind": "launch/package",
+    "target": "fairino10_v6_moveit2_config"
+  },
+  {
+    "source": "swerve_vehicle_control",
+    "kind": "buildtool_depend",
+    "target": "ament_cmake"
+  },
+  {
+    "source": "swerve_vehicle_control",
+    "kind": "depend",
+    "target": "rclcpp"
+  },
+  {
+    "source": "swerve_vehicle_control",
+    "kind": "depend",
+    "target": "geometry_msgs"
+  },
+  {
+    "source": "swerve_vehicle_control",
+    "kind": "depend",
+    "target": "sensor_msgs"
+  },
+  {
+    "source": "swerve_vehicle_control",
+    "kind": "depend",
+    "target": "std_msgs"
+  },
+  {
+    "source": "swerve_vehicle_control",
+    "kind": "depend",
+    "target": "nav_msgs"
+  },
+  {
+    "source": "swerve_vehicle_control",
+    "kind": "depend",
+    "target": "tf2"
+  },
+  {
+    "source": "swerve_vehicle_control",
+    "kind": "depend",
+    "target": "tf2_ros"
+  },
+  {
+    "source": "swerve_vehicle_control",
+    "kind": "depend",
+    "target": "rclcpp_action"
+  },
+  {
+    "source": "swerve_vehicle_control",
+    "kind": "depend",
+    "target": "nav2_msgs"
+  },
+  {
+    "source": "swerve_vehicle_control",
+    "kind": "depend",
+    "target": "tf2_geometry_msgs"
+  },
+  {
+    "source": "swerve_vehicle_control",
+    "kind": "depend",
+    "target": "controller_interface"
+  },
+  {
+    "source": "swerve_vehicle_control",
+    "kind": "depend",
+    "target": "pluginlib"
+  },
+  {
+    "source": "swerve_vehicle_control",
+    "kind": "depend",
+    "target": "rclcpp_lifecycle"
+  },
+  {
+    "source": "swerve_vehicle_control",
+    "kind": "depend",
+    "target": "builtin_interfaces"
+  },
+  {
+    "source": "swerve_vehicle_control",
+    "kind": "depend",
+    "target": "lifecycle_msgs"
+  },
+  {
+    "source": "swerve_vehicle_control",
+    "kind": "depend",
+    "target": "eigen"
+  },
+  {
+    "source": "swerve_vehicle_control",
+    "kind": "depend",
+    "target": "vehicle_description"
+  },
+  {
+    "source": "swerve_vehicle_control",
+    "kind": "depend",
+    "target": "python3-yaml"
+  },
+  {
+    "source": "swerve_vehicle_control",
+    "kind": "depend",
+    "target": "controller_manager"
+  },
+  {
+    "source": "swerve_vehicle_control",
+    "kind": "depend",
+    "target": "launch"
+  },
+  {
+    "source": "swerve_vehicle_control",
+    "kind": "depend",
+    "target": "launch_ros"
+  },
+  {
+    "source": "src/swerve_vehicle_control/CMakeLists.txt",
+    "kind": "cmake/dependency",
+    "target": "ament_cmake"
+  },
+  {
+    "source": "src/swerve_vehicle_control/CMakeLists.txt",
+    "kind": "cmake/dependency",
+    "target": "rclcpp"
+  },
+  {
+    "source": "src/swerve_vehicle_control/CMakeLists.txt",
+    "kind": "cmake/dependency",
+    "target": "geometry_msgs"
+  },
+  {
+    "source": "src/swerve_vehicle_control/CMakeLists.txt",
+    "kind": "cmake/dependency",
+    "target": "sensor_msgs"
+  },
+  {
+    "source": "src/swerve_vehicle_control/CMakeLists.txt",
+    "kind": "cmake/dependency",
+    "target": "std_msgs"
+  },
+  {
+    "source": "src/swerve_vehicle_control/CMakeLists.txt",
+    "kind": "cmake/dependency",
+    "target": "nav_msgs"
+  },
+  {
+    "source": "src/swerve_vehicle_control/CMakeLists.txt",
+    "kind": "cmake/dependency",
+    "target": "tf2"
+  },
+  {
+    "source": "src/swerve_vehicle_control/CMakeLists.txt",
+    "kind": "cmake/dependency",
+    "target": "tf2_ros"
+  },
+  {
+    "source": "src/swerve_vehicle_control/CMakeLists.txt",
+    "kind": "cmake/dependency",
+    "target": "rclcpp_action"
+  },
+  {
+    "source": "src/swerve_vehicle_control/CMakeLists.txt",
+    "kind": "cmake/dependency",
+    "target": "nav2_msgs"
+  },
+  {
+    "source": "src/swerve_vehicle_control/CMakeLists.txt",
+    "kind": "cmake/dependency",
+    "target": "tf2_geometry_msgs"
+  },
+  {
+    "source": "src/swerve_vehicle_control/CMakeLists.txt",
+    "kind": "cmake/dependency",
+    "target": "controller_interface"
+  },
+  {
+    "source": "src/swerve_vehicle_control/CMakeLists.txt",
+    "kind": "cmake/dependency",
+    "target": "pluginlib"
+  },
+  {
+    "source": "src/swerve_vehicle_control/CMakeLists.txt",
+    "kind": "cmake/dependency",
+    "target": "rclcpp_lifecycle"
+  },
+  {
+    "source": "src/swerve_vehicle_control/CMakeLists.txt",
+    "kind": "cmake/dependency",
+    "target": "builtin_interfaces"
+  },
+  {
+    "source": "src/swerve_vehicle_control/CMakeLists.txt",
+    "kind": "cmake/dependency",
+    "target": "lifecycle_msgs"
+  },
+  {
+    "source": "src/swerve_vehicle_control/CMakeLists.txt",
+    "kind": "cmake/dependency",
+    "target": "Eigen3"
+  },
+  {
+    "source": "src/swerve_vehicle_control/CMakeLists.txt",
+    "kind": "cmake/install",
+    "target": "TARGETS swerve_drive DESTINATION lib/${PROJECT_NAME})"
+  },
+  {
+    "source": "src/swerve_vehicle_control/CMakeLists.txt",
+    "kind": "cmake/install",
+    "target": "TARGETS god_view_2 DESTINATION lib/${PROJECT_NAME})"
+  },
+  {
+    "source": "src/swerve_vehicle_control/CMakeLists.txt",
+    "kind": "cmake/install",
+    "target": "TARGETS goal_sender DESTINATION lib/${PROJECT_NAME})"
+  },
+  {
+    "source": "src/swerve_vehicle_control/CMakeLists.txt",
+    "kind": "cmake/install",
+    "target": "TARGETS swerve_controller_plugin DESTINATION lib)"
+  },
+  {
+    "source": "src/swerve_vehicle_control/CMakeLists.txt",
+    "kind": "cmake/install",
+    "target": "DIRECTORY include/ DESTINATION include)"
+  },
+  {
+    "source": "src/swerve_vehicle_control/CMakeLists.txt",
+    "kind": "cmake/install",
+    "target": "DIRECTORY launch/ DESTINATION share/${PROJECT_NAME}/launch)"
+  },
+  {
+    "source": "src/swerve_vehicle_control/CMakeLists.txt",
+    "kind": "cmake/install",
+    "target": "DIRECTORY config/ DESTINATION share/${PROJECT_NAME}/config)"
+  },
+  {
+    "source": "src/swerve_vehicle_control/launch/drive.launch.py",
+    "kind": "launch/package",
+    "target": "vehicle_description"
+  },
+  {
+    "source": "charger_detection",
+    "kind": "buildtool_depend",
+    "target": "ament_cmake"
+  },
+  {
+    "source": "charger_detection",
+    "kind": "depend",
+    "target": "rclcpp"
+  },
+  {
+    "source": "charger_detection",
+    "kind": "depend",
+    "target": "sensor_msgs"
+  },
+  {
+    "source": "charger_detection",
+    "kind": "depend",
+    "target": "std_msgs"
+  },
+  {
+    "source": "charger_detection",
+    "kind": "depend",
+    "target": "geometry_msgs"
+  },
+  {
+    "source": "charger_detection",
+    "kind": "depend",
+    "target": "cv_bridge"
+  },
+  {
+    "source": "charger_detection",
+    "kind": "depend",
+    "target": "message_filters"
+  },
+  {
+    "source": "charger_detection",
+    "kind": "depend",
+    "target": "ccs2_socket_detector"
+  },
+  {
+    "source": "charger_detection",
+    "kind": "depend",
+    "target": "tf2"
+  },
+  {
+    "source": "charger_detection",
+    "kind": "depend",
+    "target": "tf2_geometry_msgs"
+  },
+  {
+    "source": "charger_detection",
+    "kind": "depend",
+    "target": "opencv2"
+  },
+  {
+    "source": "charger_detection",
+    "kind": "depend",
+    "target": "launch"
+  },
+  {
+    "source": "charger_detection",
+    "kind": "depend",
+    "target": "launch_ros"
+  },
+  {
+    "source": "src/charger_detection/CMakeLists.txt",
+    "kind": "cmake/dependency",
+    "target": "ament_cmake"
+  },
+  {
+    "source": "src/charger_detection/CMakeLists.txt",
+    "kind": "cmake/dependency",
+    "target": "rclcpp"
+  },
+  {
+    "source": "src/charger_detection/CMakeLists.txt",
+    "kind": "cmake/dependency",
+    "target": "sensor_msgs"
+  },
+  {
+    "source": "src/charger_detection/CMakeLists.txt",
+    "kind": "cmake/dependency",
+    "target": "std_msgs"
+  },
+  {
+    "source": "src/charger_detection/CMakeLists.txt",
+    "kind": "cmake/dependency",
+    "target": "geometry_msgs"
+  },
+  {
+    "source": "src/charger_detection/CMakeLists.txt",
+    "kind": "cmake/dependency",
+    "target": "cv_bridge"
+  },
+  {
+    "source": "src/charger_detection/CMakeLists.txt",
+    "kind": "cmake/dependency",
+    "target": "message_filters"
+  },
+  {
+    "source": "src/charger_detection/CMakeLists.txt",
+    "kind": "cmake/dependency",
+    "target": "ccs2_socket_detector"
+  },
+  {
+    "source": "src/charger_detection/CMakeLists.txt",
+    "kind": "cmake/dependency",
+    "target": "tf2"
+  },
+  {
+    "source": "src/charger_detection/CMakeLists.txt",
+    "kind": "cmake/dependency",
+    "target": "tf2_geometry_msgs"
+  },
+  {
+    "source": "src/charger_detection/CMakeLists.txt",
+    "kind": "cmake/dependency",
+    "target": "OpenCV"
+  },
+  {
+    "source": "src/charger_detection/CMakeLists.txt",
+    "kind": "cmake/install",
+    "target": "TARGETS ccs2_detector_node DESTINATION lib/${PROJECT_NAME})"
+  },
+  {
+    "source": "src/charger_detection/CMakeLists.txt",
+    "kind": "cmake/install",
+    "target": "TARGETS solvepnp DESTINATION lib/${PROJECT_NAME})"
+  },
+  {
+    "source": "src/charger_detection/CMakeLists.txt",
+    "kind": "cmake/install",
+    "target": "TARGETS depth_heatmap DESTINATION lib/${PROJECT_NAME})"
+  },
+  {
+    "source": "src/charger_detection/CMakeLists.txt",
+    "kind": "cmake/install",
+    "target": "DIRECTORY launch/ DESTINATION share/${PROJECT_NAME}/launch)"
+  }
+]

@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<robot name="moving_actor">
+  
+  <link name="obstacle_base_link">
+    <!-- VA CHẠM (Hình trụ cao 1.8m, bán kính 0.3m — để Lidar quét thấy) -->
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.3" length="1.8"/>
+      </geometry>
+    </collision>
+
+    <!-- HÌNH DÁNG NGƯỜI (dùng file walk.dae có sẵn của Gazebo) -->
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://media/models/walk.dae" scale="1.0 1.0 1.0"/>
+      </geometry>
+    </visual>
+
+    <!-- VẬT LÝ -->
+    <inertial>
+      <origin xyz="0 0 0.0" rpy="0 0 0"/>
+      <mass value="60.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+  </link>
+
+  <!-- BỘ NÃO DI CHUYỂN (Planar Move Plugin — điều khiển bằng bàn phím) -->
+  <gazebo>
+    <plugin name="obstacle_controller" filename="libgazebo_ros_planar_move.so">
+      <ros>
+        <remapping>cmd_vel:=/obs_cmd_vel</remapping>
+        <remapping>odom:=/obs_odom</remapping>
+      </ros>
+      
+      <update_rate>100</update_rate>
+      <publish_rate>10</publish_rate>
+      
+      <!-- Tắt odom để không gây nhiễu TF -->
+      <publish_odom>false</publish_odom>
+      <publish_odom_tf>false</publish_odom_tf>
+      
+      <odometry_frame>obs_odom</odometry_frame>
+      <robot_base_frame>obstacle_base_link</robot_base_frame>
+      
+      <covariance_x>0.0001</covariance_x>
+      <covariance_y>0.0001</covariance_y>
+      <covariance_yaw>0.01</covariance_yaw>
+    </plugin>
+  </gazebo>
+
+</robot>

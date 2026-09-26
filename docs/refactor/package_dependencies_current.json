@@ -1,0 +1,454 @@
+{
+  "fr10_pose_controller": {
+    "path": "src/fr10/fr10_pose_controller",
+    "deps": [
+      "ament_cmake",
+      "ament_index_python",
+      "controller_manager",
+      "eigen",
+      "eigen3_cmake_module",
+      "fairino10_v6_moveit2_config",
+      "fairino_hardware_v3_9_3",
+      "geometry_msgs",
+      "joint_state_broadcaster",
+      "launch",
+      "launch_ros",
+      "moveit_configs_utils",
+      "moveit_core",
+      "moveit_ros_planning",
+      "position_controllers",
+      "python3-yaml",
+      "rclcpp",
+      "robot_state_publisher",
+      "ruckig",
+      "sensor_msgs",
+      "std_msgs"
+    ]
+  },
+  "fairino_description": {
+    "path": "src/fr10/frcobot_ros2/fairino_description",
+    "deps": [
+      "ament_cmake",
+      "ament_lint_auto",
+      "ament_lint_common",
+      "realsense2_description",
+      "urdf",
+      "xacro"
+    ]
+  },
+  "fairino_hardware_v3_9_3": {
+    "path": "src/fr10/frcobot_ros2/fairino_hardware_v3_9_3",
+    "deps": [
+      "ament_add_gmock",
+      "ament_cmake",
+      "ament_lint_auto",
+      "ament_lint_common",
+      "hardware_interface",
+      "pluginlib",
+      "rclcpp",
+      "rclcpp_lifecycle",
+      "std_msgs"
+    ]
+  },
+  "fairino_msgs": {
+    "path": "src/fr10/frcobot_ros2/fairino_msgs",
+    "deps": [
+      "ament_cmake",
+      "ament_lint_auto",
+      "ament_lint_common",
+      "rosidl_default_generators",
+      "rosidl_default_runtime",
+      "std_msgs"
+    ]
+  },
+  "fairino10_v6_moveit2_config": {
+    "path": "src/fr10/frcobot_ros2/fairino10_v6_moveit2_config",
+    "deps": [
+      "ament_cmake",
+      "controller_manager",
+      "fairino_description",
+      "fairino_hardware_v3_9_3",
+      "gazebo_plugins",
+      "gazebo_ros",
+      "gazebo_ros2_control",
+      "joint_state_publisher",
+      "joint_state_publisher_gui",
+      "moveit_configs_utils",
+      "moveit_kinematics",
+      "moveit_planners",
+      "moveit_ros_move_group",
+      "moveit_ros_visualization",
+      "moveit_ros_warehouse",
+      "moveit_setup_assistant",
+      "moveit_simple_controller_manager",
+      "realsense2_description",
+      "robot_state_publisher",
+      "rviz2",
+      "rviz_common",
+      "rviz_default_plugins",
+      "tf2_ros",
+      "warehouse_ros_mongo",
+      "xacro"
+    ]
+  },
+  "thanxe_new_description": {
+    "path": "src/thietkemoi/thanxe_new_description",
+    "deps": [
+      "ament_copyright",
+      "ament_flake8",
+      "ament_pep257",
+      "controller_manager",
+      "fairino_description",
+      "gazebo_ros",
+      "gazebo_ros2_control",
+      "geometry_msgs",
+      "joint_state_publisher",
+      "joint_state_publisher_gui",
+      "nav2_amcl",
+      "nav2_behaviors",
+      "nav2_bringup",
+      "nav2_bt_navigator",
+      "nav2_controller",
+      "nav2_costmap_2d",
+      "nav2_mppi_controller",
+      "nav2_msgs",
+      "nav2_planner",
+      "nav2_smac_planner",
+      "nav2_velocity_smoother",
+      "python3-pytest",
+      "python3-yaml",
+      "rclpy",
+      "realsense2_description",
+      "robot_state_publisher",
+      "ros2_control",
+      "ros2_controllers",
+      "rviz2",
+      "std_msgs",
+      "tf2_tools",
+      "vinuni_gazebo_models",
+      "xacro"
+    ]
+  },
+  "vehicle_description": {
+    "path": "src/vehicle_description",
+    "deps": [
+      "ament_cmake",
+      "fairino_description",
+      "joint_state_publisher",
+      "joint_state_publisher_gui",
+      "realsense2_description",
+      "robot_state_publisher",
+      "rviz2",
+      "xacro"
+    ]
+  },
+  "charger_detection": {
+    "path": "src/charger_detection",
+    "deps": [
+      "ament_cmake",
+      "ccs2_socket_detector",
+      "cv_bridge",
+      "geometry_msgs",
+      "launch",
+      "launch_ros",
+      "message_filters",
+      "opencv2",
+      "rclcpp",
+      "sensor_msgs",
+      "std_msgs",
+      "tf2",
+      "tf2_geometry_msgs"
+    ]
+  },
+  "my_ur_control_cpp": {
+    "path": "src/my_ur_control_cpp",
+    "deps": [
+      "ament_cmake",
+      "ament_lint_auto",
+      "ament_lint_common",
+      "builtin_interfaces",
+      "ccs2_socket_detector",
+      "controller_interface",
+      "cv_bridge",
+      "eigen",
+      "geometry_msgs",
+      "lifecycle_msgs",
+      "message_filters",
+      "nav2_msgs",
+      "nav_msgs",
+      "opencv2",
+      "pluginlib",
+      "rclcpp",
+      "rclcpp_action",
+      "rclcpp_lifecycle",
+      "sensor_msgs",
+      "std_msgs",
+      "tf2",
+      "tf2_geometry_msgs",
+      "tf2_ros",
+      "trajectory_msgs"
+    ]
+  },
+  "ccs2_socket_detector": {
+    "path": "src/ccs2_socket_detector",
+    "deps": [
+      "ament_cmake",
+      "rosidl_default_generators",
+      "rosidl_default_runtime",
+      "std_msgs"
+    ]
+  },
+  "ur_simulation_gazebo": {
+    "path": "src/Universal_Robots_ROS2_Gazebo_Simulation/ur_simulation_gazebo",
+    "deps": [
+      "ament_cmake",
+      "ament_cmake_pytest",
+      "controller_manager",
+      "gazebo_ros",
+      "gazebo_ros2_control",
+      "joint_state_broadcaster",
+      "launch",
+      "launch_ros",
+      "launch_testing_ament_cmake",
+      "launch_testing_ros",
+      "robot_state_publisher",
+      "rviz2",
+      "ur_controllers",
+      "ur_description",
+      "ur_moveit_config",
+      "urdf",
+      "xacro"
+    ]
+  },
+  "ur_description": {
+    "path": "src/Universal_Robots_ROS2_Description",
+    "deps": [
+      "ament_cmake",
+      "ament_cmake_pytest",
+      "joint_state_publisher_gui",
+      "launch",
+      "launch_ros",
+      "launch_testing_ament_cmake",
+      "launch_testing_ros",
+      "liburdfdom-tools",
+      "robot_state_publisher",
+      "rviz2",
+      "urdf",
+      "xacro"
+    ]
+  },
+  "ur_dashboard_msgs": {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_dashboard_msgs",
+    "deps": [
+      "action_msgs",
+      "ament_cmake",
+      "rosidl_default_generators",
+      "rosidl_default_runtime"
+    ]
+  },
+  "ur_calibration": {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_calibration",
+    "deps": [
+      "ament_cmake",
+      "ament_cmake_gmock",
+      "ament_cmake_gtest",
+      "ament_lint_auto",
+      "ament_lint_common",
+      "eigen",
+      "rclcpp",
+      "ur_client_library",
+      "ur_robot_driver",
+      "yaml_cpp_vendor"
+    ]
+  },
+  "ur_moveit_config": {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_moveit_config",
+    "deps": [
+      "ament_cmake",
+      "ament_cmake_python",
+      "launch",
+      "launch_ros",
+      "moveit_kinematics",
+      "moveit_planners_ompl",
+      "moveit_ros_move_group",
+      "moveit_ros_visualization",
+      "moveit_servo",
+      "moveit_simple_controller_manager",
+      "rviz2",
+      "ur_description",
+      "urdf",
+      "warehouse_ros_sqlite",
+      "xacro"
+    ]
+  },
+  "ur_robot_driver": {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_robot_driver",
+    "deps": [
+      "ament_cmake",
+      "ament_cmake_python",
+      "backward_ros",
+      "controller_manager",
+      "controller_manager_msgs",
+      "effort_controllers",
+      "force_torque_sensor_broadcaster",
+      "geometry_msgs",
+      "hardware_interface",
+      "joint_state_broadcaster",
+      "joint_state_publisher",
+      "joint_trajectory_controller",
+      "launch",
+      "launch_ros",
+      "launch_testing_ament_cmake",
+      "pluginlib",
+      "pose_broadcaster",
+      "position_controllers",
+      "rclcpp",
+      "rclcpp_lifecycle",
+      "rclpy",
+      "robot_state_publisher",
+      "ros2_controllers_test_nodes",
+      "ros2run",
+      "rviz2",
+      "socat",
+      "std_msgs",
+      "std_srvs",
+      "tf2_geometry_msgs",
+      "ur_client_library",
+      "ur_controllers",
+      "ur_dashboard_msgs",
+      "ur_description",
+      "ur_msgs",
+      "urdf",
+      "velocity_controllers",
+      "xacro"
+    ]
+  },
+  "ur": {
+    "path": "src/Universal_Robots_ROS2_Driver/ur",
+    "deps": [
+      "ament_cmake",
+      "ament_lint_auto",
+      "ament_lint_common",
+      "ur_calibration",
+      "ur_controllers",
+      "ur_dashboard_msgs",
+      "ur_moveit_config",
+      "ur_robot_driver"
+    ]
+  },
+  "ur_controllers": {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_controllers",
+    "deps": [
+      "action_msgs",
+      "ament_cmake",
+      "angles",
+      "control_msgs",
+      "controller_interface",
+      "controller_manager",
+      "generate_parameter_library",
+      "geometry_msgs",
+      "hardware_interface",
+      "hardware_interface_testing",
+      "joint_trajectory_controller",
+      "lifecycle_msgs",
+      "pluginlib",
+      "rclcpp_lifecycle",
+      "rcutils",
+      "realtime_tools",
+      "ros2_control_test_assets",
+      "std_msgs",
+      "std_srvs",
+      "tf2_geometry_msgs",
+      "tf2_ros",
+      "trajectory_msgs",
+      "ur_dashboard_msgs",
+      "ur_msgs"
+    ]
+  },
+  "ur_bringup": {
+    "path": "src/Universal_Robots_ROS2_Driver/ur_bringup",
+    "deps": [
+      "ament_cmake",
+      "ament_cmake_python",
+      "controller_manager",
+      "force_torque_sensor_broadcaster",
+      "joint_state_broadcaster",
+      "joint_state_publisher",
+      "joint_trajectory_controller",
+      "launch",
+      "launch_ros",
+      "position_controllers",
+      "rclpy",
+      "robot_state_publisher",
+      "ros2_controllers_test_nodes",
+      "rviz2",
+      "ur_controllers",
+      "ur_description",
+      "urdf",
+      "velocity_controllers",
+      "xacro"
+    ]
+  },
+  "vehicle_bringup": {
+    "path": "src/vehicle_bringup",
+    "deps": [
+      "ament_cmake",
+      "charger_detection",
+      "controller_manager",
+      "fr10_arm_control",
+      "gazebo_ros",
+      "gazebo_ros2_control",
+      "launch",
+      "launch_ros",
+      "python3-yaml",
+      "rviz2",
+      "swerve_vehicle_control",
+      "vehicle_description",
+      "xacro"
+    ]
+  },
+  "vinuni_gazebo_models": {
+    "path": "src/models",
+    "deps": [
+      "ament_cmake"
+    ]
+  },
+  "swerve_vehicle_control": {
+    "path": "src/swerve_vehicle_control",
+    "deps": [
+      "ament_cmake",
+      "builtin_interfaces",
+      "controller_interface",
+      "controller_manager",
+      "eigen",
+      "geometry_msgs",
+      "launch",
+      "launch_ros",
+      "lifecycle_msgs",
+      "nav2_msgs",
+      "nav_msgs",
+      "pluginlib",
+      "python3-yaml",
+      "rclcpp",
+      "rclcpp_action",
+      "rclcpp_lifecycle",
+      "sensor_msgs",
+      "std_msgs",
+      "tf2",
+      "tf2_geometry_msgs",
+      "tf2_ros",
+      "vehicle_description"
+    ]
+  },
+  "fr10_arm_control": {
+    "path": "src/fr10_arm_control",
+    "deps": [
+      "ament_cmake",
+      "controller_manager",
+      "fairino10_v6_moveit2_config",
+      "joint_trajectory_controller",
+      "launch",
+      "launch_ros"
+    ]
+  }
+}

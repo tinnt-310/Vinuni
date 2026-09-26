@@ -1,0 +1,2302 @@
+[
+  {
+    "source": "fr10_pose_controller",
+    "target": "ament_cmake",
+    "kind": "buildtool_depend"
+  },
+  {
+    "source": "fr10_pose_controller",
+    "target": "eigen3_cmake_module",
+    "kind": "build_depend"
+  },
+  {
+    "source": "fr10_pose_controller",
+    "target": "rclcpp",
+    "kind": "depend"
+  },
+  {
+    "source": "fr10_pose_controller",
+    "target": "geometry_msgs",
+    "kind": "depend"
+  },
+  {
+    "source": "fr10_pose_controller",
+    "target": "sensor_msgs",
+    "kind": "depend"
+  },
+  {
+    "source": "fr10_pose_controller",
+    "target": "std_msgs",
+    "kind": "depend"
+  },
+  {
+    "source": "fr10_pose_controller",
+    "target": "moveit_core",
+    "kind": "depend"
+  },
+  {
+    "source": "fr10_pose_controller",
+    "target": "moveit_ros_planning",
+    "kind": "depend"
+  },
+  {
+    "source": "fr10_pose_controller",
+    "target": "eigen",
+    "kind": "depend"
+  },
+  {
+    "source": "fr10_pose_controller",
+    "target": "ruckig",
+    "kind": "depend"
+  },
+  {
+    "source": "fr10_pose_controller",
+    "target": "launch",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "fr10_pose_controller",
+    "target": "launch_ros",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "fr10_pose_controller",
+    "target": "ament_index_python",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "fr10_pose_controller",
+    "target": "moveit_configs_utils",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "fr10_pose_controller",
+    "target": "python3-yaml",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "fr10_pose_controller",
+    "target": "fairino10_v6_moveit2_config",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "fr10_pose_controller",
+    "target": "fairino_hardware_v3_9_3",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "fr10_pose_controller",
+    "target": "controller_manager",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "fr10_pose_controller",
+    "target": "joint_state_broadcaster",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "fr10_pose_controller",
+    "target": "position_controllers",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "fr10_pose_controller",
+    "target": "robot_state_publisher",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "src/fr10/fr10_pose_controller/CMakeLists.txt",
+    "target": "ament_cmake",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/fr10/fr10_pose_controller/CMakeLists.txt",
+    "target": "rclcpp",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/fr10/fr10_pose_controller/CMakeLists.txt",
+    "target": "geometry_msgs",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/fr10/fr10_pose_controller/CMakeLists.txt",
+    "target": "sensor_msgs",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/fr10/fr10_pose_controller/CMakeLists.txt",
+    "target": "std_msgs",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/fr10/fr10_pose_controller/CMakeLists.txt",
+    "target": "moveit_core",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/fr10/fr10_pose_controller/CMakeLists.txt",
+    "target": "moveit_ros_planning",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/fr10/fr10_pose_controller/CMakeLists.txt",
+    "target": "eigen3_cmake_module",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/fr10/fr10_pose_controller/CMakeLists.txt",
+    "target": "Eigen3",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/fr10/fr10_pose_controller/CMakeLists.txt",
+    "target": "ruckig",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/fr10/fr10_pose_controller/CMakeLists.txt",
+    "target": "Python3",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/fr10/fr10_pose_controller/launch/fr10_pose_controller.launch.py",
+    "target": "fr10_pose_controller",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/fr10/fr10_pose_controller/launch/fr10_pose_controller.launch.py",
+    "target": "fairino10_v6_moveit2_config",
+    "kind": "resource/package"
+  },
+  {
+    "source": "fairino_description",
+    "target": "ament_cmake",
+    "kind": "buildtool_depend"
+  },
+  {
+    "source": "fairino_description",
+    "target": "urdf",
+    "kind": "depend"
+  },
+  {
+    "source": "fairino_description",
+    "target": "xacro",
+    "kind": "depend"
+  },
+  {
+    "source": "fairino_description",
+    "target": "realsense2_description",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "fairino_description",
+    "target": "ament_lint_auto",
+    "kind": "test_depend"
+  },
+  {
+    "source": "fairino_description",
+    "target": "ament_lint_common",
+    "kind": "test_depend"
+  },
+  {
+    "source": "src/fr10/frcobot_ros2/fairino_description/CMakeLists.txt",
+    "target": "ament_cmake",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/fr10/frcobot_ros2/fairino_description/CMakeLists.txt",
+    "target": "urdf",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/fr10/frcobot_ros2/fairino_description/CMakeLists.txt",
+    "target": "xacro",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/fr10/frcobot_ros2/fairino_description/CMakeLists.txt",
+    "target": "ament_lint_auto",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/fr10/frcobot_ros2/fairino_description/urdf/fairino10_v6.urdf",
+    "target": "fairino_description",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/fr10/frcobot_ros2/fairino_description/urdf/fairino10_v6.urdf",
+    "target": "fairino_description",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/fr10/frcobot_ros2/fairino_description/urdf/fairino10_v6.urdf",
+    "target": "fairino_description",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/fr10/frcobot_ros2/fairino_description/urdf/fairino10_v6.urdf",
+    "target": "fairino_description",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/fr10/frcobot_ros2/fairino_description/urdf/fairino10_v6.urdf",
+    "target": "fairino_description",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/fr10/frcobot_ros2/fairino_description/urdf/fairino10_v6.urdf",
+    "target": "fairino_description",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/fr10/frcobot_ros2/fairino_description/urdf/fairino10_v6.urdf",
+    "target": "fairino_description",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/fr10/frcobot_ros2/fairino_description/urdf/fairino10_v6.urdf",
+    "target": "fairino_description",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/fr10/frcobot_ros2/fairino_description/urdf/fairino10_v6.urdf",
+    "target": "fairino_description",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/fr10/frcobot_ros2/fairino_description/urdf/fairino10_v6.urdf",
+    "target": "fairino_description",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/fr10/frcobot_ros2/fairino_description/urdf/fairino10_v6.urdf",
+    "target": "fairino_description",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/fr10/frcobot_ros2/fairino_description/urdf/fairino10_v6.urdf",
+    "target": "fairino_description",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/fr10/frcobot_ros2/fairino_description/urdf/fairino10_v6.urdf",
+    "target": "fairino_description",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/fr10/frcobot_ros2/fairino_description/urdf/fairino10_v6.urdf",
+    "target": "fairino_description",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/fr10/frcobot_ros2/fairino_description/urdf/fr10_end_effector.xacro",
+    "target": "realsense2_description",
+    "kind": "resource/package"
+  },
+  {
+    "source": "fairino_hardware_v3_9_3",
+    "target": "ament_cmake",
+    "kind": "buildtool_depend"
+  },
+  {
+    "source": "fairino_hardware_v3_9_3",
+    "target": "rclcpp",
+    "kind": "depend"
+  },
+  {
+    "source": "fairino_hardware_v3_9_3",
+    "target": "std_msgs",
+    "kind": "depend"
+  },
+  {
+    "source": "fairino_hardware_v3_9_3",
+    "target": "hardware_interface",
+    "kind": "depend"
+  },
+  {
+    "source": "fairino_hardware_v3_9_3",
+    "target": "pluginlib",
+    "kind": "depend"
+  },
+  {
+    "source": "fairino_hardware_v3_9_3",
+    "target": "rclcpp_lifecycle",
+    "kind": "depend"
+  },
+  {
+    "source": "fairino_hardware_v3_9_3",
+    "target": "ament_lint_auto",
+    "kind": "test_depend"
+  },
+  {
+    "source": "fairino_hardware_v3_9_3",
+    "target": "ament_lint_common",
+    "kind": "test_depend"
+  },
+  {
+    "source": "fairino_hardware_v3_9_3",
+    "target": "ament_add_gmock",
+    "kind": "test_depend"
+  },
+  {
+    "source": "fairino_hardware_v3_9_3",
+    "target": "hardware_interface",
+    "kind": "test_depend"
+  },
+  {
+    "source": "src/fr10/frcobot_ros2/fairino_hardware_v3_9_3/CMakeLists.txt",
+    "target": "ament_cmake",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/fr10/frcobot_ros2/fairino_hardware_v3_9_3/CMakeLists.txt",
+    "target": "rclcpp",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/fr10/frcobot_ros2/fairino_hardware_v3_9_3/CMakeLists.txt",
+    "target": "std_msgs",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/fr10/frcobot_ros2/fairino_hardware_v3_9_3/CMakeLists.txt",
+    "target": "hardware_interface",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/fr10/frcobot_ros2/fairino_hardware_v3_9_3/CMakeLists.txt",
+    "target": "pluginlib",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/fr10/frcobot_ros2/fairino_hardware_v3_9_3/CMakeLists.txt",
+    "target": "rclcpp_lifecycle",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/fr10/frcobot_ros2/fairino_hardware_v3_9_3/CMakeLists.txt",
+    "target": "ament_lint_auto",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/fr10/frcobot_ros2/fairino_hardware_v3_9_3/CMakeLists.txt",
+    "target": "ament_cmake_gmock",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/fr10/frcobot_ros2/fairino_hardware_v3_9_3/CMakeLists.txt",
+    "target": "hardware_interface",
+    "kind": "resource/package"
+  },
+  {
+    "source": "fairino_msgs",
+    "target": "ament_cmake",
+    "kind": "buildtool_depend"
+  },
+  {
+    "source": "fairino_msgs",
+    "target": "std_msgs",
+    "kind": "buildtool_depend"
+  },
+  {
+    "source": "fairino_msgs",
+    "target": "rosidl_default_generators",
+    "kind": "build_depend"
+  },
+  {
+    "source": "fairino_msgs",
+    "target": "rosidl_default_runtime",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "fairino_msgs",
+    "target": "ament_lint_auto",
+    "kind": "test_depend"
+  },
+  {
+    "source": "fairino_msgs",
+    "target": "ament_lint_common",
+    "kind": "test_depend"
+  },
+  {
+    "source": "src/fr10/frcobot_ros2/fairino_msgs/CMakeLists.txt",
+    "target": "ament_cmake",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/fr10/frcobot_ros2/fairino_msgs/CMakeLists.txt",
+    "target": "std_msgs",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/fr10/frcobot_ros2/fairino_msgs/CMakeLists.txt",
+    "target": "rosidl_default_generators",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/fr10/frcobot_ros2/fairino_msgs/CMakeLists.txt",
+    "target": "ament_lint_auto",
+    "kind": "resource/package"
+  },
+  {
+    "source": "fairino10_v6_moveit2_config",
+    "target": "ament_cmake",
+    "kind": "buildtool_depend"
+  },
+  {
+    "source": "fairino10_v6_moveit2_config",
+    "target": "moveit_ros_move_group",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "fairino10_v6_moveit2_config",
+    "target": "moveit_kinematics",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "fairino10_v6_moveit2_config",
+    "target": "moveit_planners",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "fairino10_v6_moveit2_config",
+    "target": "moveit_simple_controller_manager",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "fairino10_v6_moveit2_config",
+    "target": "joint_state_publisher",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "fairino10_v6_moveit2_config",
+    "target": "joint_state_publisher_gui",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "fairino10_v6_moveit2_config",
+    "target": "tf2_ros",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "fairino10_v6_moveit2_config",
+    "target": "xacro",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "fairino10_v6_moveit2_config",
+    "target": "controller_manager",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "fairino10_v6_moveit2_config",
+    "target": "gazebo_ros",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "fairino10_v6_moveit2_config",
+    "target": "gazebo_ros2_control",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "fairino10_v6_moveit2_config",
+    "target": "gazebo_plugins",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "fairino10_v6_moveit2_config",
+    "target": "fairino_description",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "fairino10_v6_moveit2_config",
+    "target": "fairino_hardware_v3_9_3",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "fairino10_v6_moveit2_config",
+    "target": "realsense2_description",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "fairino10_v6_moveit2_config",
+    "target": "moveit_configs_utils",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "fairino10_v6_moveit2_config",
+    "target": "moveit_ros_move_group",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "fairino10_v6_moveit2_config",
+    "target": "moveit_ros_visualization",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "fairino10_v6_moveit2_config",
+    "target": "moveit_ros_warehouse",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "fairino10_v6_moveit2_config",
+    "target": "moveit_setup_assistant",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "fairino10_v6_moveit2_config",
+    "target": "robot_state_publisher",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "fairino10_v6_moveit2_config",
+    "target": "rviz2",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "fairino10_v6_moveit2_config",
+    "target": "rviz_common",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "fairino10_v6_moveit2_config",
+    "target": "rviz_default_plugins",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "fairino10_v6_moveit2_config",
+    "target": "tf2_ros",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "fairino10_v6_moveit2_config",
+    "target": "warehouse_ros_mongo",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "fairino10_v6_moveit2_config",
+    "target": "xacro",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "src/fr10/frcobot_ros2/fairino10_v6_moveit2_config/CMakeLists.txt",
+    "target": "ament_cmake",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/fr10/frcobot_ros2/fairino10_v6_moveit2_config/launch/gazebo.launch.py",
+    "target": "fairino_description",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/fr10/frcobot_ros2/fairino10_v6_moveit2_config/launch/gazebo.launch.py",
+    "target": "realsense2_description",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/fr10/frcobot_ros2/fairino10_v6_moveit2_config/launch/gazebo.launch.py",
+    "target": "gazebo_ros",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/fr10/frcobot_ros2/fairino10_v6_moveit2_config/config/fairino10_v6_robot.urdf.xacro",
+    "target": "fairino_description",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/fr10/frcobot_ros2/fairino10_v6_moveit2_config/config/fairino10_v6_robot.urdf.xacro",
+    "target": "fairino_description",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/fr10/frcobot_ros2/fairino10_v6_moveit2_config/config/fairino10_v6_robot.urdf.xacro",
+    "target": "fairino10_v6_moveit2_config",
+    "kind": "resource/package"
+  },
+  {
+    "source": "thanxe_new_description",
+    "target": "xacro",
+    "kind": "depend"
+  },
+  {
+    "source": "thanxe_new_description",
+    "target": "rviz2",
+    "kind": "depend"
+  },
+  {
+    "source": "thanxe_new_description",
+    "target": "robot_state_publisher",
+    "kind": "depend"
+  },
+  {
+    "source": "thanxe_new_description",
+    "target": "joint_state_publisher",
+    "kind": "depend"
+  },
+  {
+    "source": "thanxe_new_description",
+    "target": "joint_state_publisher_gui",
+    "kind": "depend"
+  },
+  {
+    "source": "thanxe_new_description",
+    "target": "rclpy",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "thanxe_new_description",
+    "target": "geometry_msgs",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "thanxe_new_description",
+    "target": "std_msgs",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "thanxe_new_description",
+    "target": "nav2_msgs",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "thanxe_new_description",
+    "target": "gazebo_ros",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "thanxe_new_description",
+    "target": "ros2_control",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "thanxe_new_description",
+    "target": "ros2_controllers",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "thanxe_new_description",
+    "target": "controller_manager",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "thanxe_new_description",
+    "target": "gazebo_ros2_control",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "thanxe_new_description",
+    "target": "nav2_bringup",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "thanxe_new_description",
+    "target": "nav2_amcl",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "thanxe_new_description",
+    "target": "nav2_controller",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "thanxe_new_description",
+    "target": "nav2_planner",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "thanxe_new_description",
+    "target": "nav2_smac_planner",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "thanxe_new_description",
+    "target": "nav2_mppi_controller",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "thanxe_new_description",
+    "target": "nav2_costmap_2d",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "thanxe_new_description",
+    "target": "nav2_behaviors",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "thanxe_new_description",
+    "target": "nav2_bt_navigator",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "thanxe_new_description",
+    "target": "nav2_velocity_smoother",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "thanxe_new_description",
+    "target": "fairino_description",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "thanxe_new_description",
+    "target": "realsense2_description",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "thanxe_new_description",
+    "target": "tf2_tools",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "thanxe_new_description",
+    "target": "ament_copyright",
+    "kind": "test_depend"
+  },
+  {
+    "source": "thanxe_new_description",
+    "target": "ament_flake8",
+    "kind": "test_depend"
+  },
+  {
+    "source": "thanxe_new_description",
+    "target": "ament_pep257",
+    "kind": "test_depend"
+  },
+  {
+    "source": "thanxe_new_description",
+    "target": "python3-pytest",
+    "kind": "test_depend"
+  },
+  {
+    "source": "thanxe_new_description",
+    "target": "vinuni_gazebo_models",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "thanxe_new_description",
+    "target": "python3-yaml",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "src/thietkemoi/thanxe_new_description/launch/gazebo.launch.py",
+    "target": "thanxe_new_description",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/thietkemoi/thanxe_new_description/launch/display.launch.py",
+    "target": "thanxe_new_description",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/thietkemoi/thanxe_new_description/launch/complete.launch.py",
+    "target": "gazebo_ros",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/thietkemoi/thanxe_new_description/launch/complete.launch.py",
+    "target": "vinuni_gazebo_models",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/thietkemoi/thanxe_new_description/urdf/vehicle_dimensions.xacro",
+    "target": "thanxe_new_description",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/thietkemoi/thanxe_new_description/urdf/ur10_with_charge.xacro",
+    "target": "ur_description",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/thietkemoi/thanxe_new_description/urdf/ur10_with_charge.xacro",
+    "target": "ur_description",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/thietkemoi/thanxe_new_description/urdf/ur10_with_charge.xacro",
+    "target": "ur_description",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/thietkemoi/thanxe_new_description/urdf/fr10_wrist.xacro",
+    "target": "realsense2_description",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/thietkemoi/thanxe_new_description/urdf/fr10_wrist.xacro",
+    "target": "thanxe_new_description",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/thietkemoi/thanxe_new_description/urdf/fr10_arm.urdf",
+    "target": "fairino_description",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/thietkemoi/thanxe_new_description/urdf/fr10_arm.urdf",
+    "target": "fairino_description",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/thietkemoi/thanxe_new_description/urdf/fr10_arm.urdf",
+    "target": "fairino_description",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/thietkemoi/thanxe_new_description/urdf/fr10_arm.urdf",
+    "target": "fairino_description",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/thietkemoi/thanxe_new_description/urdf/fr10_arm.urdf",
+    "target": "fairino_description",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/thietkemoi/thanxe_new_description/urdf/fr10_arm.urdf",
+    "target": "fairino_description",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/thietkemoi/thanxe_new_description/urdf/fr10_arm.urdf",
+    "target": "fairino_description",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/thietkemoi/thanxe_new_description/urdf/fr10_arm.urdf",
+    "target": "fairino_description",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/thietkemoi/thanxe_new_description/urdf/fr10_arm.urdf",
+    "target": "fairino_description",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/thietkemoi/thanxe_new_description/urdf/fr10_arm.urdf",
+    "target": "fairino_description",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/thietkemoi/thanxe_new_description/urdf/fr10_arm.urdf",
+    "target": "fairino_description",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/thietkemoi/thanxe_new_description/urdf/fr10_arm.urdf",
+    "target": "fairino_description",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/thietkemoi/thanxe_new_description/urdf/fr10_arm.urdf",
+    "target": "fairino_description",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/thietkemoi/thanxe_new_description/urdf/fr10_arm.urdf",
+    "target": "fairino_description",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/thietkemoi/thanxe_new_description/urdf/complete_visual.xacro",
+    "target": "thanxe_new_description",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/thietkemoi/thanxe_new_description/urdf/body_sensors.xacro",
+    "target": "realsense2_description",
+    "kind": "resource/package"
+  },
+  {
+    "source": "my_ur_control_cpp",
+    "target": "ament_cmake",
+    "kind": "buildtool_depend"
+  },
+  {
+    "source": "my_ur_control_cpp",
+    "target": "rclcpp",
+    "kind": "depend"
+  },
+  {
+    "source": "my_ur_control_cpp",
+    "target": "std_msgs",
+    "kind": "depend"
+  },
+  {
+    "source": "my_ur_control_cpp",
+    "target": "geometry_msgs",
+    "kind": "depend"
+  },
+  {
+    "source": "my_ur_control_cpp",
+    "target": "sensor_msgs",
+    "kind": "depend"
+  },
+  {
+    "source": "my_ur_control_cpp",
+    "target": "eigen",
+    "kind": "depend"
+  },
+  {
+    "source": "my_ur_control_cpp",
+    "target": "trajectory_msgs",
+    "kind": "depend"
+  },
+  {
+    "source": "my_ur_control_cpp",
+    "target": "nav_msgs",
+    "kind": "depend"
+  },
+  {
+    "source": "my_ur_control_cpp",
+    "target": "tf2",
+    "kind": "depend"
+  },
+  {
+    "source": "my_ur_control_cpp",
+    "target": "tf2_ros",
+    "kind": "depend"
+  },
+  {
+    "source": "my_ur_control_cpp",
+    "target": "tf2_geometry_msgs",
+    "kind": "depend"
+  },
+  {
+    "source": "my_ur_control_cpp",
+    "target": "rclcpp_action",
+    "kind": "depend"
+  },
+  {
+    "source": "my_ur_control_cpp",
+    "target": "nav2_msgs",
+    "kind": "depend"
+  },
+  {
+    "source": "my_ur_control_cpp",
+    "target": "cv_bridge",
+    "kind": "depend"
+  },
+  {
+    "source": "my_ur_control_cpp",
+    "target": "opencv2",
+    "kind": "depend"
+  },
+  {
+    "source": "my_ur_control_cpp",
+    "target": "message_filters",
+    "kind": "depend"
+  },
+  {
+    "source": "my_ur_control_cpp",
+    "target": "ccs2_socket_detector",
+    "kind": "depend"
+  },
+  {
+    "source": "my_ur_control_cpp",
+    "target": "controller_interface",
+    "kind": "depend"
+  },
+  {
+    "source": "my_ur_control_cpp",
+    "target": "pluginlib",
+    "kind": "depend"
+  },
+  {
+    "source": "my_ur_control_cpp",
+    "target": "rclcpp_lifecycle",
+    "kind": "depend"
+  },
+  {
+    "source": "my_ur_control_cpp",
+    "target": "builtin_interfaces",
+    "kind": "depend"
+  },
+  {
+    "source": "my_ur_control_cpp",
+    "target": "lifecycle_msgs",
+    "kind": "depend"
+  },
+  {
+    "source": "my_ur_control_cpp",
+    "target": "ament_lint_auto",
+    "kind": "test_depend"
+  },
+  {
+    "source": "my_ur_control_cpp",
+    "target": "ament_lint_common",
+    "kind": "test_depend"
+  },
+  {
+    "source": "src/my_ur_control_cpp/CMakeLists.txt",
+    "target": "ament_cmake",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/my_ur_control_cpp/CMakeLists.txt",
+    "target": "rclcpp",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/my_ur_control_cpp/CMakeLists.txt",
+    "target": "std_msgs",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/my_ur_control_cpp/CMakeLists.txt",
+    "target": "geometry_msgs",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/my_ur_control_cpp/CMakeLists.txt",
+    "target": "sensor_msgs",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/my_ur_control_cpp/CMakeLists.txt",
+    "target": "Eigen3",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/my_ur_control_cpp/CMakeLists.txt",
+    "target": "trajectory_msgs",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/my_ur_control_cpp/CMakeLists.txt",
+    "target": "nav_msgs",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/my_ur_control_cpp/CMakeLists.txt",
+    "target": "tf2",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/my_ur_control_cpp/CMakeLists.txt",
+    "target": "tf2_ros",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/my_ur_control_cpp/CMakeLists.txt",
+    "target": "tf2_geometry_msgs",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/my_ur_control_cpp/CMakeLists.txt",
+    "target": "rclcpp_action",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/my_ur_control_cpp/CMakeLists.txt",
+    "target": "nav2_msgs",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/my_ur_control_cpp/CMakeLists.txt",
+    "target": "cv_bridge",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/my_ur_control_cpp/CMakeLists.txt",
+    "target": "OpenCV",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/my_ur_control_cpp/CMakeLists.txt",
+    "target": "message_filters",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/my_ur_control_cpp/CMakeLists.txt",
+    "target": "ccs2_socket_detector",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/my_ur_control_cpp/CMakeLists.txt",
+    "target": "controller_interface",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/my_ur_control_cpp/CMakeLists.txt",
+    "target": "pluginlib",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/my_ur_control_cpp/CMakeLists.txt",
+    "target": "rclcpp_lifecycle",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/my_ur_control_cpp/CMakeLists.txt",
+    "target": "builtin_interfaces",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/my_ur_control_cpp/CMakeLists.txt",
+    "target": "ament_lint_auto",
+    "kind": "resource/package"
+  },
+  {
+    "source": "ccs2_socket_detector",
+    "target": "ament_cmake",
+    "kind": "buildtool_depend"
+  },
+  {
+    "source": "ccs2_socket_detector",
+    "target": "rosidl_default_generators",
+    "kind": "buildtool_depend"
+  },
+  {
+    "source": "ccs2_socket_detector",
+    "target": "std_msgs",
+    "kind": "depend"
+  },
+  {
+    "source": "ccs2_socket_detector",
+    "target": "rosidl_default_runtime",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "src/ccs2_socket_detector/CMakeLists.txt",
+    "target": "ament_cmake",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/ccs2_socket_detector/CMakeLists.txt",
+    "target": "rosidl_default_generators",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/ccs2_socket_detector/CMakeLists.txt",
+    "target": "std_msgs",
+    "kind": "resource/package"
+  },
+  {
+    "source": "ur_simulation_gazebo",
+    "target": "ament_cmake",
+    "kind": "buildtool_depend"
+  },
+  {
+    "source": "ur_simulation_gazebo",
+    "target": "controller_manager",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "ur_simulation_gazebo",
+    "target": "gazebo_ros2_control",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "ur_simulation_gazebo",
+    "target": "gazebo_ros",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "ur_simulation_gazebo",
+    "target": "joint_state_broadcaster",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "ur_simulation_gazebo",
+    "target": "launch",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "ur_simulation_gazebo",
+    "target": "launch_ros",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "ur_simulation_gazebo",
+    "target": "robot_state_publisher",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "ur_simulation_gazebo",
+    "target": "rviz2",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "ur_simulation_gazebo",
+    "target": "ur_controllers",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "ur_simulation_gazebo",
+    "target": "ur_description",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "ur_simulation_gazebo",
+    "target": "ur_moveit_config",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "ur_simulation_gazebo",
+    "target": "urdf",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "ur_simulation_gazebo",
+    "target": "xacro",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "ur_simulation_gazebo",
+    "target": "ament_cmake_pytest",
+    "kind": "test_depend"
+  },
+  {
+    "source": "ur_simulation_gazebo",
+    "target": "launch_testing_ament_cmake",
+    "kind": "test_depend"
+  },
+  {
+    "source": "ur_simulation_gazebo",
+    "target": "launch_testing_ros",
+    "kind": "test_depend"
+  },
+  {
+    "source": "src/Universal_Robots_ROS2_Gazebo_Simulation/ur_simulation_gazebo/CMakeLists.txt",
+    "target": "ament_cmake",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/Universal_Robots_ROS2_Gazebo_Simulation/ur_simulation_gazebo/CMakeLists.txt",
+    "target": "launch_testing_ament_cmake",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/Universal_Robots_ROS2_Gazebo_Simulation/ur_simulation_gazebo/CMakeLists.txt",
+    "target": "ament_cmake_pytest",
+    "kind": "resource/package"
+  },
+  {
+    "source": "ur_description",
+    "target": "ament_cmake",
+    "kind": "buildtool_depend"
+  },
+  {
+    "source": "ur_description",
+    "target": "joint_state_publisher_gui",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "ur_description",
+    "target": "launch",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "ur_description",
+    "target": "launch_ros",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "ur_description",
+    "target": "robot_state_publisher",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "ur_description",
+    "target": "rviz2",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "ur_description",
+    "target": "urdf",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "ur_description",
+    "target": "xacro",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "ur_description",
+    "target": "ament_cmake_pytest",
+    "kind": "test_depend"
+  },
+  {
+    "source": "ur_description",
+    "target": "launch_testing_ament_cmake",
+    "kind": "test_depend"
+  },
+  {
+    "source": "ur_description",
+    "target": "launch_testing_ros",
+    "kind": "test_depend"
+  },
+  {
+    "source": "ur_description",
+    "target": "liburdfdom-tools",
+    "kind": "test_depend"
+  },
+  {
+    "source": "ur_description",
+    "target": "xacro",
+    "kind": "test_depend"
+  },
+  {
+    "source": "src/Universal_Robots_ROS2_Description/CMakeLists.txt",
+    "target": "ament_cmake",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/Universal_Robots_ROS2_Description/CMakeLists.txt",
+    "target": "ament_cmake_pytest",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/Universal_Robots_ROS2_Description/urdf/ur.urdf.xacro",
+    "target": "ur_description",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/Universal_Robots_ROS2_Description/urdf/ur.urdf.xacro",
+    "target": "ur_description",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/Universal_Robots_ROS2_Description/urdf/ur.urdf.xacro",
+    "target": "ur_description",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/Universal_Robots_ROS2_Description/urdf/ur.urdf.xacro",
+    "target": "ur_description",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/Universal_Robots_ROS2_Description/urdf/ur.urdf.xacro",
+    "target": "ur_description",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/Universal_Robots_ROS2_Description/urdf/ur.urdf.xacro",
+    "target": "ur_description",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/Universal_Robots_ROS2_Description/urdf/ur_macro.xacro",
+    "target": "ur_description",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/Universal_Robots_ROS2_Description/urdf/ur_macro.xacro",
+    "target": "ur_description",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/Universal_Robots_ROS2_Description/urdf/ur_macro.xacro",
+    "target": "ur_description",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/Universal_Robots_ROS2_Description/test/test_view_ur_launch.py",
+    "target": "ur_description",
+    "kind": "resource/package"
+  },
+  {
+    "source": "ur_dashboard_msgs",
+    "target": "ament_cmake",
+    "kind": "buildtool_depend"
+  },
+  {
+    "source": "ur_dashboard_msgs",
+    "target": "rosidl_default_generators",
+    "kind": "build_depend"
+  },
+  {
+    "source": "ur_dashboard_msgs",
+    "target": "action_msgs",
+    "kind": "depend"
+  },
+  {
+    "source": "ur_dashboard_msgs",
+    "target": "rosidl_default_runtime",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "src/Universal_Robots_ROS2_Driver/ur_dashboard_msgs/CMakeLists.txt",
+    "target": "ament_cmake",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/Universal_Robots_ROS2_Driver/ur_dashboard_msgs/CMakeLists.txt",
+    "target": "rosidl_default_generators",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/Universal_Robots_ROS2_Driver/ur_dashboard_msgs/CMakeLists.txt",
+    "target": "action_msgs",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/Universal_Robots_ROS2_Driver/ur_dashboard_msgs/CMakeLists.txt",
+    "target": "builtin_interfaces",
+    "kind": "resource/package"
+  },
+  {
+    "source": "ur_calibration",
+    "target": "ament_cmake",
+    "kind": "buildtool_depend"
+  },
+  {
+    "source": "ur_calibration",
+    "target": "rclcpp",
+    "kind": "depend"
+  },
+  {
+    "source": "ur_calibration",
+    "target": "ur_client_library",
+    "kind": "depend"
+  },
+  {
+    "source": "ur_calibration",
+    "target": "ur_robot_driver",
+    "kind": "depend"
+  },
+  {
+    "source": "ur_calibration",
+    "target": "eigen",
+    "kind": "depend"
+  },
+  {
+    "source": "ur_calibration",
+    "target": "yaml_cpp_vendor",
+    "kind": "depend"
+  },
+  {
+    "source": "ur_calibration",
+    "target": "ament_cmake_gmock",
+    "kind": "test_depend"
+  },
+  {
+    "source": "ur_calibration",
+    "target": "ament_cmake_gtest",
+    "kind": "test_depend"
+  },
+  {
+    "source": "ur_calibration",
+    "target": "ament_lint_auto",
+    "kind": "test_depend"
+  },
+  {
+    "source": "ur_calibration",
+    "target": "ament_lint_common",
+    "kind": "test_depend"
+  },
+  {
+    "source": "src/Universal_Robots_ROS2_Driver/ur_calibration/CMakeLists.txt",
+    "target": "ament_cmake",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/Universal_Robots_ROS2_Driver/ur_calibration/CMakeLists.txt",
+    "target": "rclcpp",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/Universal_Robots_ROS2_Driver/ur_calibration/CMakeLists.txt",
+    "target": "ur_robot_driver",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/Universal_Robots_ROS2_Driver/ur_calibration/CMakeLists.txt",
+    "target": "Eigen3",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/Universal_Robots_ROS2_Driver/ur_calibration/CMakeLists.txt",
+    "target": "yaml_cpp_vendor",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/Universal_Robots_ROS2_Driver/ur_calibration/CMakeLists.txt",
+    "target": "ur_client_library",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/Universal_Robots_ROS2_Driver/ur_calibration/CMakeLists.txt",
+    "target": "ament_cmake_gmock",
+    "kind": "resource/package"
+  },
+  {
+    "source": "ur_moveit_config",
+    "target": "ament_cmake",
+    "kind": "buildtool_depend"
+  },
+  {
+    "source": "ur_moveit_config",
+    "target": "ament_cmake_python",
+    "kind": "buildtool_depend"
+  },
+  {
+    "source": "ur_moveit_config",
+    "target": "launch",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "ur_moveit_config",
+    "target": "launch_ros",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "ur_moveit_config",
+    "target": "moveit_kinematics",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "ur_moveit_config",
+    "target": "moveit_planners_ompl",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "ur_moveit_config",
+    "target": "moveit_ros_move_group",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "ur_moveit_config",
+    "target": "moveit_ros_visualization",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "ur_moveit_config",
+    "target": "moveit_servo",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "ur_moveit_config",
+    "target": "moveit_simple_controller_manager",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "ur_moveit_config",
+    "target": "rviz2",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "ur_moveit_config",
+    "target": "ur_description",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "ur_moveit_config",
+    "target": "urdf",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "ur_moveit_config",
+    "target": "warehouse_ros_sqlite",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "ur_moveit_config",
+    "target": "xacro",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "src/Universal_Robots_ROS2_Driver/ur_moveit_config/CMakeLists.txt",
+    "target": "ament_cmake",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/Universal_Robots_ROS2_Driver/ur_moveit_config/CMakeLists.txt",
+    "target": "ament_cmake_python",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/Universal_Robots_ROS2_Driver/ur_moveit_config/srdf/ur.srdf.xacro",
+    "target": "ur_moveit_config",
+    "kind": "resource/package"
+  },
+  {
+    "source": "ur_robot_driver",
+    "target": "ament_cmake",
+    "kind": "buildtool_depend"
+  },
+  {
+    "source": "ur_robot_driver",
+    "target": "ament_cmake_python",
+    "kind": "buildtool_depend"
+  },
+  {
+    "source": "ur_robot_driver",
+    "target": "backward_ros",
+    "kind": "depend"
+  },
+  {
+    "source": "ur_robot_driver",
+    "target": "controller_manager",
+    "kind": "depend"
+  },
+  {
+    "source": "ur_robot_driver",
+    "target": "controller_manager_msgs",
+    "kind": "depend"
+  },
+  {
+    "source": "ur_robot_driver",
+    "target": "geometry_msgs",
+    "kind": "depend"
+  },
+  {
+    "source": "ur_robot_driver",
+    "target": "hardware_interface",
+    "kind": "depend"
+  },
+  {
+    "source": "ur_robot_driver",
+    "target": "pluginlib",
+    "kind": "depend"
+  },
+  {
+    "source": "ur_robot_driver",
+    "target": "rclcpp",
+    "kind": "depend"
+  },
+  {
+    "source": "ur_robot_driver",
+    "target": "rclcpp_lifecycle",
+    "kind": "depend"
+  },
+  {
+    "source": "ur_robot_driver",
+    "target": "rclpy",
+    "kind": "depend"
+  },
+  {
+    "source": "ur_robot_driver",
+    "target": "std_msgs",
+    "kind": "depend"
+  },
+  {
+    "source": "ur_robot_driver",
+    "target": "std_srvs",
+    "kind": "depend"
+  },
+  {
+    "source": "ur_robot_driver",
+    "target": "tf2_geometry_msgs",
+    "kind": "depend"
+  },
+  {
+    "source": "ur_robot_driver",
+    "target": "ur_client_library",
+    "kind": "depend"
+  },
+  {
+    "source": "ur_robot_driver",
+    "target": "ur_controllers",
+    "kind": "depend"
+  },
+  {
+    "source": "ur_robot_driver",
+    "target": "ur_dashboard_msgs",
+    "kind": "depend"
+  },
+  {
+    "source": "ur_robot_driver",
+    "target": "ur_description",
+    "kind": "depend"
+  },
+  {
+    "source": "ur_robot_driver",
+    "target": "ur_msgs",
+    "kind": "depend"
+  },
+  {
+    "source": "ur_robot_driver",
+    "target": "effort_controllers",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "ur_robot_driver",
+    "target": "force_torque_sensor_broadcaster",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "ur_robot_driver",
+    "target": "joint_state_broadcaster",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "ur_robot_driver",
+    "target": "joint_state_publisher",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "ur_robot_driver",
+    "target": "joint_trajectory_controller",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "ur_robot_driver",
+    "target": "launch",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "ur_robot_driver",
+    "target": "launch_ros",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "ur_robot_driver",
+    "target": "pose_broadcaster",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "ur_robot_driver",
+    "target": "position_controllers",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "ur_robot_driver",
+    "target": "robot_state_publisher",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "ur_robot_driver",
+    "target": "ros2_controllers_test_nodes",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "ur_robot_driver",
+    "target": "rviz2",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "ur_robot_driver",
+    "target": "socat",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "ur_robot_driver",
+    "target": "urdf",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "ur_robot_driver",
+    "target": "velocity_controllers",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "ur_robot_driver",
+    "target": "xacro",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "ur_robot_driver",
+    "target": "launch_testing_ament_cmake",
+    "kind": "test_depend"
+  },
+  {
+    "source": "ur_robot_driver",
+    "target": "ros2run",
+    "kind": "test_depend"
+  },
+  {
+    "source": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/CMakeLists.txt",
+    "target": "ament_cmake",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/CMakeLists.txt",
+    "target": "backward_ros",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/CMakeLists.txt",
+    "target": "controller_manager",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/CMakeLists.txt",
+    "target": "controller_manager_msgs",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/CMakeLists.txt",
+    "target": "geometry_msgs",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/CMakeLists.txt",
+    "target": "hardware_interface",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/CMakeLists.txt",
+    "target": "pluginlib",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/CMakeLists.txt",
+    "target": "rclcpp",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/CMakeLists.txt",
+    "target": "rclcpp_lifecycle",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/CMakeLists.txt",
+    "target": "rclpy",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/CMakeLists.txt",
+    "target": "std_msgs",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/CMakeLists.txt",
+    "target": "std_srvs",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/CMakeLists.txt",
+    "target": "tf2_geometry_msgs",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/CMakeLists.txt",
+    "target": "ur_client_library",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/CMakeLists.txt",
+    "target": "ur_dashboard_msgs",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/CMakeLists.txt",
+    "target": "ur_msgs",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/CMakeLists.txt",
+    "target": "ur_controllers",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/CMakeLists.txt",
+    "target": "ur_description",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/CMakeLists.txt",
+    "target": "ur_msgs",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/Universal_Robots_ROS2_Driver/ur_robot_driver/CMakeLists.txt",
+    "target": "launch_testing_ament_cmake",
+    "kind": "resource/package"
+  },
+  {
+    "source": "ur",
+    "target": "ament_cmake",
+    "kind": "buildtool_depend"
+  },
+  {
+    "source": "ur",
+    "target": "ur_calibration",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "ur",
+    "target": "ur_controllers",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "ur",
+    "target": "ur_dashboard_msgs",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "ur",
+    "target": "ur_moveit_config",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "ur",
+    "target": "ur_robot_driver",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "ur",
+    "target": "ament_lint_auto",
+    "kind": "test_depend"
+  },
+  {
+    "source": "ur",
+    "target": "ament_lint_common",
+    "kind": "test_depend"
+  },
+  {
+    "source": "src/Universal_Robots_ROS2_Driver/ur/CMakeLists.txt",
+    "target": "ament_cmake",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/Universal_Robots_ROS2_Driver/ur/CMakeLists.txt",
+    "target": "ament_lint_auto",
+    "kind": "resource/package"
+  },
+  {
+    "source": "ur_controllers",
+    "target": "ament_cmake",
+    "kind": "buildtool_depend"
+  },
+  {
+    "source": "ur_controllers",
+    "target": "angles",
+    "kind": "depend"
+  },
+  {
+    "source": "ur_controllers",
+    "target": "controller_interface",
+    "kind": "depend"
+  },
+  {
+    "source": "ur_controllers",
+    "target": "generate_parameter_library",
+    "kind": "depend"
+  },
+  {
+    "source": "ur_controllers",
+    "target": "geometry_msgs",
+    "kind": "depend"
+  },
+  {
+    "source": "ur_controllers",
+    "target": "hardware_interface",
+    "kind": "depend"
+  },
+  {
+    "source": "ur_controllers",
+    "target": "joint_trajectory_controller",
+    "kind": "depend"
+  },
+  {
+    "source": "ur_controllers",
+    "target": "lifecycle_msgs",
+    "kind": "depend"
+  },
+  {
+    "source": "ur_controllers",
+    "target": "pluginlib",
+    "kind": "depend"
+  },
+  {
+    "source": "ur_controllers",
+    "target": "rclcpp_lifecycle",
+    "kind": "depend"
+  },
+  {
+    "source": "ur_controllers",
+    "target": "rcutils",
+    "kind": "depend"
+  },
+  {
+    "source": "ur_controllers",
+    "target": "realtime_tools",
+    "kind": "depend"
+  },
+  {
+    "source": "ur_controllers",
+    "target": "std_msgs",
+    "kind": "depend"
+  },
+  {
+    "source": "ur_controllers",
+    "target": "std_srvs",
+    "kind": "depend"
+  },
+  {
+    "source": "ur_controllers",
+    "target": "tf2_geometry_msgs",
+    "kind": "depend"
+  },
+  {
+    "source": "ur_controllers",
+    "target": "tf2_ros",
+    "kind": "depend"
+  },
+  {
+    "source": "ur_controllers",
+    "target": "ur_dashboard_msgs",
+    "kind": "depend"
+  },
+  {
+    "source": "ur_controllers",
+    "target": "ur_msgs",
+    "kind": "depend"
+  },
+  {
+    "source": "ur_controllers",
+    "target": "control_msgs",
+    "kind": "depend"
+  },
+  {
+    "source": "ur_controllers",
+    "target": "trajectory_msgs",
+    "kind": "depend"
+  },
+  {
+    "source": "ur_controllers",
+    "target": "action_msgs",
+    "kind": "depend"
+  },
+  {
+    "source": "ur_controllers",
+    "target": "controller_manager",
+    "kind": "test_depend"
+  },
+  {
+    "source": "ur_controllers",
+    "target": "hardware_interface_testing",
+    "kind": "test_depend"
+  },
+  {
+    "source": "ur_controllers",
+    "target": "ros2_control_test_assets",
+    "kind": "test_depend"
+  },
+  {
+    "source": "src/Universal_Robots_ROS2_Driver/ur_controllers/CMakeLists.txt",
+    "target": "ament_cmake",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/Universal_Robots_ROS2_Driver/ur_controllers/CMakeLists.txt",
+    "target": "angles",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/Universal_Robots_ROS2_Driver/ur_controllers/CMakeLists.txt",
+    "target": "controller_interface",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/Universal_Robots_ROS2_Driver/ur_controllers/CMakeLists.txt",
+    "target": "geometry_msgs",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/Universal_Robots_ROS2_Driver/ur_controllers/CMakeLists.txt",
+    "target": "joint_trajectory_controller",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/Universal_Robots_ROS2_Driver/ur_controllers/CMakeLists.txt",
+    "target": "lifecycle_msgs",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/Universal_Robots_ROS2_Driver/ur_controllers/CMakeLists.txt",
+    "target": "pluginlib",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/Universal_Robots_ROS2_Driver/ur_controllers/CMakeLists.txt",
+    "target": "rclcpp_lifecycle",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/Universal_Robots_ROS2_Driver/ur_controllers/CMakeLists.txt",
+    "target": "rcutils",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/Universal_Robots_ROS2_Driver/ur_controllers/CMakeLists.txt",
+    "target": "realtime_tools",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/Universal_Robots_ROS2_Driver/ur_controllers/CMakeLists.txt",
+    "target": "std_msgs",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/Universal_Robots_ROS2_Driver/ur_controllers/CMakeLists.txt",
+    "target": "std_srvs",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/Universal_Robots_ROS2_Driver/ur_controllers/CMakeLists.txt",
+    "target": "tf2_geometry_msgs",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/Universal_Robots_ROS2_Driver/ur_controllers/CMakeLists.txt",
+    "target": "tf2_ros",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/Universal_Robots_ROS2_Driver/ur_controllers/CMakeLists.txt",
+    "target": "ur_dashboard_msgs",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/Universal_Robots_ROS2_Driver/ur_controllers/CMakeLists.txt",
+    "target": "ur_msgs",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/Universal_Robots_ROS2_Driver/ur_controllers/CMakeLists.txt",
+    "target": "generate_parameter_library",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/Universal_Robots_ROS2_Driver/ur_controllers/CMakeLists.txt",
+    "target": "trajectory_msgs",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/Universal_Robots_ROS2_Driver/ur_controllers/CMakeLists.txt",
+    "target": "control_msgs",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/Universal_Robots_ROS2_Driver/ur_controllers/CMakeLists.txt",
+    "target": "action_msgs",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/Universal_Robots_ROS2_Driver/ur_controllers/CMakeLists.txt",
+    "target": "ament_cmake_gmock",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/Universal_Robots_ROS2_Driver/ur_controllers/CMakeLists.txt",
+    "target": "controller_manager",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/Universal_Robots_ROS2_Driver/ur_controllers/CMakeLists.txt",
+    "target": "hardware_interface",
+    "kind": "resource/package"
+  },
+  {
+    "source": "src/Universal_Robots_ROS2_Driver/ur_controllers/CMakeLists.txt",
+    "target": "ros2_control_test_assets",
+    "kind": "resource/package"
+  },
+  {
+    "source": "ur_bringup",
+    "target": "ament_cmake",
+    "kind": "buildtool_depend"
+  },
+  {
+    "source": "ur_bringup",
+    "target": "ament_cmake_python",
+    "kind": "buildtool_depend"
+  },
+  {
+    "source": "ur_bringup",
+    "target": "rclpy",
+    "kind": "depend"
+  },
+  {
+    "source": "ur_bringup",
+    "target": "controller_manager",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "ur_bringup",
+    "target": "force_torque_sensor_broadcaster",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "ur_bringup",
+    "target": "joint_state_broadcaster",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "ur_bringup",
+    "target": "joint_state_publisher",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "ur_bringup",
+    "target": "joint_trajectory_controller",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "ur_bringup",
+    "target": "launch",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "ur_bringup",
+    "target": "launch_ros",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "ur_bringup",
+    "target": "position_controllers",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "ur_bringup",
+    "target": "robot_state_publisher",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "ur_bringup",
+    "target": "ros2_controllers_test_nodes",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "ur_bringup",
+    "target": "rviz2",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "ur_bringup",
+    "target": "ur_controllers",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "ur_bringup",
+    "target": "ur_description",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "ur_bringup",
+    "target": "urdf",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "ur_bringup",
+    "target": "velocity_controllers",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "ur_bringup",
+    "target": "xacro",
+    "kind": "exec_depend"
+  },
+  {
+    "source": "src/Universal_Robots_ROS2_Driver/ur_bringup/CMakeLists.txt",
+    "target": "ament_cmake",
+    "kind": "resource/package"
+  },
+  {
+    "source": "vinuni_gazebo_models",
+    "target": "ament_cmake",
+    "kind": "buildtool_depend"
+  },
+  {
+    "source": "src/models/CMakeLists.txt",
+    "target": "ament_cmake",
+    "kind": "resource/package"
+  }
+]

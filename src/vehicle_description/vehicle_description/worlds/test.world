@@ -1,0 +1,364 @@
+<?xml version="1.0" ?>
+<sdf version='1.7'>
+  <world name='default'>
+    <!-- === MẶT TRỜI VÀ ÁNH SÁNG === -->
+    <light name='sun' type='directional'>
+      <cast_shadows>1</cast_shadows>
+      <pose>0 0 10 0 -0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <direction>-0.5 0.1 -0.9</direction>
+    </light>
+    
+    <gravity>0 0 -9.8</gravity>
+    <physics type='ode'>
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>1000</real_time_update_rate>
+    </physics>
+    <scene>
+      <ambient>0.4 0.4 0.4 1</ambient>
+      <background>0.7 0.7 0.7 1</background>
+      <shadows>0</shadows>
+    </scene>
+
+    <gui fullscreen='0'>
+      <camera name='user_camera'>
+        <pose>0 -25 20 0 0.5 1.57</pose>
+        <view_controller>orbit</view_controller>
+      </camera>
+    </gui>
+
+    <!-- === MẶT ĐƯỜNG NHỰA === -->
+    <model name='custom_asphalt_plane'>
+      <static>true</static>
+      <pose>0 0 -0.05 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry><plane><normal>0 0 1</normal><size>50 50</size></plane></geometry>
+          <surface><friction><ode><mu>0.8</mu><mu2>0.6</mu2></ode></friction></surface>
+        </collision>
+        <visual name='visual'>
+          <cast_shadows>false</cast_shadows>
+          <geometry><plane><normal>0 0 1</normal><size>50 50</size></plane></geometry>
+          <material>
+            <script>
+              <uri>model://asphalt_plane/materials/scripts</uri>
+              <uri>model://asphalt_plane/materials/textures</uri>
+              <name>vrc/asphalt</name>
+            </script>
+            <ambient>0.2 0.2 0.2 1</ambient>
+            <diffuse>0.2 0.2 0.2 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- === DÃY A (HÀNG TRÊN) === -->
+    
+    <include><name>slot_a1</name><uri>model://parking_slot</uri><pose>-10 8 0 0 0 1.57</pose></include>
+    <model name='ev_charging_port_0'>
+      <static>1</static>
+      <link name='car_body'><pose>0 0 0 0 0 0</pose>
+        <visual name='car_body_visual'><geometry><mesh><uri>model://VF9/meshes/VF9.dae</uri><scale>1 1 1</scale></mesh></geometry></visual>
+        <collision name='car_body_collision'><pose>0 0 0.9 0 0 0</pose><geometry><box><size>5.0 2.0 1.8</size></box></geometry><surface><friction><ode><mu>1</mu><mu2>1</mu2></ode></friction></surface></collision>
+      </link>
+      <link name='charging_port'><pose>0 0 0 0 0 0</pose>
+        <visual name='charging_port_visual'><geometry><mesh><uri>model://VF9/meshes/ccs2.dae</uri><scale>1 1 1</scale></mesh></geometry></visual>
+        <collision name='charging_port_collision'><geometry><mesh><uri>model://VF9/meshes/ccs2.dae</uri><scale>1 1 1</scale></mesh></geometry></collision>
+      </link>
+      <pose>-9.8 7.36 0 0 0 1.57</pose>
+    </model>
+
+
+    <!-- Ô A2: Xe VF3 (Đã sửa từ electric_car sang VF3_0) -->
+    <include><name>slot_a2</name><uri>model://parking_slot</uri><pose>-5 8 0 0 0 1.57</pose></include>
+    <model name='VF3_0'>
+      <static>1</static>
+      <link name='vf3_link'>
+        <pose>0 0 0 0 0 0</pose>
+        <visual name='vf3_body_visual'>
+          <geometry><mesh><uri>model://VF3/meshes/VF3.dae</uri><scale>1 1 1</scale></mesh></geometry>
+        </visual>
+        <visual name='ccs2_port_visual'>
+          <geometry><mesh><uri>model://VF3/meshes/ccs2.dae</uri><scale>1 1 1</scale></mesh></geometry>
+          <material><script><uri>file://media/materials/scripts/gazebo.material</uri><name>Gazebo/Black</name></script></material>
+        </visual>
+        <collision name='car_body_collision'><pose>0 0 0.8 0 0 0</pose><geometry><box><size>4.3 1.76 1.6</size></box></geometry><surface><friction><ode><mu>1</mu><mu2>1</mu2></ode></friction></surface></collision>
+        <collision name='ccs2_port_collision'>
+          <geometry><mesh><uri>model://VF3/meshes/ccs2.dae</uri><scale>1 1 1</scale></mesh></geometry>
+        </collision>
+      </link>
+      <pose>-4.87 7.8 0 0 0 1.57</pose>
+    </model>
+
+    <!-- Ô A3: Xe Electric Car -->
+    <include><name>slot_a3</name><uri>model://parking_slot</uri><pose>0 8 0 0 0 1.57</pose></include>
+    <model name='ev_charging_port_1'>
+      <static>1</static>
+      <link name='car_body'><pose>0 0 0 0 0 0</pose>
+        <visual name='car_body_visual'><geometry><mesh><uri>model://VF9/meshes/VF9.dae</uri><scale>1 1 1</scale></mesh></geometry></visual>
+        <collision name='car_body_collision'><pose>0 0 0.9 0 0 0</pose><geometry><box><size>5.0 2.0 1.8</size></box></geometry><surface><friction><ode><mu>1</mu><mu2>1</mu2></ode></friction></surface></collision>
+      </link>
+      <link name='charging_port'><pose>0 0 0 0 0 0</pose>
+        <visual name='charging_port_visual'><geometry><mesh><uri>model://VF9/meshes/ccs2.dae</uri><scale>1 1 1</scale></mesh></geometry></visual>
+        <collision name='charging_port_collision'><geometry><mesh><uri>model://VF9/meshes/ccs2.dae</uri><scale>1 1 1</scale></mesh></geometry></collision>
+      </link>
+      <pose>0 7.36 0 0 0 1.57</pose>
+    </model>
+    
+    <!-- Ô A4: Xe VF9 -->
+    <include><name>slot_a4</name><uri>model://parking_slot</uri><pose>5 8 0 0 0 1.57</pose></include>
+    <model name='ev_charging_port_2'>
+      <static>1</static>
+      <link name='car_body'><pose>0 0 0 0 0 0</pose>
+        <visual name='car_body_visual'><geometry><mesh><uri>model://VF9/meshes/VF9.dae</uri><scale>1 1 1</scale></mesh></geometry></visual>
+        <collision name='car_body_collision'><pose>0 0 0.9 0 0 0</pose><geometry><box><size>5.0 2.0 1.8</size></box></geometry><surface><friction><ode><mu>1</mu><mu2>1</mu2></ode></friction></surface></collision>
+      </link>
+      <link name='charging_port'><pose>0 0 0 0 0 0</pose>
+        <visual name='charging_port_visual'><geometry><mesh><uri>model://VF9/meshes/ccs2.dae</uri><scale>1 1 1</scale></mesh></geometry></visual>
+        <collision name='charging_port_collision'><geometry><mesh><uri>model://VF9/meshes/ccs2.dae</uri><scale>1 1 1</scale></mesh></geometry></collision>
+      </link>
+      <pose>5.1 7.36 0 0 0 1.57</pose>
+    </model>
+
+    <!-- Ô A5: Xe SUV -->
+    <include><name>slot_a5</name><uri>model://parking_slot</uri><pose>10 8 0 0 0 1.57</pose></include>
+    <model name='VF3_A5'>
+      <static>1</static>
+      <link name='vf3_link'>
+        <pose>0 0 0 0 0 0</pose>
+        <visual name='vf3_body_visual'>
+          <geometry><mesh><uri>model://VF3/meshes/VF3.dae</uri><scale>1 1 1</scale></mesh></geometry>
+        </visual>
+        <visual name='ccs2_port_visual'>
+          <geometry><mesh><uri>model://VF3/meshes/ccs2.dae</uri><scale>1 1 1</scale></mesh></geometry>
+          <material><script><uri>file://media/materials/scripts/gazebo.material</uri><name>Gazebo/Black</name></script></material>
+        </visual>
+        <collision name='car_body_collision'><pose>0 0 0.8 0 0 0</pose><geometry><box><size>4.3 1.76 1.6</size></box></geometry><surface><friction><ode><mu>1</mu><mu2>1</mu2></ode></friction></surface></collision>
+        <collision name='ccs2_port_collision'>
+          <geometry><mesh><uri>model://VF3/meshes/ccs2.dae</uri><scale>1 1 1</scale></mesh></geometry>
+        </collision>
+      </link>
+      <pose>11 7.8 0 0 0 1.57</pose>
+    </model>
+
+
+    <!-- === DÃY B (HÀNG DƯỚI) === -->
+    <!-- Ô B1: Xe VF3 -->
+    <include><name>slot_b1</name><uri>model://parking_slot</uri><pose>-10 -8 0 0 0 -1.57</pose></include>
+    <model name='VF3'>
+      <static>1</static>
+      <link name='vf3_link'>
+        <pose>0 0 0 0 0 0</pose>
+        <visual name='vf3_body_visual'>
+          <geometry><mesh><uri>model://VF3/meshes/VF3.dae</uri><scale>1 1 1</scale></mesh></geometry>
+        </visual>
+        <visual name='ccs2_port_visual'>
+          <geometry><mesh><uri>model://VF3/meshes/ccs2.dae</uri><scale>1 1 1</scale></mesh></geometry>
+          <material><script><uri>file://media/materials/scripts/gazebo.material</uri><name>Gazebo/Black</name></script></material>
+        </visual>
+        <collision name='car_body_collision'><pose>0 0 0.8 0 0 0</pose><geometry><box><size>4.3 1.76 1.6</size></box></geometry><surface><friction><ode><mu>1</mu><mu2>1</mu2></ode></friction></surface></collision>
+        <collision name='ccs2_port_collision'>
+          <geometry><mesh><uri>model://VF3/meshes/ccs2.dae</uri><scale>1 1 1</scale></mesh></geometry>
+        </collision>
+      </link>
+      <pose>-9.6 -8.1 0 0 0 -1.57</pose>
+    </model>
+
+    <include><name>slot_b2</name><uri>model://parking_slot</uri><pose>-5 -8 0 0 0 -1.57</pose></include>
+    <model name='VF3_clone'>
+      <static>1</static>
+      <link name='vf3_link'>
+        <pose>0 0 0 0 0 0</pose>
+        <visual name='vf3_body_visual'>
+          <geometry><mesh><uri>model://VF3/meshes/VF3.dae</uri><scale>1 1 1</scale></mesh></geometry>
+        </visual>
+        <visual name='ccs2_port_visual'>
+          <geometry><mesh><uri>model://VF3/meshes/ccs2.dae</uri><scale>1 1 1</scale></mesh></geometry>
+          <material><script><uri>file://media/materials/scripts/gazebo.material</uri><name>Gazebo/Black</name></script></material>
+        </visual>
+        <collision name='car_body_collision'><pose>0 0 0.8 0 0 0</pose><geometry><box><size>4.3 1.76 1.6</size></box></geometry><surface><friction><ode><mu>1</mu><mu2>1</mu2></ode></friction></surface></collision>
+        <collision name='ccs2_port_collision'>
+          <geometry><mesh><uri>model://VF3/meshes/ccs2.dae</uri><scale>1 1 1</scale></mesh></geometry>
+        </collision>
+      </link>
+      <pose>-5.12 -8.24 0 0 0 -1.57</pose>
+    </model>
+
+    <!-- Ô B3: Xe Electric Car -->
+    <include><name>slot_b3</name><uri>model://parking_slot</uri><pose>0 -8 0 0 0 -1.57</pose></include>
+    <model name='VF3_b3'>
+      <static>1</static>
+      <link name='vf3_link'>
+        <pose>0 0 0 0 0 0</pose>
+        <visual name='vf3_body_visual'>
+          <geometry><mesh><uri>model://VF3/meshes/VF3.dae</uri><scale>1 1 1</scale></mesh></geometry>
+        </visual>
+        <visual name='ccs2_port_visual'>
+          <geometry><mesh><uri>model://VF3/meshes/ccs2.dae</uri><scale>1 1 1</scale></mesh></geometry>
+          <material><script><uri>file://media/materials/scripts/gazebo.material</uri><name>Gazebo/Black</name></script></material>
+        </visual>
+        <collision name='car_body_collision'><pose>0 0 0.8 0 0 0</pose><geometry><box><size>4.3 1.76 1.6</size></box></geometry><surface><friction><ode><mu>1</mu><mu2>1</mu2></ode></friction></surface></collision>
+        <collision name='ccs2_port_collision'>
+          <geometry><mesh><uri>model://VF3/meshes/ccs2.dae</uri><scale>1 1 1</scale></mesh></geometry>
+        </collision>
+      </link>
+      <pose>0 -8.24 0 0 0 -1.57</pose>
+    </model>
+
+    <!-- Ô B4: Xe VF9 -->
+    <include><name>slot_b4</name><uri>model://parking_slot</uri><pose>5 -8 0 0 0 -1.57</pose></include>
+    <model name='ev_charging_port'>
+      <static>1</static>
+      <link name='car_body'><pose>0 0 0 0 0 0</pose>
+        <visual name='car_body_visual'><geometry><mesh><uri>model://VF9/meshes/VF9.dae</uri><scale>1 1 1</scale></mesh></geometry></visual>
+        <collision name='car_body_collision'><pose>0 0 0.9 0 0 0</pose><geometry><box><size>5.0 2.0 1.8</size></box></geometry><surface><friction><ode><mu>1</mu><mu2>1</mu2></ode></friction></surface></collision>
+      </link>
+      <link name='charging_port'><pose>0 0 0 0 0 0</pose>
+        <visual name='charging_port_visual'><geometry><mesh><uri>model://VF9/meshes/ccs2.dae</uri><scale>1 1 1</scale></mesh></geometry></visual>
+        <collision name='charging_port_collision'><geometry><mesh><uri>model://VF9/meshes/ccs2.dae</uri><scale>1 1 1</scale></mesh></geometry></collision>
+      </link>
+      <pose>4.93 -8.20 0 0 0 -1.57</pose>
+    </model>
+
+    <!-- Ô B5: Xe Electric Car -->
+    <include><name>slot_b5</name><uri>model://parking_slot</uri><pose>10 -8 0 0 0 -1.57</pose></include>
+
+    <model name='VF3_b5'>
+      <static>1</static>
+      <link name='vf3_link'>
+        <pose>0 0 0 0 0 0</pose>
+        <visual name='vf3_body_visual'>
+          <geometry><mesh><uri>model://VF3/meshes/VF3.dae</uri><scale>1 1 1</scale></mesh></geometry>
+        </visual>
+        <visual name='ccs2_port_visual'>
+          <geometry><mesh><uri>model://VF3/meshes/ccs2.dae</uri><scale>1 1 1</scale></mesh></geometry>
+          <material><script><uri>file://media/materials/scripts/gazebo.material</uri><name>Gazebo/Black</name></script></material>
+        </visual>
+        <collision name='car_body_collision'><pose>0 0 0.8 0 0 0</pose><geometry><box><size>4.3 1.76 1.6</size></box></geometry><surface><friction><ode><mu>1</mu><mu2>1</mu2></ode></friction></surface></collision>
+        <collision name='ccs2_port_collision'>
+          <geometry><mesh><uri>model://VF3/meshes/ccs2.dae</uri><scale>1 1 1</scale></mesh></geometry>
+        </collision>
+      </link>
+      <pose>10 -8 0 0 0 -1.57</pose>
+    </model>
+
+
+    <!-- === CỘT BÊ TÔNG GIỮA CÁC Ô ĐỖ === -->
+    <model name='concrete_pillars'>
+      <static>true</static>
+      <link name='pillar_a1'><pose>-7.8 8 1.5 0 0 0</pose>
+        <collision name='c'><geometry><cylinder><radius>0.4</radius><length>3.0</length></cylinder></geometry></collision>
+        <visual name='v'><geometry><cylinder><radius>0.4</radius><length>3.0</length></cylinder></geometry><material><script><uri>file://media/materials/scripts/gazebo.material</uri><name>Gazebo/Grey</name></script></material></visual>
+      </link>
+      <link name='pillar_a2'><pose>-2.5 8 1.5 0 0 0</pose>
+        <collision name='c'><geometry><cylinder><radius>0.4</radius><length>3.0</length></cylinder></geometry></collision>
+        <visual name='v'><geometry><cylinder><radius>0.4</radius><length>3.0</length></cylinder></geometry><material><script><uri>file://media/materials/scripts/gazebo.material</uri><name>Gazebo/Grey</name></script></material></visual>
+      </link>
+      <link name='pillar_a3'><pose>7.8 8 1.5 0 0 0</pose>
+        <collision name='c'><geometry><cylinder><radius>0.4</radius><length>3.0</length></cylinder></geometry></collision>
+        <visual name='v'><geometry><cylinder><radius>0.4</radius><length>3.0</length></cylinder></geometry><material><script><uri>file://media/materials/scripts/gazebo.material</uri><name>Gazebo/Grey</name></script></material></visual>
+      </link>
+      <link name='pillar_b1'><pose>-7.8 -8 1.5 0 0 0</pose>
+        <collision name='c'><geometry><cylinder><radius>0.4</radius><length>3.0</length></cylinder></geometry></collision>
+        <visual name='v'><geometry><cylinder><radius>0.4</radius><length>3.0</length></cylinder></geometry><material><script><uri>file://media/materials/scripts/gazebo.material</uri><name>Gazebo/Grey</name></script></material></visual>
+      </link>
+      <link name='pillar_b2'><pose>2.5 -8 1.5 0 0 0</pose>
+        <collision name='c'><geometry><cylinder><radius>0.4</radius><length>3.0</length></cylinder></geometry></collision>
+        <visual name='v'><geometry><cylinder><radius>0.4</radius><length>3.0</length></cylinder></geometry><material><script><uri>file://media/materials/scripts/gazebo.material</uri><name>Gazebo/Grey</name></script></material></visual>
+      </link>
+      <link name='pillar_b3'><pose>7.8 -8 1.5 0 0 0</pose>
+        <collision name='c'><geometry><cylinder><radius>0.4</radius><length>3.0</length></cylinder></geometry></collision>
+        <visual name='v'><geometry><cylinder><radius>0.4</radius><length>3.0</length></cylinder></geometry><material><script><uri>file://media/materials/scripts/gazebo.material</uri><name>Gazebo/Grey</name></script></material></visual>
+      </link>
+    </model>
+
+    <!-- === CÂY XANH BAO QUANH === -->
+    <include><name>tree_t1</name><uri>model://pine_tree</uri><pose>-15 15 0 0 0 0</pose></include>
+    <include><name>tree_t2</name><uri>model://pine_tree</uri><pose>-5 15 0 0 0 0</pose></include>
+    <include><name>tree_t3</name><uri>model://pine_tree</uri><pose>5 15 0 0 0 0</pose></include>
+    <include><name>tree_t4</name><uri>model://pine_tree</uri><pose>15 15 0 0 0 0</pose></include>
+    <include><name>tree_b1</name><uri>model://pine_tree</uri><pose>-15 -15 0 0 0 0</pose></include>
+    <include><name>tree_b2</name><uri>model://pine_tree</uri><pose>-5 -15 0 0 0 0</pose></include>
+    <include><name>tree_b3</name><uri>model://pine_tree</uri><pose>5 -15 0 0 0 0</pose></include>
+    <include><name>tree_b4</name><uri>model://pine_tree</uri><pose>15 -15 0 0 0 0</pose></include>
+    <include><name>tree_l1</name><uri>model://pine_tree</uri><pose>-15 5 0 0 0 0</pose></include>
+    <include><name>tree_l2</name><uri>model://pine_tree</uri><pose>-15 -5 0 0 0 0</pose></include>
+    <include><name>tree_r1</name><uri>model://pine_tree</uri><pose>15 5 0 0 0 0</pose></include>
+    <include><name>tree_r2</name><uri>model://pine_tree</uri><pose>15 -5 0 0 0 0</pose></include>
+
+    <!-- === CỔNG VÀ GỜ GIẢM TỐC === -->
+    <model name='parking_gate'>
+      <static>true</static>
+      <link name='gate_pillar_left'>
+        <pose>-20 4 1.5 0 0 0</pose>
+        <collision name='c'><geometry><cylinder><radius>0.4</radius><length>3.0</length></cylinder></geometry></collision>
+        <visual name='v'>
+          <geometry><cylinder><radius>0.4</radius><length>3.0</length></cylinder></geometry>
+          <material><script><uri>file://media/materials/scripts/gazebo.material</uri><name>Gazebo/Bricks</name></script></material>
+        </visual>
+      </link>
+      <link name='gate_pillar_right'>
+        <pose>-20 -4 1.5 0 0 0</pose>
+        <collision name='c'><geometry><cylinder><radius>0.4</radius><length>3.0</length></cylinder></geometry></collision>
+        <visual name='v'>
+          <geometry><cylinder><radius>0.4</radius><length>3.0</length></cylinder></geometry>
+          <material><script><uri>file://media/materials/scripts/gazebo.material</uri><name>Gazebo/Bricks</name></script></material>
+        </visual>
+      </link>
+      <link name='speed_bump_entrance'>
+        <pose>-20 0 0.025 0 0 0</pose>
+        <collision name='c'><geometry><box><size>0.5 8 0.05</size></box></geometry></collision>
+        <visual name='v'>
+          <geometry><box><size>0.5 8 0.05</size></box></geometry>
+          <material><script><uri>file://media/materials/scripts/gazebo.material</uri><name>Gazebo/Yellow</name></script></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- === TƯỜNG BAO BÃI ĐỖ === -->
+    <model name='boundary_walls'>
+      <static>true</static>
+      <link name='wall_north'>
+        <pose>0 20 1.5 0 0 0</pose>
+        <collision name='c'><geometry><box><size>40 0.2 3</size></box></geometry></collision>
+        <visual name='v'>
+          <geometry><box><size>40 0.2 3</size></box></geometry>
+          <material><script><uri>file://media/materials/scripts/gazebo.material</uri><name>Gazebo/Bricks</name></script></material>
+        </visual>
+      </link>
+      <link name='wall_south'>
+        <pose>0 -20 1.5 0 0 0</pose>
+        <collision name='c'><geometry><box><size>40 0.2 3</size></box></geometry></collision>
+        <visual name='v'>
+          <geometry><box><size>40 0.2 3</size></box></geometry>
+          <material><script><uri>file://media/materials/scripts/gazebo.material</uri><name>Gazebo/Bricks</name></script></material>
+        </visual>
+      </link>
+      <link name='wall_west_upper'>
+        <pose>-20 12 1.5 0 0 1.57</pose>
+        <collision name='c'><geometry><box><size>16 0.2 3</size></box></geometry></collision>
+        <visual name='v'><geometry><box><size>16 0.2 3</size></box></geometry>
+          <material><script><uri>file://media/materials/scripts/gazebo.material</uri><name>Gazebo/Bricks</name></script></material>
+        </visual>
+      </link>
+      <link name='wall_west_lower'>
+        <pose>-20 -12 1.5 0 0 1.57</pose>
+        <collision name='c'><geometry><box><size>16 0.2 3</size></box></geometry></collision>
+        <visual name='v'><geometry><box><size>16 0.2 3</size></box></geometry>
+          <material><script><uri>file://media/materials/scripts/gazebo.material</uri><name>Gazebo/Bricks</name></script></material>
+        </visual>
+      </link>
+      <link name='wall_east'>
+        <pose>20 0 1.5 0 0 1.57</pose>
+        <collision name='c'><geometry><box><size>40 0.2 3</size></box></geometry></collision>
+        <visual name='v'>
+          <geometry><box><size>40 0.2 3</size></box></geometry>
+          <material><script><uri>file://media/materials/scripts/gazebo.material</uri><name>Gazebo/Bricks</name></script></material>
+        </visual>
+      </link>
+    </model>
+
+  </world>
+</sdf>

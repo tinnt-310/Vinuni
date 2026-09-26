@@ -1,0 +1,1 @@
+PASS: every link/joint and ros2_control interface identical after package URI normalization.
