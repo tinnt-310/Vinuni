@@ -1,6 +1,7 @@
 #include "swerve_vehicle_control/swerve_controller_plugin.hpp"
 
 #include <algorithm>
+#include <chrono>
 #include <cmath>
 #include <limits>
 
@@ -127,6 +128,8 @@ controller_interface::CallbackReturn SwerveDriveController::on_configure(
     std::bind(&SwerveDriveController::cmd_vel_callback, this, std::placeholders::_1));
   odom_pub_ = node.create_publisher<nav_msgs::msg::Odometry>(
     "/odom", rclcpp::SystemDefaultsQoS());
+  odom_timer_ = node.create_wall_timer(std::chrono::milliseconds(33),
+    std::bind(&SwerveDriveController::publish_odometry, this));
   if (publish_tf_) {
     tf_broadcaster_ = std::make_unique<tf2_ros::TransformBroadcaster>(node);
   }
@@ -158,10 +161,8 @@ controller_interface::CallbackReturn SwerveDriveController::on_activate(
   y_ = 0.0;
   theta_ = 0.0;
   first_update_ = true;
-  {
-    std::lock_guard<std::mutex> lock(cmd_mutex_);
-    last_cmd_.reset();
-  }
+  command_buffer_.writeFromNonRT(VelocityCommand{});
+  odom_ready_.store(false, std::memory_order_release);
   stop_drive_and_hold_steering();
   RCLCPP_INFO(get_node()->get_logger(), "Swerve activated with steering commands seeded from encoders");
   return controller_interface::CallbackReturn::SUCCESS;
@@ -170,6 +171,7 @@ controller_interface::CallbackReturn SwerveDriveController::on_activate(
 controller_interface::CallbackReturn SwerveDriveController::on_deactivate(
   const rclcpp_lifecycle::State & /*previous_state*/)
 {
+  odom_ready_.store(false, std::memory_order_release);
   // A zero position command would rotate the steering joints. Hold measured positions.
   for (size_t i = 0; i < 4; ++i) {
     const double actual = state_interfaces_[STEER_POS0 + i].get_value();
@@ -186,6 +188,7 @@ controller_interface::CallbackReturn SwerveDriveController::on_cleanup(
   const rclcpp_lifecycle::State & /*previous_state*/)
 {
   cmd_vel_sub_.reset();
+  odom_timer_.reset();
   odom_pub_.reset();
   tf_broadcaster_.reset();
   return controller_interface::CallbackReturn::SUCCESS;
@@ -198,15 +201,15 @@ void SwerveDriveController::cmd_vel_callback(
   const bool valid = std::isfinite(twist.linear.x) && std::isfinite(twist.linear.y) &&
     std::isfinite(twist.linear.z) && std::isfinite(twist.angular.x) &&
     std::isfinite(twist.angular.y) && std::isfinite(twist.angular.z);
-  {
-    std::lock_guard<std::mutex> lock(cmd_mutex_);
-    if (valid) {
-      last_cmd_ = msg;
-      last_cmd_time_ = get_node()->now();
-    } else {
-      last_cmd_.reset();
-    }
+  VelocityCommand command;
+  if (valid) {
+    command.vx = twist.linear.x;
+    command.vy = twist.linear.y;
+    command.omega = twist.angular.z;
+    command.received_ns = get_node()->now().nanoseconds();
+    command.valid = true;
   }
+  command_buffer_.writeFromNonRT(command);
   if (!valid) {
     RCLCPP_WARN_THROTTLE(get_node()->get_logger(), *get_node()->get_clock(), 2000,
       "Rejected nonfinite TwistStamped; drive will stop");
@@ -234,17 +237,15 @@ controller_interface::return_type SwerveDriveController::update(
 
   double vx_cmd = 0.0, vy_cmd = 0.0, omega_cmd = 0.0;
   bool cmd_timeout = false;
-  {
-    std::lock_guard<std::mutex> lock(cmd_mutex_);
-    if (last_cmd_) {
-      const double age = (time - last_cmd_time_).seconds();
-      if (std::isfinite(age) && age >= 0.0 && age <= cmd_vel_timeout_) {
-        vx_cmd = last_cmd_->twist.linear.x;
-        vy_cmd = last_cmd_->twist.linear.y;
-        omega_cmd = last_cmd_->twist.angular.z;
-      } else {
-        cmd_timeout = true;
-      }
+  const auto * command = command_buffer_.readFromRT();
+  if (command && command->valid) {
+    const double age = static_cast<double>(time.nanoseconds() - command->received_ns) * 1.0e-9;
+    if (std::isfinite(age) && age >= 0.0 && age <= cmd_vel_timeout_) {
+      vx_cmd = command->vx;
+      vy_cmd = command->vy;
+      omega_cmd = command->omega;
+    } else {
+      cmd_timeout = true;
     }
   }
   if (cmd_timeout) {
@@ -298,21 +299,53 @@ controller_interface::return_type SwerveDriveController::update(
     theta_ = std::remainder(theta_ + omega_actual * dt, kTwoPi);
   }
 
+  if (!std::isfinite(x_) || !std::isfinite(y_) || !std::isfinite(theta_)) {
+    stop_drive_and_hold_steering();
+    return controller_interface::return_type::ERROR;
+  }
+  odom_sequence_.fetch_add(1, std::memory_order_acq_rel);
+  odom_snapshot_[0].store(x_, std::memory_order_relaxed);
+  odom_snapshot_[1].store(y_, std::memory_order_relaxed);
+  odom_snapshot_[2].store(theta_, std::memory_order_relaxed);
+  odom_snapshot_[3].store(vx_actual, std::memory_order_relaxed);
+  odom_snapshot_[4].store(vy_actual, std::memory_order_relaxed);
+  odom_snapshot_[5].store(omega_actual, std::memory_order_relaxed);
+  odom_sequence_.fetch_add(1, std::memory_order_release);
+  odom_ready_.store(true, std::memory_order_release);
+  return controller_interface::return_type::OK;
+}
+
+void SwerveDriveController::publish_odometry()
+{
+  if (!odom_ready_.load(std::memory_order_acquire)) return;
+  std::array<double, 6> state{};
+  bool consistent = false;
+  for (int attempt = 0; attempt < 3; ++attempt) {
+    const auto before = odom_sequence_.load(std::memory_order_acquire);
+    if (before & 1U) continue;
+    for (size_t i = 0; i < state.size(); ++i) {
+      state[i] = odom_snapshot_[i].load(std::memory_order_relaxed);
+    }
+    const auto after = odom_sequence_.load(std::memory_order_acquire);
+    if (before == after) {consistent = true; break;}
+  }
+  if (!consistent) return;
+  const auto time = get_node()->now();
   tf2::Quaternion q;
-  q.setRPY(0.0, 0.0, theta_);
+  q.setRPY(0.0, 0.0, state[2]);
   nav_msgs::msg::Odometry odom;
   odom.header.stamp = time;
   odom.header.frame_id = "odom";
   odom.child_frame_id = "base_footprint";
-  odom.pose.pose.position.x = x_;
-  odom.pose.pose.position.y = y_;
+  odom.pose.pose.position.x = state[0];
+  odom.pose.pose.position.y = state[1];
   odom.pose.pose.orientation.x = q.x();
   odom.pose.pose.orientation.y = q.y();
   odom.pose.pose.orientation.z = q.z();
   odom.pose.pose.orientation.w = q.w();
-  odom.twist.twist.linear.x = vx_actual;
-  odom.twist.twist.linear.y = vy_actual;
-  odom.twist.twist.angular.z = omega_actual;
+  odom.twist.twist.linear.x = state[3];
+  odom.twist.twist.linear.y = state[4];
+  odom.twist.twist.angular.z = state[5];
   odom.pose.covariance[0] = odom_cov_x_;
   odom.pose.covariance[7] = odom_cov_y_;
   odom.pose.covariance[14] = kUnobservedVariance;
@@ -331,12 +364,11 @@ controller_interface::return_type SwerveDriveController::update(
     geometry_msgs::msg::TransformStamped t;
     t.header = odom.header;
     t.child_frame_id = odom.child_frame_id;
-    t.transform.translation.x = x_;
-    t.transform.translation.y = y_;
+    t.transform.translation.x = state[0];
+    t.transform.translation.y = state[1];
     t.transform.rotation = odom.pose.pose.orientation;
     tf_broadcaster_->sendTransform(t);
   }
-  return controller_interface::return_type::OK;
 }
 
 void SwerveDriveController::compute_inverse_kinematics(

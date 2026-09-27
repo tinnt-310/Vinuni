@@ -5,9 +5,11 @@
 #include <string>
 #include <vector>
 #include <array>
-#include <mutex>
+#include <atomic>
+#include <cstdint>
 
 #include <controller_interface/controller_interface.hpp>
+#include <realtime_tools/realtime_buffer.hpp>
 #include <rclcpp/rclcpp.hpp>
 #include <rclcpp_lifecycle/state.hpp>
 #include <geometry_msgs/msg/twist_stamped.hpp>
@@ -108,14 +110,23 @@ private:
   // === Steering state ===
   std::array<double, 4> prev_steering_angles_{};
 
-  // === Latest cmd_vel (written by sub callback, read by update) ===
-  std::mutex cmd_mutex_;
-  geometry_msgs::msg::TwistStamped::SharedPtr last_cmd_;
-  rclcpp::Time last_cmd_time_;
+  // Callback writes; update reads without blocking or allocating.
+  struct VelocityCommand {
+    double vx{0.0}, vy{0.0}, omega{0.0};
+    int64_t received_ns{0};
+    bool valid{false};
+  };
+  realtime_tools::RealtimeBuffer<VelocityCommand> command_buffer_;
+
+  // Fixed-size seqlock snapshot for the non-RT 30 Hz odometry timer.
+  std::array<std::atomic<double>, 6> odom_snapshot_{};
+  std::atomic<uint64_t> odom_sequence_{0};
+  std::atomic<bool> odom_ready_{false};
 
   // === ROS 2 communication ===
   rclcpp::Subscription<geometry_msgs::msg::TwistStamped>::SharedPtr cmd_vel_sub_;
   rclcpp::Publisher<nav_msgs::msg::Odometry>::SharedPtr odom_pub_;
+  rclcpp::TimerBase::SharedPtr odom_timer_;
   std::unique_ptr<tf2_ros::TransformBroadcaster> tf_broadcaster_;
 
   // === Helper methods ===
@@ -137,6 +148,7 @@ private:
     double & vx_out, double & vy_out, double & omega_out);
 
   void stop_drive_and_hold_steering();
+  void publish_odometry();
 };
 
 }  // namespace swerve_vehicle_control
