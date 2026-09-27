@@ -3,6 +3,7 @@
 <name>swerve_vehicle_control</name><version>0.1.0</version><description>Modular swerve_vehicle_control for Vinuni vehicle.</description><maintainer email="tin@example.com">Tin</maintainer><license>See retained upstream source notices</license>
 <buildtool_depend>ament_cmake</buildtool_depend>
 <depend>rclcpp</depend>
+<exec_depend>rclpy</exec_depend>
 <depend>geometry_msgs</depend>
 <depend>sensor_msgs</depend>
 <depend>std_msgs</depend>

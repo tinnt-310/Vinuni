@@ -25,20 +25,20 @@ controller_interface::CallbackReturn SwerveDriveController::on_init()
 {
   try {
     auto & node = *get_node();
-    node.declare_parameter("wheel_separation_x", 0.80);
-    node.declare_parameter("wheel_separation_y", 0.70);
-    node.declare_parameter("wheel_radius", 0.210);
-    node.declare_parameter("singularity_threshold", 0.0001);
-    node.declare_parameter("max_steering_speed", 3.0);
-    node.declare_parameter("max_wheel_rate", 10.0);
-    node.declare_parameter("cmd_vel_timeout", 0.5);
-    node.declare_parameter("publish_tf", true);
-    node.declare_parameter("odom_covariance.x", 0.03);
-    node.declare_parameter("odom_covariance.y", 0.03);
-    node.declare_parameter("odom_covariance.yaw", 0.02);
-    node.declare_parameter("twist_covariance.x", 0.05);
-    node.declare_parameter("twist_covariance.y", 0.05);
-    node.declare_parameter("twist_covariance.yaw", 0.04);
+    if (!node.has_parameter("wheel_separation_x")) node.declare_parameter("wheel_separation_x", 0.80);
+    if (!node.has_parameter("wheel_separation_y")) node.declare_parameter("wheel_separation_y", 0.70);
+    if (!node.has_parameter("wheel_radius")) node.declare_parameter("wheel_radius", 0.210);
+    if (!node.has_parameter("singularity_threshold")) node.declare_parameter("singularity_threshold", 0.0001);
+    if (!node.has_parameter("max_steering_speed")) node.declare_parameter("max_steering_speed", 3.0);
+    if (!node.has_parameter("max_wheel_rate")) node.declare_parameter("max_wheel_rate", 10.0);
+    if (!node.has_parameter("cmd_vel_timeout")) node.declare_parameter("cmd_vel_timeout", 0.5);
+    if (!node.has_parameter("publish_tf")) node.declare_parameter("publish_tf", true);
+    if (!node.has_parameter("odom_covariance.x")) node.declare_parameter("odom_covariance.x", 0.03);
+    if (!node.has_parameter("odom_covariance.y")) node.declare_parameter("odom_covariance.y", 0.03);
+    if (!node.has_parameter("odom_covariance.yaw")) node.declare_parameter("odom_covariance.yaw", 0.02);
+    if (!node.has_parameter("twist_covariance.x")) node.declare_parameter("twist_covariance.x", 0.05);
+    if (!node.has_parameter("twist_covariance.y")) node.declare_parameter("twist_covariance.y", 0.05);
+    if (!node.has_parameter("twist_covariance.yaw")) node.declare_parameter("twist_covariance.yaw", 0.04);
   } catch (const std::exception & e) {
     fprintf(stderr, "SwerveDriveController on_init exception: %s\n", e.what());
     return controller_interface::CallbackReturn::ERROR;

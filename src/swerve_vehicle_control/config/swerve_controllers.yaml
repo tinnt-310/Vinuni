@@ -1,0 +1,28 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 100
+    use_sim_time: true
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+    swerve_controller:
+      type: swerve_vehicle_control/SwerveDriveController
+
+swerve_controller:
+  ros__parameters:
+    use_sim_time: true
+    wheel_separation_x: 0.80
+    wheel_separation_y: 0.70
+    wheel_radius: 0.210
+    singularity_threshold: 0.0001
+    max_steering_speed: 3.0
+    max_wheel_rate: 10.0
+    cmd_vel_timeout: 0.5
+    publish_tf: true
+    odom_covariance:
+      x: 0.03
+      y: 0.03
+      yaw: 0.02
+    twist_covariance:
+      x: 0.05
+      y: 0.05
+      yaw: 0.04

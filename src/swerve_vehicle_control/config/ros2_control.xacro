@@ -1,5 +1,7 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+<!-- Legacy location: these interfaces belong to vehicle_description.
+     Keep here while vehicle_bringup includes this macro. -->
 <xacro:macro name="vehicle_control_interfaces" params="">
 <joint name="Revolute1_to_base_link">
             <command_interface name="position">
