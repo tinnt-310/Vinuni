@@ -1,23 +1,22 @@
-#ifndef MY_UR_CONTROL_CPP__SWERVE_CONTROLLER_PLUGIN_HPP_
-#define MY_UR_CONTROL_CPP__SWERVE_CONTROLLER_PLUGIN_HPP_
+#ifndef SWERVE_VEHICLE_CONTROL__SWERVE_CONTROLLER_PLUGIN_HPP_
+#define SWERVE_VEHICLE_CONTROL__SWERVE_CONTROLLER_PLUGIN_HPP_
 
 #include <memory>
 #include <string>
 #include <vector>
 #include <array>
-#include <atomic>
 #include <mutex>
 
 #include <controller_interface/controller_interface.hpp>
 #include <rclcpp/rclcpp.hpp>
 #include <rclcpp_lifecycle/state.hpp>
-#include <geometry_msgs/msg/twist.hpp>
+#include <geometry_msgs/msg/twist_stamped.hpp>
 #include <geometry_msgs/msg/transform_stamped.hpp>
 #include <nav_msgs/msg/odometry.hpp>
 #include <tf2_ros/transform_broadcaster.h>
 #include <tf2/LinearMath/Quaternion.h>
 
-namespace my_ur_control_cpp
+namespace swerve_vehicle_control
 {
 
 // ============================================================
@@ -28,8 +27,7 @@ namespace my_ur_control_cpp
 //   1. Direct memory access to hardware interfaces (no pub/sub latency)
 //   2. 100Hz fixed-rate update (via controller_manager)
 //   3. Moore-Penrose pseudoinverse forward kinematics (all 4 wheels)
-//   4. Optional PID steering servo at hardware rate
-//   5. publish_tf parameter for EKF compatibility
+//   4. publish_tf parameter for EKF compatibility
 // ============================================================
 
 // Command interface indices
@@ -93,11 +91,11 @@ private:
   double wheel_radius_;         // Wheel radius (m)
   double singularity_threshold_;
   double max_steering_speed_;
+  double max_wheel_rate_;
   double cmd_vel_timeout_;
   bool publish_tf_;
-  bool enable_pid_;
-  double steering_pid_kp_, steering_pid_ki_, steering_pid_kd_;
   double odom_cov_x_, odom_cov_y_, odom_cov_yaw_;
+  double twist_cov_x_, twist_cov_y_, twist_cov_yaw_;
 
   // === Robot geometry ===
   // Wheel positions relative to robot center: {x, y}
@@ -105,7 +103,6 @@ private:
 
   // === Odometry state ===
   double x_{0.0}, y_{0.0}, theta_{0.0};
-  rclcpp::Time last_publish_time_;
   bool first_update_{true};
 
   // === Steering state ===
@@ -113,26 +110,22 @@ private:
 
   // === Latest cmd_vel (written by sub callback, read by update) ===
   std::mutex cmd_mutex_;
-  geometry_msgs::msg::Twist::SharedPtr last_cmd_;
+  geometry_msgs::msg::TwistStamped::SharedPtr last_cmd_;
   rclcpp::Time last_cmd_time_;
-  std::atomic<bool> new_cmd_received_{false};
-
-  // === PID state ===
-  std::array<double, 4> pid_integral_{};
-  std::array<double, 4> pid_prev_error_{};
 
   // === ROS 2 communication ===
-  rclcpp::Subscription<geometry_msgs::msg::Twist>::SharedPtr cmd_vel_sub_;
+  rclcpp::Subscription<geometry_msgs::msg::TwistStamped>::SharedPtr cmd_vel_sub_;
   rclcpp::Publisher<nav_msgs::msg::Odometry>::SharedPtr odom_pub_;
   std::unique_ptr<tf2_ros::TransformBroadcaster> tf_broadcaster_;
 
   // === Helper methods ===
-  void cmd_vel_callback(const geometry_msgs::msg::Twist::SharedPtr msg);
+  void cmd_vel_callback(const geometry_msgs::msg::TwistStamped::SharedPtr msg);
 
   /// Compute inverse kinematics: cmd_vel → steering angles + drive velocities
   void compute_inverse_kinematics(
     double vx, double vy, double omega,
     double dt,
+    const std::array<double, 4> & actual_steering,
     std::array<double, 4> & steer_angles,
     std::array<double, 4> & drive_speeds);
 
@@ -143,13 +136,9 @@ private:
     const std::array<double, 4> & drive_velocities,
     double & vx_out, double & vy_out, double & omega_out);
 
-  /// PID compute for a single steering servo
-  double pid_compute(int idx, double setpoint, double actual, double dt);
-
-  /// Unwrap angle to shortest path
-  static double unwrap_angle(double target, double prev);
+  void stop_drive_and_hold_steering();
 };
 
-}  // namespace my_ur_control_cpp
+}  // namespace swerve_vehicle_control
 
-#endif  // MY_UR_CONTROL_CPP__SWERVE_CONTROLLER_PLUGIN_HPP_
+#endif  // SWERVE_VEHICLE_CONTROL__SWERVE_CONTROLLER_PLUGIN_HPP_
