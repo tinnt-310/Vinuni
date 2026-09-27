@@ -2,10 +2,12 @@
 """Convert the legacy Nav2 Twist topic to the swerve controller's TwistStamped input."""
 
 import math
+import signal
 
 import rclpy
 from geometry_msgs.msg import Twist, TwistStamped
 from rclpy.node import Node
+from rclpy.executors import ExternalShutdownException
 
 
 class CmdVelNormalizer(Node):
@@ -36,9 +38,15 @@ def main(args=None):
     node = CmdVelNormalizer()
     try:
         rclpy.spin(node)
+    except (KeyboardInterrupt, ExternalShutdownException):
+        pass
     finally:
+        # A launch timeout may deliver SIGINT to both launch and this child.
+        # Ignore the second one while releasing ROS resources.
+        signal.signal(signal.SIGINT, signal.SIG_IGN)
         node.destroy_node()
-        rclpy.shutdown()
+        if rclpy.ok():
+            rclpy.shutdown()
 
 
 if __name__ == '__main__':
