@@ -1,0 +1,48 @@
+# Confirmed PLC interface only. Do not add or change devices without matching
+# changes in the reviewed PLC program and commissioning documentation.
+speed_control:
+  # M58 remains ON while direct speed commands are active. It is not a pulse.
+  enable_device: M58
+  # Pulse once at bridge startup to reset the drive controller.
+  startup_reset_device: M222
+  # Turn ON before a non-stop speed target; turn OFF on stop.
+  output_enable_device: Y8
+  # Numeric raw range only: 660 is the lowest physical speed/stop (0.8 V);
+  # 0 is the highest physical speed (3.8 V). These are not speed min/max.
+  stop_value: 660
+  minimum_value: 0
+  maximum_value: 660
+
+wheels:
+  1:
+    name: right_top
+    trigger: M100
+    servo: M110
+    reset: M120
+    direction: M60
+    angle: D1000
+    speed: D1020
+  2:
+    name: right_bottom
+    trigger: M101
+    servo: M111
+    reset: M121
+    direction: M65
+    angle: D1001
+    speed: D1021
+  3:
+    name: left_top
+    trigger: M102
+    servo: M112
+    reset: M122
+    direction: M62
+    angle: D1002
+    speed: D1022
+  4:
+    name: left_bottom
+    trigger: M103
+    servo: M113
+    reset: M123
+    direction: M63
+    angle: D1003
+    speed: D1023

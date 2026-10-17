@@ -1,0 +1,39 @@
+# Commissioning endpoint supplied for this installation. Keep it synchronized
+# with the SLMP Ethernet settings in GX Works3.
+plc:
+  ip: 192.168.3.250
+  port: 1025
+  plc_type: Q
+  socket_timeout_s: 2.0
+
+timing:
+  # Software assumption only; confirm the valid minimum with the PLC program.
+  trigger_pulse_s: 0.05
+
+register_mapping_file: legacy_registers_mapping.yaml
+
+logging:
+  level: INFO
+  file: ../logs/fx5u-controller.log
+  max_bytes: 10485760
+  backup_count: 10
+  console: true
+
+feedback:
+  enabled: false
+  poll_interval_s: 0.1
+  devices:
+    # Each enabled item must contain four explicit devices in wheel order.
+    # No feedback devices have been confirmed, so all remain null.
+    servo_ready: null
+    actual_angle: null
+    actual_speed: null
+    alarm_code: null
+
+heartbeat:
+  # Do not enable until a reviewed PLC watchdog rung uses the same M device and
+  # safely stops the robot after plc_watchdog_timeout_s without transitions.
+  enabled: false
+  device: null
+  interval_s: 0.2
+  plc_watchdog_timeout_s: 0.5

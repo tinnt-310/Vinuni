@@ -71,12 +71,14 @@ class OpenLoopSwerveKinematics:
     def __init__(
         self, wheelbase_m: float, track_width_m: float,
         wheel_radius_m: float, max_wheel_rate_rad_s: float,
+        *, allow_reverse: bool = True,
     ) -> None:
         values = (wheelbase_m, track_width_m, wheel_radius_m, max_wheel_rate_rad_s)
         if not all(math.isfinite(v) and v > 0 for v in values):
             raise ValueError("geometry and max wheel rate must be finite and positive")
         self.wheel_radius_m = wheel_radius_m
         self.max_wheel_rate_rad_s = max_wheel_rate_rad_s
+        self.allow_reverse = allow_reverse
         hx, hy = wheelbase_m / 2.0, track_width_m / 2.0
         self._positions = ((hx, hy), (hx, -hy), (-hx, hy), (-hx, -hy))
 
@@ -99,7 +101,7 @@ class OpenLoopSwerveKinematics:
                 continue
             target = math.atan2(vy, vx)
             delta = math.remainder(target - previous, 2.0 * math.pi)
-            if abs(delta) > math.pi / 2.0:
+            if self.allow_reverse and abs(delta) > math.pi / 2.0:
                 target = math.remainder(target + math.pi, 2.0 * math.pi)
                 speed = -speed
             else:

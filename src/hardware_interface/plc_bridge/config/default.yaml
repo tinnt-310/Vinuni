@@ -1,39 +1,38 @@
-# Commissioning endpoint supplied for this installation. Keep it synchronized
-# with the SLMP Ethernet settings in GX Works3.
+# Fixed FX5U Ladder profile supplied 2026-10-17.
 plc:
   ip: 192.168.3.250
   port: 1025
   plc_type: Q
-  socket_timeout_s: 2.0
-
-timing:
-  # Software assumption only; confirm the valid minimum with the PLC program.
-  trigger_pulse_s: 0.05
-
+  socket_timeout_s: 0.2
 register_mapping_file: registers_mapping.yaml
-
-logging:
-  level: INFO
-  file: ../logs/fx5u-controller.log
-  max_bytes: 10485760
-  backup_count: 10
-  console: true
-
+timing:
+  write_rate_hz: 20.0
+  trigger_on_s: 0.010
+  trigger_off_s: 0.010
+  # Trial widths. Enter the measured worst-case PLC scan time when known.
+  plc_max_scan_s: null
+  scan_margin: 1.5
+  command_timeout_s: 0.75
+startup:
+  servo_ready_wait_s: 0.3
+  angle_timeout_s: 5.0
+  initial_angle_deg: [90.0, 90.0, 90.0, 90.0]
+steering:
+  # Provisional previous encoding: verify on PLC before commissioning.
+  units_per_degree: 1.0
+  raw_zero: 0
+  tolerance_deg: 5.0
+  stop_error_deg: 45.0
+bldc:
+  # external: never write Y8. slmp: write Y8 if existing Ladder permits it.
+  enable_mode: external
 feedback:
-  enabled: false
   poll_interval_s: 0.1
-  devices:
-    # Each enabled item must contain four explicit devices in wheel order.
-    # No feedback devices have been confirmed, so all remain null.
-    servo_ready: null
-    actual_angle: null
-    actual_speed: null
-    alarm_code: null
-
-heartbeat:
-  # Do not enable until a reviewed PLC watchdog rung uses the same M device and
-  # safely stops the robot after plc_watchdog_timeout_s without transitions.
-  enabled: false
-  device: null
-  interval_s: 0.2
-  plc_watchdog_timeout_s: 0.5
+  max_age_s: 0.3
+hall:
+  # unknown: raw words only. cumulative_u16 requires verified counters.
+  mode: unknown
+  wheel_diameter_m: 0.428
+  pulses_per_revolution: 25
+  window_s: 0.3
+  max_speed_m_s: 3.0

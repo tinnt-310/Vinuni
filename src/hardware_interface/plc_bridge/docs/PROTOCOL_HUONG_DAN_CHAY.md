@@ -1,3 +1,6 @@
+> **GIAO THỨC CŨ:** Bảng địa chỉ và lệnh dưới đây thuộc Ladder trước đây.
+> Với cấu hình Swerve 20 Hz mới, dùng [README hiện tại](../README.md).
+
 # Protocol vận hành bộ điều khiển FX5U bốn bánh
 
 ## 1. Phạm vi

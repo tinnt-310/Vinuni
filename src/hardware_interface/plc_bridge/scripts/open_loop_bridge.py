@@ -1,14 +1,15 @@
 #!/usr/bin/env python3
-"""ROS 2 keyboard/joystick to FX5U open-loop commissioning bridge."""
+"""ROS 2 Twist/joystick to fixed-Ladder FX5U swerve control at a target 20 Hz."""
 
 from __future__ import annotations
 
 import argparse
 import json
+import logging
 import math
 import sys
 import time
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from pathlib import Path
 from typing import Any, Mapping, Sequence, Tuple
 
@@ -19,7 +20,7 @@ for import_root in (PROJECT_ROOT, PROJECT_ROOT / "src"):
     if str(import_root) not in sys.path:
         sys.path.insert(0, str(import_root))
 
-from scripts.common import DEFAULT_CONFIG, build_runtime, safe_shutdown  # noqa: E402
+from fx5u_controller.cyclic import CyclicWorker, load_cyclic_config  # noqa: E402
 from fx5u_controller.open_loop import (  # noqa: E402
     ManualCommandSelector,
     OpenLoopSwerveKinematics,
@@ -45,6 +46,7 @@ except ImportError as exc:  # pragma: no cover - depends on the sourced ROS envi
 
 
 DEFAULT_BRIDGE_CONFIG = PROJECT_ROOT / "config" / "open_loop_bridge.yaml"
+DEFAULT_CONFIG = PROJECT_ROOT / "config" / "default.yaml"
 
 
 @dataclass(frozen=True)
@@ -217,16 +219,16 @@ class Fx5uOpenLoopBridge(Node):
         self.last_source: str | None = None
         self.status_pub = self.create_publisher(String, settings.status_topic, 10)
         self.keyboard_sub = self.create_subscription(
-            Twist, settings.keyboard_topic, self.on_keyboard, 10
+            Twist, settings.keyboard_topic, self.on_keyboard, 1
         )
-        self.joy_sub = self.create_subscription(Joy, settings.joy_topic, self.on_joy, 10)
+        self.joy_sub = self.create_subscription(Joy, settings.joy_topic, self.on_joy, 1)
         self.reset_sub = self.create_subscription(
             String, "/plc_bridge/reset_drive", self.on_reset_drive, 1
         )
         self.timer = self.create_timer(1.0 / settings.write_rate_hz, self.on_timer)
         self.publish_status("ready", source=None)
         self.get_logger().warning(
-            "OPEN LOOP: no steering/speed feedback; "
+            "Swerve command bridge: "
             f"keyboard={settings.keyboard_topic} joy={settings.joy_topic} "
             f"deadman_button={settings.deadman_button}"
         )
@@ -475,6 +477,83 @@ class Fx5uOpenLoopBridge(Node):
         self.status_pub.publish(message)
 
 
+class Fx5uCyclicBridge(Fx5uOpenLoopBridge):
+    """ROS computes targets; the worker alone performs all PLC transactions."""
+
+    def __init__(self, worker: CyclicWorker, settings: BridgeSettings):
+        if any(settings.drive_direction_inverted):
+            raise ValueError("fixed Ladder has no direction devices; use steering offsets")
+        if settings.write_rate_hz != worker.config.rate_hz:
+            raise ValueError("bridge and SLMP write_rate_hz must agree")
+        super().__init__(worker, settings, 660)
+        self.kinematics.allow_reverse = False
+        self.last_angle_float = worker.config.initial_angles
+        self.last_angles = tuple(round(v) % 360 for v in self.last_angle_float)
+
+    def on_timer(self):
+        status = self.controller.status
+        if status.get("error"):
+            if not self.faulted:
+                self.enter_fault(RuntimeError(status["error"]))
+            return
+        super().on_timer()
+        if not self.faulted and self.drive_stopped:
+            self.publish_status("stopped", source=None)
+
+    def on_reset_drive(self, message):
+        if message.data != "reset" or self.faulted:
+            return
+        # No drive-reset address exists in the new supplied Ladder map.
+        self.controller.stop_drive()
+        self.drive_stopped = True
+        self.last_raw = (660,) * 4
+        self.smoothed_velocity = VelocityCommand(0.0, 0.0, 0.0)
+        self.last_slew_s = time.monotonic()
+        self.selector = ManualCommandSelector(self.settings.command_timeout_s)
+        self.publish_status("stopped", source=None, reason="manual_reset_no_reset_device")
+
+    def send_motion(self, source, command, now_s):
+        wheels = self.kinematics.calculate(command, self.previous_steering)
+        logical_angles = tuple(
+            steering_to_plc_degree(angle, sign, offset)
+            for angle, sign, offset in zip(wheels.steering_rad, self.settings.steering_sign,
+                                           self.settings.steering_zero_offset_deg))
+        targets = logical_to_plc(logical_angles, self.settings.logical_to_plc_ids)
+        dt = (1 / self.settings.write_rate_hz if self.last_steering_s is None
+              else max(0.0, min(now_s - self.last_steering_s, 0.25)))
+        angles = tuple(slew_heading_deg(previous, target,
+                                        self.settings.steering_rate_limit_deg_s * dt)
+                       for previous, target in zip(self.last_angle_float, targets))
+        desired_raw = logical_to_plc(tuple(
+            speed_to_raw(rate * self.settings.wheel_radius_m,
+                         self.settings.raw_at_one_m_s, 660)
+            for rate in wheels.wheel_rate_rad_s), self.settings.logical_to_plc_ids)
+        previous_raw = (660,) * 4 if self.drive_stopped else self.last_raw
+        largest = max(abs(t - p) for t, p in zip(desired_raw, previous_raw))
+        scale = min(1.0, self.settings.max_raw_step_per_tick / largest) if largest else 1.0
+        raw = tuple(round(p + (t - p) * scale) for p, t in zip(previous_raw, desired_raw))
+        self.controller.submit(angles, raw, alignment_angles=targets)
+        self.last_angle_float, self.last_steering_s = angles, now_s
+        self.last_angles = tuple(round(a) % 360 for a in angles)
+        self.previous_steering = tuple(
+            math.radians(math.remainder((angles[plc_id - 1] - offset) * sign, 360))
+            for plc_id, offset, sign in zip(self.settings.logical_to_plc_ids,
+                                            self.settings.steering_zero_offset_deg,
+                                            self.settings.steering_sign))
+        self.last_raw = raw
+        self.drive_stopped = False
+        self.last_source = source
+        self.publish_status("commanded", source=source, angle_deg=angles, raw=raw)
+
+    def publish_status(self, state, source, **values):
+        message = String()
+        message.data = json.dumps(dict(state=state, source=source,
+                                       velocity_calibration="provisional",
+                                       plc=self.controller.status, **values),
+                                  separators=(",", ":"))
+        self.status_pub.publish(message)
+
+
 def parse_args() -> tuple[argparse.Namespace, list[str]]:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--config", type=Path, default=DEFAULT_CONFIG)
@@ -492,23 +571,36 @@ def main() -> int:
         return 2
     try:
         settings = load_bridge_settings(args.bridge_config)
-        config, controller, runtime, logger = build_runtime(
-            args.config, ip_override=args.ip, port_override=args.port, pulse_override=None
-        )
-        speed_to_raw(0.0, settings.raw_at_one_m_s, config.speed_control.stop_value)
+        config = load_cyclic_config(args.config)
+        if args.ip is not None:
+            if not args.ip.strip():
+                raise ValueError("--ip must be nonempty")
+            config = replace(config, ip=args.ip)
+        if args.port is not None:
+            if not 1 <= args.port <= 65535:
+                raise ValueError("--port must be in 1..65535")
+            config = replace(config, port=args.port)
+        if settings.write_rate_hz != config.rate_hz:
+            raise ValueError("bridge and SLMP write_rate_hz must agree")
+        if not math.isclose(2 * settings.wheel_radius_m, config.diameter_m):
+            raise ValueError("bridge radius and Hall diameter must agree")
+        if any(settings.drive_direction_inverted):
+            raise ValueError("no BLDC direction devices are defined by the fixed Ladder")
+        if not settings.allow_steering_while_driving:
+            raise ValueError("cyclic profile requires allow_steering_while_driving=true")
+        speed_to_raw(0.0, settings.raw_at_one_m_s, 660)
+        controller = CyclicWorker(config)
     except Exception as exc:
         print(f"Configuration error: {exc}", file=sys.stderr)
         return 2
     node = None
     exit_code = 0
+    logging.basicConfig(level=logging.INFO)
+    logger = logging.getLogger("fx5u_controller.bridge")
     try:
-        controller.connect()
-        controller.stop_drive()
-        controller.reset_drive_on_start()
-        controller.stop_drive()
-        runtime.start()
         rclpy.init(args=ros_args)
-        node = Fx5uOpenLoopBridge(controller, settings, config.speed_control.stop_value)
+        controller.start()
+        node = Fx5uCyclicBridge(controller, settings)
         rclpy.spin(node)
     except (KeyboardInterrupt, ExternalShutdownException):
         pass
@@ -516,12 +608,15 @@ def main() -> int:
         exit_code = 1
         logger.exception("open-loop bridge failed error=%s", exc)
     finally:
+        try:
+            controller.close()
+        except Exception as exc:
+            logger.error("SLMP shutdown: %s", exc)
+            exit_code = 1
         if node is not None:
             node.destroy_node()
         if rclpy.ok():
             rclpy.shutdown()
-        if not safe_shutdown(controller, runtime, logger):
-            exit_code = 1
     return exit_code
 
 

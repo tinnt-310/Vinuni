@@ -1,10 +1,10 @@
-# Open-loop commissioning limits: there is no steering or speed feedback yet.
+# Host motion limits; the SLMP worker reads actual angles and Hall counters.
 topics:
   keyboard_cmd_vel: /cmd_vel
   joy: /joy
   status: /plc_bridge/status
 timing:
-  write_rate_hz: 10.0
+  write_rate_hz: 20.0
   # Longer than the usual OS keyboard-repeat delay, but still stops if the
   # teleop process dies or the command stream disappears.
   command_timeout_s: 0.75
@@ -23,12 +23,12 @@ limits:
   minimum_angle_change_deg: 1.0
   steering_rate_limit_deg_s: 30.0
   minimum_raw_change: 1
-  # At 10 Hz, limit raw speed changes to 15 counts per command.
-  max_raw_step_per_tick: 15
+  # Approximately preserve the previous raw ramp in counts/second.
+  max_raw_step_per_tick: 7
 geometry:
   wheelbase_m: 0.80
   track_width_m: 0.70
-  wheel_radius_m: 0.210
+  wheel_radius_m: 0.214
 joystick:
   deadman_button: 4
   axis_x: 1

@@ -17,9 +17,9 @@ from fx5u_controller import (
 
 Call = Tuple[str, str, List[int]]
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
-WHEELS = load_register_mapping(PROJECT_ROOT / "config" / "registers_mapping.yaml")
+WHEELS = load_register_mapping(PROJECT_ROOT / "config" / "legacy_registers_mapping.yaml")
 SPEED_CONTROL = load_application_config(
-    PROJECT_ROOT / "config" / "default.yaml"
+    PROJECT_ROOT / "config" / "legacy_default.yaml"
 ).speed_control
 
 

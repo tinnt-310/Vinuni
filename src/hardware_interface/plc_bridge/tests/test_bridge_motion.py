@@ -94,7 +94,7 @@ class BridgeMotionTests(unittest.TestCase):
         self.assertEqual(bridge.controller.mock_calls, [])
     def test_o_then_more_omega_updates_angle_and_speed_without_stopping(self) -> None:
         settings = BRIDGE_MODULE.load_bridge_settings(
-            PROJECT_ROOT / "config" / "open_loop_bridge.yaml"
+            PROJECT_ROOT / "config" / "legacy_open_loop_bridge.yaml"
         )
         self.assertTrue(settings.allow_steering_while_driving)
         controller = FakeController()
@@ -145,7 +145,7 @@ class BridgeMotionTests(unittest.TestCase):
 
     def test_i_o_i_changes_angles_and_speed_gradually_without_motor_disable(self) -> None:
         settings = BRIDGE_MODULE.load_bridge_settings(
-            PROJECT_ROOT / "config" / "open_loop_bridge.yaml"
+            PROJECT_ROOT / "config" / "legacy_open_loop_bridge.yaml"
         )
         controller = FakeController()
         bridge = BRIDGE_MODULE.Fx5uOpenLoopBridge.__new__(
@@ -221,7 +221,7 @@ class BridgeMotionTests(unittest.TestCase):
 
     def test_right_left_and_holonomic_transitions_keep_drive_enabled(self) -> None:
         settings = BRIDGE_MODULE.load_bridge_settings(
-            PROJECT_ROOT / "config" / "open_loop_bridge.yaml"
+            PROJECT_ROOT / "config" / "legacy_open_loop_bridge.yaml"
         )
         controller = FakeController()
         bridge = BRIDGE_MODULE.Fx5uOpenLoopBridge.__new__(

@@ -1,0 +1,46 @@
+# Open-loop commissioning limits: there is no steering or speed feedback yet.
+topics:
+  keyboard_cmd_vel: /cmd_vel
+  joy: /joy
+  status: /plc_bridge/status
+timing:
+  write_rate_hz: 10.0
+  # Longer than the usual OS keyboard-repeat delay, but still stops if the
+  # teleop process dies or the command stream disappears.
+  command_timeout_s: 0.75
+  steering_settle_s: 0.20
+  # Keep v/omega updates flowing while steering changes; direction reversals still stop first.
+  allow_steering_while_driving: true
+limits:
+  max_linear_m_s: 0.20
+  max_angular_rad_s: 0.30
+  # Keyboard/joystick/Nav2 targets are ramped each bridge tick.
+  max_linear_accel_m_s2: 0.40
+  max_angular_accel_rad_s2: 0.15
+  max_wheel_rate_rad_s: 10.0
+  # Provisional calibration, not measured speed: 0 m/s -> 660, 1 m/s -> 400.
+  raw_at_one_m_s: 400
+  minimum_angle_change_deg: 1.0
+  steering_rate_limit_deg_s: 30.0
+  minimum_raw_change: 1
+  # At 10 Hz, limit raw speed changes to 15 counts per command.
+  max_raw_step_per_tick: 15
+geometry:
+  wheelbase_m: 0.80
+  track_width_m: 0.70
+  wheel_radius_m: 0.210
+joystick:
+  deadman_button: 4
+  axis_x: 1
+  axis_y: 0
+  axis_yaw: 3
+  invert_x: false
+  invert_y: false
+  invert_yaw: false
+wheels:
+  # Logical order: FL, FR, RL, RR. Verify this on lifted wheels.
+  logical_to_plc_ids: [3, 1, 4, 2]
+  steering_sign: [1, 1, 1, 1]
+  # PLC absolute steering angle for straight travel.
+  steering_zero_offset_deg: [90.0, 90.0, 90.0, 90.0]
+  drive_direction_inverted: [false, false, false, false]

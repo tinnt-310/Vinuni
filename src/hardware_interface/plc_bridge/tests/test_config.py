@@ -12,7 +12,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 
 class ConfigurationTests(unittest.TestCase):
     def test_default_config_preserves_endpoint_and_confirmed_map(self) -> None:
-        config = load_application_config(PROJECT_ROOT / "config" / "default.yaml")
+        config = load_application_config(PROJECT_ROOT / "config" / "legacy_default.yaml")
 
         self.assertEqual(config.plc.ip, "192.168.3.250")
         self.assertEqual(config.plc.port, 1025)
@@ -33,7 +33,7 @@ class ConfigurationTests(unittest.TestCase):
         self.assertEqual(config.speed_control.maximum_value, 660)
 
     def test_nonconsecutive_command_mapping_is_rejected(self) -> None:
-        source = (PROJECT_ROOT / "config" / "registers_mapping.yaml").read_text()
+        source = (PROJECT_ROOT / "config" / "legacy_registers_mapping.yaml").read_text()
         source = source.replace("trigger: M103", "trigger: M105")
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory) / "mapping.yaml"
@@ -42,7 +42,7 @@ class ConfigurationTests(unittest.TestCase):
                 load_register_mapping(path)
 
     def test_nonconsecutive_direction_mapping_is_accepted_but_duplicates_are_rejected(self) -> None:
-        source = (PROJECT_ROOT / "config" / "registers_mapping.yaml").read_text()
+        source = (PROJECT_ROOT / "config" / "legacy_registers_mapping.yaml").read_text()
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory) / "mapping.yaml"
             path.write_text(source)
@@ -84,17 +84,17 @@ class ConfigurationTests(unittest.TestCase):
     def _assert_invalid_default_replacement(
         self, old: str, new: str, expected_message: str
     ) -> None:
-        source = (PROJECT_ROOT / "config" / "default.yaml").read_text()
+        source = (PROJECT_ROOT / "config" / "legacy_default.yaml").read_text()
         self.assertIn(old, source)
         source = source.replace(old, new, 1)
         with tempfile.TemporaryDirectory() as directory:
             temp_dir = Path(directory)
-            (temp_dir / "default.yaml").write_text(source)
-            (temp_dir / "registers_mapping.yaml").write_text(
-                (PROJECT_ROOT / "config" / "registers_mapping.yaml").read_text()
+            (temp_dir / "legacy_default.yaml").write_text(source)
+            (temp_dir / "legacy_registers_mapping.yaml").write_text(
+                (PROJECT_ROOT / "config" / "legacy_registers_mapping.yaml").read_text()
             )
             with self.assertRaisesRegex(ConfigurationError, expected_message):
-                load_application_config(temp_dir / "default.yaml")
+                load_application_config(temp_dir / "legacy_default.yaml")
 
 
 if __name__ == "__main__":
