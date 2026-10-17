@@ -278,7 +278,7 @@ activation with the FAIRINO hardware plugin. Only the independently verified
 Docker SimMachine transport proof permits a labeled virtual CAD source; real FT
 commissioning remains locked.
 See [sensor handoff](../../../docs/fr10_force_sensor_handoff.md) and
-[recorded evidence](../../../test_results/fr10_force_control_20261001T035857Z/REPORT.md)
+recorded evidence (local: `test_results/fr10_force_control_20261001T035857Z/REPORT.md`)
 for gaps and reproduction commands.
 
 ## Local GenericSystem smoke environment
@@ -352,4 +352,5 @@ unchanged to controller firmware used on the real robot. Shared force simulation
 is implemented; real force commissioning and matched CAD contact validation
 remain unavailable and cannot be replaced by synthetic-wrench tests.
 
-See the [master specification](../../doc/MASTER_SYSTEM_SPECIFICATION.md).
+The historical `doc/MASTER_SYSTEM_SPECIFICATION.md` is no longer present.
+See the current [insertion specification](../../../docs/fr10_insertion_pipeline.md).

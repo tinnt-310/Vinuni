@@ -67,7 +67,7 @@ Khi bật profile matched cùng `force.automatic_pose: true`, `/charging_port/ra
 nhận **pose tâm miệng cổng**, +Z vào cổng, rồi tự chạy preinsert → chèn theo lực → HOLD.
 Pose phải có timestamp mới theo clock của controller. Khi force tắt, topic này
 giữ hành vi position insertion legacy. Hướng dẫn commissioning và bằng chứng:
-[FR10 insertion pipeline](docs/fr10_insertion_pipeline.md).
+[FR10 insertion pipeline](../../../../docs/fr10_insertion_pipeline.md).
 
 Dừng tay có kiểm soát (không phải emergency stop phần cứng):
 
@@ -169,10 +169,10 @@ ros2 topic pub --once /fr10_motion/retract std_msgs/msg/Empty "{}"
 Dùng entrypoint chung dưới đây sau khi source runtime. Script chọn CAD/station
 canonical, gửi đúng một pose miệng cổng, lưu feedback và kiểm tra TCP vật lý,
 contact, HOLD đủ5 giây nguồn đo và rút về preinsert. Đây là profile commissioning mô phỏng; trạng
-thái và kết quả cụ thể nằm trong [pipeline](docs/fr10_insertion_pipeline.md).
+thái và kết quả cụ thể nằm trong [pipeline](../../../../docs/fr10_insertion_pipeline.md).
 Không cần lấy station JSON từ một lượt test trước.
 
-[Báo cáo commissioning](test_results/fr10_e2e_20261002/REPORT.md) có kết quả
+Báo cáo commissioning (local: `test_results/fr10_e2e_20261002/REPORT.md`) có kết quả
 cắm/HOLD/rút Gazebo trên xe, MuJoCo nghiêng/gập, fault sau HOLD và planner24/24.
 Docker Auto đã PASS chu trình native83 với ServoJ và5,008 giây HOLD nguồn đo;
 contact ở Docker là proxy CAD từ khớp SDK, không phải cảm biến FT vật lý.
@@ -274,7 +274,7 @@ Stage51 đã PASS build15 package,134 CTest/1 numerical IK SKIP có chủ đích
 quá50ms-wall lúc physics chậm; không có xác nhận dừng. Stage51 đã sửa nhịp
 feedback theo bước physics và đang replay yaw+2°. Mounted Gazebo còn phải
 replay sau khi chassis đứng yên bằng đo pose thực. Toàn bộ backend/matrix
-chưa được chấp nhận. Xem [báo cáo](test_results/fr10_admittance_pose_error_20261003/REPORT.md).
+chưa được chấp nhận. Xem báo cáo (local: `test_results/fr10_admittance_pose_error_20261003/REPORT.md`).
 
 Nguồn ngoại lực Gazebo tùy chọn ở
 `config/gazebo_contact_wrench_commissioning.yaml` là instrument contact mô phỏng,

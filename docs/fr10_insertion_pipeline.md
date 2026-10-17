@@ -13,7 +13,7 @@ bề mặt trước của đầu cắm, không phải trọng tâm tải. Các b
 đều phải có cùng phép biến đổi Tool 0 → Tool 1. Offset wrench được launch suy
 ra từ chuỗi cố định trong `robot_description`; không giữ cấu hình TCP riêng
 trong IK hoặc bridge mô phỏng. Kiểm tra đồng bộ và Gazebo ngày 16/10/2026:
-[báo cáo](../test_results/fr10_tool_sync_20261016/REPORT.md).
+báo cáo (local: `test_results/fr10_tool_sync_20261016/REPORT.md`).
 
 ## Hợp đồng đầu vào
 
@@ -221,7 +221,7 @@ cho thí nghiệm; timeout của goal và watchdog controller không đổi.
 
 ## Các chức năng làm mượt của hãng
 
-Đã đối chiếu phần C++ trong [manual 3.9.3](../src/fairino-doc-en-readthedocs-io-en-3.9.3.pdf)
+Đã đối chiếu phần C++ trong manual 3.9.3 (local: `src/fairino-doc-en-readthedocs-io-en-3.9.3.pdf`)
 (2.1.4.20, 2.1.4.51–54, 2.1.4.62–63) với SDK đi kèm driver.
 
 | Chức năng | Phạm vi trong manual | Áp dụng ở pipeline này |
@@ -287,7 +287,7 @@ penetration11,88 µm, sai số sau rút1,11 µm. MuJoCo overload31 còn PASS
 HOLD5,001 giây nguồn và failure mới sau quá lực, `safety_fault=5`,
 phanh có xác nhận. MuJoCo30 trước đó FAIL deadline validation; jitter chưa
 được chứng minh loại bỏ hoàn toàn. Chi tiết, duration HOLD của từng run,
-biểu đồ và giới hạn còn lại: [báo cáo commissioning](../test_results/fr10_e2e_20261002/REPORT.md).
+biểu đồ và giới hạn còn lại: báo cáo commissioning (local: `test_results/fr10_e2e_20261002/REPORT.md`).
 
 Native85 mới nhất PASS từ tư thế người dùng đặt cách cổng1,174 m:
 293 IK waypoints/1.884 timed samples đưa tới preinsert, sau đó cắm15,029 mm,
@@ -681,7 +681,7 @@ kiểm tra toàn bộ correction và cửa sổ tải. Endpoint là mẫu tọa 
 phản lực; biên lệnh co do norm coupling có thể đảo hai mẫu không tải trong
 sai số encoder. Không coi chúng là hai thành cổng có thứ tự: khoảng không biết
 lấy độ dài không âm, tâm vẫn chiếu vào hard set hiện tại. Gate250 µm và
-50 ms không đổi. Stage43 đã PASS full cycle Y−2 mm/Rx+2°, lệch chéo norm2 mm/2° từ folded, Rz−2° và X+2 mm/Ry+2°; keyed34,659–95,235 µm. Stage44 torque fault sau HOLD đã PASS; Stage46 legacy candidate full HOLD/rút PASS và Stage48 đã build/publish gain này. Full Gazebo vẫn chưa được nghiệm thu. Xem [báo cáo hiện hành](../test_results/fr10_admittance_pose_error_20261003/REPORT.md) theo revision.
+50 ms không đổi. Stage43 đã PASS full cycle Y−2 mm/Rx+2°, lệch chéo norm2 mm/2° từ folded, Rz−2° và X+2 mm/Ry+2°; keyed34,659–95,235 µm. Stage44 torque fault sau HOLD đã PASS; Stage46 legacy candidate full HOLD/rút PASS và Stage48 đã build/publish gain này. Full Gazebo vẫn chưa được nghiệm thu. Xem báo cáo hiện hành (local: `test_results/fr10_admittance_pose_error_20261003/REPORT.md`) theo revision.
 
 
 ## Calibration tiếp xúc Gazebo dùng chung (2026-10-05)

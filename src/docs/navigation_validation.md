@@ -24,10 +24,10 @@ ROS domain 170 and passed in **18.49 seconds**:
 6. Send a 0.4 m NavigateToPose goal; require SUCCEEDED and stamped controller commands.
 7. Shut down the processes owned by the test.
 
-Evidence: [build/test log](validation/navigation_20261014/build_test.log),
-[mapping](validation/navigation_20261014/mapping.log),
-[map saving](validation/navigation_20261014/save_map.log),
-[navigation](validation/navigation_20261014/navigation.log).
+Evidence: build/test log (local: `src/docs/validation/navigation_20261014/build_test.log`),
+mapping (local: `src/docs/validation/navigation_20261014/mapping.log`),
+map saving (local: `src/docs/validation/navigation_20261014/save_map.log`),
+navigation (local: `src/docs/validation/navigation_20261014/navigation.log`).
 
 ## Migration checks
 

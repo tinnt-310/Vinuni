@@ -13,15 +13,15 @@ Package `vehicle_bringup` đã được build/install lại sau bản sửa tron
 
 | Cấu hình | Kết quả | Bằng chứng |
 |---|---|---|
-| Chỉ xe | Đạt: controller active, clock, joints, scan, odom, TF; Twist tiến/ngang có chuyển động | [Log](validation/commands_20261014/vehicle/runtime.log), [số đo](validation/commands_20261014/vehicle/summary.json) |
-| Chỉ tay FR10 | Đạt khởi động và feedback TCP/TF; còn lỗi shutdown bên dưới | [Log](validation/commands_20261014/arm/runtime.log) |
-| Xe kèm tay | Đạt khởi động: ba controller active, laser/odom, TCP và TF | [Log](validation/commands_20261014/combined/runtime.log) |
-| Force tay độc lập | Đạt khởi động và action server; còn lỗi shutdown | [Log](validation/commands_20261014/force_arm/runtime.log) |
-| Force tay trên xe, `station:=front_mid` | Đạt khởi động sau bản sửa; còn log `hold_joints` và lỗi shutdown | [Log](validation/commands_20261014/force_mounted/runtime.log) |
-| SLAM mapping | Đạt: nhận occupancy map có ô trống từ SLAM Toolbox | [Log](validation/commands_20261014/mapping.log) |
-| Lưu map qua `save_map.launch.py` | Đạt: tạo YAML/PGM và dùng được cho AMCL | [Log](validation/commands_20261014/save_map.log), [YAML](validation/commands_20261014/acceptance_map.yaml), [PGM](validation/commands_20261014/acceptance_map.pgm) |
-| AMCL-only | Đạt: AMCL + map server active, có pose và TF `map → base_footprint`; không có SLAM/Nav2 controller | [Log](validation/commands_20261014/localization.log) |
-| Nav2 | Đạt: chín lifecycle node active, goal cách pose ban đầu 0,4 m trả `SUCCEEDED`, nhận TwistStamped tại `/cmd_vel_nav` | [Log](validation/commands_20261014/navigation.log) |
+| Chỉ xe | Đạt: controller active, clock, joints, scan, odom, TF; Twist tiến/ngang có chuyển động | Log (local: `src/docs/validation/commands_20261014/vehicle/runtime.log`), [số đo](validation/commands_20261014/vehicle/summary.json) |
+| Chỉ tay FR10 | Đạt khởi động và feedback TCP/TF; còn lỗi shutdown bên dưới | Log (local: `src/docs/validation/commands_20261014/arm/runtime.log`) |
+| Xe kèm tay | Đạt khởi động: ba controller active, laser/odom, TCP và TF | Log (local: `src/docs/validation/commands_20261014/combined/runtime.log`) |
+| Force tay độc lập | Đạt khởi động và action server; còn lỗi shutdown | Log (local: `src/docs/validation/commands_20261014/force_arm/runtime.log`) |
+| Force tay trên xe, `station:=front_mid` | Đạt khởi động sau bản sửa; còn log `hold_joints` và lỗi shutdown | Log (local: `src/docs/validation/commands_20261014/force_mounted/runtime.log`) |
+| SLAM mapping | Đạt: nhận occupancy map có ô trống từ SLAM Toolbox | Log (local: `src/docs/validation/commands_20261014/mapping.log`) |
+| Lưu map qua `save_map.launch.py` | Đạt: tạo YAML/PGM và dùng được cho AMCL | Log (local: `src/docs/validation/commands_20261014/save_map.log`), [YAML](validation/commands_20261014/acceptance_map.yaml), [PGM](validation/commands_20261014/acceptance_map.pgm) |
+| AMCL-only | Đạt: AMCL + map server active, có pose và TF `map → base_footprint`; không có SLAM/Nav2 controller | Log (local: `src/docs/validation/commands_20261014/localization.log`) |
+| Nav2 | Đạt: chín lifecycle node active, goal cách pose ban đầu 0,4 m trả `SUCCEEDED`, nhận TwistStamped tại `/cmd_vel_nav` | Log (local: `src/docs/validation/commands_20261014/navigation.log`) |
 
 Ở bài thử xe, lệnh Twist 0,1 m/s tạo độ dịch chuyển odometry **0,1931 m theo
 hướng tiến** và **0,2226 m theo hướng ngang** sau các khoảng chạy/dừng của bài thử.
@@ -40,14 +40,14 @@ Tổng hợp kết quả mới nhất của năm profile: [profiles.json](valida
   `loaded retract speed/distance must both be positive or disabled`.
   Bringup hiện chỉ áp dụng tốc độ của cấu hình xe khi profile đã bật cả cặp
   tốc độ/khoảng rút. Profile draft giữ cặp tắt; profile commissioning giữ khoảng
-  rút đã cấu hình. [Log trước sửa](validation/commands_20261014/force_mounted_before_fix.log).
+  rút đã cấu hình. Log trước sửa (local: `src/docs/validation/commands_20261014/force_mounted_before_fix.log`).
 - `force_fixture_publisher.py` gọi shutdown ROS lần thứ hai khi nhận Ctrl-C,
   gây traceback. Đã xử lý context đã shutdown; lần chạy lại không còn traceback này.
 
 Kiểm tra hồi quy cấu hình controller: **12 passed**. CTest của toàn package
 `vehicle_bringup`: **10/10 nhóm kiểm tra đạt**, bao gồm nhóm 12 kiểm tra trên.
-[Log CTest](validation/commands_20261014/bringup_ctest.log),
-[log build/install](validation/commands_20261014/bringup_install.log).
+Log CTest (local: `src/docs/validation/commands_20261014/bringup_ctest.log`),
+log build/install (local: `src/docs/validation/commands_20261014/bringup_install.log`).
 
 ## Các giới hạn còn lại
 
@@ -94,14 +94,14 @@ Kiểm chứng với **Conda `base` đang active**, `python3 --version` vẫn l�
   shutdown còn lại; không coi bài GUI là kiểm chứng shutdown sạch. Gazebo,
   SLAM, robot_state_publisher và bộ chuyển vận tốc thoát bình thường.
 
-Bằng chứng: [CTest](validation/conda_20261014/ctest.log),
-[log mapping GUI](validation/conda_20261014/gui/runtime.log),
+Bằng chứng: CTest (local: `src/docs/validation/conda_20261014/ctest.log`),
+log mapping GUI (local: `src/docs/validation/conda_20261014/gui/runtime.log`),
 [kết quả GUI](validation/conda_20261014/gui/summary.json),
 [ảnh RViz](validation/conda_20261014/gui/rviz.png),
-[log SLAM](validation/conda_20261014/mapping.log),
-[lưu map](validation/conda_20261014/save_map.log),
-[AMCL-only](validation/conda_20261014/localization.log),
-[Nav2](validation/conda_20261014/navigation.log).
+log SLAM (local: `src/docs/validation/conda_20261014/mapping.log`),
+lưu map (local: `src/docs/validation/conda_20261014/save_map.log`),
+AMCL-only (local: `src/docs/validation/conda_20261014/localization.log`),
+Nav2 (local: `src/docs/validation/conda_20261014/navigation.log`).
 
 ## Chạy lại bài kiểm tra
 

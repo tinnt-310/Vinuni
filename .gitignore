@@ -42,7 +42,10 @@ Makefile
 # Local Python environment and generated simulation output
 /.venv/
 /test_results/
-/docs/ode_debug/**/physics.jsonl
+# Raw experiment streams stay on disk; tracked summaries and model/config
+# snapshots remain reproducibility evidence. Recovery: docs/data_inventory.md.
+/docs/ode_debug/**/*.jsonl
+/.local-data/
 
 # Local vendor manual exceeds GitHub's regular Git file-size limit
 /src/fairino-doc-en-readthedocs-io-en-3.9.3.pdf

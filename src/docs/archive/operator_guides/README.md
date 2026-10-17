@@ -8,13 +8,13 @@ Lệnh ngắn khởi động từng cấu hình, điều khiển tay/xe và đ�
 
 Pipeline mới nhận một pose miệng cổng, tự tìm đường đến preinsert rồi chèn theo
 lực tới HOLD. Kiến trúc, phạm vi mô phỏng và kết quả nghiệm thu hiện tại:
-[FR10 insertion pipeline](docs/fr10_insertion_pipeline.md) và
-[progress ledger](PROGRESS_LEDGER.md).
+[FR10 insertion pipeline](../../../../docs/fr10_insertion_pipeline.md) và
+[progress ledger](../../../../PROGRESS_LEDGER.md).
 
 Admittance nội bộ và hiệu chỉnh pose có sai số đang được nghiệm thu tại
-[work log](test_results/fr10_admittance_pose_error_20261003/WORK_LOG.md).
+work log (local: `test_results/fr10_admittance_pose_error_20261003/WORK_LOG.md`).
 API C++ dùng lại, FT Fairino raw/reference/active và tare với payload gắn:
-[force sensor handoff](docs/fr10_force_sensor_handoff.md). Giữ một MotionExecutor
+[force sensor handoff](../../../../docs/fr10_force_sensor_handoff.md). Giữ một MotionExecutor
 phát joint command; profile mô phỏng mới chưa được mở cho robot thật.
 
 ## Cài dependency một lần
@@ -86,5 +86,5 @@ port mặc định đang được dùng. `use_gazebo:=false` chọn hardware/Sim
 FAIRINO, không tự fallback fake/MuJoCo. Khi đó phải tắt xe (`use_vehicle:=false`)
 vì PLC thật chưa commissioning; không tự bật Auto/enable/reset alarm.
 
-Chi tiết launch: [vehicle_bringup](src/vehicle_bringup/README.md).
-Chi tiết hình học: [vehicle_description](src/vehicle_description/README.md).
+Chi tiết launch: [vehicle_bringup](../../../../src/vehicle_bringup/README.md).
+Chi tiết hình học: [vehicle_description](../../../../src/vehicle_description/README.md).

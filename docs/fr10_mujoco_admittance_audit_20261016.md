@@ -4,7 +4,7 @@
 > Các offset trong bằng chứng dưới đây không phải cấu hình triển khai hiện tại.
 > Mốc Tool hiện tại dùng duy nhất
 > [fr10_tool.yaml](../src/vehicle_description/config/fr10_tool.yaml);
-> xem [báo cáo đồng bộ](../test_results/fr10_tool_sync_20261016/REPORT.md).
+> xem báo cáo đồng bộ (local: `test_results/fr10_tool_sync_20261016/REPORT.md`).
 
 Giữ một bộ Admittance 6D với M/D/K riêng từng trục trong hệ lắp ghép.
 Miền mong muốn là **norm tịnh tiến XYZ ≤5 mm và góc quay tương đối ≤5°**.

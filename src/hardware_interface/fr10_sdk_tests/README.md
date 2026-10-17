@@ -300,7 +300,7 @@ trạng thái này.
 - [C++ motion 3.9.3](https://fairino-doc-en.readthedocs.io/3.9.3/SDKManual/CPPRobotMovement.html).
 - [Changelog 3.9.3: ServoCart thêm exaxis](https://fairino-doc-en.readthedocs.io/3.9.3/SDKManual/CPPVersionIntro.html).
 - [Force API 3.9.3](https://fairino-doc-en.readthedocs.io/3.9.3/SDKManual/CPPRobotForceControl.html).
-- [PDF local](../../fairino-doc-en-readthedocs-io-en-3.9.3.pdf): chương 6 Robot
+- PDF local (local: `src/fairino-doc-en-readthedocs-io-en-3.9.3.pdf`): chương 6 Robot
   Communication, trang in 2537–2546 cho frame CNDE/output/type negotiation.
 - Header đi cùng [SDK local](../fr10_driver/fairino_hardware_v3_9_3/libfairino/include/robot.h)
   là chữ ký dùng để compile. Một số prototype trên web lược tham số `flag` hoặc
