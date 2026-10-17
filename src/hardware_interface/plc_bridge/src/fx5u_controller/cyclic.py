@@ -403,7 +403,7 @@ class CyclicWorker:
         except BaseException as exc:
             LOGGER.exception("SLMP worker failed")
             with self._lock:
-                self._error = str(exc)
+                self._error = f"{type(exc).__name__}: {exc}"
             self._stop.set()
         finally:
             for action in (session.shutdown, self.driver.disconnect):
@@ -412,5 +412,5 @@ class CyclicWorker:
                 except Exception as exc:
                     LOGGER.error("SLMP shutdown failed: %s", exc)
                     with self._lock:
-                        self._error = self._error or str(exc)
+                        self._error = self._error or f"{type(exc).__name__}: {exc}"
             self._ready.set()
