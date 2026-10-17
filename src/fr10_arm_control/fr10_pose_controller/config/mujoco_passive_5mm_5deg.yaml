@@ -1,0 +1,12 @@
+extends: mujoco_pose_uncertainty_5mm_5deg.yaml
+fr10_pose_controller:
+  ros__parameters:
+    # Same single 6D admittance, with no spiral or haptic scanning. A bounded
+    # contact-derived reference may still qualify the measured insertion axis.
+    force.search.spiral_enabled: false
+    force.search.yaw_probe_torque_nm: 0.0
+    force.search.xy_probe_force_n: 0.0
+    # Preserve the previously measured compliant gains while widening only
+    # the experiment's error/correction envelope.
+    force.admittance.stiffness: [200.0, 200.0, 0.0, 0.02, 0.02, 0.02]
+    force.admittance.max_velocity: [0.0005, 0.0005, 0.000025, 0.002, 0.002, 0.002]

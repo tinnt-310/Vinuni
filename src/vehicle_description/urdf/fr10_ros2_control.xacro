@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <xacro:macro name="fr10_simulated_pid" params="index active gains">
+      <xacro:if value="${active}">
+        <param name="pos_kp">${gains['kp'][index]}</param>
+        <param name="pos_ki">${gains['ki'][index]}</param>
+        <param name="pos_kd">${gains['kd'][index]}</param>
+        <param name="pos_max_integral_error">${gains['integral_torque_limit_nm'][index]}</param>
+        <param name="pos_min_integral_error">${-gains['integral_torque_limit_nm'][index]}</param>
+        <param name="pos_antiwindup">true</param>
+      </xacro:if>
+    </xacro:macro>
+    <xacro:macro name="fr10_ros2_control" params="name initial_positions_file control_backend robot_ip:=192.168.58.2 hardware_plugin:=fairino_hardware_v3_9_3/FairinoHardwareInterface dynamic_simulation:=false">
+        <xacro:property name="initial_positions" value="${xacro.load_yaml(initial_positions_file)['initial_positions']}"/>
+        <xacro:property name="simulation_gains" value="${xacro.load_yaml('$(find vehicle_description)/config/fr10_simulation_actuators.yaml') if dynamic_simulation else dict()}"/>
+
+        <ros2_control name="${name}" type="system">
+            <hardware>
+                <xacro:if value="${control_backend == 'gazebo'}">
+                    <xacro:if value="${dynamic_simulation}"><plugin>fr10_simulation_hardware/GazeboTorqueSystem</plugin></xacro:if>
+                    <xacro:unless value="${dynamic_simulation}"><plugin>gazebo_ros2_control/GazeboSystem</plugin></xacro:unless>
+                </xacro:if>
+                <xacro:if value="${control_backend == 'fake'}">
+                    <!-- Simulation: mock hardware, no real robot needed -->
+                    <plugin>mock_components/GenericSystem</plugin>
+                </xacro:if>
+                <xacro:if value="${control_backend == 'fairino'}">
+                    <!-- FAIRINO v3.9.3.x plugin: Docker SimMachine or real FR10 at robot_ip. -->
+                    <plugin>${hardware_plugin}</plugin>
+                    <param name="robot_ip">${robot_ip}</param>
+                </xacro:if>
+            </hardware>
+            <joint name="j1">
+                <xacro:fr10_simulated_pid index="${0}" active="${dynamic_simulation}" gains="${simulation_gains}"/>
+                <command_interface name="position"/>
+                <state_interface name="position">
+                  <param name="initial_value">${initial_positions['j1']}</param>
+                </state_interface>
+                <state_interface name="velocity"/>
+                <xacro:if value="${control_backend == 'fairino'}">
+                  <state_interface name="acceleration"/>
+                </xacro:if>
+            </joint>
+            <joint name="j2">
+                <xacro:fr10_simulated_pid index="${1}" active="${dynamic_simulation}" gains="${simulation_gains}"/>
+                <command_interface name="position"/>
+                <state_interface name="position">
+                  <param name="initial_value">${initial_positions['j2']}</param>
+                </state_interface>
+                <state_interface name="velocity"/>
+                <xacro:if value="${control_backend == 'fairino'}">
+                  <state_interface name="acceleration"/>
+                </xacro:if>
+            </joint>
+            <joint name="j3">
+                <xacro:fr10_simulated_pid index="${2}" active="${dynamic_simulation}" gains="${simulation_gains}"/>
+                <command_interface name="position"/>
+                <state_interface name="position">
+                  <param name="initial_value">${initial_positions['j3']}</param>
+                </state_interface>
+                <state_interface name="velocity"/>
+                <xacro:if value="${control_backend == 'fairino'}">
+                  <state_interface name="acceleration"/>
+                </xacro:if>
+            </joint>
+            <joint name="j4">
+                <xacro:fr10_simulated_pid index="${3}" active="${dynamic_simulation}" gains="${simulation_gains}"/>
+                <command_interface name="position"/>
+                <state_interface name="position">
+                  <param name="initial_value">${initial_positions['j4']}</param>
+                </state_interface>
+                <state_interface name="velocity"/>
+                <xacro:if value="${control_backend == 'fairino'}">
+                  <state_interface name="acceleration"/>
+                </xacro:if>
+            </joint>
+            <joint name="j5">
+                <xacro:fr10_simulated_pid index="${4}" active="${dynamic_simulation}" gains="${simulation_gains}"/>
+                <command_interface name="position"/>
+                <state_interface name="position">
+                  <param name="initial_value">${initial_positions['j5']}</param>
+                </state_interface>
+                <state_interface name="velocity"/>
+                <xacro:if value="${control_backend == 'fairino'}">
+                  <state_interface name="acceleration"/>
+                </xacro:if>
+            </joint>
+            <joint name="j6">
+                <xacro:fr10_simulated_pid index="${5}" active="${dynamic_simulation}" gains="${simulation_gains}"/>
+                <command_interface name="position"/>
+                <state_interface name="position">
+                  <param name="initial_value">${initial_positions['j6']}</param>
+                </state_interface>
+                <state_interface name="velocity"/>
+                <xacro:if value="${control_backend == 'fairino'}">
+                  <state_interface name="acceleration"/>
+                </xacro:if>
+            </joint>
+
+        </ros2_control>
+    </xacro:macro>
+</robot>

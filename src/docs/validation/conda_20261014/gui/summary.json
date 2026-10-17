@@ -1,0 +1,53 @@
+{
+  "command": [
+    "ros2",
+    "launch",
+    "vehicle_bringup",
+    "bringup.launch.py",
+    "use_arm:=false",
+    "navigation_mode:=mapping",
+    "gazebo_port:=42597"
+  ],
+  "domain": 188,
+  "conda_environment": "base",
+  "path_python": "Python 3.14.7",
+  "ros_python": "/usr/bin/python3",
+  "passed": true,
+  "gazebo": {
+    "title": "Gazebo",
+    "size": [
+      1850,
+      1016
+    ],
+    "screenshot": {
+      "path": "/tmp/vinuni_conda_gui_mapping_20261014/gazebo.png",
+      "width": 1850,
+      "height": 1016,
+      "bytes": 143546,
+      "window_id": "0x5e00010",
+      "capture_mode": "direct_xwd"
+    }
+  },
+  "rviz": {
+    "title": "/home/tinnt/Vinuni/install/vehicle_navigation/share/vehicle_navigation/rviz/navigation.rviz* - RViz",
+    "size": [
+      1545,
+      932
+    ],
+    "screenshot": {
+      "path": "/tmp/vinuni_conda_gui_mapping_20261014/rviz.png",
+      "width": 1545,
+      "height": 932,
+      "bytes": 99707,
+      "window_id": "0x4e00106",
+      "capture_mode": "direct_xwd"
+    }
+  },
+  "map": {
+    "width": 169,
+    "height": 242,
+    "resolution": 0.05000000074505806,
+    "samples": 2
+  },
+  "launch_exit": 0
+}

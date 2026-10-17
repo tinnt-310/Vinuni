@@ -1,5 +1,9 @@
 # FR10 trên xe Swerve
 
+> Bố trí camera và các bảng gá bên dưới là lịch sử tích hợp. Bố trí hiện tại
+> căn D435 ở tâm mặt bích và cùng clocking Tool 1; xem
+> [camera FR10 hiện tại](fr10_camera_mount.md) và mô hình `vehicle_description`.
+
 Launch chính: `ros2 launch thanxe_new_description complete.launch.py`.
 Mô hình ghép dùng FR10 v6 từ `src/fr10/frcobot_ros2/fairino_description`.
 Giữ nguyên XML sáu joint `j1`–`j6`, axis, origin, giới hạn, động học và

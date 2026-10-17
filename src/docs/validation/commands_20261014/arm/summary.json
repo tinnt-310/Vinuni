@@ -1,0 +1,32 @@
+{
+  "profile": "arm",
+  "command": [
+    "ros2",
+    "launch",
+    "vehicle_bringup",
+    "bringup.launch.py",
+    "use_arm:=true",
+    "use_vehicle:=false",
+    "use_force:=false",
+    "use_gazebo:=true",
+    "gui:=false",
+    "rviz:=false",
+    "gazebo_port:=44617"
+  ],
+  "domain": 181,
+  "passed": true,
+  "controllers": [
+    "fairino10_controller",
+    "joint_state_broadcaster"
+  ],
+  "tf": [
+    "fr10_base_link",
+    "charging_tcp"
+  ],
+  "samples": {
+    "clock": 1686,
+    "joint": 158,
+    "tcp": 5
+  },
+  "launch_exit": 0
+}

@@ -2,15 +2,49 @@
 <robot name="complete_visual" xmlns:xacro="http://www.ros.org/wiki/xacro">
 <xacro:arg name="enable_vehicle" default="true"/>
 <xacro:arg name="enable_arm" default="true"/>
+<xacro:arg name="sim_base_collision_proxy" default="true"/>
 <xacro:arg name="controller_yaml_file" default=""/>
-<xacro:if value="$(arg enable_vehicle)"><xacro:include filename="$(find vehicle_description)/urdf/complete_visual.xacro"/></xacro:if>
-<xacro:unless value="$(arg enable_vehicle)"><xacro:include filename="$(find vehicle_description)/urdf/arm_only.xacro"/></xacro:unless>
-<xacro:include filename="$(find swerve_vehicle_control)/config/ros2_control.xacro"/>
+<!-- Test-only Gazebo F/T chain.  The unified bringup keeps this false unless
+     use_force:=true is explicitly requested. -->
+<xacro:arg name="enable_force_sensor" default="false"/>
+<xacro:arg name="force_sensor_sim_gazebo" default="false"/>
+<xacro:arg name="ft_wrench_topic" default="wrench"/>
+<xacro:include filename="$(find vehicle_description)/urdf/vehicle.urdf.xacro"/>
+<xacro:include filename="$(find vehicle_description)/urdf/ros2_control.xacro"/>
 <xacro:include filename="$(find fr10_arm_control)/config/ros2_control.xacro"/>
+<xacro:if value="${'$(arg charging_tool_profile)' != 'matched_socket_v2'}">
 <ros2_control name="GazeboSystem" type="system">
 <hardware><plugin>gazebo_ros2_control/GazeboSystem</plugin></hardware>
 <xacro:if value="$(arg enable_vehicle)"><xacro:vehicle_control_interfaces/></xacro:if>
-<xacro:if value="$(arg enable_arm)"><xacro:arm_control_interfaces/></xacro:if>
+<xacro:if value="${'$(arg enable_arm)' == 'true' and '$(arg charging_tool_profile)' != 'matched_socket_v2'}"><xacro:arm_control_interfaces/></xacro:if>
 </ros2_control>
+</xacro:if>
+<xacro:if value="${'$(arg enable_vehicle)' == 'true' and '$(arg charging_tool_profile)' == 'matched_socket_v2'}">
+<ros2_control name="VehicleMotorSystem" type="system">
+<hardware><plugin>fr10_simulation_hardware/GazeboWheelMotorSystem</plugin></hardware>
+<xacro:vehicle_control_interfaces/>
+</ros2_control>
+</xacro:if>
+<xacro:if value="${'$(arg enable_arm)' == 'true' and '$(arg charging_tool_profile)' == 'matched_socket_v2'}">
+<ros2_control name="Fr10TorqueSystem" type="system">
+<hardware><plugin>fr10_simulation_hardware/GazeboTorqueSystem</plugin></hardware>
+<xacro:arm_control_interfaces dynamic_simulation="true"/>
+</ros2_control>
+</xacro:if>
 <gazebo><plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control"><parameters>$(arg controller_yaml_file)</parameters></plugin></gazebo>
+<xacro:if value="$(arg enable_vehicle)">
+<gazebo><plugin filename="libvinuni_wheel_contact_surface.so" name="wheel_contact_surface">
+  <!-- Precision parking requires static friction: the navigation slip
+       regularizer otherwise allows continuous creep under arm reaction. -->
+  <slip>${0.0 if '$(arg charging_tool_profile)' == 'matched_socket_v2' else 1e-5}</slip>
+</plugin></gazebo>
+<xacro:if value="${'$(arg charging_tool_profile)' == 'matched_socket_v2'}">
+<gazebo><plugin filename="libgazebo_ros_p3d.so" name="matched_base_feedback">
+  <ros><remapping>odom:=/fr10_sim/base_odometry</remapping></ros>
+  <body_name>base_footprint</body_name><frame_name>world</frame_name>
+  <!-- P3D zero means every physics update; do not decimate safety feedback. -->
+  <update_rate>0</update_rate><gaussian_noise>0</gaussian_noise>
+</plugin></gazebo>
+</xacro:if>
+</xacro:if>
 </robot>

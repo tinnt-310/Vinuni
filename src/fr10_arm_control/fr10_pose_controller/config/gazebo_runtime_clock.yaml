@@ -1,0 +1,5 @@
+gazebo:
+  ros__parameters:
+    # JOINT/POSE/FORCE share source-time ticks. Publish every 1 ms physics step
+    # so the common 8 ms executor is never driven by a 10 Hz default /clock.
+    publish_rate: 1000.0

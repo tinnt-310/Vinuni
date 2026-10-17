@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:macro name="swerve_module" params="index x y steer_mesh wheel_mesh side">
+    <link name="Revolute${index}_1">
+      <inertial>
+        <origin xyz="0.009565385 0.002298683 -0.135792762" rpy="0 0 0"/>
+        <mass value="17.036194605499578"/>
+        <inertia ixx="0.417522" iyy="0.359016" izz="0.299511"
+                 ixy="-0.005831" iyz="0.0047" ixz="0.068478"/>
+      </inertial>
+      <visual>
+        <origin xyz="${-x} ${-y} ${-steering_axis_height}"/>
+        <geometry>
+          <mesh filename="package://vehicle_description/meshes/rb_charging_v3/${steer_mesh}"
+                scale="0.001 0.001 0.001"/>
+        </geometry>
+        <material name="silver"/>
+      </visual>
+      <collision>
+        <origin xyz="0.022965 0 -0.168271"/>
+        <geometry><box size="0.286556 0.314544 0.343510"/></geometry>
+      </collision>
+    </link>
+    <joint name="Revolute${index}_to_base_link" type="continuous">
+      <parent link="base_link"/><child link="Revolute${index}_1"/>
+      <origin xyz="${x} ${y} ${steering_axis_height}"/>
+      <axis xyz="0 0 1"/><limit effort="10000" velocity="30"/>
+    </joint>
+    <link name="Wheel${index}_1">
+      <inertial>
+        <origin xyz="-0.000080842 ${-side*0.001015797} ${-side*0.000172414}"/>
+        <mass value="87.51222205807636"/>
+        <inertia ixx="0.969557" iyy="1.809987" izz="0.969404"
+                 ixy="${side*0.000513}" iyz="0.001043" ixz="${-side*0.000404}"/>
+      </inertial>
+      <visual>
+        <origin xyz="${-(x+wheel_offset_x)} ${-y} ${-(steering_axis_height-vehicle['wheel_axle_drop'])}"/>
+        <geometry>
+          <mesh filename="package://vehicle_description/meshes/rb_charging_v3/${wheel_mesh}"
+                scale="0.001 0.001 0.001"/>
+        </geometry>
+        <material name="black"/>
+      </visual>
+      <collision>
+        <origin rpy="${pi/2} 0 0"/>
+        <geometry>
+          <cylinder radius="${vehicle['wheel_radius']}" length="${vehicle['wheel_width']}"/>
+        </geometry>
+      </collision>
+    </link>
+    <joint name="Wheel${index}_to_Revolute${index}" type="continuous">
+      <parent link="Revolute${index}_1"/><child link="Wheel${index}_1"/>
+      <origin xyz="${wheel_offset_x} 0 ${-vehicle['wheel_axle_drop']}"/>
+      <axis xyz="0 1 0"/><limit effort="10000" velocity="30"/>
+    </joint>
+  </xacro:macro>
+</robot>

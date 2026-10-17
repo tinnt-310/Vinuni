@@ -75,20 +75,20 @@ class WheelControllerTests(unittest.TestCase):
         self.assertEqual([WHEELS[i].angle for i in WHEELS], ["D1000", "D1001", "D1002", "D1003"])
         self.assertEqual([WHEELS[i].speed for i in WHEELS], ["D1020", "D1021", "D1022", "D1023"])
 
-    def test_move_angles_batch_order_and_signed_values(self) -> None:
+    def test_move_angles_batch_order_and_absolute_values(self) -> None:
         fake = FakeDriver()
         sleeps: List[float] = []
         controller = make_controller(fake, sleeps)
         controller.connect()
 
-        controller.move_angles([45, 45, -45, -45])
+        controller.move_angles([45, 45, 315, 315])
 
         self.assertEqual(
             fake.calls,
             [
                 ("connect", "", []),
                 ("bits", "M110", [1, 1, 1, 1]),
-                ("words", "D1000", [45, 45, -45, -45]),
+                ("words", "D1000", [45, 45, 315, 315]),
                 ("bits", "M100", [1, 1, 1, 1]),
                 ("bits", "M100", [0, 0, 0, 0]),
             ],
@@ -100,7 +100,7 @@ class WheelControllerTests(unittest.TestCase):
         fake = FakeDriver()
         controller = make_controller(fake, [])
         controller.connect()
-        controller.move_angle(3, -30)
+        controller.move_angle(3, 330)
         controller.move_speed(3, 100)
 
         self.assertEqual(
@@ -123,6 +123,7 @@ class WheelControllerTests(unittest.TestCase):
                 ("connect", "", []),
                 ("words", "D1020", [660, 660, 660, 660]),
                 ("bits", "M58", [1]),
+                ("bits", "Y8", [1]),
                 ("words", "D1020", [660, 520, 380, 100]),
             ],
         )
@@ -135,6 +136,45 @@ class WheelControllerTests(unittest.TestCase):
             [call for call in fake.calls if call[0:2] == ("bits", "M58")],
             [("bits", "M58", [1]), ("bits", "M58", [1])],
         )
+        self.assertEqual(
+            [call for call in fake.calls if call[0:2] == ("bits", "Y8")],
+            [("bits", "Y8", [1]), ("bits", "Y8", [1])],
+        )
+
+    def test_stop_drive_writes_stop_and_disables_both_enables(self) -> None:
+        fake = FakeDriver()
+        controller = make_controller(fake, [])
+        controller.connect()
+        controller.servo_on_all()
+        controller.move_speeds([0, 100, 200, 300])
+
+        controller.stop_drive()
+
+        self.assertEqual(
+            fake.calls[-3:],
+            [
+                ("words", "D1020", [660, 660, 660, 660]),
+                ("bits", "Y8", [0]),
+                ("bits", "M58", [0]),
+            ],
+        )
+        self.assertFalse(controller.speed_control_enabled)
+        self.assertTrue(all(controller.servo_enabled.values()))
+
+    def test_y8_off_failure_still_attempts_m58_off(self) -> None:
+        fake = FakeDriver()
+        controller = make_controller(fake, [])
+        controller.connect()
+        controller.move_speeds([600, 600, 600, 600])
+        fake.fail_calls.add(6)
+
+        with self.assertRaises(SLMPCommunicationError):
+            controller.stop_drive()
+
+        self.assertEqual(fake.calls[-2:], [
+            ("bits", "Y8", [0]), ("bits", "M58", [0]),
+        ])
+        self.assertTrue(controller.communication_fault)
 
     def test_steering_servo_off_does_not_disable_wheel_drive(self) -> None:
         fake = FakeDriver()
@@ -171,6 +211,19 @@ class WheelControllerTests(unittest.TestCase):
             controller.direction_clockwise,
             {1: True, 2: False, 3: True, 4: False},
         )
+
+    def test_drive_startup_reset_pulses_m222_once(self) -> None:
+        fake = FakeDriver()
+        sleeps: List[float] = []
+        controller = make_controller(fake, sleeps)
+        controller.connect()
+
+        controller.reset_drive_on_start()
+
+        self.assertEqual(fake.calls[-2:], [
+            ("bits", "M222", [1]), ("bits", "M222", [0]),
+        ])
+        self.assertEqual(sleeps, [0.05])
 
     def test_reset_all_is_one_batch_pulse(self) -> None:
         fake = FakeDriver()
@@ -226,7 +279,8 @@ class WheelControllerTests(unittest.TestCase):
         with self.assertRaises(SLMPCommunicationError):
             controller.emergency_stop()
 
-        self.assertEqual(fake.calls[-4], ("words", "D1020", [660, 660, 660, 660]))
+        self.assertEqual(fake.calls[-5], ("words", "D1020", [660, 660, 660, 660]))
+        self.assertEqual(fake.calls[-4], ("bits", "Y8", [0]))
         self.assertEqual(fake.calls[-3], ("bits", "M58", [0]))
         self.assertEqual(fake.calls[-2], ("bits", "M100", [0, 0, 0, 0]))
         self.assertEqual(fake.calls[-1], ("bits", "M110", [0, 0, 0, 0]))
@@ -251,9 +305,10 @@ class WheelControllerTests(unittest.TestCase):
         controller.disconnect()
 
         self.assertEqual(
-            fake.calls[-5:],
+            fake.calls[-6:],
             [
                 ("words", "D1020", [660, 660, 660, 660]),
+                ("bits", "Y8", [0]),
                 ("bits", "M58", [0]),
                 ("bits", "M100", [0, 0, 0, 0]),
                 ("bits", "M110", [0, 0, 0, 0]),
@@ -278,9 +333,15 @@ class WheelControllerTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             controller.move_angle(1, 32_768)
         with self.assertRaises(ValueError):
-            controller.move_speeds([100, 500, 660, 661])
+            controller.move_angle(1, -1)
         with self.assertRaises(ValueError):
-            controller.move_speed(1, 99)
+            controller.move_angle(1, 360)
+        with self.assertRaises(ValueError):
+            controller.set_angles([0, 90, 180, 360])
+        with self.assertRaises(ValueError):
+            controller.move_speeds([0, 500, 660, 661])
+        with self.assertRaises(ValueError):
+            controller.move_speed(1, -1)
         with self.assertRaises(TypeError):
             controller.move_speed(1, 10.5)  # type: ignore[arg-type]
         with self.assertRaises(TypeError):

@@ -1,0 +1,176 @@
+[
+  {
+    "profile": "vehicle",
+    "command": [
+      "ros2",
+      "launch",
+      "vehicle_bringup",
+      "bringup.launch.py",
+      "use_arm:=false",
+      "use_vehicle:=true",
+      "use_force:=false",
+      "use_gazebo:=true",
+      "gui:=false",
+      "rviz:=false",
+      "gazebo_port:=54865"
+    ],
+    "domain": 180,
+    "passed": true,
+    "controllers": [
+      "joint_state_broadcaster",
+      "swerve_controller"
+    ],
+    "tf": [
+      "odom",
+      "laser_frame"
+    ],
+    "forward_odom_m": 0.19308398624932774,
+    "strafe_odom_m": 0.22257455905370654,
+    "samples": {
+      "clock": 8564,
+      "scan": 67,
+      "joint": 641,
+      "odom": 183
+    },
+    "launch_exit": 0
+  },
+  {
+    "profile": "arm",
+    "command": [
+      "ros2",
+      "launch",
+      "vehicle_bringup",
+      "bringup.launch.py",
+      "use_arm:=true",
+      "use_vehicle:=false",
+      "use_force:=false",
+      "use_gazebo:=true",
+      "gui:=false",
+      "rviz:=false",
+      "gazebo_port:=44617"
+    ],
+    "domain": 181,
+    "passed": true,
+    "controllers": [
+      "fairino10_controller",
+      "joint_state_broadcaster"
+    ],
+    "tf": [
+      "fr10_base_link",
+      "charging_tcp"
+    ],
+    "samples": {
+      "clock": 1686,
+      "joint": 158,
+      "tcp": 5
+    },
+    "launch_exit": 0
+  },
+  {
+    "profile": "combined",
+    "command": [
+      "ros2",
+      "launch",
+      "vehicle_bringup",
+      "bringup.launch.py",
+      "use_arm:=true",
+      "use_vehicle:=true",
+      "use_force:=false",
+      "use_gazebo:=true",
+      "gui:=false",
+      "rviz:=false",
+      "gazebo_port:=57141"
+    ],
+    "domain": 182,
+    "passed": true,
+    "controllers": [
+      "fairino10_controller",
+      "joint_state_broadcaster",
+      "swerve_controller"
+    ],
+    "tf": [
+      "odom",
+      "charging_tcp"
+    ],
+    "samples": {
+      "clock": 5070,
+      "scan": 32,
+      "joint": 378,
+      "odom": 49,
+      "tcp": 5
+    },
+    "launch_exit": 0
+  },
+  {
+    "profile": "force_arm",
+    "command": [
+      "ros2",
+      "launch",
+      "vehicle_bringup",
+      "bringup.launch.py",
+      "use_arm:=true",
+      "use_vehicle:=false",
+      "use_force:=true",
+      "use_gazebo:=true",
+      "gui:=false",
+      "rviz:=false",
+      "gazebo_port:=37861"
+    ],
+    "domain": 183,
+    "passed": true,
+    "controllers": [
+      "fairino10_controller",
+      "joint_state_broadcaster"
+    ],
+    "tf": [
+      "fr10_base_link",
+      "charging_tcp"
+    ],
+    "force_action_ready": true,
+    "samples": {
+      "clock": 1281,
+      "joint": 147,
+      "tcp": 5
+    },
+    "launch_exit": 0
+  },
+  {
+    "profile": "force_mounted",
+    "command": [
+      "ros2",
+      "launch",
+      "vehicle_bringup",
+      "bringup.launch.py",
+      "use_arm:=true",
+      "use_vehicle:=true",
+      "use_force:=true",
+      "use_gazebo:=true",
+      "gui:=false",
+      "rviz:=false",
+      "gazebo_port:=49539",
+      "station:=front_mid",
+      "initial_state:=home",
+      "demo:=false"
+    ],
+    "domain": 184,
+    "passed": true,
+    "controllers": [
+      "fairino10_controller",
+      "joint_state_broadcaster",
+      "swerve_controller"
+    ],
+    "tf": [
+      "world",
+      "charging_tcp"
+    ],
+    "force_action_ready": true,
+    "samples": {
+      "clock": 958,
+      "scan": 5,
+      "joint": 6369,
+      "odom": 484,
+      "tcp": 147
+    },
+    "launch_exit": 0
+  }
+]

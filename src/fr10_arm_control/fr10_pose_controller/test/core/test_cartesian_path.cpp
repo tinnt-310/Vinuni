@@ -2,10 +2,10 @@
 #include <string>
 #include <vector>
 
-#include "fr10_pose_controller/cartesian_path.hpp"
-#include "fr10_pose_controller/cartesian_route_planner.hpp"
-#include "fr10_pose_controller/continuous_ik.hpp"
-#include "fr10_pose_controller/math_utils.hpp"
+#include "fr10_motion_core/cartesian_path.hpp"
+#include "fr10_motion_core/cartesian_route_planner.hpp"
+#include "fr10_motion_core/continuous_ik.hpp"
+#include "fr10_motion_core/math_utils.hpp"
 #include "test_support.hpp"
 
 namespace {
@@ -139,7 +139,25 @@ public:
 } // namespace
 
 int main() {
+  // Resolve sub-microradian rotations without the acos(dot) precision floor.
+  // This is the range used by live-boundary FK velocity finite differences.
   fr10_motion_test::Check check;
+  const auto base = fr10_motion_test::axisAngle(2, 1.7);
+  for (const double angle : {1e-10, 1e-8, 1e-6, 0.2, 3.141592653589793}) {
+    const auto rotated = fr10_motion::math::quaternionMultiply(
+        base, fr10_motion_test::axisAngle(0, angle));
+    auto antipodal = rotated;
+    for (auto &value : antipodal) value *= -3.0;
+    check.require(std::abs(fr10_motion::math::quaternionAngularDistance(base, rotated)-angle)<1e-14 &&
+                      std::abs(fr10_motion::math::quaternionAngularDistance(base, antipodal)-angle)<1e-14,
+                  "QUATERNION_SMALL_ANGLE_AND_SIGN_"+std::to_string(angle),
+                  "shortest angle must preserve small rotations and quaternion sign/scale invariance");
+  }
+  check.require(std::isinf(fr10_motion::math::quaternionAngularDistance(
+                    base, {0.,0.,0.,0.})) &&
+                    std::isinf(fr10_motion::math::quaternionAngularDistance(
+                    base, {0.,0.,0.,std::numeric_limits<double>::infinity()})),
+                "QUATERNION_INVALID_DISTANCE", "invalid quaternion must fail closed");
 
   fr10_motion::Pose start;
   start.position_m = {0.20, -0.10, 0.40};
@@ -165,6 +183,24 @@ int main() {
   check.require(std::abs(path.front().position_m[0] - 0.20) < 1e-12 &&
                     std::abs(path.back().position_m[0] - 0.27) < 1e-12,
                 "CART_PATH_ENDPOINTS", "path endpoints changed");
+  std::size_t counted_segments = 0;
+  check.require(fr10_motion::CartesianPath::linearSegmentCount(
+                    start, goal, path_config, counted_segments, &error) &&
+                    counted_segments + 1 == path.size(),
+                "CART_PATH_SEGMENT_COUNT_PARITY",
+                "lightweight segment count differs from generated path");
+  auto huge_goal = goal;
+  huge_goal.position_m[0] = 1e308;
+  counted_segments = 99;
+  std::vector<fr10_motion::Pose> huge_path;
+  check.require(!fr10_motion::CartesianPath::linearSegmentCount(
+                    start, huge_goal, path_config, counted_segments, &error) &&
+                    counted_segments == 0 &&
+                    !fr10_motion::CartesianPath::linear(
+                        start, huge_goal, path_config, huge_path, &error) &&
+                    huge_path.empty(),
+                "CART_PATH_HUGE_FINITE_REJECT",
+                "huge finite coordinates overflowed segment count");
 
   fr10_motion::Pose rotation_goal = start;
   rotation_goal.orientation_quat =

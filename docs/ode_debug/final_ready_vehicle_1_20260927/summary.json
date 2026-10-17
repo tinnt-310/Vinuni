@@ -1,0 +1,67 @@
+{
+  "mode": "vehicle",
+  "duration_s": 29.52,
+  "controllers_ready": true,
+  "required_controllers": [
+    "drive_controller",
+    "joint_state_broadcaster",
+    "steering_controller"
+  ],
+  "launch_command": [
+    "ros2",
+    "launch",
+    "/home/tin/Vinuni/docs/ode_debug/final_ready_vehicle_1_20260927/repro.launch.py",
+    "enable_arm:=false",
+    "enable_vehicle:=true",
+    "gui:=false",
+    "rviz:=false",
+    "gazebo_port:=11393"
+  ],
+  "lcp_errors": 0,
+  "nonfinite_log_tokens": 0,
+  "gzserver_crashed": false,
+  "arm_action_status": null,
+  "arm_max_final_error_rad": null,
+  "arm_finite": null,
+  "mounted_rest_goal_completed_before_drive": null,
+  "mounted_moving_goal_drive_overlap_s": null,
+  "vehicle": {
+    "sample_count": 902,
+    "odom_count": 90,
+    "wheel_names_present": true,
+    "finite": true,
+    "odom_distance_m": 0.7500936452271955,
+    "pass": true
+  },
+  "warnings": [
+    "[gzserver-1] [WARN] [1790479915.474375987] [gazebo_ros2_control]:  Desired controller update period (0.01 s) is slower than the gazebo simulation period (0.001 s).",
+    "[ERROR] [swerve_drive-4]: process has died [pid 34622, exit code -2, cmd '/home/tin/Vinuni/install_grouped/swerve_vehicle_control/lib/swerve_vehicle_control/swerve_drive --ros-args --params-file /tmp/launch_params_ji96nrf8'].",
+    "[ERROR] [robot_state_publisher-2]: process has died [pid 34618, exit code -2, cmd '/opt/ros/humble/lib/robot_state_publisher/robot_state_publisher --ros-args --params-file /tmp/launch_params_zlqekhh3 --params-file /tmp/launch_params_wwxo3qfd']."
+  ],
+  "vehicle_pose": {
+    "samples": 485,
+    "wall_duration_s": 25.21732087700002,
+    "sim_duration_s": 25.184000000000026,
+    "finite": true,
+    "actual_displacement_m": [
+      0.7518280013642481,
+      -5.207786150764984e-05,
+      -0.0012247969801707503
+    ],
+    "actual_planar_distance_m": 0.7518280031679211,
+    "max_tilt_rad": 0.0004837191216109368,
+    "final_max_speed_m_s": 3.29717744283635e-09,
+    "final_pose": [
+      0.7518277228793527,
+      -5.230209393217316e-05,
+      -0.0012341992842179739
+    ],
+    "final_rpy": [
+      -0.00020278121161005624,
+      0.00019328021478608716,
+      -0.00014669671637355713
+    ],
+    "pass": true
+  },
+  "pass": true
+}

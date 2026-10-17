@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package format="3">
+<name>vehicle_bringup</name><version>0.1.0</version><description>Modular vehicle_bringup for Vinuni vehicle.</description><maintainer email="tin@example.com">Tin</maintainer><license>See retained upstream source notices</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<build_depend>gazebo_dev</build_depend>
+<depend>vehicle_description</depend>
+<depend>swerve_vehicle_control</depend>
+<depend>fr10_arm_control</depend>
+<depend>charger_detection</depend>
+<depend>gazebo_ros</depend>
+<depend>gazebo_ros2_control</depend>
+<depend>controller_manager</depend>
+<depend>rviz2</depend>
+<depend>xacro</depend>
+<depend>python3-yaml</depend>
+<depend>launch</depend>
+<depend>launch_ros</depend>
+<export><build_type>ament_cmake</build_type></export>
+</package>

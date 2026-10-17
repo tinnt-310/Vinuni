@@ -34,7 +34,7 @@ class AutoInsert(Node):
     @staticmethod
     def make_pose(position, quaternion):
         result = PoseStamped()
-        result.header.frame_id = "base_link"
+        result.header.frame_id = "fr10_base_link"
         result.pose.position.x, result.pose.position.y, result.pose.position.z = position
         (result.pose.orientation.x, result.pose.orientation.y,
          result.pose.orientation.z, result.pose.orientation.w) = quaternion
@@ -44,8 +44,8 @@ class AutoInsert(Node):
         if self.phase != "idle":
             self.get_logger().warning("Insertion already running; target ignored")
             return
-        if message.header.frame_id != "base_link":
-            self.get_logger().error("Target frame must be base_link")
+        if message.header.frame_id != "fr10_base_link":
+            self.get_logger().error("Target frame must be fr10_base_link")
             return
 
         q = [message.pose.orientation.x, message.pose.orientation.y,

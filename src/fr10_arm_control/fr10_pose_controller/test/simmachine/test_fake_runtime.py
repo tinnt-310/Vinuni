@@ -8,8 +8,11 @@ import math
 import os
 import pathlib
 import re
+import threading
 import sys
 import time
+
+from std_msgs.msg import Float64MultiArray
 
 from common import (
     ManagedLaunch,
@@ -23,6 +26,43 @@ from common import (
 )
 
 
+def fake_health_packet(sequence: int):
+    """Test-only healthy heartbeat for ros2_control GenericSystem."""
+    if not isinstance(sequence, int) or sequence <= 0 or sequence > 2**53:
+        raise ValueError('health sequence must be a positive exact integer')
+    data = [0.0] * 16
+    data[0] = 1.0
+    data[1] = float(sequence)
+    data[6] = 1.0
+    return data
+
+
+class FakeHealthHeartbeat:
+    def __init__(self, node):
+        self.node = node
+        self.publisher = node.create_publisher(
+            Float64MultiArray, '/fairino_driver/health', 10)
+        self.stop_event = threading.Event()
+        self.thread = threading.Thread(target=self._publish, daemon=True)
+
+    def start(self):
+        self.thread.start()
+
+    def _publish(self):
+        sequence = 1
+        while not self.stop_event.is_set():
+            message = Float64MultiArray()
+            message.data = fake_health_packet(sequence)
+            self.publisher.publish(message)
+            sequence += 1
+            self.stop_event.wait(0.005)
+
+    def stop(self):
+        self.stop_event.set()
+        self.thread.join(timeout=2.0)
+        self.node.destroy_publisher(self.publisher)
+
+
 def run_fake_runtime(domain_id: int, results_dir: pathlib.Path) -> int:
     results_dir.mkdir(parents=True, exist_ok=True)
     os.environ["ROS_LOG_DIR"] = str(results_dir / "ros_log_probe")
@@ -30,12 +70,20 @@ def run_fake_runtime(domain_id: int, results_dir: pathlib.Path) -> int:
     launch = ManagedLaunch.start(
         results_dir, "192.168.58.2", domain_id, use_fake_hardware=True)
     probe_context = ProbeContext(domain_id)
+    health_heartbeat = None
     outcome = {}
 
     try:
         probe = probe_context.__enter__()
+        health_heartbeat = FakeHealthHeartbeat(probe)
+        health_heartbeat.start()
         ready = probe.wait_ready(timeout=20.0)
         outcome["startup"] = "PASS" if ready else "FAIL"
+        outcome["startup_feedback"] = {
+            "joint_seen": probe.joint_position() is not None,
+            "tcp_seen": probe.tcp_pose() is not None,
+            "status": probe.status(),
+        }
         if not ready:
             return 1
 
@@ -195,6 +243,8 @@ def run_fake_runtime(domain_id: int, results_dir: pathlib.Path) -> int:
         }
         return 0 if stream_pass else 1
     finally:
+        if health_heartbeat is not None:
+            health_heartbeat.stop()
         if probe_context.node is not None:
             probe_context.__exit__(None, None, None)
         outcome["shutdown"] = launch.stop()

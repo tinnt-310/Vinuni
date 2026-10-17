@@ -1,0 +1,27 @@
+cmake_minimum_required(VERSION 3.8)
+project(vehicle_bringup)
+find_package(ament_cmake REQUIRED)
+find_package(gazebo REQUIRED)
+add_library(vinuni_wheel_contact_surface SHARED src/wheel_contact_surface.cpp)
+target_include_directories(vinuni_wheel_contact_surface PRIVATE ${GAZEBO_INCLUDE_DIRS})
+target_link_libraries(vinuni_wheel_contact_surface ${GAZEBO_LIBRARIES})
+install(TARGETS vinuni_wheel_contact_surface LIBRARY DESTINATION lib)
+install(DIRECTORY launch/ DESTINATION share/${PROJECT_NAME}/launch)
+install(DIRECTORY config/ DESTINATION share/${PROJECT_NAME}/config)
+install(DIRECTORY maps/ DESTINATION share/${PROJECT_NAME}/maps)
+install(DIRECTORY rviz/ DESTINATION share/${PROJECT_NAME}/rviz)
+install(PROGRAMS scripts/wait_for_gazebo_clock.py DESTINATION lib/${PROJECT_NAME})
+if(BUILD_TESTING)
+  find_package(ament_cmake_pytest REQUIRED)
+  ament_add_pytest_test(test_simulation_station_sequence
+    test/test_simulation_station_sequence.py)
+  ament_add_pytest_test(test_wait_for_gazebo_clock
+    test/test_wait_for_gazebo_clock.py)
+  ament_add_pytest_test(test_simulation_controller_contract
+    test/test_simulation_controller_contract.py)
+  ament_add_pytest_test(test_shared_fr10_model
+    test/test_shared_fr10_model.py)
+  ament_add_pytest_test(test_vehicle_geometry_contract
+    test/test_vehicle_geometry_contract.py)
+endif()
+ament_package()

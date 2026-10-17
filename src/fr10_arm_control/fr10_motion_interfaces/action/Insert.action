@@ -1,0 +1,79 @@
+# Goal. Wrench convention: tool-on-environment at TCP in insertion axes.
+uint8 HOLD=0
+uint8 RETRACT=1
+
+geometry_msgs/PoseStamped target_pose
+float64 preinsert_distance
+float64 insertion_depth
+float64 insertion_speed
+geometry_msgs/Wrench desired_wrench
+bool[6] selected_axes
+float64[3] max_force
+float64[3] max_torque
+builtin_interfaces/Duration timeout
+string profile_id
+uint8 completion_behavior
+---
+# Stable result codes.
+uint16 SUCCESS=0
+uint16 INVALID_GOAL=1
+uint16 BUSY=2
+uint16 PLANNING_FAILED=3
+uint16 SENSOR_UNAVAILABLE=4
+uint16 STALE_WRENCH=5
+uint16 FORCE_LIMIT=6
+uint16 TORQUE_LIMIT=7
+uint16 FORCE_RATE_LIMIT=8
+uint16 CORRECTION_LIMIT=9
+uint16 DEPTH_LIMIT=10
+uint16 LOST_CONTACT=11
+uint16 IK_FAILURE=12
+uint16 COLLISION=13
+uint16 SCENE_CHANGED=14
+uint16 TRACKING_ERROR=15
+uint16 ROBOT_FAULT=16
+uint16 COMMAND_REJECTED=17
+uint16 TIMEOUT=18
+uint16 CANCELED=19
+uint16 CLOCK_JUMP=20
+uint16 NO_PROGRESS=21
+
+bool success
+uint16 code
+string message
+float64 final_depth
+geometry_msgs/Pose final_pose
+float64 peak_force
+float64 peak_torque
+bool controlled_stop_completed
+---
+uint8 IDLE=0
+uint8 MOVE_PREINSERT=1
+uint8 HOLD_PREINSERT=2
+uint8 FT_ZERO=3
+uint8 APPROACH=4
+uint8 CONTACT_DETECTED=5
+uint8 FORCE_INSERTION=6
+uint8 VERIFY_INSERTION=7
+uint8 SUCCESS_STATE=8
+uint8 HOLDING=9
+uint8 RETRACTING=10
+uint8 STOPPING=11
+uint8 FAILED=12
+uint8 CONTACT_ALIGN=13
+uint8 INSERT_COMPLIANT=14
+uint8 SEATING=15
+uint8 APPROACH_COMPLIANT=16
+
+uint8 state
+float64 progress
+float64 depth
+geometry_msgs/Wrench measured_wrench
+geometry_msgs/Wrench force_error
+geometry_msgs/Pose nominal_pose
+geometry_msgs/Pose corrected_pose
+float64[6] correction
+uint8 contact_state
+float64 source_age
+uint64 generation
+string detail

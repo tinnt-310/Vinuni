@@ -5,7 +5,7 @@
 #include <iostream>
 #include <string>
 
-#include "fr10_pose_controller/joint_otg.hpp"
+#include "fr10_motion_core/joint_otg.hpp"
 #include "test_support.hpp"
 
 namespace {

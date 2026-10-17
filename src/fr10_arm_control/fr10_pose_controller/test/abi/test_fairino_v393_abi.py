@@ -59,7 +59,7 @@ def main():
     expected_sdk = str(sdk.resolve())
 
     inventory = []
-    for root_name in ("src", "build", "install"):
+    for root_name in ("src", "build", "install", "build_grouped", "install_grouped"):
         root = workspace / root_name
         if root.exists():
             for candidate in sorted(root.rglob("libfairino.so*")):
@@ -73,9 +73,10 @@ def main():
     add(checks, "ABI-01", "FAIRINO SDK inventory is non-empty",
         bool(inventory), inventory)
 
-    pose_prefix = f"{os.sep}install{os.sep}fr10_pose_controller{os.sep}"
+    pose_prefixes = tuple(f"{os.sep}{root}{os.sep}fr10_pose_controller{os.sep}"
+                          for root in ("install", "install_grouped"))
     pose_providers = [item["path"] for item in inventory
-                      if pose_prefix in item["path"]]
+                      if any(prefix in item["path"] for prefix in pose_prefixes)]
     add(checks, "ABI-02", "fr10_pose_controller installs no FAIRINO SDK provider",
         not pose_providers, pose_providers)
 

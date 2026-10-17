@@ -1,0 +1,33 @@
+{
+  "mode": "vehicle",
+  "duration_s": 40.41,
+  "launch_command": [
+    "ros2",
+    "launch",
+    "/home/tin/Vinuni/docs/ode_debug/vehicle_kp1e5_spawn0_20260926/repro.launch.py",
+    "enable_arm:=false",
+    "enable_vehicle:=true",
+    "gui:=false",
+    "rviz:=false",
+    "gazebo_port:=11393"
+  ],
+  "lcp_errors": 6909,
+  "nonfinite_log_tokens": 0,
+  "arm_action_status": null,
+  "arm_max_final_error_rad": null,
+  "arm_finite": null,
+  "vehicle": {
+    "sample_count": 1255,
+    "odom_count": 136,
+    "wheel_names_present": true,
+    "finite": true,
+    "odom_distance_m": 0.7498302971222486,
+    "pass": true
+  },
+  "warnings": [
+    "[gzserver-1] [WARN] [1790426752.198471659] [gazebo_ros2_control]:  Desired controller update period (0.01 s) is slower than the gazebo simulation period (0.001 s).",
+    "[ERROR] [robot_state_publisher-2]: process has died [pid 310426, exit code -2, cmd '/opt/ros/humble/lib/robot_state_publisher/robot_state_publisher --ros-args --params-file /tmp/launch_params_y_y91ihz --params-file /tmp/launch_params_i8oo6ski'].",
+    "[ERROR] [gzserver-1]: process[gzserver-1] failed to terminate '5' seconds after receiving 'SIGINT', escalating to 'SIGTERM'"
+  ],
+  "pass": false
+}

@@ -1,0 +1,20 @@
+fr10_pose_controller:
+  ros__parameters:
+    # Test-only opt-in. Never load this overlay on FAIRINO hardware.
+    force.enabled: true
+    force.profile_id: simulation_v1
+    force.contact_object_id: force_contact_proxy
+    # gazebo_ros_ft_sensor reports child-to-parent joint reaction; negate it
+    # to obtain tool-on-environment force after tare for this fixture.
+    force.wrench_source_sign: -1.0
+    # Native fixed-joint reaction contains high-frequency ODE impulses.
+    # Shared 0.1 Hz conditioning for the slow (2 mm/s) proxy experiment; raw
+    # overload protection is unchanged and completion tolerances stay fixed.
+    force.filter_cutoff_hz: 0.1
+    # Same 2000 N/m spring test gains as MuJoCo, not a real deployment profile.
+    force.admittance.damping: [500.0, 500.0, 500.0, 5.0, 5.0, 5.0]
+    force.admittance.max_velocity: [0.001, 0.001, 0.001, 0.10, 0.10, 0.10]
+    force.admittance.max_acceleration: [0.02, 0.02, 0.02, 1.0, 1.0, 1.0]
+    # 2000 N/m fixture: 0.25 mm adds <=0.5 N and reserves half the 0.5 mm
+    # depth budget for tracking. No safety/completion tolerance is enlarged.
+    force.admittance.max_correction: [0.00025, 0.00025, 0.00025, 0.10, 0.10, 0.10]

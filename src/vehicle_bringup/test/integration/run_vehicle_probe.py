@@ -1,0 +1,209 @@
+"""Fresh Gazebo vehicle isolation. Source Humble + install_grouped first.
+
+Usage: python3 src/vehicle_bringup/test/integration/run_vehicle_probe.py LABEL V0..V8 [--duration 30]
+Build /tmp/libode_contact_probe.so from ode_contact_probe.cpp before running.
+Production physics and model files are never edited by this runner.
+"""
+import argparse
+import json
+import os
+from pathlib import Path
+import xml.etree.ElementTree as ET
+import signal
+import socket
+import subprocess
+import sys
+import threading
+import time
+
+from ode_transport_runtime import observer_binary
+from ode_scenario_readiness import required_controllers_for_case, wait_for_controllers
+
+parser = argparse.ArgumentParser()
+parser.add_argument('label')
+parser.add_argument('case', choices=[f'V{i}' for i in range(9)])
+parser.add_argument('--duration', type=float, default=30)
+parser.add_argument('--spawn-z', type=float, default=0.0)
+parser.add_argument('--fdir', help='Experimental collision-local friction direction')
+parser.add_argument('--slip', type=float, help='Experimental wheel tangential compliance, both axes')
+parser.add_argument('--surface-slip', type=float, help='Override production wheel plugin slip in generated URDF only')
+parser.add_argument('--motion-end', type=float, default=15.0, help='Seconds after start to stop the commanded motion')
+parser.add_argument('--no-stations', action='store_true', help='Isolate vehicle from unrelated charging station spawns')
+parser.add_argument('--no-probe', action='store_true', help='Omit invasive contact plugin; keep read-only Gazebo ROS state telemetry')
+parser.add_argument('--omit-state-plugin', action='store_true', help='Startup-crash isolation only: omit injected Gazebo ROS state plugin and actual-pose gate')
+parser.add_argument('--omit-lidar-sensor', action='store_true', help='Startup-crash isolation only: omit generated LiDAR ray sensor, not its visual/collision link')
+parser.add_argument('--stations-before-robot', action='store_true', help='Startup-crash isolation only: spawn stations serially before robot while keeping LiDAR enabled')
+parser.add_argument('--omit-angled-barrier', action='store_true', help='Remove only the angled barrier 45 from the generated world')
+args = parser.parse_args()
+root = Path(__file__).resolve().parents[4]
+out = root / 'docs/ode_debug' / args.label
+out.mkdir(exist_ok=False)
+plugin = Path('/tmp/libode_contact_probe.so')
+if not args.no_probe and not plugin.is_file():
+    raise SystemExit('Build contact probe plugin first')
+world = (root / 'src/vehicle_description/worlds/vinfast_map.world').read_text()
+# Attach diagnostic plugin only after the vehicle has finished loading.
+if args.omit_angled_barrier:
+    xml = ET.fromstring(world)
+    for parent in (xml.find('world'), xml.find('world/state')):
+        if parent is None:
+            continue
+        for model in list(parent.findall('model')):
+            if model.get('name') == 'drc_practice_angled_barrier_45':
+                parent.remove(model)
+    world = ET.tostring(xml, encoding='unicode')
+if args.no_probe and not args.omit_state_plugin:
+    xml = ET.fromstring(world)
+    state_plugin = ET.SubElement(xml.find('world'), 'plugin', {'name': 'ode_state_probe', 'filename': 'libgazebo_ros_state.so'})
+    ros = ET.SubElement(state_plugin, 'ros')
+    ET.SubElement(ros, 'namespace').text = '/ode_probe'
+    ET.SubElement(state_plugin, 'update_rate').text = '20.0'
+    world = ET.tostring(xml, encoding='unicode')
+(out / 'world.sdf').write_text(world)
+launch = (root / 'src/vehicle_bringup/launch/simulation.launch.py').read_text()
+launch = launch.replace("'worlds', 'vinfast_map.world'", repr(str(out / 'world.sdf')))
+launch = launch.replace("'-z', '0.0'],", f"'-z', '{args.spawn_z}'],", 1)
+launch = launch.replace('    # Source Xacros retain package://.',
+    f"    doc.documentElement.appendChild(__import__('xml.dom.minidom', fromlist=['parseString']).parseString('<gazebo><plugin name=\"ode_contact_probe\" filename=\"{plugin}\"/></gazebo>').documentElement)\n"
+    "    from pathlib import Path\n"
+    "    Path(os.environ['ODE_OUT']+'/model.urdf').write_text(doc.toxml())\n"
+    "    Path(os.environ['ODE_OUT']+'/controllers.yaml').write_text(yaml.safe_dump(controller_config))\n"
+    '    # Source Xacros retain package://.')
+if args.no_probe:
+    launch = launch.replace('    doc.documentElement.appendChild(', '    # doc.documentElement.appendChild(')
+if args.omit_lidar_sensor:
+    launch = launch.replace('    # Gazebo-only base collision:',
+        "    for gazebo in doc.getElementsByTagName('gazebo'):\n"
+        "        if gazebo.getAttribute('reference') == 'laser_frame':\n"
+        "            for sensor in list(gazebo.getElementsByTagName('sensor')):\n"
+        "                gazebo.removeChild(sensor)\n"
+        '    # Gazebo-only base collision:')
+if args.surface_slip is not None:
+    launch = launch.replace('    # Gazebo-only base collision:',
+        "    for element in doc.getElementsByTagName('plugin'):\n"
+        "        if element.getAttribute('name') == 'wheel_contact_surface':\n"
+        "            slip = doc.createElement('slip')\n"
+        f"            slip.appendChild(doc.createTextNode({str(args.surface_slip)!r}))\n"
+        "            element.appendChild(slip)\n"
+        '    # Gazebo-only base collision:')
+if args.fdir is not None:
+    launch = launch.replace('    # Gazebo-only base collision:',
+        "    for element in doc.getElementsByTagName('fdir1'):\n"
+        f"        element.firstChild.nodeValue = {args.fdir!r}\n"
+        '    # Gazebo-only base collision:')
+manifest_fdir = args.fdir
+if args.case == 'V0':
+    launch = launch.replace('        load_joint_state_broadcaster,', '')
+    launch = launch.replace('        load_base_controllers,', '')
+if args.case in ('V0', 'V1'):
+    launch = launch.replace('        load_base_controllers,', '')
+if args.case in ('V2', 'V3'):
+    controller = 'steering_controller' if args.case == 'V2' else 'drive_controller'
+    launch = launch.replace("vehicle_controllers = include('swerve_vehicle_control', 'controllers.launch.py')",
+        f"vehicle_controllers = Node(package='controller_manager', executable='spawner', arguments=['{controller}'])")
+if args.no_stations:
+    old_stations = """*([start_next_on_success(node_clock_ready, node_spawn_station),
+           start_next_on_success(node_spawn_station, node_spawn_station2),
+           start_next_on_success(node_spawn_station2, node_spawn_station3),
+           start_next_on_success(node_spawn_station3, node_spawn_entity),
+           node_clock_ready, node_swerve_drive, detection] if vehicle_enabled else []),"""
+    if old_stations not in launch:
+        raise SystemExit('Expected clock-gated station-spawn list not found')
+    launch = launch.replace(
+        old_stations,
+        '*([start_next_on_success(node_clock_ready, node_spawn_entity),\n'
+        '           node_clock_ready, node_swerve_drive, detection] if vehicle_enabled else []),', 1)
+if args.stations_before_robot and args.no_stations:
+    raise SystemExit('--stations-before-robot conflicts with --no-stations')
+(out / 'probe.launch.py').write_text(launch)
+env = dict(os.environ, ROS_DOMAIN_ID='94', GAZEBO_MASTER_URI='http://127.0.0.1:11394', ODE_OUT=str(out))
+if args.slip is not None:
+    env['ODE_PROBE_SLIP'] = str(args.slip)
+command = ['ros2', 'launch', str(out / 'probe.launch.py'), 'enable_arm:=false',
+           'enable_vehicle:=true', 'gui:=false', 'rviz:=false', 'gazebo_port:=11394']
+manifest = dict(case=args.case, spawn_z=args.spawn_z, duration_s=args.duration, no_stations=args.no_stations, no_probe=args.no_probe, omit_state_plugin=args.omit_state_plugin, omit_lidar_sensor=args.omit_lidar_sensor, stations_before_robot=args.stations_before_robot, omit_angled_barrier=args.omit_angled_barrier, motion_interval_s=[10, min(args.motion_end, args.duration - 5)],
+                experimental_fdir=manifest_fdir, experimental_slip=args.slip, surface_slip=args.surface_slip,
+                command=command, started=time.strftime('%Y-%m-%dT%H:%M:%S%z'),
+                hypothesis='locate first LCP with unchanged production contacts/solver',
+                changes=['diagnostic world plugin', 'controller activation isolation'])
+(out / 'manifest.json').write_text(json.dumps(manifest, indent=2))
+process = subprocess.Popen(command, env=env, stdout=subprocess.PIPE,
+                           stderr=subprocess.STDOUT, text=True, start_new_session=True)
+first_lcp = None
+lcp_count = 0
+gzserver_crashed = False
+def collect():
+    global first_lcp, lcp_count, gzserver_crashed
+    with (out / 'gazebo.log').open('w') as raw, (out / 'events.jsonl').open('w') as events:
+        for line in process.stdout:
+            stamp = time.monotonic()
+            raw.write(line)
+            raw.flush()
+            events.write(json.dumps(dict(wall=stamp, line=line.rstrip())) + '\n')
+            if '[ERROR] [gzserver-' in line and 'process has died' in line:
+                gzserver_crashed = True
+            if 'LCP internal error' in line:
+                lcp_count += 1
+                if first_lcp is None:
+                    first_lcp = stamp
+thread = threading.Thread(target=collect)
+thread.start()
+transport_log = None
+transport = None
+if args.no_probe:
+    master_deadline = time.monotonic() + 10.0
+    while time.monotonic() < master_deadline:
+        try:
+            with socket.create_connection(('127.0.0.1', 11394), timeout=0.2):
+                break
+        except OSError:
+            time.sleep(0.05)
+    else:
+        raise RuntimeError('Gazebo transport master did not open port 11394')
+    transport_log = (out / 'transport.log').open('w')
+    transport = subprocess.Popen([str(observer_binary())], env=env,
+                                 stdout=transport_log, stderr=subprocess.STDOUT)
+required_controllers = required_controllers_for_case(args.case)
+controllers_ready = (wait_for_controllers(out / 'gazebo.log', required_controllers, process)
+                     if required_controllers else True)
+if not controllers_ready:
+    print('Probe controllers did not activate before client start', file=sys.stderr)
+client_log = (out / 'observer.log').open('w')
+client = subprocess.Popen(['python3', str(root / 'src/vehicle_bringup/test/integration/vehicle_probe_observer.py'),
+                           args.case, str(args.duration), str(args.motion_end)], env=env,
+                          stdout=client_log, stderr=subprocess.STDOUT)
+try:
+    client.wait(timeout=args.duration + 15)
+finally:
+    if client.poll() is None:
+        client.terminate()
+        client.wait(timeout=5)
+    os.killpg(process.pid, signal.SIGINT)
+    try:
+        process.wait(timeout=10)
+    except subprocess.TimeoutExpired:
+        os.killpg(process.pid, signal.SIGTERM)
+        process.wait(timeout=10)
+    thread.join(timeout=5)
+    client_log.close()
+    if transport is not None:
+        transport.terminate()
+        transport.wait(timeout=5)
+        transport_log.close()
+summary = dict(lcp_count=lcp_count, first_lcp_wall=first_lcp, gzserver_crashed=gzserver_crashed,
+               controllers_ready=controllers_ready,
+               launch_returncode=process.returncode, observer_returncode=client.returncode,
+               note='Diagnostic trace only; no acceptance verdict from LCP count alone.')
+if first_lcp is not None and (out / 'physics.jsonl').exists():
+    window = []
+    nearest = None
+    for line in (out / 'physics.jsonl').open():
+        sample = json.loads(line)
+        if nearest is None or abs(sample['wall']-first_lcp) < abs(nearest['wall']-first_lcp):
+            nearest = sample
+        if abs(sample['wall']-first_lcp) <= .15:
+            window.append(sample)
+    summary['nearest_physics'] = nearest
+    (out / 'first_lcp_window.json').write_text(json.dumps(window, indent=2))
+(out / 'summary.json').write_text(json.dumps(summary, indent=2))
+print(json.dumps({k:v for k,v in summary.items() if k != 'nearest_physics'}, indent=2))

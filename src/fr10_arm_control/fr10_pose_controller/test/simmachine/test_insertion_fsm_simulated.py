@@ -9,6 +9,7 @@ import json
 import math
 import pathlib
 import time
+from functools import lru_cache
 
 from common import (
     ManagedLaunch,
@@ -42,6 +43,21 @@ def rotation_z(angle):
     return [[c, -s, 0.0], [s, c, 0.0], [0.0, 0.0, 1.0]]
 
 
+@lru_cache(maxsize=1)
+def model_tool_translation():
+    import importlib.util
+    import xacro
+    from ament_index_python.packages import get_package_share_directory
+    share = pathlib.Path(get_package_share_directory('vehicle_description'))
+    spec = importlib.util.spec_from_file_location('tool_geometry', share/'launch/tool_geometry.py')
+    geometry = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(geometry)
+    description = xacro.process_file(str(share/'urdf/vehicle.urdf.xacro'), mappings={
+        'enable_vehicle': 'false', 'enable_arm': 'true'}).toxml()
+    transform = geometry.fixed_transform(description, 'wrist3_link', 'charging_tcp')
+    return tuple(row[3] for row in transform[:3])
+
+
 def fk_tcp_position(joints):
     """Independent position-only port of the configured analytical FK."""
     rotation = [[1.0, 0.0, 0.0],
@@ -72,7 +88,7 @@ def fk_tcp_position(joints):
     translate([0.0, 0.0, 0.114])
     rotate(rotation_x(-math.pi / 2.0))
     rotate(rotation_z(joints[5]))
-    translate([0.060, 0.0, 0.268])
+    translate(model_tool_translation())
     return position
 
 

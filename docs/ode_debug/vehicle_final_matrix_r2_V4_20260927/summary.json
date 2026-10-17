@@ -1,0 +1,8 @@
+{
+  "lcp_count": 0,
+  "first_lcp_wall": null,
+  "gzserver_crashed": false,
+  "launch_returncode": 0,
+  "observer_returncode": 0,
+  "note": "Diagnostic trace only; no acceptance verdict from LCP count alone."
+}

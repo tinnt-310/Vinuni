@@ -1,0 +1,55 @@
+{
+  "binary_sha256": {
+    "install_grouped/swerve_vehicle_control/lib/libswerve_controller_plugin.so": "eb233441bc972a4733c9266fd3baaf4e0abe32b0e13fbc3b21afd889bbeaf871",
+    "install_grouped/vehicle_bringup/lib/libvinuni_wheel_contact_surface.so": "1b85c12da26cb2f9e324a67367920d06c5064a5e1580d5d4d11db18ad3858d63"
+  },
+  "case": "forward",
+  "clock_sources": [
+    "wall_monotonic",
+    "ROS_sim",
+    "Gazebo_transport"
+  ],
+  "command": [
+    "ros2",
+    "launch",
+    "docs/ode_debug/p2_ray_isolation_late_20260928_1/diagnostic_defer_ray.launch.py",
+    "enable_vehicle:=true",
+    "enable_arm:=false",
+    "gui:=false",
+    "rviz:=false",
+    "gazebo_port:=11396"
+  ],
+  "defer_ray_sensor": true,
+  "domain": 96,
+  "environment": {
+    "AMENT_PREFIX_PATH": "/home/tin/Vinuni/install_grouped/vehicle_bringup:/home/tin/Vinuni/install_grouped/swerve_vehicle_control:/home/tin/Vinuni/install_grouped/vehicle_description:/home/tin/Vinuni/install_grouped/fr10_pose_controller:/home/tin/Vinuni/install_grouped/fr10_arm_control:/home/tin/Vinuni/install_grouped/fairino_msgs:/home/tin/Vinuni/install_grouped/fairino10_v6_moveit2_config:/home/tin/Vinuni/install_grouped/fairino_hardware_v3_9_3:/home/tin/Vinuni/install_grouped/fairino_description:/home/tin/Vinuni/install_grouped/charger_detection:/home/tin/Vinuni/install_grouped/ccs2_socket_detector:/opt/ros/humble",
+    "GAZEBO_MASTER_URI": "http://127.0.0.1:11396",
+    "RMW_LOCALHOST_ONLY": "1",
+    "ROS_DISTRO": "humble",
+    "ROS_DOMAIN_ID": "96"
+  },
+  "expanded_urdf_sha256": "202dc40c99ce50e517f05de2f037a116fafa5b2b4d8a6ebe249f593489ea2c15",
+  "file_sha256": {
+    "src/swerve_vehicle_control/config/swerve_controllers.yaml": "bdb51281d64e3c520c765461c95974b9a390b44f7257c12382ad7e70292dcf2b",
+    "src/swerve_vehicle_control/src/swerve_controller_plugin.cpp": "3f429d7ff4bb87e53609e8bf7dbad8587e57cacc9e2f718bc86c065415ff4768",
+    "src/vehicle_bringup/launch/simulation.launch.py": "a64f7fc7cde5f0694935e2f11cfc8a109e4bd3c335d6e97723695043d89767ae",
+    "src/vehicle_description/vehicle_description/worlds/vinfast_map.world": "909c15dcd8e4663024888d87a10cd511a46e064ee34bfb0f81c1a504a8176b19"
+  },
+  "git_head": "3c1be9cf7ef0c109f7f4d44fe2acd4c4d647a747",
+  "gpu_ray_sensor": false,
+  "late_scan_subscriber": true,
+  "omit_ray_sensor": false,
+  "port": 11396,
+  "process_identity": {
+    "launch_exit": 0,
+    "launch_pid": 60949,
+    "observer_exit": 0,
+    "observer_pid": 61018
+  },
+  "tracked_diff_sha256": "9c95de7a84212b1e0c239a2cde6800472f4aab54ee19a28549d20ad08278e0e6",
+  "twist": [
+    0.12,
+    0.0,
+    0.0
+  ]
+}

@@ -1,6 +1,6 @@
 #include <deque>
 #include <vector>
-#include "fr10_pose_controller/motion_controller.hpp"
+#include "fr10_motion_core/motion_controller.hpp"
 #include "test_support.hpp"
 
 using namespace fr10_motion;

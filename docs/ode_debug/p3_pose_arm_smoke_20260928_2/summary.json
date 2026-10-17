@@ -1,0 +1,112 @@
+{
+  "command": [
+    "ros2",
+    "launch",
+    "fr10_pose_controller",
+    "fr10_pose_controller.launch.py",
+    "use_gazebo:=true",
+    "use_rviz:=false",
+    "start_robot_stack:=true"
+  ],
+  "command_state": {
+    "count": 2606,
+    "positions": [
+      0.03071617107665777,
+      -1.5990963482894205,
+      1.5869224842960228,
+      -1.5586186856647097,
+      -1.5708000974487437,
+      0.0008843840427453489
+    ]
+  },
+  "controllers": "\u001b[92mfairino10_controller   \u001b[0m position_controllers/JointGroupPositionController  \u001b[92mactive\u001b[0m\n\u001b[92mjoint_state_broadcaster\u001b[0m joint_state_broadcaster/JointStateBroadcaster      \u001b[92mactive\u001b[0m\n",
+  "domain": 94,
+  "final_joint_rad": [
+    0.03000000000000025,
+    -1.5707963267948966,
+    1.5707963267948966,
+    -1.5707963267948954,
+    -1.5707963267948963,
+    -8.881784197001252e-16
+  ],
+  "final_status": "state=HOLDING outcome=GOAL_REACHED mode=POSE pose_policy=INSERTION owner=POSE_PATH type=JOINT_POSITION revision=0 generation=2 scene_revision=1 active_scene_revision=1 command_seq=3875 feedback_seq=2590 feedback_age_ms=12.804 safety_known=false backend_ready=true loop_samples=3875 loop_hz=124.988 mean_cycle_period_ms=8.000775 mean_abs_jitter_ms=0.128699 max_abs_jitter_ms=2.667363 max_cycle_period_ms=10.667363 ik_mean_us=138.323 ik_max_us=259.322 position_error_m=0.000002 angular_error_rad=0.000006 path_deviation_m=0.000002 reference_actual_rad=0.000000 candidate_reference_actual_rad=0.000000 reference_lagging=false reference_lag_samples=0 max_delta_qdot_rad_s=0.011222 max_delta_v_m_s=0.000000 sdk_read_errors=0 sdk_write_errors=0 command_write_errors=0 sdk_errors=0 reason=NONE",
+  "final_tcp": [
+    [
+      -0.6767327052796347,
+      -0.11983999697858543,
+      0.6119992729090622
+    ],
+    [
+      0.6964826661162352,
+      0.7175736169708555,
+      5.194078505460905e-06,
+      -7.978173468019155e-08
+    ]
+  ],
+  "gazebo_port": 11394,
+  "gzserver_crash": false,
+  "initial_joint_rad": [
+    0.0,
+    -1.5707963267948966,
+    1.5707963267948966,
+    -1.5707963267948963,
+    -1.5707963267948963,
+    0.0
+  ],
+  "initial_tcp": [
+    [
+      -0.6999987951879568,
+      -0.0990011680825759,
+      0.6119996363531263
+    ],
+    [
+      0.7071080798594735,
+      0.7071054825064661,
+      2.5973434671707618e-06,
+      2.0030674819527943e-16
+    ]
+  ],
+  "joint_final_tcp": [
+    [
+      -0.69673394540603,
+      -0.11983886625487403,
+      0.6119996363531264
+    ],
+    [
+      0.6964813482173111,
+      0.7175748961457965,
+      2.597054465262019e-06,
+      -3.874516298559955e-08
+    ]
+  ],
+  "joint_reached": true,
+  "launch_exit": 0,
+  "ode_lcp_count": 0,
+  "pass": true,
+  "pose_reached": true,
+  "pose_target": [
+    [
+      -0.6767339454060299,
+      -0.11983886625487403,
+      0.6119996363531264
+    ],
+    [
+      0.6964813482173111,
+      0.7175748961457965,
+      2.597054465262019e-06,
+      -3.874516298559955e-08
+    ]
+  ],
+  "ready": true,
+  "server_alive_at_measurement": true,
+  "startup_wall_s": 18.014351932000864,
+  "status": "state=IDLE outcome=NONE mode=JOINT pose_policy=FREE_SPACE owner=NONE type=NONE revision=0 generation=0 scene_revision=1 active_scene_revision=0 command_seq=13 feedback_seq=9 feedback_age_ms=9.835 safety_known=false backend_ready=true loop_samples=13 loop_hz=125.023 mean_cycle_period_ms=7.998530 mean_abs_jitter_ms=0.066531 max_abs_jitter_ms=0.191926 max_cycle_period_ms=8.102590 ik_mean_us=0.000 ik_max_us=0.000 position_error_m=0.000000 angular_error_rad=0.000000 path_deviation_m=0.000000 reference_actual_rad=0.000000 candidate_reference_actual_rad=0.000000 reference_lagging=false reference_lag_samples=0 max_delta_qdot_rad_s=0.000000 max_delta_v_m_s=0.000000 sdk_read_errors=0 sdk_write_errors=0 command_write_errors=0 sdk_errors=0 reason=NONE",
+  "target_joint_rad": [
+    0.03,
+    -1.5707963267948966,
+    1.5707963267948966,
+    -1.5707963267948963,
+    -1.5707963267948963,
+    8.881784197001252e-16
+  ]
+}

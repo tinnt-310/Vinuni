@@ -1,0 +1,49 @@
+# Goal. Joint targets are radians; poses are metres and XYZW quaternions.
+uint8 JOINT=0
+uint8 FREE_SPACE=1
+uint8 CARTESIAN_LINEAR=2
+
+uint8 mode
+std_msgs/Header header
+float64[6] joint_target
+geometry_msgs/Pose pose_target
+float64 velocity_scale
+float64 acceleration_scale
+float64 jerk_scale
+bool replace_active
+---
+# Result codes are stable API values. A rejected goal never starts motion.
+uint16 SUCCESS=0
+uint16 INVALID_GOAL=1
+uint16 PLANNING_FAILED=2
+uint16 COLLISION=3
+uint16 SINGULARITY=4
+uint16 TIMING_VIOLATION=5
+uint16 TRACKING_ERROR=6
+uint16 DRIVER_ERROR=7
+uint16 CANCELED=8
+uint16 SUPERSEDED=9
+uint16 CONTROLLER_UNAVAILABLE=10
+
+bool success
+uint16 code
+string message
+uint64 generation
+float64 final_position_error_m
+float64 final_orientation_error_rad
+float64 final_joint_error_rad
+---
+uint8 IDLE=0
+uint8 PLANNING=1
+uint8 TRACKING=2
+uint8 STOPPING=3
+uint8 HOLDING=4
+uint8 FAILED=5
+
+uint8 state
+uint64 generation
+float64 progress
+float64 position_error_m
+float64 orientation_error_rad
+float64 max_joint_error_rad
+string detail

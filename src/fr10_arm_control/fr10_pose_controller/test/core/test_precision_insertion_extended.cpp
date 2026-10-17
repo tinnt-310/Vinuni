@@ -8,8 +8,8 @@
 #include <vector>
 
 #include "extended_test_support.hpp"
-#include "fr10_pose_controller/linear_insert_planner.hpp"
-#include "fr10_pose_controller/pre_insert_planner.hpp"
+#include "fr10_motion_core/linear_insert_planner.hpp"
+#include "fr10_motion_core/pre_insert_planner.hpp"
 
 namespace {
 

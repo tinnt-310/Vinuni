@@ -1,0 +1,35 @@
+{
+  "profile": "vehicle",
+  "command": [
+    "ros2",
+    "launch",
+    "vehicle_bringup",
+    "bringup.launch.py",
+    "use_arm:=false",
+    "use_vehicle:=true",
+    "use_force:=false",
+    "use_gazebo:=true",
+    "gui:=false",
+    "rviz:=false",
+    "gazebo_port:=54865"
+  ],
+  "domain": 180,
+  "passed": true,
+  "controllers": [
+    "joint_state_broadcaster",
+    "swerve_controller"
+  ],
+  "tf": [
+    "odom",
+    "laser_frame"
+  ],
+  "forward_odom_m": 0.19308398624932774,
+  "strafe_odom_m": 0.22257455905370654,
+  "samples": {
+    "clock": 8564,
+    "scan": 67,
+    "joint": 641,
+    "odom": 183
+  },
+  "launch_exit": 0
+}

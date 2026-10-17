@@ -1,0 +1,198 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:arg name="ft_wrench_topic" default="wrench"/>
+  <xacro:include filename="$(find realsense2_description)/urdf/_d435.urdf.xacro"/>
+  <xacro:include filename="d435_simulation.xacro"/>
+  <!-- Proposed aluminium mounting pieces; dimensions in metres, density 2700 kg/m3.
+       These are simulation brackets, not manufacturer mounting CAD. -->
+  <xacro:macro name="wrist_support_box" params="name xyz size_x size_y size_z parent:='plate_frame'">
+    <link name="${name}">
+      <visual>
+        <geometry><box size="${size_x} ${size_y} ${size_z}"/></geometry>
+        <material name="mount_aluminium"><color rgba="0.55 0.58 0.62 1"/></material>
+      </visual>
+      <collision><geometry><box size="${size_x} ${size_y} ${size_z}"/></geometry></collision>
+      <xacro:inertial_box mass="${2700*size_x*size_y*size_z}" x="${size_x}" y="${size_y}" z="${size_z}">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+      </xacro:inertial_box>
+    </link>
+    <joint name="plate_to_${name}" type="fixed">
+      <parent link="${parent}"/><child link="${name}"/>
+      <origin xyz="${xyz}" rpy="0 0 0"/>
+    </joint>
+  </xacro:macro>
+  <xacro:macro name="fr10_wrist" params="enable_force_sensor:=false sim_gazebo:=false tool_profile:='legacy' enable_camera:=true">
+    <xacro:property name="tool_datum" value="${xacro.load_yaml('$(find vehicle_description)/config/fr10_tool.yaml')}"/>
+    <xacro:property name="tool_xyz" value="${tool_datum['translation_m']}"/>
+    <xacro:property name="tool_rpy" value="${[v*pi/180.0 for v in tool_datum['rotation_fixed_xyz_deg']]}"/>
+    <xacro:property name="mating_geometry" value="${xacro.load_yaml('$(find vehicle_description)/models/matched_socket_v2/geometry.json')}"/>
+    <xacro:property name="mesh_front_z" value="${mating_geometry['simulation_design']['tcp_connector_z_m'] if tool_profile == 'matched_socket_v2' else tool_datum['legacy_mesh_front_z_m']}"/>
+    <!-- Mesh +Z is its mating normal. Position the complete mesh/collision
+         assembly behind the measured front-surface TCP, never just its TF. -->
+    <xacro:property name="mesh_axis_z" value="${[cos(tool_rpy[2])*sin(tool_rpy[1])*cos(tool_rpy[0])+sin(tool_rpy[2])*sin(tool_rpy[0]), sin(tool_rpy[2])*sin(tool_rpy[1])*cos(tool_rpy[0])-cos(tool_rpy[2])*sin(tool_rpy[0]), cos(tool_rpy[1])*cos(tool_rpy[0])]}"/>
+    <xacro:property name="connector_xyz" value="${[tool_xyz[0]-mesh_axis_z[0]*mesh_front_z, tool_xyz[1]-mesh_axis_z[1]*mesh_front_z, tool_xyz[2]-mesh_axis_z[2]*mesh_front_z]}"/>
+    <xacro:property name="camera_mount" value="${xacro.load_yaml('$(find vehicle_description)/config/fr10_camera_mount.yaml')}"/>
+    <xacro:property name="camera_rear_z" value="${camera_mount['rear_face_from_flange_m']}"/>
+    <xacro:property name="camera_center_x_plate" value="${camera_mount['housing_center_xy_in_flange_m'][0]}"/>
+    <xacro:property name="camera_center_y_plate" value="${camera_mount['housing_center_xy_in_flange_m'][1]}"/>
+    <xacro:property name="plate_min_x" value="${min(-0.04,tool_xyz[0]-0.04,camera_center_x_plate-0.05)}"/>
+    <xacro:property name="plate_max_x" value="${max(0.04,tool_xyz[0]+0.04,camera_center_x_plate+0.05)}"/>
+    <xacro:property name="plate_min_y" value="${min(-0.04,tool_xyz[1]-0.04,camera_center_y_plate-0.05)}"/>
+    <xacro:property name="plate_max_y" value="${max(0.04,tool_xyz[1]+0.04,camera_center_y_plate+0.05)}"/>
+    <link name="plate_frame"/>
+    <joint name="wrist3_to_plate" type="fixed">
+      <parent link="wrist3_link"/><child link="plate_frame"/>
+      <!-- Fixed mechanical clocking of the plate; no upstream-joint or world compensation.
+           At the reference FR10 pose with j6=0, plate +Y is up and +Z is outward. -->
+      <origin xyz="0 0 0.106" rpy="0 0 ${pi}"/>
+    </joint>
+
+    <!-- Backplate touches the flange at Z=0 and carries both assemblies. -->
+    <xacro:wrist_support_box name="wrist_mount_backplate" xyz="${(plate_min_x+plate_max_x)/2} ${(plate_min_y+plate_max_y)/2} -0.004" size_x="${plate_max_x-plate_min_x}" size_y="${plate_max_y-plate_min_y}" size_z="0.008"/>
+    <!-- Approximate support geometry follows the same tool clocking. This
+         is not a measured bracket CAD or a calibrated physical payload. -->
+    <link name="charging_mount_frame"/>
+    <joint name="plate_to_charging_mount" type="fixed">
+      <parent link="plate_frame"/><child link="charging_mount_frame"/>
+      <origin xyz="${connector_xyz[0]} ${connector_xyz[1]} 0" rpy="${tool_rpy[0]} ${tool_rpy[1]} ${tool_rpy[2]}"/>
+    </joint>
+    <!-- Camera is centred on the flange axis, independent of Tool 1's XY
+         offset. It retains the insertion clocking without joining the sensor
+         payload branch. Short supports terminate at the housing rear face. -->
+    <link name="camera_support_frame"/>
+    <joint name="plate_to_camera_support" type="fixed">
+      <parent link="plate_frame"/><child link="camera_support_frame"/>
+      <origin xyz="${camera_center_x_plate} ${camera_center_y_plate} 0" rpy="${tool_rpy[0]} ${tool_rpy[1]} ${tool_rpy[2]}"/>
+    </joint>
+    <xacro:property name="camera_support_height" value="${camera_rear_z-0.002}"/>
+    <xacro:wrist_support_box name="camera_support_left" parent="camera_support_frame" xyz="-0.025 0 ${camera_support_height/2}" size_x="0.008" size_y="0.012" size_z="${camera_support_height}"/>
+    <xacro:wrist_support_box name="camera_support_right" parent="camera_support_frame" xyz="0.025 0 ${camera_support_height/2}" size_x="0.008" size_y="0.012" size_z="${camera_support_height}"/>
+    <xacro:wrist_support_box name="camera_rear_mount" parent="camera_support_frame" xyz="0 0 ${camera_rear_z}" size_x="0.07" size_y="0.012" size_z="0.004"/>
+    <xacro:property name="support_height" value="${connector_xyz[2]-tool_datum['legacy_mesh_front_z_m']-0.006}"/>
+    <!-- Both columns run on the side away from the D435 mount;
+         a symmetric pair around the rotated plug would pass through it. -->
+    <xacro:wrist_support_box name="charger_support_left" parent="charging_mount_frame" xyz="-0.045 -0.025 ${support_height/2}" size_x="0.012" size_y="0.02" size_z="${support_height}"/>
+    <xacro:wrist_support_box name="charger_support_right" parent="charging_mount_frame" xyz="-0.045 0.025 ${support_height/2}" size_x="0.012" size_y="0.02" size_z="${support_height}"/>
+    <xacro:wrist_support_box name="charger_rear_mount" parent="charging_mount_frame" xyz="0 0 ${support_height+0.003}" size_x="0.12" size_y="0.10" size_z="0.006"/>
+    <xacro:wrist_support_box name="charger_cradle_left" parent="charging_mount_frame" xyz="-0.0605 0 ${connector_xyz[2]}" size_x="0.008" size_y="0.10" size_z="0.06"/>
+    <xacro:wrist_support_box name="charger_cradle_right" parent="charging_mount_frame" xyz="0.0605 0 ${connector_xyz[2]}" size_x="0.008" size_y="0.10" size_z="0.06"/>
+
+    <!-- CAD is in mm, centered at its bounding-box midpoint during export.
+         Its mating face points along +Z. Mass retains the former 3 kg tool
+         assumption; box inertia is a simulation approximation, not CAD data. -->
+    <xacro:if value="${tool_profile == 'matched_socket_v2'}">
+      <xacro:property name="matched_ode_contact" value="${xacro.load_yaml('$(find vehicle_description)/config/fr10_simulation_actuators.yaml')['matched_gazebo_contact']}"/>
+      <xacro:include filename="$(find vehicle_description)/models/matched_socket_v2/matched_connector.urdf"/>
+    </xacro:if>
+    <xacro:unless value="${tool_profile == 'matched_socket_v2'}">
+    <link name="charging_connector_link">
+      <visual>
+        <geometry><mesh filename="package://vehicle_description/meshes/jlr_ccs2_centered.stl"/></geometry>
+        <material name="connector_dark"><color rgba="0.15 0.15 0.17 1"/></material>
+      </visual>
+      <collision>
+        <geometry><box size="0.112964099279084 0.135 0.125"/></geometry>
+      </collision>
+      <xacro:inertial_box mass="3.0" x="0.112964099279084" y="0.135" z="0.125">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+      </xacro:inertial_box>
+    </link>
+    </xacro:unless>
+    <xacro:unless value="${enable_force_sensor}">
+      <joint name="plate_to_charging_connector" type="fixed">
+        <parent link="plate_frame"/><child link="charging_connector_link"/>
+        <origin xyz="${connector_xyz[0]} ${connector_xyz[1]} ${connector_xyz[2]}" rpy="${tool_rpy[0]} ${tool_rpy[1]} ${tool_rpy[2]}"/>
+      </joint>
+    </xacro:unless>
+    <xacro:if value="${enable_force_sensor}">
+      <!-- Test-only load-cell at the connector origin, NOT a calibrated
+           physical flange-sensor mounting transform. Both joints remain fixed from MoveIt's
+           perspective; disableFixedJointLumping keeps the sensed downstream
+           joint available to Gazebo Classic's model plugin. -->
+      <link name="ft_sensor_link">
+        <inertial>
+          <mass value="0.2"/>
+          <origin xyz="0 0 0" rpy="0 0 0"/>
+          <inertia ixx="0.00002" ixy="0" ixz="0" iyy="0.00002" iyz="0" izz="0.00002"/>
+        </inertial>
+      </link>
+      <joint name="plate_to_ft_sensor" type="fixed">
+        <parent link="plate_frame"/><child link="ft_sensor_link"/>
+        <origin xyz="${connector_xyz[0]} ${connector_xyz[1]} ${connector_xyz[2]}" rpy="${tool_rpy[0]} ${tool_rpy[1]} ${tool_rpy[2]}"/>
+      </joint>
+      <joint name="ft_sensor_to_connector" type="fixed">
+        <parent link="ft_sensor_link"/><child link="charging_connector_link"/>
+      </joint>
+      <xacro:if value="${sim_gazebo}">
+        <gazebo reference="ft_sensor_to_connector">
+          <disableFixedJointLumping>true</disableFixedJointLumping>
+          <preserveFixedJoint>true</preserveFixedJoint>
+          <provideFeedback>true</provideFeedback>
+        </gazebo>
+        <gazebo>
+          <plugin name="fr10_ft_sensor" filename="libgazebo_ros_ft_sensor.so">
+            <ros>
+              <namespace>/ft_sensor</namespace>
+              <xacro:if value="${'$(arg ft_wrench_topic)' != 'wrench'}">
+                <remapping>wrench:=$(arg ft_wrench_topic)</remapping>
+              </xacro:if>
+            </ros>
+            <!-- Oversample physical steps. Raw extrema are retained between
+                 125 Hz control ticks; the 50 ms receipt guard is unchanged. -->
+            <!-- Zero publishes on every physics step, including refined
+                 integration. A fixed 1 kHz rate would hide substep peaks. -->
+            <update_rate>0</update_rate>
+            <joint_name>ft_sensor_to_connector</joint_name>
+            <gaussian_noise>0.0</gaussian_noise>
+          </plugin>
+        </gazebo>
+        <xacro:if value="${tool_profile == 'matched_socket_v2'}">
+          <gazebo>
+            <!-- Collision geometry only; ODE owns the bodies and constraints. -->
+            <plugin name="fr10_matched_cad_contact" filename="libfr10_gazebo_cad_contact.so"/>
+          </gazebo>
+          <!-- Passive, independent external-contact evidence. The raw load
+               cell above remains available; this plugin owns no commands. -->
+          <gazebo>
+            <plugin name="fr10_contact_wrench_evidence" filename="libfr10_gazebo_contact_wrench.so">
+              <tcp_link>charging_connector_link</tcp_link>
+              <tcp_offset>0 0 ${mesh_front_z}</tcp_offset>
+              <frame_name>charging_tcp</frame_name>
+            </plugin>
+          </gazebo>
+        </xacro:if>
+      </xacro:if>
+    </xacro:if>
+    <!-- Legacy visual-consumer alias, not a substitute for FR10 IK. -->
+    <link name="Charge_link"/>
+    <joint name="connector_to_charge_alias" type="fixed">
+      <parent link="charging_connector_link"/><child link="Charge_link"/>
+    </joint>
+    <link name="charging_tcp"/>
+    <joint name="connector_to_tcp" type="fixed">
+      <parent link="${'charging_mating_nose' if tool_profile == 'matched_socket_v2' else 'charging_connector_link'}"/><child link="charging_tcp"/>
+      <origin xyz="0 0 ${mesh_front_z}" rpy="0 0 0"/>
+    </joint>
+
+    <!-- Rear face of the housing, centred on the flange axis. -->
+    <link name="d435_mount_frame"/>
+    <joint name="camera_support_to_d435_mount" type="fixed">
+      <parent link="camera_support_frame"/><child link="d435_mount_frame"/>
+      <origin xyz="0 0 ${camera_rear_z}" rpy="0 0 0"/>
+    </joint>
+    <!-- Official d435.dae camera_link bounds:
+         X [-.0207547,.0043], Y [-.0624142,.0275001], Z [-.0125,.0125].
+         Camera X->connector Z, camera Y->connector X, camera Z->connector Y.
+         The official macro adds (.0106,.0175,.0125) from bottom screw
+         to camera_link. Account for that instead of assuming a centered mesh. -->
+    <xacro:sensor_d435 parent="d435_mount_frame" name="camera"
+                       use_nominal_extrinsics="true" add_plug="false">
+      <origin xyz="-0.00004295 -0.0125 0.0101547" rpy="${-pi/2} ${-pi/2} 0"/>
+    </xacro:sensor_d435>
+    <link name="arm_camera_link_optical"/>
+    <joint name="camera_optical_alias" type="fixed">
+      <parent link="camera_depth_optical_frame"/><child link="arm_camera_link_optical"/>
+    </joint>
+    <xacro:if value="${enable_camera}"><xacro:d435_simulation/></xacro:if>
+  </xacro:macro>
+</robot>

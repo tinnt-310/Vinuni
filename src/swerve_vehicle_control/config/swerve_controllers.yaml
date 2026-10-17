@@ -10,9 +10,10 @@ controller_manager:
 swerve_controller:
   ros__parameters:
     use_sim_time: true
-    wheel_separation_x: 0.80
-    wheel_separation_y: 0.70
-    wheel_radius: 0.210
+    wheel_separation_x: 1.10
+    wheel_separation_y: 0.58
+    wheel_radius: 0.214671
+    wheel_offset_x: 0.005062
     singularity_threshold: 0.0001
     max_steering_speed: 3.0
     max_wheel_rate: 10.0

@@ -54,7 +54,9 @@ RosControlBackend::RosControlBackend(
   health_sub_ = node_->create_subscription<std_msgs::msg::Float64MultiArray>(
       "/fairino_driver/health", rclcpp::QoS(1).reliable(),
       [this](std_msgs::msg::Float64MultiArray::ConstSharedPtr message) {
-        if (message->data.size() != 16 || message->data[0] != 1 ||
+        const bool v1 = message->data.size() == 16 && message->data[0] == 1;
+        const bool v2 = message->data.size() >= 20 && message->data[0] == 2;
+        if ((!v1 && !v2) ||
             !std::all_of(message->data.begin(), message->data.end(),
                          [](double value) { return std::isfinite(value); })) { return; }
         uint64_t sequence = 0;
@@ -80,7 +82,8 @@ RosControlBackend::RosControlBackend(
         DriverHealth health;
         // Errors must propagate even when a stale source sequence repeats.
         if (sequence <= last_health_sequence_ && message->data[4] == 0 && message->data[5] == 0) { return; }
-        std::copy(message->data.begin(), message->data.end(), health.data.begin());
+        const std::size_t health_fields = v2 ? health.data.size() : 16U;
+        std::copy_n(message->data.begin(), health_fields, health.data.begin());
         health.received_s = steadySeconds();
         if (health_buffer_.write(health)) { last_health_sequence_ = sequence; }
       }, subscription_options);
@@ -138,6 +141,7 @@ void RosControlBackend::jointStateCallback(
     return;
   }
   if (message->name.empty() || message->position.size() < kJointCount) {
+    rejected_feedback_samples_.fetch_add(1, std::memory_order_relaxed);
     return;
   }
 
@@ -145,7 +149,19 @@ void RosControlBackend::jointStateCallback(
       message->header.stamp.sec + message->header.stamp.nanosec * 1e-9;
   if (!std::isfinite(next_stamp) || next_stamp <= 0.0 ||
       (have_joint_state_ && next_stamp <= writer_state_.timestamp_s)) {
+    rejected_feedback_stamps_.fetch_add(1, std::memory_order_relaxed);
     return; // Replayed/out-of-order data must not refresh the watchdog.
+  }
+  const double received_s = steadySeconds();
+  if (have_joint_state_) {
+    const double source_gap_s = next_stamp - writer_state_.timestamp_s;
+    const double receive_gap_s = received_s - writer_state_.received_steady_s;
+    if (source_gap_s > max_source_gap_s_.load(std::memory_order_relaxed)) {
+      max_source_gap_s_.store(source_gap_s, std::memory_order_relaxed);
+    }
+    if (receive_gap_s > max_receive_gap_s_.load(std::memory_order_relaxed)) {
+      max_receive_gap_s_.store(receive_gap_s, std::memory_order_relaxed);
+    }
   }
   const double dt =
       have_joint_state_ ? next_stamp - writer_state_.timestamp_s : 0.0;
@@ -165,6 +181,7 @@ void RosControlBackend::jointStateCallback(
       }
       if (!found) {
         joint_state_index_map_valid_ = false;
+        rejected_feedback_samples_.fetch_add(1, std::memory_order_relaxed);
         return;
       }
     }
@@ -176,6 +193,7 @@ void RosControlBackend::jointStateCallback(
     const std::size_t src_idx = joint_state_index_map_[i];
     if (src_idx >= message->position.size() ||
         !std::isfinite(message->position[src_idx])) {
+      rejected_feedback_samples_.fetch_add(1, std::memory_order_relaxed);
       return;
     }
   }
@@ -206,11 +224,12 @@ void RosControlBackend::jointStateCallback(
   }
 
   writer_state_.timestamp_s = next_stamp;
-  writer_state_.received_steady_s = steadySeconds();
+  writer_state_.received_steady_s = received_s;
   ++writer_state_.feedback_sequence;
   writer_state_.valid = true;
   have_joint_state_ = true;
   const bool published = state_buffer_.write(writer_state_);
+  accepted_feedback_callbacks_.fetch_add(1, std::memory_order_relaxed);
   if (published && active_.load(std::memory_order_acquire)) {
     ready_.store(true, std::memory_order_release);
   }
@@ -236,6 +255,23 @@ bool RosControlBackend::writeCommand(const MotionCommand &command) {
   try { command_pub_->publish(command_message_); }
   catch (const std::exception &) { return false; }
   return true;
+}
+
+RosControlBackend::FeedbackDiagnostics
+RosControlBackend::feedbackDiagnostics() const {
+  FeedbackDiagnostics diagnostics;
+  diagnostics.accepted_callbacks =
+      accepted_feedback_callbacks_.load(std::memory_order_relaxed);
+  diagnostics.rejected_stamps =
+      rejected_feedback_stamps_.load(std::memory_order_relaxed);
+  diagnostics.rejected_samples =
+      rejected_feedback_samples_.load(std::memory_order_relaxed);
+  diagnostics.dropped_buffer_writes = state_buffer_.droppedWrites();
+  diagnostics.max_source_gap_s =
+      max_source_gap_s_.load(std::memory_order_relaxed);
+  diagnostics.max_receive_gap_s =
+      max_receive_gap_s_.load(std::memory_order_relaxed);
+  return diagnostics;
 }
 
 bool RosControlBackend::readState(RobotState &state) {

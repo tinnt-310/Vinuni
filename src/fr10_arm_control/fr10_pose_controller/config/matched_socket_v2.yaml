@@ -1,0 +1,24 @@
+fr10_pose_controller:
+  ros__parameters:
+    # Draft simulation profile. Promotion requires motion/capture/contact gates.
+    # Calibration/testing may explicitly enable this profile; never real SDK.
+    force.enabled: false
+    force.profile_id: matched_socket_v2
+    force.process_mode: matched_mating
+    force.contact_object_id: charging_port_mating_surfaces
+    force.contact_links: [charging_mating_nose, charging_mating_shoulder]
+    force.wrench_source_frame: charging_connector_link
+    force.wrench_target_frame: charging_tcp
+    force.wrench_source_sign: -1.0
+    force.filter_cutoff_hz: 20.0
+    force.admittance.mass: [1.0, 1.0, 1.0, 0.10, 0.10, 0.10]
+    force.admittance.damping: [100.0, 100.0, 500.0, 5.0, 5.0, 5.0]
+    force.admittance.max_velocity: [0.002, 0.002, 0.001, 0.02, 0.02, 0.02]
+    force.admittance.max_acceleration: [0.02, 0.02, 0.02, 0.20, 0.20, 0.20]
+    force.admittance.max_correction: [0.002, 0.002, 0.00025, 0.03490658503988659, 0.03490658503988659, 0.03490658503988659]
+    force.safety.max_lateral_correction_norm_m: 0.002
+    force.safety.max_rotation_correction_norm_rad: 0.03490658503988659
+    force.geometry.capture_lateral_tolerance_m: 0.002
+    force.geometry.capture_orientation_tolerance_rad: 0.03490658503988659
+    force.gravity_compensation.enabled: false
+    force.gravity_compensation.calibrated: false

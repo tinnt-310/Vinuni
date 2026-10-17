@@ -1,0 +1,26 @@
+{
+  "mode": "arm",
+  "duration_s": 27.81,
+  "launch_command": [
+    "ros2",
+    "launch",
+    "/home/tin/Vinuni/docs/ode_debug/arm_production_spawn0_run1_20260927/repro.launch.py",
+    "enable_arm:=true",
+    "enable_vehicle:=false",
+    "gui:=false",
+    "rviz:=false",
+    "gazebo_port:=11393"
+  ],
+  "lcp_errors": 0,
+  "nonfinite_log_tokens": 0,
+  "gzserver_crashed": false,
+  "arm_action_status": 4,
+  "arm_max_final_error_rad": 9.6644525520162e-06,
+  "arm_finite": true,
+  "vehicle": null,
+  "warnings": [
+    "[gzserver-1] [WARN] [1790445450.230974166] [gazebo_ros2_control]:  Desired controller update period (0.01 s) is slower than the gazebo simulation period (0.001 s)."
+  ],
+  "vehicle_pose": null,
+  "pass": true
+}

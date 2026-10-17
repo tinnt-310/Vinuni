@@ -1,0 +1,58 @@
+{
+  "mode": "vehicle",
+  "duration_s": 31.61,
+  "launch_command": [
+    "ros2",
+    "launch",
+    "/home/tin/Vinuni/docs/ode_debug/vehicle_ros_pose_probe_20260927/repro.launch.py",
+    "enable_arm:=false",
+    "enable_vehicle:=true",
+    "gui:=false",
+    "rviz:=false",
+    "gazebo_port:=11393"
+  ],
+  "lcp_errors": 0,
+  "nonfinite_log_tokens": 0,
+  "gzserver_crashed": false,
+  "arm_action_status": null,
+  "arm_max_final_error_rad": null,
+  "arm_finite": null,
+  "vehicle": {
+    "sample_count": 1341,
+    "odom_count": 143,
+    "wheel_names_present": true,
+    "finite": true,
+    "odom_distance_m": 0.7499909640844575,
+    "pass": true
+  },
+  "warnings": [
+    "[gzserver-1] [WARN] [1790445830.579797292] [gazebo_ros2_control]:  Desired controller update period (0.01 s) is slower than the gazebo simulation period (0.001 s).",
+    "[ERROR] [robot_state_publisher-2]: process has died [pid 152324, exit code -2, cmd '/opt/ros/humble/lib/robot_state_publisher/robot_state_publisher --ros-args --params-file /tmp/launch_params_c83972t5 --params-file /tmp/launch_params_3v7ce3n2']."
+  ],
+  "vehicle_pose": {
+    "samples": 575,
+    "wall_duration_s": 28.774910866000027,
+    "sim_duration_s": 28.69999999999999,
+    "finite": true,
+    "actual_displacement_m": [
+      0.7515844397343004,
+      -0.00011745757484502665,
+      -0.000204540546469123
+    ],
+    "actual_planar_distance_m": 0.751584448912432,
+    "max_tilt_rad": 0.0005021817345836213,
+    "final_max_speed_m_s": 3.229211585229343e-09,
+    "final_pose": [
+      0.7518277226946237,
+      -5.240065818658325e-05,
+      -0.0012341992842167526
+    ],
+    "final_rpy": [
+      -0.00020278121159693965,
+      0.0001932802147897596,
+      -0.00014682783331504886
+    ],
+    "pass": true
+  },
+  "pass": true
+}

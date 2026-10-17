@@ -26,8 +26,10 @@ class ConfigurationTests(unittest.TestCase):
             ["M60", "M65", "M62", "M63"],
         )
         self.assertEqual(config.speed_control.enable_device, "M58")
+        self.assertEqual(config.speed_control.startup_reset_device, "M222")
+        self.assertEqual(config.speed_control.output_enable_device, "Y8")
         self.assertEqual(config.speed_control.stop_value, 660)
-        self.assertEqual(config.speed_control.minimum_value, 100)
+        self.assertEqual(config.speed_control.minimum_value, 0)
         self.assertEqual(config.speed_control.maximum_value, 660)
 
     def test_nonconsecutive_command_mapping_is_rejected(self) -> None:

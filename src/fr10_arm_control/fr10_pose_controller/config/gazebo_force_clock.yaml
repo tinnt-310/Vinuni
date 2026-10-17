@@ -1,0 +1,5 @@
+gazebo:
+  ros__parameters:
+    # Gazebo Classic defaults /clock to 10 Hz. Force timing needs the 1 ms
+    # physics clock; do not extend online target expiry or freshness limits.
+    publish_rate: 1000.0

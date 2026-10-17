@@ -1,0 +1,83 @@
+// Read-only Gazebo transport observer in a separate process from gzserver.
+#include <gazebo/gazebo_client.hh>
+#include <gazebo/msgs/msgs.hh>
+#include <gazebo/transport/transport.hh>
+#include <ignition/math/Quaternion.hh>
+#include <atomic>
+#include <chrono>
+#include <cmath>
+#include <csignal>
+#include <cstdlib>
+#include <fstream>
+#include <iomanip>
+#include <stdexcept>
+#include <string>
+#include <thread>
+
+namespace {
+std::atomic<bool> running{true};
+void stop(int) { running.store(false); }
+double wallSeconds() {
+  return std::chrono::duration<double>(
+      std::chrono::steady_clock::now().time_since_epoch()).count();
+}
+class Observer {
+ public:
+  explicit Observer(const std::string &directory)
+      : out_(directory + "/transport_state.jsonl") {
+    if (!out_) throw std::runtime_error("Unable to open transport trace");
+    out_ << std::setprecision(17);
+  }
+  void onPose(const ::ConstPosesStampedPtr &message) {
+    const double wall = wallSeconds();
+    if (wall - last_emit_ < 0.05) return;
+    for (const auto &pose : message->pose()) {
+      if (pose.name() != "my_mobile_manipulator") continue;
+      const auto &p = pose.position();
+      const auto &q = pose.orientation();
+      ignition::math::Quaterniond orientation(q.w(), q.x(), q.y(), q.z());
+      const auto rpy = orientation.Euler();
+      double vx = 0, vy = 0, vz = 0, yaw_rate = 0;
+      const double dt = wall - previous_wall_;
+      if (previous_wall_ > 0 && dt > 0) {
+        vx = (p.x() - previous_x_) / dt;
+        vy = (p.y() - previous_y_) / dt;
+        vz = (p.z() - previous_z_) / dt;
+        yaw_rate = std::remainder(rpy.Z() - previous_yaw_, 2 * M_PI) / dt;
+      }
+      const double sim = message->time().sec() + 1e-9 * message->time().nsec();
+      out_ << "{\"wall\":" << wall << ",\"sim\":" << sim
+           << ",\"models\":[{\"name\":\"my_mobile_manipulator\",\"position\":["
+           << p.x() << ',' << p.y() << ',' << p.z() << "],\"rpy\":["
+           << rpy.X() << ',' << rpy.Y() << ',' << rpy.Z() << "],\"linear\":["
+           << vx << ',' << vy << ',' << vz << "],\"angular\":[0,0,"
+           << yaw_rate << "],\"joints\":[]}],\"contacts\":[]}\n";
+      previous_wall_ = last_emit_ = wall;
+      previous_x_ = p.x(); previous_y_ = p.y(); previous_z_ = p.z();
+      previous_yaw_ = rpy.Z();
+      break;
+    }
+  }
+ private:
+  std::ofstream out_;
+  double last_emit_{0}, previous_wall_{0};
+  double previous_x_{0}, previous_y_{0}, previous_z_{0}, previous_yaw_{0};
+};
+}  // namespace
+
+int main(int argc, char **argv) {
+  const char *directory = std::getenv("ODE_OUT");
+  if (!directory) return 2;
+  std::signal(SIGINT, stop);
+  std::signal(SIGTERM, stop);
+  gazebo::client::setup(argc, argv);
+  auto node = gazebo::transport::NodePtr(new gazebo::transport::Node());
+  node->Init("default");
+  Observer observer(directory);
+  auto subscription = node->Subscribe("/gazebo/default/pose/info", &Observer::onPose, &observer);
+  while (running.load()) std::this_thread::sleep_for(std::chrono::milliseconds(100));
+  subscription.reset();
+  node->Fini();
+  gazebo::client::shutdown();
+  return 0;
+}

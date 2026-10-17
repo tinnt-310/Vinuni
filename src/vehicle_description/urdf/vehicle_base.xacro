@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:arg name="enable_arm" default="true"/>
+  <xacro:include filename="materials.xacro"/>
+  <xacro:include filename="vehicle_dimensions.xacro"/>
+  <xacro:include filename="vehicle_chassis.xacro"/>
+  <xacro:include filename="swerve_module.xacro"/>
+  <xacro:include filename="vehicle.gazebo.xacro"/>
+  <link name="base_footprint"/>
+  <joint name="base_footprint_joint" type="fixed">
+    <parent link="base_footprint"/><child link="base_link"/><origin xyz="0 0 0"/>
+  </joint>
+  <xacro:vehicle_chassis/>
+  <xacro:swerve_module index="1" x="${wheelbase/2}" y="${track_width/2}"
+                       steer_mesh="steer_fl_1.stl" wheel_mesh="wheel_fl_1.stl" side="1"/>
+  <xacro:swerve_module index="2" x="${wheelbase/2}" y="${-track_width/2}"
+                       steer_mesh="steer_fr_1.stl" wheel_mesh="wheel_fr_1.stl" side="-1"/>
+  <xacro:swerve_module index="3" x="${-wheelbase/2}" y="${track_width/2}"
+                       steer_mesh="steer_rl_1.stl" wheel_mesh="wheel_rl_1.stl" side="1"/>
+  <xacro:swerve_module index="4" x="${-wheelbase/2}" y="${-track_width/2}"
+                       steer_mesh="steer_rr_1.stl" wheel_mesh="wheel_rr_1.stl" side="-1"/>
+</robot>

@@ -1,5 +1,6 @@
 """Attach the swerve plugin to a running controller_manager and normalize Nav2 Twist."""
 import os
+import sys
 
 from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
@@ -14,12 +15,14 @@ def generate_launch_description():
     return LaunchDescription([
         DeclareLaunchArgument('cmd_vel_topic', default_value='/cmd_vel'),
         DeclareLaunchArgument('controller_manager', default_value='/controller_manager'),
+        DeclareLaunchArgument('controller_parameters_file', default_value=params),
         Node(package='controller_manager', executable='spawner', output='screen',
              arguments=['swerve_controller', '-c', LaunchConfiguration('controller_manager'),
-                        '-t', 'swerve_vehicle_control/SwerveDriveController', '-p', params,
+                        '-t', 'swerve_vehicle_control/SwerveDriveController', '-p',
+                        LaunchConfiguration('controller_parameters_file'),
                         '--controller-manager-timeout', '60']),
         Node(package='swerve_vehicle_control', executable='cmd_vel_normalizer.py',
-             output='screen', parameters=[{'use_sim_time': True,
+             prefix=[sys.executable], output='screen', parameters=[{'use_sim_time': True,
                                            'input_topic': LaunchConfiguration('cmd_vel_topic'),
                                            'output_topic': '/cmd_vel_nav'}]),
     ])

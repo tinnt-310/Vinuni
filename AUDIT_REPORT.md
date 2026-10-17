@@ -1,6 +1,6 @@
 # FR10 architecture and ODE audit (baseline, before changes)
 
-Date: 2026-09-26. This is the pre-edit inventory and proposed design; results after changes belong in the final report. The workspace root and `src/` have no `.git`, so a line-by-line historical copy/paste count cannot be established from Git. The `AGENTS.md` reference to `src/fr10_arm_control/doc/MASTER_SYSTEM_SPECIFICATION.md` is broken; that file is absent.
+Date: 2026-09-26. This is the pre-edit inventory and proposed design; results after changes belong in the final report. Subsequent history inspection found a single initial Git commit already containing the split package, with no pre-split `fr10_pose` source; a historical copy/paste count therefore cannot be established. The `AGENTS.md` reference to `src/fr10_arm_control/doc/MASTER_SYSTEM_SPECIFICATION.md` is broken; that file is absent.
 
 ## Actual execution paths
 

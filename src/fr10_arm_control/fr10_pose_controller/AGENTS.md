@@ -2,7 +2,7 @@
 
 Read [README.md](README.md),
 [controller.yaml](config/controller.yaml), and the
-[master specification](../../doc/MASTER_SYSTEM_SPECIFICATION.md) before editing
+[insertion specification](../../../docs/fr10_insertion_pipeline.md) before editing
 motion code.
 
 ## Non-negotiable architecture

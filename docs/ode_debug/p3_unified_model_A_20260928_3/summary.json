@@ -1,0 +1,145 @@
+{
+  "clock_samples": 363,
+  "clock_sim_elapsed_s": 36.19999999999999,
+  "clock_wall_elapsed_s": 36.89264517899937,
+  "command": [
+    "ros2",
+    "launch",
+    "vehicle_bringup",
+    "simulation.launch.py",
+    "enable_vehicle:=false",
+    "enable_arm:=true",
+    "arm_controller_profile:=pose",
+    "gui:=false",
+    "rviz:=false",
+    "gazebo_port:=11420"
+  ],
+  "command_state": {
+    "count": 3973,
+    "positions": [
+      0.03042106566320782,
+      -1.5991594979388903,
+      1.5986998656044857,
+      -1.5703099603074016,
+      -1.5707965059063198,
+      0.0008728947683297983
+    ]
+  },
+  "controllers": "\u001b[92mjoint_state_broadcaster\u001b[0m joint_state_broadcaster/JointStateBroadcaster      \u001b[92mactive\u001b[0m\n\u001b[92mfairino10_controller   \u001b[0m position_controllers/JointGroupPositionController  \u001b[92mactive\u001b[0m\n",
+  "domain": 120,
+  "final_joint_rad": [
+    0.03000138571439681,
+    -1.570795271631586,
+    1.5708158102176721,
+    -1.570793804588689,
+    -1.5707928560426632,
+    -2.8054969645197048e-06
+  ],
+  "final_status": "state=HOLDING outcome=GOAL_REACHED mode=POSE pose_policy=INSERTION owner=POSE_PATH type=JOINT_POSITION revision=0 generation=2 scene_revision=1 active_scene_revision=1 command_seq=4124 feedback_seq=4120 feedback_age_ms=4.437 safety_known=false backend_ready=true loop_samples=4124 loop_hz=124.999 mean_cycle_period_ms=8.000077 mean_abs_jitter_ms=0.018446 max_abs_jitter_ms=0.247116 max_cycle_period_ms=8.247116 period_p50_ms=7.750 period_p95_ms=8.250 period_p99_ms=8.250 execution_p50_ms=0.250 execution_p95_ms=0.250 execution_p99_ms=0.250 max_tick_execution_ms=0.232 tick_deadline_misses=0 scheduler_gaps=0 max_consecutive_tick_misses=0 max_feedback_age_ms=8.247 feedback_callbacks=4121 feedback_source_gap_ms=8.000 feedback_receive_gap_ms=8.567 feedback_buffer_drops=0 feedback_rejected_stamps=0 feedback_rejected_samples=0 ik_mean_us=18.651 ik_max_us=64.967 position_error_m=0.000010 angular_error_rad=0.000016 path_deviation_m=0.000004 reference_actual_rad=0.000010 candidate_reference_actual_rad=0.000010 reference_lagging=false reference_lag_samples=0 max_delta_qdot_rad_s=0.011237 max_delta_v_m_s=0.000000 sdk_read_errors=0 sdk_write_errors=0 command_write_errors=0 sdk_errors=0 reason=NONE",
+  "final_tcp": [
+    [
+      -0.7649478139963874,
+      -0.18227363699748883,
+      0.6214730283217971
+    ],
+    [
+      0.7174751092193865,
+      -0.696584142227466,
+      1.3995921854385598e-05,
+      -1.587353700674582e-05
+    ]
+  ],
+  "gazebo_master_ready": true,
+  "gazebo_port": 11420,
+  "gazebo_real_time_factor": 0.9812253858285644,
+  "gazebo_wrist_final": [
+    -0.6749994879717915,
+    -0.1796192524023478,
+    0.8799395382468393
+  ],
+  "gazebo_wrist_finite": true,
+  "gazebo_wrist_max_gap_wall_s": 0.06801262400040287,
+  "gazebo_wrist_motion_m": 0.032405447280223806,
+  "gazebo_wrist_samples": 692,
+  "gazebo_wrist_sim_elapsed_s": 36.007000000000005,
+  "gazebo_wrist_sim_monotonic": true,
+  "gazebo_wrist_start": [
+    -0.700000317334019,
+    -0.15900205755931934,
+    0.8799926554450894
+  ],
+  "gzserver_crash": false,
+  "gzserver_exit_code": null,
+  "initial_joint_rad": [
+    2.0144794214971284e-06,
+    -1.5707957992211208,
+    1.5708060684870473,
+    -1.5707950655228407,
+    -1.5707945914338086,
+    -1.4027354380274915e-06
+  ],
+  "initial_tcp": [
+    [
+      -0.7899961187790763,
+      -0.15900303862551995,
+      0.621490715380397
+    ],
+    [
+      -0.7071066906472774,
+      0.7071068716842797,
+      -4.6901931284548745e-06,
+      6.060469264544584e-06
+    ]
+  ],
+  "joint_final_tcp": [
+    [
+      -0.7849512897447487,
+      -0.18227277235945594,
+      0.6214823454368643
+    ],
+    [
+      0.7174760871197149,
+      -0.6965831351911249,
+      9.238596483945141e-06,
+      -9.661008776869915e-06
+    ]
+  ],
+  "joint_reached": true,
+  "launch_exit": 0,
+  "live_model_sha256": "6f14a077dafef53da40a7b0b7e0efb386b6d506a5b2730bb1a7f7854afc0e234",
+  "model_robot_name": "complete_visual",
+  "observer_alive_at_measurement": true,
+  "observer_exit": 0,
+  "observer_pose_ready": true,
+  "ode_lcp_count": 0,
+  "pass": true,
+  "pose_reached": true,
+  "pose_target": [
+    [
+      -0.7649512897447487,
+      -0.18227277235945594,
+      0.6214823454368643
+    ],
+    [
+      0.7174760871197149,
+      -0.6965831351911249,
+      9.238596483945141e-06,
+      -9.661008776869915e-06
+    ]
+  ],
+  "ready": true,
+  "server_alive_at_measurement": true,
+  "shared_arm_joint_count": 31,
+  "shared_arm_link_count": 32,
+  "shared_arm_signature_sha256": "6273ab896f3fa48c60d7dbe2d7320f3973bd3cd086a9bcf4903b1b8c9963e820",
+  "startup_wall_s": 2.49011006299952,
+  "status": "state=IDLE outcome=NONE mode=JOINT pose_policy=FREE_SPACE owner=NONE type=NONE revision=0 generation=0 scene_revision=1 active_scene_revision=0 command_seq=12 feedback_seq=12 feedback_age_ms=2.810 safety_known=false backend_ready=true loop_samples=12 loop_hz=124.899 mean_cycle_period_ms=8.006469 mean_abs_jitter_ms=0.031005 max_abs_jitter_ms=0.070124 max_cycle_period_ms=8.070124 period_p50_ms=8.250 period_p95_ms=8.250 period_p99_ms=8.250 execution_p50_ms=0.250 execution_p95_ms=0.250 execution_p99_ms=0.250 max_tick_execution_ms=0.093 tick_deadline_misses=0 scheduler_gaps=0 max_consecutive_tick_misses=0 max_feedback_age_ms=2.942 feedback_callbacks=12 feedback_source_gap_ms=8.000 feedback_receive_gap_ms=8.116 feedback_buffer_drops=0 feedback_rejected_stamps=0 feedback_rejected_samples=0 ik_mean_us=0.000 ik_max_us=0.000 position_error_m=0.000000 angular_error_rad=0.000000 path_deviation_m=0.000000 reference_actual_rad=0.000000 candidate_reference_actual_rad=0.000000 reference_lagging=false reference_lag_samples=0 max_delta_qdot_rad_s=0.000000 max_delta_v_m_s=0.000000 sdk_read_errors=0 sdk_write_errors=0 command_write_errors=0 sdk_errors=0 reason=NONE",
+  "target_joint_rad": [
+    0.030002014479422384,
+    -1.5707957992211208,
+    1.5708060684870473,
+    -1.5707950655228389,
+    -1.5707945914338077,
+    -1.402735437139313e-06
+  ]
+}

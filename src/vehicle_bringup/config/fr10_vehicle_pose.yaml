@@ -1,0 +1,6 @@
+# Gazebo has no FAIRINO health packet. Frame and TCP defaults come from the
+# canonical vehicle_description model and fr10_pose_controller/controller.yaml.
+fr10_pose_controller:
+  ros__parameters:
+    controller:
+      require_driver_health: false

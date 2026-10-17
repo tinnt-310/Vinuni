@@ -1,0 +1,17 @@
+--- tools/ode_contact_probe.cpp
++++ tools/ode_contact_probe.cpp
+@@ -4 +4,2 @@
+ #include <gazebo/physics/ContactManager.hh>
++#include <gazebo/physics/ode/ODESurfaceParams.hh>
+@@ -82 +83,11 @@
+     output_ << std::setprecision(17);
++    if (const char *slip = std::getenv("ODE_PROBE_SLIP")) {
++      for (auto &link : model_->GetLinks()) {
++        if (link->GetName().find("Wheel") != 0) continue;
++        for (auto &collision : link->GetCollisions()) {
++          auto surface = boost::dynamic_pointer_cast<physics::ODESurfaceParams>(collision->GetSurface());
++          if (!surface) throw std::runtime_error("ODE surface required");
++          surface->slip1 = surface->slip2 = std::stod(slip);
++        }
++      }
++    }

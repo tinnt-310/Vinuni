@@ -1,0 +1,21 @@
+# Photo-based simulation proposal. Dimensions are nominal, not measured extrinsics.
+camera_model: D455
+camera_housing_center_xy_m: [0.0, 0.0]
+camera_rear_from_flange_m: 0.015
+connector_tcp_xyz_m: [0.0, 0.095, 0.185]
+connector_tcp_rpy_deg: [0.0, 0.0, 0.0]
+connector_body_half_size_m: [0.045, 0.0675, 0.050]
+connector_body_rear_z_m: 0.075
+connector_front_z_m: 0.175
+pin_tip_z_m: 0.185
+# Seven Type-2 contacts above, two larger DC contacts below; in connector XY.
+contacts:
+  - {name: dc_minus, xy_m: [-0.022, -0.033], radius_m: 0.0075, collar_radius_m: 0.020}
+  - {name: dc_plus, xy_m: [0.022, -0.033], radius_m: 0.0075, collar_radius_m: 0.020}
+  - {name: ac_lower_left, xy_m: [-0.012, 0.005], radius_m: 0.0045, collar_radius_m: 0.010}
+  - {name: ac_lower_right, xy_m: [0.012, 0.005], radius_m: 0.0045, collar_radius_m: 0.010}
+  - {name: ac_upper_left, xy_m: [-0.020, 0.028], radius_m: 0.0045, collar_radius_m: 0.010}
+  - {name: ac_upper_middle, xy_m: [0.0, 0.028], radius_m: 0.0045, collar_radius_m: 0.010}
+  - {name: ac_upper_right, xy_m: [0.020, 0.028], radius_m: 0.0045, collar_radius_m: 0.010}
+  - {name: signal_left, xy_m: [-0.010, 0.049], radius_m: 0.002, collar_radius_m: 0.006}
+  - {name: signal_right, xy_m: [0.010, 0.049], radius_m: 0.002, collar_radius_m: 0.006}

@@ -1,0 +1,85 @@
+{
+  "command": [
+    "ros2",
+    "launch",
+    "fr10_pose_controller",
+    "fr10_pose_controller.launch.py",
+    "use_gazebo:=true",
+    "use_rviz:=false",
+    "start_robot_stack:=true"
+  ],
+  "command_state": {
+    "count": 50,
+    "positions": [
+      0.02998790683372444,
+      -1.5707963267948966,
+      1.5707963267948966,
+      -1.5707963267948963,
+      -1.5707963267948963,
+      1.4079484415301498e-22
+    ]
+  },
+  "controllers": "\u001b[92mfairino10_controller   \u001b[0m position_controllers/JointGroupPositionController  \u001b[92mactive\u001b[0m\n\u001b[92mjoint_state_broadcaster\u001b[0m joint_state_broadcaster/JointStateBroadcaster      \u001b[92mactive\u001b[0m\n",
+  "domain": 94,
+  "final_joint_rad": [
+    0.03000000000000025,
+    -1.5707963267948966,
+    1.5707963267948966,
+    -1.5707963267948954,
+    -1.5707963267948963,
+    8.881784197001252e-16
+  ],
+  "final_status": "state=TRACKING outcome=NONE mode=JOINT pose_policy=FREE_SPACE owner=JOINT_OTG type=JOINT_POSITION revision=1 generation=1 scene_revision=1 active_scene_revision=1 command_seq=691 feedback_seq=463 feedback_age_ms=0.819 safety_known=false backend_ready=true loop_samples=691 loop_hz=124.987 mean_cycle_period_ms=8.000855 mean_abs_jitter_ms=0.121746 max_abs_jitter_ms=1.125166 max_cycle_period_ms=9.125166 ik_mean_us=0.000 ik_max_us=0.000 position_error_m=0.000000 angular_error_rad=0.000000 path_deviation_m=0.000000 reference_actual_rad=0.000370 candidate_reference_actual_rad=0.000485 reference_lagging=false reference_lag_samples=0 max_delta_qdot_rad_s=0.011222 max_delta_v_m_s=0.000000 sdk_read_errors=0 sdk_write_errors=0 command_write_errors=0 sdk_errors=0 reason=NONE",
+  "final_tcp": [
+    [
+      -0.6967920372429872,
+      -0.11950063339193356,
+      0.6119996363531262
+    ],
+    [
+      0.6966554955375371,
+      0.7174058269421867,
+      2.5970637935218205e-06,
+      -3.8114811198336474e-08
+    ]
+  ],
+  "gazebo_port": 11394,
+  "gzserver_crash": false,
+  "initial_joint_rad": [
+    0.0,
+    -1.5707963267948966,
+    1.5707963267948966,
+    -1.5707963267948954,
+    -1.5707963267948981,
+    1.7763568394002505e-15
+  ],
+  "initial_tcp": [
+    [
+      -0.6999987951879568,
+      -0.09900116808257542,
+      0.6119996363531264
+    ],
+    [
+      0.7071080798594739,
+      0.7071054825064658,
+      2.5973434677988e-06,
+      -4.277302797103632e-16
+    ]
+  ],
+  "joint_reached": true,
+  "launch_exit": 0,
+  "ode_lcp_count": 0,
+  "pass": true,
+  "ready": true,
+  "server_alive_at_measurement": true,
+  "startup_wall_s": 18.692538729000262,
+  "status": "state=IDLE outcome=NONE mode=JOINT pose_policy=FREE_SPACE owner=NONE type=NONE revision=0 generation=0 scene_revision=1 active_scene_revision=0 command_seq=3 feedback_seq=2 feedback_age_ms=6.327 safety_known=false backend_ready=true loop_samples=3 loop_hz=124.849 mean_cycle_period_ms=8.009683 mean_abs_jitter_ms=0.065363 max_abs_jitter_ms=0.112569 max_cycle_period_ms=8.112569 ik_mean_us=0.000 ik_max_us=0.000 position_error_m=0.000000 angular_error_rad=0.000000 path_deviation_m=0.000000 reference_actual_rad=0.000000 candidate_reference_actual_rad=0.000000 reference_lagging=false reference_lag_samples=0 max_delta_qdot_rad_s=0.000000 max_delta_v_m_s=0.000000 sdk_read_errors=0 sdk_write_errors=0 command_write_errors=0 sdk_errors=0 reason=NONE",
+  "target_joint_rad": [
+    0.03,
+    -1.5707963267948966,
+    1.5707963267948966,
+    -1.5707963267948963,
+    -1.5707963267948963,
+    0.0
+  ]
+}

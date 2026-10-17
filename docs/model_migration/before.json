@@ -1,0 +1,27 @@
+{
+  "source_sha256": "30c3520434231285e68ff3e5ee71aa88fae59376486e27e11eca9d8e1a22e009",
+  "core_element_hashes_mesh_basename_only": {
+    "link:fr10_base_link": "12f8c95a3a8523d04a8d42fe8392ee1a087d06482f7e885713dc3e126ff4c11c",
+    "link:shoulder_link": "d7ea70620c9f625ea6d68e50f34a63309a59087cbc861e975a6c1be4731d13be",
+    "link:upperarm_link": "45ba125faccb7e14b689ec035f51e4d98cea1903009e98ac09156117fbf46bf0",
+    "link:forearm_link": "72db9acb1bad4dca0bc3d9314fb932c85dfa3c1b621f25d7d88b96cdf6f306bf",
+    "link:wrist1_link": "25c55dd43ee3e5f2e0b0c5225e279680cd4c5e0e015069a53f5fca8eab0c65b1",
+    "link:wrist2_link": "3e422dd00857ea984167ffebd87b76d16613e0e46d50683a36cd87409b7d7861",
+    "link:wrist3_link": "eb8ef7960689f6cef6810b5d9977f7bed53b35d9bd896c9079405d84d858ee0a",
+    "joint:j1": "c11862452728602f9281500a0e01ca0b94593e87e88ad31d9ba52be72eaff818",
+    "joint:j2": "65f26775e6d0e1879fdb5dcd66a7af22472b7a521d1dfaa7f4dd6c513ba4b655",
+    "joint:j3": "f204b37594ae5006968e415c78f5dcb7c096ab856a804878079e2ef24cf1790e",
+    "joint:j4": "ab8528fdfc7724fd9229a1916ab8ffa8a940295b741cba588bd26cca61f7c9ac",
+    "joint:j5": "96b175ce3351a817e99151e30ed8d84dca5ca44aa249ecafef3104d8e0be5f5f",
+    "joint:j6": "f57a333d0e1d626f5db070fc01230e507f92ddb90bea636bd6bee563229786ff"
+  },
+  "mesh_sha256": {
+    "base_link.STL": "5495b37ced3f2d69b7be183131572b905e94f0dc808cf3ff0c815325394d6048",
+    "forearm_link.STL": "3838496dc6c14e56d143f167040f20c7369a298c2a66ea907c9193e1910ae9c6",
+    "shoulder_link.STL": "7e2a4738d2302fd01637714cfd41e71eba3ba364d0f757ebeeb22c112a206920",
+    "upperarm_link.STL": "846f3fa629c7687630e2b155359184db246ca6233be113c1fe6ba4a95dd0bce0",
+    "wrist1_link.STL": "7c81219afa9f37529b0235ca8393ae237d9cc37ef2a2d8ed7d3fbdde9e22dd06",
+    "wrist2_link.STL": "e91b1def10f057493425a148f1e15031c9f2858d4573b8a06c399a6be3ced20f",
+    "wrist3_link.STL": "f1d3f981e79299ace78993af7f9016077b4a85c65281f9b7e99470d8c4942482"
+  }
+}

@@ -1,4 +1,6 @@
 import os
+import importlib.util
+import xml.etree.ElementTree as ET
 
 from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
@@ -9,79 +11,95 @@ from launch_ros.actions import Node
 from moveit_configs_utils import MoveItConfigsBuilder
 
 
-GEOMETRY_ARGUMENT_DEFAULTS = {
-    "enable_custom_collisions": "true",
-    "flange_xyz": "0 0 0.106",
-    "flange_rpy": "0 0 0",
-    "ft_sensor_xyz": "0 0 0",
-    "ft_sensor_rpy": "0 0 0",
-    "tool_plate_xyz": "0 0 0.030",
-    "tool_plate_rpy": "0 0 0",
-    "d455_xyz": "-0.0475 0 0.012",
-    "d455_rpy": "0 -1.57079632679 1.57079632679",
-    "charging_mount_xyz": "0.060 0 0.012",
-    "charging_mount_rpy": "0 0 0",
-    "charging_connector_xyz": "0 0 0.040",
-    "charging_connector_rpy": "0 0 0",
-    "tool0_xyz": "0 0 0.080",
-    "tool0_rpy": "0 0 0",
-    "ft_sensor_radius": "0.045",
-    "ft_sensor_length": "0.030",
-    "tool_plate_size_x": "0.140",
-    "tool_plate_size_y": "0.100",
-    "tool_plate_size_z": "0.012",
-    "charging_mount_size_x": "0.040",
-    "charging_mount_size_y": "0.050",
-    "charging_mount_size_z": "0.040",
-    "connector_body_size_x": "0.045",
-    "connector_body_size_y": "0.035",
-    "connector_body_length": "0.060",
-    "connector_tip_radius": "0.012",
-    "connector_tip_length": "0.020",
-}
-
-
 def as_bool(value):
     return value.lower() in ("true", "1", "yes")
 
 
 def launch_setup(context, *args, **kwargs):
     package_share = get_package_share_directory("fr10_pose_controller")
+    profile_spec = importlib.util.spec_from_file_location('controller_profile',
+        os.path.join(package_share, 'launch', 'controller_profile.py'))
+    profile_loader = importlib.util.module_from_spec(profile_spec)
+    profile_spec.loader.exec_module(profile_loader)
+    overlay_path = LaunchConfiguration("controller_overlay").perform(context)
+    overlay_parameters = profile_loader.load_controller_profile(overlay_path) if overlay_path else {}
     moveit_share = get_package_share_directory("fairino10_v6_moveit2_config")
     use_fake_hardware = LaunchConfiguration("use_fake_hardware").perform(context)
     use_gazebo = LaunchConfiguration("use_gazebo").perform(context)
     use_rviz = LaunchConfiguration("use_rviz").perform(context)
+    gui = LaunchConfiguration("gui").perform(context)
+    enable_force_sensor = LaunchConfiguration("enable_force_sensor").perform(context)
     start_robot_stack = LaunchConfiguration("start_robot_stack").perform(context)
     robot_ip = LaunchConfiguration("robot_ip").perform(context)
     hardware_plugin = LaunchConfiguration("hardware_plugin").perform(context)
+    native_proof = LaunchConfiguration('native_simulator_proof').perform(context)
+    native_parameters = {}
+    if native_proof:
+        if as_bool(use_gazebo) or as_bool(use_fake_hardware) or robot_ip != '192.168.58.2':
+            raise RuntimeError('Native simulator proof requires the verified Docker native endpoint')
+        spec = importlib.util.spec_from_file_location('native_simulator_gate',
+            os.path.join(package_share,'launch','native_simulator_gate.py'))
+        gate = importlib.util.module_from_spec(spec); spec.loader.exec_module(gate)
+        native_parameters = gate.verify_simulator_proof(native_proof)
     requested_backend = LaunchConfiguration("backend").perform(context)
-    geometry_mappings = {
-        name: LaunchConfiguration(name).perform(context)
-        for name in GEOMETRY_ARGUMENT_DEFAULTS
-    }
 
     backend = "ros_control" if requested_backend == "auto" else requested_backend
     if backend != "ros_control":
         raise RuntimeError("Pose/Joint mode supports only the ros_control backend")
 
+    description_share = get_package_share_directory("vehicle_description")
+    control_backend = ("gazebo" if as_bool(use_gazebo) else
+                       "fake" if as_bool(use_fake_hardware) else "fairino")
+    positions_file = os.path.join(
+        moveit_share, "config",
+        "sim_ready_positions.yaml" if as_bool(use_gazebo) else "initial_positions.yaml")
     moveit_config = (
         MoveItConfigsBuilder(
-            "fairino10_v6_robot",
-            package_name="fairino10_v6_moveit2_config",
-        )
+            "complete_visual", package_name="fairino10_v6_moveit2_config")
         .robot_description(
+            file_path=os.path.join(description_share, "urdf", "vehicle.urdf.xacro"),
             mappings={
-                "use_fake_hardware": use_fake_hardware,
-                "use_gazebo": use_gazebo,
+                "enable_vehicle": "false",
+                "enable_arm": "true",
+                "sim_base_collision_proxy": "true" if as_bool(use_gazebo) else "false",
+                "control_backend": control_backend,
+                "enable_force_sensor": enable_force_sensor,
+                "charging_tool_profile": LaunchConfiguration('charging_tool_profile').perform(context),
+                "ft_wrench_topic": LaunchConfiguration("ft_wrench_topic").perform(context),
+                "initial_positions_file": positions_file,
+                "gazebo_controller_yaml": os.path.join(
+                    package_share, "config", "ros2_controllers.yaml"),
                 "robot_ip": robot_ip,
                 "hardware_plugin": hardware_plugin,
-                **geometry_mappings,
-            }
-        )
+            })
+        .robot_description_semantic(
+            file_path=os.path.join(description_share, "config", "fr10.srdf"))
         .to_moveit_configs()
     )
+    tool_spec = importlib.util.spec_from_file_location('tool_geometry',
+        os.path.join(description_share, 'launch', 'tool_geometry.py'))
+    tool_geometry = importlib.util.module_from_spec(tool_spec)
+    tool_spec.loader.exec_module(tool_geometry)
+    tool_parameters = tool_geometry.wrench_parameters(
+        moveit_config.robot_description['robot_description'],
+        overlay_parameters.get('force.wrench_source_frame', 'charging_connector_link'),
+        overlay_parameters.get('force.wrench_target_frame', 'charging_tcp'))
 
     actions = []
+    spec = importlib.util.spec_from_file_location('planning_collision_model',
+        os.path.join(package_share,'launch','planning_collision_model.py'))
+    collision_model = importlib.util.module_from_spec(spec); spec.loader.exec_module(collision_model)
+    planning_description = {'robot_description': collision_model.planning_collision_description(
+        moveit_config.robot_description['robot_description'],
+        os.path.join(description_share,'models','matched_socket_v2'))}
+    if LaunchConfiguration('charging_tool_profile').perform(context) == 'matched_socket_v2':
+        semantic = moveit_config.robot_description_semantic['robot_description_semantic']
+        assembly = ET.parse(os.path.join(description_share,'models','matched_socket_v2','matched_connector.srdf')).getroot()
+        entries = ''.join(ET.tostring(entry,encoding='unicode') for entry in assembly)
+        moveit_config.robot_description_semantic['robot_description_semantic'] = semantic.replace('</robot>',entries+'</robot>')
+    if not as_bool(start_robot_stack):
+        actions.append(Node(package='robot_state_publisher',executable='robot_state_publisher',
+            parameters=[moveit_config.robot_description,{'use_sim_time':as_bool(use_gazebo)}]))
     if as_bool(start_robot_stack):
         if as_bool(use_gazebo):
             actions.append(
@@ -91,7 +109,16 @@ def launch_setup(context, *args, **kwargs):
                     ),
                     launch_arguments={
                         "use_rviz": use_rviz,
-                        **geometry_mappings,
+                        "gui": gui,
+                        "start_move_group": "false",
+                        "enable_force_sensor": enable_force_sensor,
+                        "charging_tool_profile": LaunchConfiguration("charging_tool_profile").perform(context),
+                        "ft_wrench_topic": LaunchConfiguration("ft_wrench_topic").perform(context),
+                        "gazebo_clock_params": LaunchConfiguration("gazebo_clock_params").perform(context),
+                        "controller_start_delay": LaunchConfiguration("gazebo_controller_start_delay").perform(context),
+                        "controller_yaml": os.path.join(package_share, "config", "ros2_controllers.yaml"),
+                        **({"world": LaunchConfiguration("gazebo_world").perform(context)}
+                           if LaunchConfiguration("gazebo_world").perform(context) else {}),
                     }.items(),
                 )
             )
@@ -171,15 +198,19 @@ def launch_setup(context, *args, **kwargs):
             output="screen",
             parameters=[
                 os.path.join(package_share, "config", "controller.yaml"),
-                *([LaunchConfiguration("controller_overlay").perform(context)]
-                  if LaunchConfiguration("controller_overlay").perform(context) else []),
+                overlay_parameters,
                 moveit_config.robot_description,
                 moveit_config.robot_description_semantic,
                 moveit_config.robot_description_kinematics,
+                planning_description,
                 {
                     "controller.backend": backend,
                     "controller.robot_ip": robot_ip,
+                    "controller.require_driver_health": not as_bool(use_gazebo),
+                    "use_sim_time": as_bool(use_gazebo),
                 },
+                native_parameters,
+                tool_parameters,
             ],
         )
     )
@@ -189,6 +220,12 @@ def launch_setup(context, *args, **kwargs):
 def generate_launch_description():
     return LaunchDescription(
         [
+            DeclareLaunchArgument("gazebo_world", default_value=""),
+            DeclareLaunchArgument('charging_tool_profile', default_value='legacy',
+                choices=['legacy','matched_socket_v2']),
+            DeclareLaunchArgument("ft_wrench_topic", default_value="wrench"),
+            DeclareLaunchArgument("gazebo_clock_params", default_value=""),
+            DeclareLaunchArgument("gazebo_controller_start_delay", default_value="4.0"),
             DeclareLaunchArgument(
                 "use_fake_hardware",
                 default_value="true",
@@ -200,6 +237,12 @@ def generate_launch_description():
                 description="Use Gazebo Classic through ros_control backend.",
             ),
             DeclareLaunchArgument("use_rviz", default_value="true"),
+            DeclareLaunchArgument("gui", default_value="true"),
+            DeclareLaunchArgument(
+                "enable_force_sensor",
+                default_value="false",
+                description="Opt-in test-only Gazebo F/T load-cell chain.",
+            ),
             DeclareLaunchArgument(
                 "backend",
                 default_value="auto",
@@ -207,6 +250,7 @@ def generate_launch_description():
                 description="Pose/Joint motion always uses ros2_control.",
             ),
             DeclareLaunchArgument("robot_ip", default_value="192.168.58.2"),
+            DeclareLaunchArgument('native_simulator_proof', default_value=''),
             DeclareLaunchArgument("controller_overlay", default_value="",
                                   description="Optional controller parameter overlay (e.g. SimMachine profile)"),
             DeclareLaunchArgument(
@@ -226,10 +270,6 @@ def generate_launch_description():
                     "and the selected ros2_control hardware."
                 ),
             ),
-            *[
-                DeclareLaunchArgument(name, default_value=default)
-                for name, default in GEOMETRY_ARGUMENT_DEFAULTS.items()
-            ],
             OpaqueFunction(function=launch_setup),
         ]
     )

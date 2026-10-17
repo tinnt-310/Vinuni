@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<robot name="matched_charging_tool">
+  <disable_collisions link1="charging_connector_link" link2="charging_mating_nose" reason="FixedAssembly"/>
+  <disable_collisions link1="charging_connector_link" link2="charging_mating_shoulder" reason="FixedAssembly"/>
+  <disable_collisions link1="charging_mating_nose" link2="charging_mating_shoulder" reason="FixedAssembly"/>
+</robot>

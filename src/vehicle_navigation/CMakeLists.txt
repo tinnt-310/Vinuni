@@ -1,0 +1,11 @@
+cmake_minimum_required(VERSION 3.8)
+project(vehicle_navigation)
+find_package(ament_cmake REQUIRED)
+install(DIRECTORY launch config maps rviz DESTINATION share/${PROJECT_NAME}
+  PATTERN "__pycache__" EXCLUDE PATTERN "*.orig" EXCLUDE PATTERN "*.rej" EXCLUDE)
+install(FILES README.md DESTINATION share/${PROJECT_NAME})
+if(BUILD_TESTING)
+  find_package(ament_cmake_pytest REQUIRED)
+  ament_add_pytest_test(test_navigation_contract test/test_navigation_contract.py)
+endif()
+ament_package()

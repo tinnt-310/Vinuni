@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:macro name="vehicle_steering_interface" params="name">
+    <joint name="${name}">
+      <param name="motor_position_gain">${vehicle['steering_motor_position_gain']}</param>
+      <param name="motor_velocity_limit">${vehicle['steering_motor_velocity_limit']}</param>
+      <command_interface name="position">
+        <param name="min">-3.14</param><param name="max">3.14</param>
+      </command_interface>
+      <state_interface name="velocity"/><state_interface name="position"/>
+    </joint>
+  </xacro:macro>
+  <xacro:macro name="vehicle_wheel_interface" params="name">
+    <joint name="${name}">
+      <command_interface name="velocity">
+        <param name="min">-10</param><param name="max">10</param>
+      </command_interface>
+      <state_interface name="velocity"/><state_interface name="position"/>
+    </joint>
+  </xacro:macro>
+  <xacro:macro name="vehicle_control_interfaces" params="">
+    <xacro:vehicle_steering_interface name="Revolute1_to_base_link"/>
+    <xacro:vehicle_steering_interface name="Revolute2_to_base_link"/>
+    <xacro:vehicle_steering_interface name="Revolute3_to_base_link"/>
+    <xacro:vehicle_steering_interface name="Revolute4_to_base_link"/>
+    <xacro:vehicle_wheel_interface name="Wheel1_to_Revolute1"/>
+    <xacro:vehicle_wheel_interface name="Wheel2_to_Revolute2"/>
+    <xacro:vehicle_wheel_interface name="Wheel3_to_Revolute3"/>
+    <xacro:vehicle_wheel_interface name="Wheel4_to_Revolute4"/>
+  </xacro:macro>
+</robot>

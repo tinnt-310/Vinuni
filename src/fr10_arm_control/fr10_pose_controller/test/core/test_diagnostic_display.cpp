@@ -2,7 +2,7 @@
 #include <iostream>
 #include <string>
 
-#include "fr10_pose_controller/diagnostic_display.hpp"
+#include "fr10_motion_core/diagnostic_display.hpp"
 #include "test_support.hpp"
 
 namespace {
@@ -89,6 +89,48 @@ int main() {
                     block.find("0.50") != std::string::npos,
                 "DIAGNOSTIC_JOINT_DEGREES",
                 "wrapped joint error was not formatted in degrees");
+
+  const auto force_pose_block =
+      fr10_motion::diagnostics::formatUnifiedTrackingBlock(
+          "TRACKING", "POSE", 125.0, diagnostic, "APPROACH_COMPLIANT");
+  const auto force_joint_block =
+      fr10_motion::diagnostics::formatUnifiedTrackingBlock(
+          "TRACKING", "JOINT", 125.0, diagnostic, "APPROACH_COMPLIANT");
+  check.require(
+      force_pose_block == force_joint_block &&
+          force_pose_block.find(
+              "[TRACKING | FORCE | APPROACH_COMPLIANT | 125.0 Hz]") == 0,
+      "DIAGNOSTIC_FORCE_OWNS_LABEL_ACROSS_HANDOVERS",
+      "internal pose/joint handovers changed the force task label");
+  const auto tare_key = fr10_motion::diagnostics::unifiedTrackingLogKey(
+      "HOLDING", "POSE", diagnostic, "FT_ZERO");
+  const auto force_hold_key = fr10_motion::diagnostics::unifiedTrackingLogKey(
+      "HOLDING", "JOINT", diagnostic, "HOLD");
+  std::string force_last_key;
+  check.require(
+      fr10_motion::diagnostics::shouldEmitChangedTrackingLog(tare_key, force_last_key) &&
+          !fr10_motion::diagnostics::shouldEmitChangedTrackingLog(tare_key, force_last_key) &&
+          fr10_motion::diagnostics::shouldEmitChangedTrackingLog(force_hold_key, force_last_key),
+      "DIAGNOSTIC_FORCE_PHASE_CHANGE_WHILE_STATIONARY",
+      "a force phase change at unchanged pose was suppressed");
+  for (const char *phase : {"WAITING_ADMISSION", "MOVE_PREINSERT", "HOLD_PREINSERT",
+                            "FT_ZERO", "APPROACH", "CONTACT_DETECTED",
+                            "FORCE_INSERTION", "CONTACT_ALIGN", "INSERT_COMPLIANT",
+                            "SEATING", "VERIFY_INSERTION", "SUCCESS", "HOLD",
+                            "RETRACT", "STOPPING", "FAILED"}) {
+    const auto phase_block = fr10_motion::diagnostics::formatUnifiedTrackingBlock(
+        "HOLDING", "JOINT", 125.0, diagnostic, phase);
+    check.require(phase_block.find(std::string("[HOLDING | FORCE | ") + phase + " | ") == 0,
+                  std::string("DIAGNOSTIC_FORCE_PHASE_") + phase,
+                  "force-owned recovery/hold phase lost the FORCE label");
+  }
+  check.require(
+      fr10_motion::diagnostics::formatUnifiedTrackingBlock(
+          "TRACKING", "POSE", 125.0, diagnostic, "") ==
+          fr10_motion::diagnostics::formatUnifiedTrackingBlock(
+              "TRACKING", "POSE", 125.0, diagnostic),
+      "DIAGNOSTIC_NO_FORCE_OWNER_PRESERVES_LABEL",
+      "an inactive force session relabeled ordinary pose tracking");
 
   std::string last_log_key;
   const std::string tracking_key =

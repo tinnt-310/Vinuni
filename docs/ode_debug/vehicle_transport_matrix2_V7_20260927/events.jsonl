@@ -1,0 +1,57 @@
+{"wall": 1261.736521227, "line": "[INFO] [launch]: All log files can be found below /home/tin/.ros/log/2026-09-27-10-11-10-247681-Tin-Legion5-22187"}
+{"wall": 1261.73681948, "line": "[INFO] [launch]: Default logging verbosity is set to INFO"}
+{"wall": 1265.198151435, "line": "[INFO] [gzserver-1]: process started with pid [22221]"}
+{"wall": 1265.198489187, "line": "[INFO] [robot_state_publisher-2]: process started with pid [22223]"}
+{"wall": 1265.198801258, "line": "[INFO] [spawn_entity.py-3]: process started with pid [22225]"}
+{"wall": 1265.198939508, "line": "[INFO] [swerve_drive-4]: process started with pid [22227]"}
+{"wall": 1265.289200161, "line": "[swerve_drive-4] [INFO] [1790478673.807064863] [swerve_controller]: Swerve L=0.800 W=0.700 r=0.210, input=/cmd_vel, wheel-feedback odometry"}
+{"wall": 1265.436500248, "line": "[robot_state_publisher-2] [INFO] [1790478673.954037013] [robot_state_publisher]: got segment Revolute1_1"}
+{"wall": 1265.437463351, "line": "[robot_state_publisher-2] [INFO] [1790478673.954486443] [robot_state_publisher]: got segment Revolute2_1"}
+{"wall": 1265.437618437, "line": "[robot_state_publisher-2] [INFO] [1790478673.954522615] [robot_state_publisher]: got segment Revolute3_1"}
+{"wall": 1265.437659825, "line": "[robot_state_publisher-2] [INFO] [1790478673.954543824] [robot_state_publisher]: got segment Revolute4_1"}
+{"wall": 1265.437695632, "line": "[robot_state_publisher-2] [INFO] [1790478673.954563616] [robot_state_publisher]: got segment Wheel1_1"}
+{"wall": 1265.437766178, "line": "[robot_state_publisher-2] [INFO] [1790478673.954583893] [robot_state_publisher]: got segment Wheel2_1"}
+{"wall": 1265.437830058, "line": "[robot_state_publisher-2] [INFO] [1790478673.954602861] [robot_state_publisher]: got segment Wheel3_1"}
+{"wall": 1265.437932261, "line": "[robot_state_publisher-2] [INFO] [1790478673.954621041] [robot_state_publisher]: got segment Wheel4_1"}
+{"wall": 1265.43822746, "line": "[robot_state_publisher-2] [INFO] [1790478673.954639348] [robot_state_publisher]: got segment base_footprint"}
+{"wall": 1265.438349785, "line": "[robot_state_publisher-2] [INFO] [1790478673.954658875] [robot_state_publisher]: got segment base_link"}
+{"wall": 1265.438418687, "line": "[robot_state_publisher-2] [INFO] [1790478673.954677623] [robot_state_publisher]: got segment d455_accel_frame"}
+{"wall": 1265.438445831, "line": "[robot_state_publisher-2] [INFO] [1790478673.954696828] [robot_state_publisher]: got segment d455_accel_optical_frame"}
+{"wall": 1265.438469307, "line": "[robot_state_publisher-2] [INFO] [1790478673.954717302] [robot_state_publisher]: got segment d455_bottom_screw_frame"}
+{"wall": 1265.438501867, "line": "[robot_state_publisher-2] [INFO] [1790478673.954736271] [robot_state_publisher]: got segment d455_color_frame"}
+{"wall": 1265.438628616, "line": "[robot_state_publisher-2] [INFO] [1790478673.954754847] [robot_state_publisher]: got segment d455_color_optical_frame"}
+{"wall": 1265.439374571, "line": "[robot_state_publisher-2] [INFO] [1790478673.954773500] [robot_state_publisher]: got segment d455_depth_frame"}
+{"wall": 1265.439497516, "line": "[robot_state_publisher-2] [INFO] [1790478673.954900915] [robot_state_publisher]: got segment d455_depth_optical_frame"}
+{"wall": 1265.439563975, "line": "[robot_state_publisher-2] [INFO] [1790478673.954931691] [robot_state_publisher]: got segment d455_front_bracket"}
+{"wall": 1265.43959408, "line": "[robot_state_publisher-2] [INFO] [1790478673.955072432] [robot_state_publisher]: got segment d455_gyro_frame"}
+{"wall": 1265.439625782, "line": "[robot_state_publisher-2] [INFO] [1790478673.955493134] [robot_state_publisher]: got segment d455_gyro_optical_frame"}
+{"wall": 1265.439697579, "line": "[robot_state_publisher-2] [INFO] [1790478673.955513798] [robot_state_publisher]: got segment d455_imu_optical_frame"}
+{"wall": 1265.439801035, "line": "[robot_state_publisher-2] [INFO] [1790478673.955532161] [robot_state_publisher]: got segment d455_infra1_frame"}
+{"wall": 1265.43984732, "line": "[robot_state_publisher-2] [INFO] [1790478673.955550734] [robot_state_publisher]: got segment d455_infra1_optical_frame"}
+{"wall": 1265.439941209, "line": "[robot_state_publisher-2] [INFO] [1790478673.955569828] [robot_state_publisher]: got segment d455_infra2_frame"}
+{"wall": 1265.440080477, "line": "[robot_state_publisher-2] [INFO] [1790478673.955588382] [robot_state_publisher]: got segment d455_infra2_optical_frame"}
+{"wall": 1265.440220005, "line": "[robot_state_publisher-2] [INFO] [1790478673.955606534] [robot_state_publisher]: got segment d455_link"}
+{"wall": 1265.440288514, "line": "[robot_state_publisher-2] [INFO] [1790478673.955625050] [robot_state_publisher]: got segment d455_mount_frame"}
+{"wall": 1265.440335408, "line": "[robot_state_publisher-2] [INFO] [1790478673.955643680] [robot_state_publisher]: got segment laser_frame"}
+{"wall": 1265.440629713, "line": "[robot_state_publisher-2] [INFO] [1790478673.955662408] [robot_state_publisher]: got segment lidar_link"}
+{"wall": 1265.440752518, "line": "[robot_state_publisher-2] [INFO] [1790478673.955680472] [robot_state_publisher]: got segment lidar_mount_frame"}
+{"wall": 1265.440820837, "line": "[robot_state_publisher-2] [INFO] [1790478673.955698322] [robot_state_publisher]: got segment roof_frame"}
+{"wall": 1267.079162651, "line": "[spawn_entity.py-3] [INFO] [1790478675.596706216] [spawn_entity]: Spawn Entity started"}
+{"wall": 1267.080358851, "line": "[spawn_entity.py-3] [INFO] [1790478675.598462482] [spawn_entity]: Loading entity XML from file /home/tin/Vinuni/install_grouped/vehicle_description/share/vehicle_description/models/tram_sac_VF/model.sdf"}
+{"wall": 1267.083315068, "line": "[spawn_entity.py-3] [INFO] [1790478675.601291149] [spawn_entity]: Waiting for service /spawn_entity, timeout = 30"}
+{"wall": 1267.08451265, "line": "[spawn_entity.py-3] [INFO] [1790478675.602721640] [spawn_entity]: Waiting for service /spawn_entity"}
+{"wall": 1268.353789248, "line": "[spawn_entity.py-3] [INFO] [1790478676.872071333] [spawn_entity]: Calling service /spawn_entity"}
+{"wall": 1268.422128221, "line": "[spawn_entity.py-3] [INFO] [1790478676.940294121] [spawn_entity]: Spawn status: Entity pushed to spawn queue, but spawn service timed outwaiting for entity to appear in simulation under the name [tram_sac_VF1]"}
+{"wall": 1268.422777115, "line": "[spawn_entity.py-3] [ERROR] [1790478676.941136416] [spawn_entity]: Spawn service failed. Exiting."}
+{"wall": 1268.488197657, "line": "[gzserver-1] [WARN] [1790478677.005982001] [gazebo]: New subscription discovered on topic '/clock', requesting incompatible QoS. No messages will be sent to it. Last incompatible policy: RELIABILITY_QOS_POLICY"}
+{"wall": 1268.625660958, "line": "[ERROR] [spawn_entity.py-3]: process has died [pid 22225, exit code 1, cmd '/opt/ros/humble/lib/gazebo_ros/spawn_entity.py -entity tram_sac_VF1 -file /home/tin/Vinuni/install_grouped/vehicle_description/share/vehicle_description/models/tram_sac_VF/model.sdf -x 10.5 -y 0.0 -z 0.0 -Y -1.57 --ros-args --params-file /tmp/launch_params_popizrle']."}
+{"wall": 1268.626446268, "line": "[INFO] [launch]: process[spawn_entity.py-3] was required: shutting down launched system"}
+{"wall": 1268.631495526, "line": "[INFO] [swerve_drive-4]: sending signal 'SIGINT' to process[swerve_drive-4]"}
+{"wall": 1268.63311965, "line": "[INFO] [robot_state_publisher-2]: sending signal 'SIGINT' to process[robot_state_publisher-2]"}
+{"wall": 1268.634435747, "line": "[INFO] [gzserver-1]: sending signal 'SIGINT' to process[gzserver-1]"}
+{"wall": 1268.634949384, "line": "[swerve_drive-4] [INFO] [1790478677.151077102] [rclcpp]: signal_handler(SIGINT/SIGTERM)"}
+{"wall": 1268.635349179, "line": "[robot_state_publisher-2] [INFO] [1790478677.152630659] [rclcpp]: signal_handler(SIGINT/SIGTERM)"}
+{"wall": 1268.752271519, "line": "[INFO] [swerve_drive-4]: process has finished cleanly [pid 22227]"}
+{"wall": 1268.75526875, "line": "[INFO] [robot_state_publisher-2]: process has finished cleanly [pid 22223]"}
+{"wall": 1268.951530003, "line": "[INFO] [gzserver-1]: process has finished cleanly [pid 22221]"}
+{"wall": 1268.952272807, "line": "[INFO] [launch]: process[gzserver-1] was required: shutting down launched system"}

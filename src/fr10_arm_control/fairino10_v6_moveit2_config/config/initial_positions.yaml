@@ -1,4 +1,4 @@
-# Default initial positions for fairino10_v6_robot's ros2_control fake system
+# Default initial positions for the standalone FR10 fake ros2_control system
 
 initial_positions:
   # Existing SRDF pos1: a non-singular startup posture for Servo tests.

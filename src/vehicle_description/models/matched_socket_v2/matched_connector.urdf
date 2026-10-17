@@ -1,0 +1,1911 @@
+<robot name="matched_charging_tool">
+  <link name="charging_connector_link">
+    <visual>
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/body.stl" />
+      </geometry>
+      <material name="matched_tool_dark">
+        <color rgba=".14 .16 .18 1" />
+      </material>
+    </visual>
+    <collision name="protected_rear_body">
+      <origin xyz="-1.0356307e-06 0.0 -0.02125" />
+      <geometry>
+        <box size="0.11296203 0.135 0.082499996" />
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="2.8" />
+      <origin xyz="-0.00044966809218749404 -0.00045383127871900797 -0.017045563086867332" />
+      <inertia ixx="0.005840625177323829" iyy="0.004565556217808651" izz="0.007229931716401507" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+  </link>
+  <gazebo reference="charging_connector_link">
+    <mu1>.20</mu1>
+    <mu2>.20</mu2>
+    <kp>${matched_ode_contact['stiffness_n_m']}</kp>
+    <kd>${matched_ode_contact['damping_n_s_m']}</kd>
+    <maxVel>${matched_ode_contact['max_correcting_velocity_m_s']}</maxVel>
+    <minDepth>0</minDepth>
+  </gazebo>
+  <link name="charging_mating_nose">
+    <visual>
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/nose.stl" />
+      </geometry>
+      <material name="matched_tool_dark">
+        <color rgba=".14 .16 .18 1" />
+      </material>
+    </visual>
+    <collision name="mating_surface_0">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_0_0_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_1">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_0_0_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_2">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_0_1_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_3">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_0_1_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_4">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_0_2_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_5">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_0_2_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_6">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_0_3_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_7">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_0_3_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_8">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_0_4_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_9">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_0_4_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_10">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_0_5_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_11">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_0_5_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_12">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_0_6_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_13">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_0_6_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_14">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_0_7_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_15">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_0_7_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_16">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_0_8_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_17">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_0_8_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_18">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_0_9_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_19">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_0_9_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_20">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_0_10_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_21">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_0_10_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_22">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_0_11_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_23">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_0_11_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_24">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_0_12_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_25">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_0_12_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_26">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_0_13_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_27">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_0_13_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_28">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_0_14_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_29">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_0_14_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_30">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_0_15_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_31">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_0_15_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_32">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_0_16_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_33">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_0_16_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_34">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_0_17_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_35">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_0_17_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_36">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_0_18_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_37">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_0_18_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_38">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_0_19_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_39">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_0_19_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_40">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_0_20_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_41">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_0_20_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_42">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_0_21_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_43">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_0_21_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_44">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_0_22_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_45">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_0_22_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_46">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_0_23_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_47">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_0_23_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_48">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_0_24_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_49">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_0_24_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_50">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_1_0_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_51">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_1_0_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_52">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_1_1_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_53">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_1_1_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_54">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_1_2_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_55">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_1_2_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_56">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_1_3_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_57">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_1_3_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_58">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_1_4_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_59">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_1_4_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_60">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_1_5_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_61">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_1_5_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_62">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_1_6_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_63">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_1_6_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_64">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_1_7_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_65">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_1_7_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_66">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_1_8_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_67">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_1_8_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_68">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_1_9_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_69">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_1_9_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_70">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_1_10_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_71">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_1_10_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_72">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_1_11_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_73">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_1_11_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_74">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_1_12_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_75">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_1_12_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_76">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_1_13_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_77">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_1_13_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_78">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_1_14_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_79">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_1_14_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_80">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_1_15_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_81">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_1_15_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_82">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_1_16_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_83">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_1_16_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_84">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_1_17_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_85">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_1_17_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_86">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_1_18_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_87">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_1_18_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_88">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_1_19_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_89">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_1_19_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_90">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_1_20_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_91">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_1_20_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_92">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_1_21_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_93">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_1_21_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_94">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_1_22_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_95">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_1_22_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_96">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_1_23_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_97">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_1_23_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_98">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_1_24_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_99">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_1_24_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_100">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_2_0_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_101">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_2_0_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_102">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_2_1_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_103">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_2_1_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_104">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_2_2_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_105">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_2_2_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_106">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_2_3_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_107">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_2_3_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_108">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_2_4_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_109">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_2_4_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_110">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_2_5_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_111">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_2_5_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_112">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_2_6_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_113">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_2_6_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_114">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_2_7_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_115">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_2_7_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_116">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_2_8_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_117">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_2_8_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_118">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_2_9_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_119">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_2_9_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_120">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_2_10_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_121">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_2_10_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_122">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_2_11_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_123">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_2_11_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_124">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_2_12_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_125">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_2_12_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_126">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_2_13_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_127">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_2_13_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_128">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_2_14_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_129">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_2_14_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_130">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_2_15_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_131">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_2_15_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_132">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_2_16_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_133">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_2_16_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_134">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_2_17_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_135">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_2_17_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_136">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_2_18_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_137">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_2_18_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_138">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_2_19_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_139">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_2_19_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_140">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_3_0_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_141">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_3_0_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_142">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_3_1_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_143">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_3_1_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_144">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_3_2_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_145">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_3_2_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_146">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_3_3_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_147">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_3_3_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_148">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_3_4_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_149">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_3_4_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_150">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_3_5_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_151">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_3_5_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_152">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_3_6_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_153">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_3_6_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_154">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_3_7_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_155">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_3_7_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_156">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_3_8_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_157">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_3_8_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_158">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_3_9_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_159">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_3_9_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_160">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_3_10_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_161">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_3_10_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_162">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_3_11_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_163">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_3_11_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_164">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_3_12_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_165">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_3_12_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_166">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_3_13_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_167">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_3_13_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_168">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_3_14_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_169">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_3_14_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_170">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_3_15_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_171">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_3_15_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_172">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_3_16_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_173">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_3_16_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_174">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_3_17_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_175">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_3_17_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_176">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_3_18_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_177">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_3_18_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_178">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_3_19_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_179">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_3_19_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_180">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_4_0_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_181">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_4_0_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_182">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_4_1_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_183">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_4_1_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_184">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_4_2_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_185">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_4_2_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_186">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_4_3_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_187">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_4_3_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_188">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_4_4_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_189">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_4_4_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_190">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_4_5_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_191">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_4_5_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_192">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_4_6_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_193">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_4_6_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_194">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_4_7_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_195">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_4_7_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_196">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_4_8_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_197">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_4_8_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_198">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_4_9_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_199">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_4_9_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_200">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_4_10_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_201">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_4_10_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_202">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_4_11_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_203">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_4_11_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_204">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_4_12_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_205">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_4_12_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_206">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_4_13_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_207">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_4_13_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_208">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_4_14_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_209">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_4_14_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_210">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_4_15_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_211">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_4_15_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_212">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_4_16_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_213">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_4_16_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_214">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_4_17_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_215">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_4_17_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_216">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_4_18_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_217">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_4_18_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_218">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_4_19_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_219">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_4_19_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_220">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_5_0_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_221">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_5_0_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_222">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_5_1_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_223">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_5_1_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_224">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_5_2_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_225">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_5_2_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_226">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_5_3_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_227">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_5_3_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_228">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_5_4_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_229">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_5_4_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_230">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_5_5_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_231">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_5_5_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_232">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_5_6_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_233">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_5_6_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_234">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_5_7_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_235">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_5_7_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_236">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_5_8_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_237">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_5_8_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_238">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_5_9_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_239">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_5_9_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_240">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_5_10_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_241">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_5_10_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_242">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_5_11_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_243">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_5_11_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_244">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_5_12_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_245">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_5_12_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_246">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_5_13_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_247">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_5_13_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_248">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_5_14_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_249">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_5_14_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_250">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_5_15_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_251">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_5_15_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_252">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_5_16_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_253">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_5_16_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_254">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_5_17_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_255">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_5_17_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_256">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_5_18_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_257">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_5_18_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_258">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_5_19_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_259">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_5_19_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_260">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_6_0_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_261">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_6_0_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_262">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_6_1_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_263">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_6_1_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_264">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_6_2_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_265">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_6_2_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_266">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_6_3_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_267">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_6_3_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_268">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_6_4_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_269">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_6_4_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_270">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_6_5_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_271">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_6_5_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_272">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_6_6_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_273">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_6_6_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_274">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_6_7_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_275">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_6_7_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_276">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_6_8_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_277">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_6_8_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_278">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_6_9_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_279">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_6_9_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_280">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_6_10_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_281">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_6_10_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_282">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_6_11_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_283">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_6_11_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_284">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_6_12_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_285">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_6_12_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_286">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_6_13_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_287">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_6_13_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_288">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_6_14_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_289">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_6_14_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_290">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_6_15_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_291">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_6_15_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_292">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_6_16_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_293">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_6_16_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_294">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_6_17_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_295">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_6_17_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_296">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_6_18_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_297">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_6_18_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_298">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_6_19_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_299">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_6_19_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_300">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_7_0_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_301">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_7_0_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_302">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_7_1_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_303">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_7_1_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_304">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_7_2_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_305">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_7_2_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_306">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_7_3_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_307">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_7_3_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_308">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_7_4_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_309">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_7_4_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_310">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_7_5_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_311">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_7_5_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_312">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_7_6_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_313">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_7_6_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_314">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_7_7_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_315">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_7_7_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_316">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_7_8_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_317">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_7_8_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_318">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_7_9_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_319">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_7_9_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_320">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_7_10_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_321">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_7_10_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_322">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_7_11_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_323">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_7_11_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_324">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_7_12_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_325">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_7_12_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_326">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_7_13_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_327">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_7_13_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_328">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_7_14_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_329">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_7_14_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_330">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_7_15_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_331">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_7_15_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_332">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_8_0_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_333">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_8_0_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_334">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_8_1_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_335">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_8_1_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_336">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_8_2_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_337">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_8_2_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_338">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_8_3_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_339">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_8_3_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_340">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_8_4_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_341">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_8_4_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_342">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_8_5_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_343">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_8_5_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_344">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_8_6_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_345">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_8_6_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_346">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_8_7_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_347">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_8_7_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_348">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_8_8_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_349">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_8_8_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_350">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_8_9_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_351">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_8_9_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_352">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_8_10_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_353">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_8_10_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_354">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_8_11_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_355">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_8_11_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_356">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_8_12_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_357">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_8_12_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_358">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_8_13_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_359">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_8_13_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_360">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_8_14_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_361">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_8_14_1.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_362">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_8_15_0.stl" />
+      </geometry>
+    </collision>
+    <collision name="mating_surface_363">
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/collision/collar_8_15_1.stl" />
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.15" />
+      <origin xyz="-5.3976177324599806e-11 -0.0036005703549102383 0.030892905917255055" />
+      <inertia ixx="7.685954597642606e-05" iyy="3.386872812203405e-05" izz="0.00010510327409846012" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+  </link>
+  <joint name="connector_to_charging_mating_nose" type="fixed">
+    <parent link="charging_connector_link" />
+    <child link="charging_mating_nose" />
+  </joint>
+  <gazebo reference="charging_mating_nose">
+    <mu1>.20</mu1>
+    <mu2>.20</mu2>
+    <kp>${matched_ode_contact['stiffness_n_m']}</kp>
+    <kd>${matched_ode_contact['damping_n_s_m']}</kd>
+    <maxVel>${matched_ode_contact['max_correcting_velocity_m_s']}</maxVel>
+    <minDepth>0</minDepth>
+  </gazebo>
+  <link name="charging_mating_shoulder">
+    <visual>
+      <geometry>
+        <mesh filename="package://vehicle_description/models/matched_socket_v2/seat.stl" />
+      </geometry>
+      <material name="matched_tool_dark">
+        <color rgba=".14 .16 .18 1" />
+      </material>
+    </visual>
+    <collision name="mating_surface_0">
+      <origin xyz="0.0 0.0 0.02199999988079071" />
+      <geometry>
+        <box size="0.07999999821186066 0.1120000034570694 0.0040000006556510925" />
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.05" />
+      <origin xyz="0.0 0.0 0.022000000000000006" />
+      <inertia ixx="5.233333333333334e-05" iyy="2.6733333333333337e-05" izz="7.893333333333335e-05" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+  </link>
+  <joint name="connector_to_charging_mating_shoulder" type="fixed">
+    <parent link="charging_connector_link" />
+    <child link="charging_mating_shoulder" />
+  </joint>
+  <gazebo reference="charging_mating_shoulder">
+    <mu1>.20</mu1>
+    <mu2>.20</mu2>
+    <kp>${matched_ode_contact['stiffness_n_m']}</kp>
+    <kd>${matched_ode_contact['damping_n_s_m']}</kd>
+    <maxVel>${matched_ode_contact['max_correcting_velocity_m_s']}</maxVel>
+    <minDepth>0</minDepth>
+  </gazebo>
+</robot>

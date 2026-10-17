@@ -1,0 +1,20 @@
+{
+  "canonical_sha256": "6f5bd5f58cf5583c3616ef552eec23280913977fb5555a5c7a9196aee039e7aa",
+  "algorithm": "exact triangle clipping at mating z=18 mm, without artificial caps",
+  "gazebo_collision": "ODE native trimesh",
+  "planning_collision": "FCL triangle BVH",
+  "mujoco_collision": "PENDING verified convex geometry; ODE mesh is not equivalent",
+  "max_added_functional_surface_error_m": 0.0,
+  "surface_area_error_m2": 1.6831799842798034e-11,
+  "assets": {
+    "socket_contact_surface.stl": {
+      "triangles": 13007,
+      "sha256": "2f6fc8dee18e0b56ebe52a1338168a71fd7868623e546f682fb09aff2715386d"
+    },
+    "socket_protected_rear.stl": {
+      "triangles": 8207,
+      "sha256": "2dacfd719fa83e2daad183c61d289e15c3ed4e91c7097895578d197179c3b1bb"
+    }
+  },
+  "acceptance": "GEOMETRY_ONLY; physical contact validation pending"
+}

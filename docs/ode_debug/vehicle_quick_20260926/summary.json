@@ -1,0 +1,31 @@
+{
+  "mode": "vehicle",
+  "duration_s": 30.46,
+  "launch_command": [
+    "ros2",
+    "launch",
+    "/home/tin/Vinuni/docs/ode_debug/vehicle_quick_20260926/repro.launch.py",
+    "enable_arm:=false",
+    "enable_vehicle:=true",
+    "gui:=false",
+    "rviz:=false",
+    "gazebo_port:=11393"
+  ],
+  "lcp_errors": 0,
+  "nonfinite_log_tokens": 0,
+  "arm_action_status": null,
+  "arm_max_final_error_rad": null,
+  "arm_finite": null,
+  "vehicle": {
+    "sample_count": 0,
+    "odom_count": 10,
+    "wheel_names_present": false,
+    "finite": true,
+    "odom_distance_m": 0.0,
+    "pass": false
+  },
+  "warnings": [
+    "[ERROR] [gzserver-1]: process has died [pid 287664, exit code -11, cmd 'gzserver /home/tin/Vinuni/docs/ode_debug/vehicle_quick_20260926/world.sdf -slibgazebo_ros_init.so -slibgazebo_ros_factory.so -slibgazebo_ros_force_system.so']."
+  ],
+  "pass": false
+}

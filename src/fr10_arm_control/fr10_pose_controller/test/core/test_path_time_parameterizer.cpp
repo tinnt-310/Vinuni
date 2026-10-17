@@ -5,10 +5,10 @@
 #include <string>
 #include <vector>
 
-#include "fr10_pose_controller/cartesian_path.hpp"
-#include "fr10_pose_controller/cartesian_trajectory.hpp"
-#include "fr10_pose_controller/continuous_ik.hpp"
-#include "fr10_pose_controller/math_utils.hpp"
+#include "fr10_motion_core/cartesian_path.hpp"
+#include "fr10_motion_core/cartesian_trajectory.hpp"
+#include "fr10_motion_core/continuous_ik.hpp"
+#include "fr10_motion_core/math_utils.hpp"
 #include "test_support.hpp"
 
 namespace {
@@ -472,5 +472,125 @@ int main() {
                     canceled.message.find("canceled") != std::string::npos,
                 "PATH_TIME_CANCEL", "stale planning work was not canceled");
 
+  auto capacity_config = canceled_config;
+  capacity_config.max_samples = 3;
+  capacity_config.max_scaling_iterations = 2;
+  const auto capacity = fr10_motion::PathTimeParameterizer::parameterize(
+      canceled_cartesian_path, canceled_joint_path, canceled_joint_path.front(),
+      capacity_config, ++generation);
+  check.require(!capacity.success &&
+                    capacity.status == fr10_motion::TimeParameterizationStatus::FAILED &&
+                    capacity.message.find("sample capacity") != std::string::npos,
+                "PATH_TIME_FAILURE_DETAIL", capacity.message);
+  auto moving_capacity_seed = canceled_joint_path.front();
+  moving_capacity_seed.velocity_rad_s[0] = 0.020;
+  const auto moving_capacity = fr10_motion::PathTimeParameterizer::parameterize(
+      canceled_cartesian_path, canceled_joint_path, moving_capacity_seed,
+      capacity_config, ++generation);
+  check.require(!moving_capacity.success &&
+                    moving_capacity.status ==
+                        fr10_motion::TimeParameterizationStatus::REQUIRES_CONTROLLED_STOP &&
+                    moving_capacity.message.find("controlled stop") !=
+                        std::string::npos,
+                "PATH_TIME_MOVING_EXHAUSTION_STOPS", moving_capacity.message);
+
+  // A joint-space curve has smooth nonlinear FK. Timing piecewise Cartesian
+  // chords invents acceleration/jerk jumps absent from the executed curve.
+  std::vector<fr10_motion::KinematicState> curved_q;
+  std::vector<fr10_motion::Pose> curved_p;
+  auto smooth_fk=[](const auto &q,auto &pose) {
+    pose.position_m={q.position_rad[0],.5*std::sin(4*q.position_rad[0]),0.};
+    pose.orientation_quat={0.,0.,0.,1.};return true;
+  };
+  for(unsigned i=0;i<=20;++i) {
+    fr10_motion::KinematicState q;q.position_rad[0]=i/20.;curved_q.push_back(q);
+    fr10_motion::Pose pose;smooth_fk(q,pose);curved_p.push_back(pose);
+  }
+  auto fk_config=canceled_config;
+  const auto chords=fr10_motion::PathTimeParameterizer::parameterize(curved_p,curved_q,
+      curved_q.front(),fk_config,++generation);
+  const auto fk_timed=fr10_motion::PathTimeParameterizer::parameterize(curved_p,curved_q,
+      curved_q.front(),fk_config,++generation,{},smooth_fk);
+  check.require(chords.success && fk_timed.success && fk_timed.duration_s<.9*chords.duration_s,
+      "PATH_TIME_SMOOTH_FK_REMOVES_ARTIFICIAL_CHORD_JERK",fk_timed.message);
+  bool exact_fk=true;
+  for(const auto &point:fk_timed.trajectory.points) {
+    fr10_motion::Pose expected;smooth_fk(point.joint_state,expected);
+    for(unsigned axis=0;axis<3;++axis)
+      exact_fk=exact_fk && std::abs(expected.position_m[axis]-point.desired_pose.position_m[axis])<1e-12;
+  }
+  check.require(exact_fk,"PATH_TIME_SMOOTH_FK_REFERENCE","timed poses differ from the executed joint curve");
+  fk_config.policy=fr10_motion::PoseExecutionPolicy::INSERTION;
+  const auto forbidden_fk=fr10_motion::PathTimeParameterizer::parameterize(curved_p,curved_q,
+      curved_q.front(),fk_config,++generation,{},smooth_fk);
+  check.require(!forbidden_fk.success,"PATH_TIME_INSERTION_PRESERVES_CARTESIAN_CONTRACT",forbidden_fk.message);
+  fk_config.policy=fr10_motion::PoseExecutionPolicy::FREE_SPACE;
+  const auto failed_fk=fr10_motion::PathTimeParameterizer::parameterize(curved_p,curved_q,
+      curved_q.front(),fk_config,++generation,{},[](const auto &,auto &){return false;});
+  check.require(!failed_fk.success && failed_fk.message.find("sampling failed")!=std::string::npos,
+      "PATH_TIME_FK_FAILURE_REJECTS_TRAJECTORY",failed_fk.message);
+
+  auto tiny_rotation_fk=[](const auto &q,auto &pose) {
+    pose.position_m={q.position_rad[0],0.,0.};
+    pose.orientation_quat=fr10_motion::math::quaternionMultiply(
+        fr10_motion_test::axisAngle(2,1.7),
+        fr10_motion_test::axisAngle(0,1e-6*q.position_rad[0]));
+    return true;
+  };
+  std::vector<fr10_motion::Pose> tiny_p;
+  for(const auto &q:curved_q) {fr10_motion::Pose p;tiny_rotation_fk(q,p);tiny_p.push_back(p);}
+  const auto tiny_stationary=fr10_motion::PathTimeParameterizer::parameterize(tiny_p,curved_q,
+      curved_q.front(),fk_config,++generation,{},tiny_rotation_fk);
+  auto tiny_seed=curved_q.front();tiny_seed.velocity_rad_s[0]=1e-4;
+  const auto tiny_moving=fr10_motion::PathTimeParameterizer::parameterize(tiny_p,curved_q,
+      tiny_seed,fk_config,++generation,{},tiny_rotation_fk);
+  check.require(tiny_stationary.success && tiny_moving.success &&
+      tiny_moving.duration_s<2*tiny_stationary.duration_s &&
+      tiny_moving.trajectory.points.front().joint_state.velocity_rad_s[0]==tiny_seed.velocity_rad_s[0],
+      "PATH_TIME_SMALL_ROTATION_LIVE_SEED",tiny_moving.message);
+  tiny_seed.velocity_rad_s[1]=1e-4;
+  const auto tiny_transverse=fr10_motion::PathTimeParameterizer::parameterize(tiny_p,curved_q,
+      tiny_seed,fk_config,++generation,{},tiny_rotation_fk);
+  check.require(!tiny_transverse.success && tiny_transverse.status==
+      fr10_motion::TimeParameterizationStatus::REQUIRES_CONTROLLED_STOP,
+      "PATH_TIME_SMALL_TRANSVERSE_SEED_STOPS",tiny_transverse.message);
+
+  fr10_motion::Pose unload_start, unload_goal;
+  unload_goal.position_m[0] = .045;
+  auto unload_config = canceled_config;
+  unload_config.policy = fr10_motion::PoseExecutionPolicy::INSERTION;
+  unload_config.linear_scale = .003/unload_config.limits.max_linear_velocity_m_s;
+  unload_config.joint_velocity_scale = .025;
+  unload_config.joint_acceleration_scale = .025;
+  unload_config.joint_jerk_scale = .003125;
+  unload_config.initial_linear_velocity_m_s = .0000025;
+  unload_config.initial_linear_distance_m = .0001;
+  const auto unload = runCase(unload_start, unload_goal, ++generation, nullptr, &unload_config);
+  bool slow_start = unload.success;
+  double free_speed = 0.;
+  for (std::size_t i=1; i<unload.timing.trajectory.points.size(); ++i) {
+    const auto &a=unload.timing.trajectory.points[i-1];
+    const auto &b=unload.timing.trajectory.points[i];
+    const double speed=(b.desired_pose.position_m[0]-a.desired_pose.position_m[0]) /
+                       (b.time_from_start_s-a.time_from_start_s);
+    if (b.desired_pose.position_m[0] <= .0001) slow_start &= speed <= .0000025+1e-9;
+    if (a.desired_pose.position_m[0] >= .0003) free_speed=std::max(free_speed,speed);
+  }
+  check.require(slow_start && validTimeLaw(unload) && unload.timing.duration_s < 200. &&
+      free_speed > .0015 && unload.max_perpendicular_error_m < 1e-9,
+      "PATH_TIME_LOADED_START_THEN_SMOOTH_EXTRACTION",unload.timing.message);
+  auto fast_unload_seed=fr10_motion::KinematicState{};
+  fast_unload_seed.velocity_rad_s[0]=.00005;
+  const auto fast_unload=runCase(unload_start,unload_goal,++generation,&fast_unload_seed,&unload_config);
+  check.require(!fast_unload.success && fast_unload.timing.status==
+      fr10_motion::TimeParameterizationStatus::REQUIRES_CONTROLLED_STOP,
+      "PATH_TIME_LOADED_START_PRESERVES_MOVING_SEED_BY_STOP",fast_unload.timing.message);
+  fast_unload_seed.velocity_rad_s[0]=.000001;
+  const auto moving_unload=runCase(unload_start,unload_goal,++generation,&fast_unload_seed,&unload_config);
+  check.require(moving_unload.success && moving_unload.timing.trajectory.points.front().joint_state.velocity_rad_s[0]==.000001,
+      "PATH_TIME_LOADED_START_PRESERVES_ADMISSIBLE_MOVING_SEED",moving_unload.timing.message);
+  unload_config.initial_linear_velocity_m_s=0.;
+  check.require(!runCase(unload_start,unload_goal,++generation,nullptr,&unload_config).success,
+      "PATH_TIME_LOADED_START_INVALID_PAIR_REJECTED","unpaired loaded-start configuration accepted");
   return check.result();
 }

@@ -1,0 +1,20 @@
+extends: mujoco_pose_uncertainty.yaml
+fr10_pose_controller:
+  ros__parameters:
+    # Experimental MuJoCo envelope requested for 5 mm / 5 degree perception
+    # errors. Force, penetration and independent final-fit gates are unchanged.
+    force.goal.approach_distance_m: 0.010
+    force.search.radius_m: 0.0075
+    force.search.pitch_m: 0.001
+    force.search.speed_m_s: 0.001
+    force.search.max_rotation_rad: 0.10471975511965977
+    force.search.xy_max_coordinate_m: 0.0075
+    # A stiffer moving XY search reference reduces lag on the wider spiral.
+    # Loaded final centering still uses measured contact intervals.
+    force.admittance.stiffness: [1000.0, 1000.0, 0.0, 0.02, 0.02, 0.02]
+    force.admittance.max_velocity: [0.001, 0.001, 0.000025, 0.002, 0.002, 0.002]
+    force.admittance.max_correction: [0.0075, 0.0075, 0.0075, 0.10471975511965977, 0.10471975511965977, 0.10471975511965977]
+    force.safety.max_lateral_correction_norm_m: 0.0075
+    force.safety.max_rotation_correction_norm_rad: 0.10471975511965977
+    force.geometry.capture_lateral_tolerance_m: 0.008
+    force.geometry.capture_orientation_tolerance_rad: 0.10471975511965977

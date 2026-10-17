@@ -1,0 +1,35 @@
+{
+  "profile": "combined",
+  "command": [
+    "ros2",
+    "launch",
+    "vehicle_bringup",
+    "bringup.launch.py",
+    "use_arm:=true",
+    "use_vehicle:=true",
+    "use_force:=false",
+    "use_gazebo:=true",
+    "gui:=false",
+    "rviz:=false",
+    "gazebo_port:=57141"
+  ],
+  "domain": 182,
+  "passed": true,
+  "controllers": [
+    "fairino10_controller",
+    "joint_state_broadcaster",
+    "swerve_controller"
+  ],
+  "tf": [
+    "odom",
+    "charging_tcp"
+  ],
+  "samples": {
+    "clock": 5070,
+    "scan": 32,
+    "joint": 378,
+    "odom": 49,
+    "tcp": 5
+  },
+  "launch_exit": 0
+}

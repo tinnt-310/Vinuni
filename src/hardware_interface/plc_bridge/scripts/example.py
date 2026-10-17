@@ -49,12 +49,15 @@ def main() -> int:
     exit_code = 0
     try:
         controller.connect()
+        controller.stop_drive()
+        controller.reset_drive_on_start()
+        controller.stop_drive()
         runtime.start()
         controller.reset_error_all()
         controller.servo_on_all()
         # Angle-only commissioning example. It deliberately leaves direct
-        # speed control and M58 disabled.
-        controller.move_angles([10, 10, -10, -10])
+        # speed control, M58, and Y8 disabled.
+        controller.move_angles([100, 100, 80, 80])
     except Exception as exc:
         exit_code = 1
         logger.exception("commissioning example failed error=%s", exc)

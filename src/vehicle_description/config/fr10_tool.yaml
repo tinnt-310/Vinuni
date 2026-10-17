@@ -1,0 +1,11 @@
+# Sole Tool 0 -> Tool 1 datum for every backend and collision representation.
+# User-confirmed controller readback, 2026-10-16. Not a payload/CoG calibration.
+tool0_frame: plate_frame
+tool1_frame: charging_tcp
+tool1_datum: center_of_front_mating_surface
+translation_m: [0.055140, -0.046496, 0.215297]
+rotation_fixed_xyz_deg: [0.0, 0.0, 136.840]
+
+# Mesh-local distances, NOT alternative flange-to-TCP calibrations.
+# The matched collision assembly owns its local datum in geometry.json.
+legacy_mesh_front_z_m: 0.0625

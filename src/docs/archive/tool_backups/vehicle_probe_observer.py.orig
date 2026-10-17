@@ -1,0 +1,59 @@
+"""Read ROS state/commands and apply only the selected Gazebo test command."""
+import json
+import os
+from pathlib import Path
+import sys
+import time
+import rclpy
+from rclpy.serialization import serialize_message
+from rosidl_runtime_py.convert import message_to_ordereddict
+from controller_manager_msgs.srv import ListControllers
+from geometry_msgs.msg import Twist
+from sensor_msgs.msg import JointState
+from nav_msgs.msg import Odometry
+from std_msgs.msg import Float64MultiArray
+
+assert os.environ.get('ROS_DOMAIN_ID') == '94'
+case, duration = sys.argv[1], float(sys.argv[2])
+rclpy.init()
+node = rclpy.create_node('vehicle_probe_observer')
+out = Path(os.environ['ODE_OUT'])
+stream = (out / 'ros_state.jsonl').open('w')
+def record(topic, message):
+    stream.write(json.dumps(dict(wall=time.monotonic(), topic=topic,
+                                data=message_to_ordereddict(message))) + '\n')
+subscriptions = []
+for topic, kind in [('/joint_states', JointState), ('/odom', Odometry),
+                    ('/steering_controller/commands', Float64MultiArray),
+                    ('/drive_controller/commands', Float64MultiArray), ('/cmd_vel', Twist)]:
+    subscriptions.append(node.create_subscription(kind, topic, lambda m,t=topic:record(t,m), 100))
+controllers = node.create_client(ListControllers, '/controller_manager/list_controllers')
+pub = node.create_publisher(Twist, '/cmd_vel', 10)
+start = time.monotonic()
+pending = None
+next_query = start
+next_publish = start
+try:
+    while time.monotonic() - start < duration:
+        elapsed = time.monotonic() - start
+        if controllers.service_is_ready() and pending is None and time.monotonic() >= next_query:
+            pending = controllers.call_async(ListControllers.Request())
+            next_query = time.monotonic() + .1
+        if pending is not None and pending.done():
+            record('controller_states', pending.result())
+            pending = None
+        cmd = Twist()
+        if 10 < elapsed < min(motion_end, duration - 5):
+            if case == 'V5': cmd.linear.x = .15
+            if case == 'V6': cmd.linear.y = .15
+            if case == 'V7': cmd.angular.z = .15
+            if case == 'V8': cmd.linear.x = cmd.linear.y = .1
+        if case not in ('V0', 'V1', 'V2', 'V3') and time.monotonic() >= next_publish:
+            pub.publish(cmd)
+            next_publish = time.monotonic() + .02
+        rclpy.spin_once(node, timeout_sec=.02)
+finally:
+    pub.publish(Twist())
+    stream.close()
+    node.destroy_node()
+    rclpy.shutdown()

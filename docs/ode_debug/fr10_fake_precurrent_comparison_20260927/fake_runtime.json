@@ -1,0 +1,15 @@
+{
+  "shutdown": {
+    "backend_clean": false,
+    "duration_s": 0.0002411020000181452,
+    "forced": false,
+    "returncode": 1,
+    "segfault": false
+  },
+  "startup": "FAIL",
+  "startup_feedback": {
+    "joint_seen": false,
+    "status": "",
+    "tcp_seen": false
+  }
+}

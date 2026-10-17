@@ -9,6 +9,8 @@ import math
 import pathlib
 import time
 
+import yaml
+
 from common import (
     ManagedLaunch,
     ProbeContext,
@@ -16,6 +18,7 @@ from common import (
     check_preflight,
     make_results_dir,
     position_error,
+    select_install_setup,
     quaternion_error,
     write_json,
 )
@@ -52,14 +55,34 @@ def segment_speeds(rows):
     return speeds
 
 
-def run(robot_ip: str, domain_id: int, results_dir: pathlib.Path) -> int:
+def configured_pre_insert_distance() -> float:
+    """Use the effective installed ROS parameter file, not a test-side constant."""
+    config = (select_install_setup().parent / "fr10_pose_controller" / "share" /
+              "fr10_pose_controller" / "config" / "controller.yaml")
+    params = yaml.safe_load(config.read_text())["fr10_pose_controller"]["ros__parameters"]["controller"]
+    insertion = params["insertion"]
+    distance = float(insertion["pre_insert_distance_m"])
+    if not (math.isfinite(distance) and
+            float(insertion["min_pre_insert_distance_m"]) <= distance <=
+            float(insertion["max_pre_insert_distance_m"])):
+        raise ValueError(f"invalid configured pre-insert distance: {distance}")
+    return distance
+
+
+def pre_insert_position(target, axis, distance):
+    return [target[i] - distance * axis[i] for i in range(3)]
+
+
+def run(robot_ip: str, domain_id: int, results_dir: pathlib.Path,
+        controller_overlay: str = "") -> int:
     preflight = check_preflight(robot_ip)
     write_json(results_dir / "preflight.json", preflight)
     if not preflight["all_ok"]:
         print("FAIL: SimMachine preflight failed")
         return 1
 
-    launch = ManagedLaunch.start(results_dir, robot_ip, domain_id)
+    launch = ManagedLaunch.start(results_dir, robot_ip, domain_id,
+                                 controller_overlay=controller_overlay)
     context = ProbeContext(domain_id)
     probe = None
     result = {"test": "TWO_MODE_SIMMACHINE"}
@@ -71,10 +94,13 @@ def run(robot_ip: str, domain_id: int, results_dir: pathlib.Path) -> int:
 
         initial = probe.tcp_pose()
         axis = rotate_local_z(initial[1])
-        pre_insert = [initial[0][0] + 0.080, initial[0][1], initial[0][2]]
-        target = [pre_insert[i] + 0.200 * axis[i] for i in range(3)]
+        approach = [initial[0][0] + 0.080, initial[0][1], initial[0][2]]
+        target = [approach[i] + 0.200 * axis[i] for i in range(3)]
+        pre_insert_distance = configured_pre_insert_distance()
+        pre_insert = pre_insert_position(target, axis, pre_insert_distance)
+        result["configured_pre_insert_distance_m"] = pre_insert_distance
         with probe.lock:
-            history_start = len(probe.tcp_history)
+            history_start = len(probe.tcp_source_history)
         started = time.monotonic()
         # Exactly one final Pose target must autonomously stage and insert.
         probe.publish_pose(target, initial[1])
@@ -84,7 +110,7 @@ def run(robot_ip: str, domain_id: int, results_dir: pathlib.Path) -> int:
         inserted_at = time.monotonic()
         final = probe.tcp_pose()
         with probe.lock:
-            rows = list(probe.tcp_history[history_start:])
+            rows = list(probe.tcp_source_history[history_start:])
 
         closest_pre = min(
             range(len(rows)),
@@ -93,8 +119,12 @@ def run(robot_ip: str, domain_id: int, results_dir: pathlib.Path) -> int:
         )
         free_rows = rows[:closest_pre + 1]
         insertion_rows = rows[closest_pre:]
-        free_speeds = segment_speeds(free_rows)
-        insertion_speeds = segment_speeds(insertion_rows)
+        source_stamps = [row[0] for row in rows]
+        source_time_valid = bool(rows) and all(
+            math.isfinite(stamp) and stamp > 0 for stamp in source_stamps) and all(
+            later > earlier for earlier, later in zip(source_stamps, source_stamps[1:]))
+        free_speeds = segment_speeds(free_rows) if source_time_valid else []
+        insertion_speeds = segment_speeds(insertion_rows) if source_time_valid else []
         max_perpendicular = max(
             (line_deviation(row[1], pre_insert, target)
              for row in insertion_rows),
@@ -125,6 +155,7 @@ def run(robot_ip: str, domain_id: int, results_dir: pathlib.Path) -> int:
         insertion_peak = max(insertion_speeds, default=math.inf)
         passed = (
             inserted and retracted and restored and diagnostics_ok
+            and source_time_valid
             and final_position_error <= 0.001
             and final_orientation_error <= math.radians(1.0)
             and max_perpendicular <= 0.002
@@ -145,12 +176,16 @@ def run(robot_ip: str, domain_id: int, results_dir: pathlib.Path) -> int:
             insertion_peak_speed_m_s=insertion_peak,
             diagnostics_ok=diagnostics_ok,
             sdk_errors=sdk_error_total,
+            source_time_valid=source_time_valid,
+            max_tcp_callback_delay_s=max(
+                (abs(row[4] - row[0]) for row in rows), default=math.inf),
         )
         with (results_dir / "two_mode_tcp.csv").open("w", newline="") as stream:
             writer = csv.writer(stream)
-            writer.writerow(["monotonic_s", "x", "y", "z", "qx", "qy", "qz", "qw"])
-            for stamp, position, quaternion in rows:
-                writer.writerow([stamp, *position, *quaternion])
+            writer.writerow(["source_s", "x", "y", "z", "qx", "qy", "qz", "qw",
+                             "receive_monotonic_s", "receive_wall_s"])
+            for stamp, position, quaternion, received, wall in rows:
+                writer.writerow([stamp, *position, *quaternion, received, wall])
         return 0 if passed else 1
     finally:
         write_json(results_dir / "two_mode_summary.json", result)
@@ -168,10 +203,11 @@ def main() -> int:
     parser.add_argument("--robot-ip", default="192.168.58.2")
     parser.add_argument("--domain-id", type=int, default=184)
     parser.add_argument("--results-dir")
+    parser.add_argument("--controller-overlay", default="")
     args = parser.parse_args()
     results_dir = pathlib.Path(args.results_dir) if args.results_dir else make_results_dir()
     results_dir.mkdir(parents=True, exist_ok=True)
-    return run(args.robot_ip, args.domain_id, results_dir)
+    return run(args.robot_ip, args.domain_id, results_dir, args.controller_overlay)
 
 
 if __name__ == "__main__":

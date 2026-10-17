@@ -1,0 +1,33 @@
+{
+  "mode": "arm",
+  "duration_s": 30.21,
+  "controllers_ready": true,
+  "required_controllers": [
+    "joint_state_broadcaster",
+    "joint_trajectory_controller"
+  ],
+  "launch_command": [
+    "ros2",
+    "launch",
+    "/home/tin/Vinuni/docs/ode_debug/final_ready_arm_3_20260927/repro.launch.py",
+    "enable_arm:=true",
+    "enable_vehicle:=false",
+    "gui:=false",
+    "rviz:=false",
+    "gazebo_port:=11393"
+  ],
+  "lcp_errors": 0,
+  "nonfinite_log_tokens": 0,
+  "gzserver_crashed": false,
+  "arm_action_status": 4,
+  "arm_max_final_error_rad": 9.6644525520162e-06,
+  "arm_finite": true,
+  "mounted_rest_goal_completed_before_drive": null,
+  "mounted_moving_goal_drive_overlap_s": null,
+  "vehicle": null,
+  "warnings": [
+    "[gzserver-1] [WARN] [1790480263.102268490] [gazebo_ros2_control]:  Desired controller update period (0.01 s) is slower than the gazebo simulation period (0.001 s)."
+  ],
+  "vehicle_pose": null,
+  "pass": true
+}

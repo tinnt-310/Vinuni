@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<sdf version="1.6">
+  <!-- Test-only spring fixture below the canonical home TCP. The supplied
+       CAD rear face rests on the ground; its opening is 93.8 mm above it.
+       CAD is visual-only; no pin mating certification or production override. -->
+  <world name="fr10_force_home_test">
+    <gravity>0 0 -9.80665</gravity>
+    <physics name="ode" type="ode">
+      <max_step_size>0.001</max_step_size><real_time_update_rate>1000</real_time_update_rate>
+      <ode><solver><type>quick</type><iters>200</iters><sor>1.0</sor></solver></ode>
+    </physics>
+    <plugin name="state_evidence" filename="libgazebo_ros_state.so">
+      <ros><namespace>/gazebo</namespace></ros><update_rate>125</update_rate>
+    </plugin>
+    <light name="sun" type="directional"><pose>0 0 10 0 0 0</pose><diffuse>0.8 0.8 0.8 1</diffuse><direction>-0.5 0.1 -0.9</direction></light>
+    <model name="ground_plane">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision"><geometry><plane><normal>0 0 1</normal><size>100 100</size></plane></geometry></collision>
+        <visual name="visual"><geometry><plane><normal>0 0 1</normal><size>100 100</size></plane></geometry><material><ambient>0.8 0.8 0.8 1</ambient><diffuse>0.8 0.8 0.8 1</diffuse></material></visual>
+      </link>
+    </model>
+    <model name="charging_port_visual">
+      <static>true</static>
+      <!-- Height derived from the transformed STL minimum, including the
+           canonical home orientation's small roll offset. -->
+      <pose>-0.789999032108 -0.159000854021 0.093799987 -3.14158898 0 -1.57079265</pose>
+      <link name="socket">
+        <visual name="cad"><pose>0 -0.7675 0.0065 1.57079632679 0 3.14159265359</pose><geometry><mesh><uri>model://cong_sac/meshes/cong_sac.stl</uri><scale>0.001 0.001 0.001</scale></mesh></geometry><material><ambient>0.1 0.1 0.1 1</ambient></material></visual>
+      </link>
+    </model>
+    <model name="force_contact_proxy">
+      <pose>-0.789999032108 -0.159000854021 0.093799987 -3.14158898 0 -1.57079265</pose>
+      <link name="plate">
+        <pose>0 0 0.005 0 0 0</pose><gravity>false</gravity>
+        <inertial><mass>2</mass><inertia><ixx>0.01</ixx><iyy>0.01</iyy><izz>0.01</izz></inertia></inertial>
+        <collision name="contact"><geometry><box><size>0.30 0.30 0.01</size></box></geometry>
+          <surface><contact><ode><kp>200000</kp><kd>1000</kd><max_vel>0.01</max_vel><min_depth>0.00001</min_depth></ode></contact><friction><ode><mu>0.4</mu><mu2>0.4</mu2></ode></friction></surface>
+        </collision>
+        <!-- Hide the blue test plate so it does not obscure the CAD socket.
+             The collision/spring remain: this is force-proxy evidence only,
+             not physical mating of the displayed connector and socket. -->
+      </link>
+      <joint name="compliance" type="prismatic">
+        <parent>world</parent><child>plate</child>
+        <axis><xyz>0 0 1</xyz><limit><lower>0</lower><upper>0.02</upper></limit><dynamics><damping>80</damping><spring_reference>0</spring_reference><spring_stiffness>2000</spring_stiffness></dynamics></axis>
+      </joint>
+    </model>
+  </world>
+</sdf>

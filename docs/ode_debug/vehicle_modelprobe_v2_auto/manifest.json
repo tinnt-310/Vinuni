@@ -1,0 +1,22 @@
+{
+  "case": "V2",
+  "spawn_z": 0.1,
+  "duration_s": 30,
+  "experimental_fdir": "0 0 0",
+  "command": [
+    "ros2",
+    "launch",
+    "/home/tin/Vinuni/docs/ode_debug/vehicle_modelprobe_v2_auto/probe.launch.py",
+    "enable_arm:=false",
+    "enable_vehicle:=true",
+    "gui:=false",
+    "rviz:=false",
+    "gazebo_port:=11394"
+  ],
+  "started": "2026-09-26T23:53:41+0700",
+  "hypothesis": "locate first LCP with unchanged production contacts/solver",
+  "changes": [
+    "diagnostic world plugin",
+    "controller activation isolation"
+  ]
+}

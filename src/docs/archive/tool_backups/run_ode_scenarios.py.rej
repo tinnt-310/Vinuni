@@ -1,0 +1,11 @@
+--- tools/run_ode_scenarios.py
++++ tools/run_ode_scenarios.py
+@@ -124,3 +124,8 @@
+         except subprocess.TimeoutExpired:
+             os.killpg(launch.pid, signal.SIGTERM)
+             launch.wait(timeout=10)
++        if transport is not None:
++            transport.terminate()
++            transport.wait(timeout=5)
++        if transport_log is not None:
++            transport_log.close()

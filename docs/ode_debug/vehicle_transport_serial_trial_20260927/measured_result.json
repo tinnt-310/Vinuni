@@ -1,0 +1,42 @@
+{
+  "case": "V4",
+  "lcp_count": 0,
+  "samples": 412,
+  "trace_source": "transport_state.jsonl",
+  "duration_s": 21.244182201000513,
+  "physics_finite": true,
+  "ros_finite": true,
+  "topics": {
+    "/cmd_vel": 1200,
+    "/odom": 268,
+    "/steering_controller/commands": 268,
+    "/drive_controller/commands": 268,
+    "controller_states": 225,
+    "/joint_states": 2224
+  },
+  "active_controllers": [
+    "drive_controller",
+    "joint_state_broadcaster",
+    "steering_controller"
+  ],
+  "actual_displacement_m": [
+    6.054717469582138e-11,
+    -9.265559784536487e-10,
+    -7.771561172376096e-16
+  ],
+  "actual_yaw_change_rad": -5.936155739862091e-07,
+  "max_settled_tilt_rad": 0.0002031810549157115,
+  "final_max_speed_m_s": 5.84992742724203e-11,
+  "final_pose": [
+    7.8903758335005e-05,
+    0.0001423824931562344,
+    -0.0012342409689314326
+  ],
+  "final_rpy": [
+    -0.00020318105491346582,
+    0.00019317519720158955,
+    7.562675621577617e-06
+  ],
+  "pass": true,
+  "scope": "Diagnostic gate; motion accuracy and full acceptance matrix still require review."
+}

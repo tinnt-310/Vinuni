@@ -1,0 +1,129 @@
+{
+  "clock_sim_elapsed_s": 22.099999999999998,
+  "clock_wall_elapsed_s": 35.37300539399985,
+  "command": [
+    "ros2",
+    "launch",
+    "fr10_pose_controller",
+    "fr10_pose_controller.launch.py",
+    "use_gazebo:=true",
+    "use_rviz:=false",
+    "start_robot_stack:=true"
+  ],
+  "command_state": {
+    "count": 2658,
+    "positions": [
+      0.029174665219936974,
+      -1.5991055224622044,
+      1.5867266494404226,
+      -1.5584136750355078,
+      -1.570800099372885,
+      0.0008403738333731902
+    ]
+  },
+  "controllers": "\u001b[92mjoint_state_broadcaster\u001b[0m joint_state_broadcaster/JointStateBroadcaster      \u001b[92mactive\u001b[0m\n\u001b[92mfairino10_controller   \u001b[0m position_controllers/JointGroupPositionController  \u001b[92mactive\u001b[0m\n",
+  "domain": 94,
+  "final_joint_rad": [
+    0.02999999480661586,
+    -1.5707963267948966,
+    1.5707963267948974,
+    -1.5707963267948954,
+    -1.5707963267948963,
+    -8.881784197001252e-16
+  ],
+  "final_status": "state=HOLDING outcome=GOAL_REACHED mode=POSE pose_policy=INSERTION owner=POSE_PATH type=JOINT_POSITION revision=0 generation=2 scene_revision=1 active_scene_revision=1 command_seq=3769 feedback_seq=2534 feedback_age_ms=4.308 safety_known=false backend_ready=true loop_samples=3769 loop_hz=125.012 mean_cycle_period_ms=7.999211 mean_abs_jitter_ms=0.134894 max_abs_jitter_ms=3.227423 max_cycle_period_ms=11.227423 period_p50_ms=7.750 period_p95_ms=8.250 period_p99_ms=8.750 execution_p50_ms=0.250 execution_p95_ms=0.750 execution_p99_ms=0.750 max_tick_execution_ms=2.126 tick_deadline_misses=0 scheduler_gaps=0 max_consecutive_tick_misses=0 max_feedback_age_ms=21.805 ik_mean_us=153.196 ik_max_us=295.304 position_error_m=0.000002 angular_error_rad=0.000006 path_deviation_m=0.000002 reference_actual_rad=0.000000 candidate_reference_actual_rad=0.000000 reference_lagging=false reference_lag_samples=0 max_delta_qdot_rad_s=0.011222 max_delta_v_m_s=0.000000 sdk_read_errors=0 sdk_write_errors=0 command_write_errors=0 sdk_errors=0 reason=NONE",
+  "final_tcp": [
+    [
+      -0.6769113837181431,
+      -0.11879651007786911,
+      0.6119992728993695
+    ],
+    [
+      0.6970197518860185,
+      0.7170519266090626,
+      5.1941385054596045e-06,
+      -7.577835273462572e-08
+    ]
+  ],
+  "gazebo_port": 11394,
+  "gazebo_real_time_factor": 0.6247702097642152,
+  "gazebo_wrist_final": [
+    -0.6752136792793971,
+    -0.1787744574200783,
+    0.8799988319144052
+  ],
+  "gazebo_wrist_motion_m": 0.03170655668996705,
+  "gazebo_wrist_samples": 619,
+  "gazebo_wrist_sim_elapsed_s": 21.915999999999997,
+  "gazebo_wrist_start": [
+    -0.699999999999231,
+    -0.15900215249711797,
+    0.8799994159572051
+  ],
+  "gzserver_crash": false,
+  "initial_joint_rad": [
+    8.881784197001252e-16,
+    -1.5707963267948966,
+    1.5707963267948966,
+    -1.5707963267948963,
+    -1.5707963267948963,
+    -8.881784197001252e-16
+  ],
+  "initial_tcp": [
+    [
+      -0.6999987951879569,
+      -0.09900116808257615,
+      0.6119996363531262
+    ],
+    [
+      0.7071080798594735,
+      0.7071054825064661,
+      2.597343466856743e-06,
+      5.1432466320646e-16
+    ]
+  ],
+  "joint_final_tcp": [
+    [
+      -0.6969126220997707,
+      -0.11879537745353361,
+      0.6119996363531255
+    ],
+    [
+      0.6970184349452421,
+      0.7170532067704177,
+      2.5970827485540614e-06,
+      -3.6800614787628034e-08
+    ]
+  ],
+  "joint_reached": true,
+  "launch_exit": 0,
+  "observer_exit": 0,
+  "ode_lcp_count": 0,
+  "pass": true,
+  "pose_reached": true,
+  "pose_target": [
+    [
+      -0.6769126220997707,
+      -0.11879537745353361,
+      0.6119996363531255
+    ],
+    [
+      0.6970184349452421,
+      0.7170532067704177,
+      2.5970827485540614e-06,
+      -3.6800614787628034e-08
+    ]
+  ],
+  "ready": true,
+  "server_alive_at_measurement": true,
+  "startup_wall_s": 18.671994489999634,
+  "status": "state=IDLE outcome=NONE mode=JOINT pose_policy=FREE_SPACE owner=NONE type=NONE revision=0 generation=0 scene_revision=1 active_scene_revision=0 command_seq=7 feedback_seq=4 feedback_age_ms=13.180 safety_known=false backend_ready=true loop_samples=7 loop_hz=125.440 mean_cycle_period_ms=7.971952 mean_abs_jitter_ms=0.331430 max_abs_jitter_ms=0.836285 max_cycle_period_ms=8.836285 period_p50_ms=7.750 period_p95_ms=8.750 period_p99_ms=8.750 execution_p50_ms=0.250 execution_p95_ms=0.750 execution_p99_ms=0.750 max_tick_execution_ms=0.797 tick_deadline_misses=0 scheduler_gaps=0 max_consecutive_tick_misses=0 max_feedback_age_ms=13.180 ik_mean_us=0.000 ik_max_us=0.000 position_error_m=0.000000 angular_error_rad=0.000000 path_deviation_m=0.000000 reference_actual_rad=0.000000 candidate_reference_actual_rad=0.000000 reference_lagging=false reference_lag_samples=0 max_delta_qdot_rad_s=0.000000 max_delta_v_m_s=0.000000 sdk_read_errors=0 sdk_write_errors=0 command_write_errors=0 sdk_errors=0 reason=NONE",
+  "target_joint_rad": [
+    0.03,
+    -1.5707963267948966,
+    1.5707963267948974,
+    -1.5707963267948963,
+    -1.5707963267948963,
+    0.0
+  ]
+}

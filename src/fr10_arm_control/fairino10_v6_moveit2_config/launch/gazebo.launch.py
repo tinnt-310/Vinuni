@@ -2,12 +2,7 @@ import os
 
 from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
-from launch.actions import (
-    DeclareLaunchArgument,
-    IncludeLaunchDescription,
-    SetEnvironmentVariable,
-    TimerAction,
-)
+from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription, SetEnvironmentVariable, TimerAction
 from launch.conditions import IfCondition
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import LaunchConfiguration
@@ -15,45 +10,13 @@ from launch_ros.actions import Node
 from moveit_configs_utils import MoveItConfigsBuilder
 
 
-GEOMETRY_ARGUMENT_DEFAULTS = {
-    "enable_custom_collisions": "true",
-    "flange_xyz": "0 0 0.106",
-    "flange_rpy": "0 0 0",
-    "ft_sensor_xyz": "0 0 0",
-    "ft_sensor_rpy": "0 0 0",
-    "tool_plate_xyz": "0 0 0.030",
-    "tool_plate_rpy": "0 0 0",
-    "d455_xyz": "-0.0475 0 0.012",
-    "d455_rpy": "0 -1.57079632679 1.57079632679",
-    "charging_mount_xyz": "0.060 0 0.012",
-    "charging_mount_rpy": "0 0 0",
-    "charging_connector_xyz": "0 0 0.040",
-    "charging_connector_rpy": "0 0 0",
-    "tool0_xyz": "0 0 0.080",
-    "tool0_rpy": "0 0 0",
-    "ft_sensor_radius": "0.045",
-    "ft_sensor_length": "0.030",
-    "tool_plate_size_x": "0.140",
-    "tool_plate_size_y": "0.100",
-    "tool_plate_size_z": "0.012",
-    "charging_mount_size_x": "0.040",
-    "charging_mount_size_y": "0.050",
-    "charging_mount_size_z": "0.040",
-    "connector_body_size_x": "0.045",
-    "connector_body_size_y": "0.035",
-    "connector_body_length": "0.060",
-    "connector_tip_radius": "0.012",
-    "connector_tip_length": "0.020",
-}
-
-
 def generate_launch_description():
-    package_name = "fairino10_v6_moveit2_config"
-    package_share = get_package_share_directory(package_name)
-    use_rviz = LaunchConfiguration("use_rviz")
-    world = LaunchConfiguration("world")
+    package_share = get_package_share_directory("fairino10_v6_moveit2_config")
+    description_share = get_package_share_directory("vehicle_description")
+    controller_yaml = LaunchConfiguration("controller_yaml")
     model_roots = [
-        os.path.dirname(get_package_share_directory("fairino_description")),
+        os.path.dirname(description_share),
+        os.path.join(description_share, "models"),
         os.path.dirname(get_package_share_directory("realsense2_description")),
     ]
     gazebo_model_path = os.pathsep.join(
@@ -62,17 +25,27 @@ def generate_launch_description():
     )
 
     moveit_config = (
-        MoveItConfigsBuilder("fairino10_v6_robot", package_name=package_name)
+        MoveItConfigsBuilder(
+            "complete_visual", package_name="fairino10_v6_moveit2_config"
+        )
         .robot_description(
+            file_path=os.path.join(description_share, "urdf", "vehicle.urdf.xacro"),
             mappings={
-                "use_fake_hardware": "false",
-                "use_gazebo": "true",
-                "initial_positions_file": os.path.join(package_share, "config", "sim_ready_positions.yaml"),
-                **{
-                    name: LaunchConfiguration(name)
-                    for name in GEOMETRY_ARGUMENT_DEFAULTS
-                },
-            }
+                "enable_vehicle": "false",
+                "enable_arm": "true",
+                "control_backend": "gazebo",
+                "sim_base_collision_proxy": "true",
+                "enable_force_sensor": LaunchConfiguration("enable_force_sensor"),
+                "charging_tool_profile": LaunchConfiguration("charging_tool_profile"),
+                "ft_wrench_topic": LaunchConfiguration("ft_wrench_topic"),
+                "gazebo_controller_yaml": controller_yaml,
+                "initial_positions_file": os.path.join(
+                    package_share, "config", "sim_ready_positions.yaml"
+                ),
+            },
+        )
+        .robot_description_semantic(
+            file_path=os.path.join(description_share, "config", "fr10.srdf")
         )
         .to_moveit_configs()
     )
@@ -81,25 +54,27 @@ def generate_launch_description():
         PythonLaunchDescriptionSource(
             os.path.join(get_package_share_directory("gazebo_ros"), "launch", "gazebo.launch.py")
         ),
-        launch_arguments={"world": world, "verbose": "false"}.items(),
+        launch_arguments={
+            "world": LaunchConfiguration("world"),
+            "verbose": "false",
+            "gui": LaunchConfiguration("gui"),
+            "params_file": LaunchConfiguration("gazebo_clock_params"),
+        }.items(),
     )
-
     robot_state_publisher = Node(
         package="robot_state_publisher",
         executable="robot_state_publisher",
         output="screen",
         parameters=[moveit_config.robot_description, {"use_sim_time": True}],
     )
-
     spawn_robot = Node(
         package="gazebo_ros",
         executable="spawn_entity.py",
         output="screen",
         arguments=["-topic", "robot_description", "-entity", "fr10"],
     )
-
     spawn_controllers = TimerAction(
-        period=4.0,
+        period=LaunchConfiguration("controller_start_delay"),
         actions=[
             Node(
                 package="controller_manager",
@@ -115,11 +90,11 @@ def generate_launch_description():
             ),
         ],
     )
-
     move_group = Node(
         package="moveit_ros_move_group",
         executable="move_group",
         output="screen",
+        condition=IfCondition(LaunchConfiguration("start_move_group")),
         parameters=[
             moveit_config.to_dict(),
             {
@@ -132,7 +107,6 @@ def generate_launch_description():
             },
         ],
     )
-
     rviz = Node(
         package="rviz2",
         executable="rviz2",
@@ -146,20 +120,28 @@ def generate_launch_description():
             moveit_config.planning_pipelines,
             {"use_sim_time": True},
         ],
-        condition=IfCondition(use_rviz),
+        condition=IfCondition(LaunchConfiguration("use_rviz")),
     )
 
     return LaunchDescription(
         [
+            DeclareLaunchArgument("controller_start_delay", default_value="4.0"),
+            DeclareLaunchArgument("ft_wrench_topic", default_value="wrench"),
             DeclareLaunchArgument("use_rviz", default_value="true"),
+            DeclareLaunchArgument("gui", default_value="true"),
+            DeclareLaunchArgument("start_move_group", default_value="true"),
+            DeclareLaunchArgument("enable_force_sensor", default_value="false"),
+            DeclareLaunchArgument("charging_tool_profile", default_value="legacy",
+                                  choices=['legacy', 'matched_socket_v2']),
+            DeclareLaunchArgument("gazebo_clock_params", default_value=""),
+            DeclareLaunchArgument(
+                "controller_yaml",
+                default_value=os.path.join(package_share, "config", "ros2_controllers.yaml"),
+            ),
             DeclareLaunchArgument(
                 "world",
                 default_value=os.path.join(package_share, "worlds", "fr10_force_test.world"),
             ),
-            *[
-                DeclareLaunchArgument(name, default_value=default)
-                for name, default in GEOMETRY_ARGUMENT_DEFAULTS.items()
-            ],
             SetEnvironmentVariable("GAZEBO_MODEL_PATH", gazebo_model_path),
             gazebo,
             robot_state_publisher,

@@ -31,9 +31,18 @@ The software writes only the configured and validated command map:
 | Steering angle (degree) | D1000 | D1001 | D1002 | D1003 |
 | Raw speed command | D1020 | D1021 | D1022 | D1023 |
 
-No angle or speed scaling is performed. Angles are whole degrees and are sent
-unchanged. Speed values are raw signed 16-bit PLC words; their engineering unit
-must be confirmed from the PLC/servo project.
+The low-level API accepts whole-degree PLC angles in 0..359, with 90 degrees
+as the straight-travel steering position. The ROS bridge maps logical steering
+through that offset and wraps into 0..359. Fractional degrees require a revised
+PLC register protocol; the current mapping uses one 16-bit D word per wheel.
+Direct wheel speed values are limited to raw 0..660: raw 660 is stop at
+0.8 V and raw 0
+corresponds to 3.8 V. Direction is controlled by separate M bits.
+
+At startup the bridge commands raw 660, turns Y8/M58 OFF, pulses M222 ON then
+OFF for 50 ms, and confirms the stopped command again. For a speed target it
+preloads raw 660 before enabling M58 and Y8; stopping writes raw 660 before
+turning Y8 and M58 OFF. These are SLMP acknowledgements, not drive feedback.
 
 `emergency_stop()` clears the confirmed trigger bits and commands the four
 servos OFF. It is a best-effort software stop—not a replacement for a
@@ -101,13 +110,30 @@ The default trigger/reset pulse is 50 ms. This is a configurable software
 assumption, not a confirmed Mitsubishi or PLC-program minimum. Do not shorten
 it until the PLC task/scan behavior has been measured.
 
-For a control update containing both steering and speed, use
-`move_angles_and_speeds(angles, speeds)` or the interactive `motion` command.
-It writes D1000..D1003 and D1020..D1023 under one lock, then pulses M100..M103
-once. This removes the second 50 ms wait used by consecutive `move_angles()`
-and `move_speeds()` calls. The minimum lock-held pulse time is therefore 50 ms,
-plus SLMP round trips, rather than 100 ms. Before live driving, verify that the
-PLC function block reads both command blocks on the same trigger event.
+The open-loop ROS bridge subscribes to Twist targets on `/cmd_vel` from
+keyboard teleop or Nav2. Its fixed PLC write loop ramps linear velocity
+(0.40 m/s²), angular velocity (0.15 rad/s²), commanded steering angles
+(30°/s), and raw speed (15 counts per write). These limits can be tuned in
+`config/open_loop_bridge.yaml`. M100..M103 pulse only when an integer steering
+angle changes. After the initial steering settle, angle and speed updates can
+continue together without disabling Y8/M58. A drive direction bit is reversed
+only after raw speed reaches 660; Y8/M58 stay enabled during that transition.
+These are command-side limits, not measured wheel acceleration or angle.
+
+Provisional wheel-speed calibration: `raw = clamp(660 - 260 * abs(v_wheel), 0, 660)`,
+with wheel speed in m/s. `limits.raw_at_one_m_s: 400` sets the reference;
+0.1 m/s maps to 634, 0.2 to 608, and 1.0 to 400 before ramping.
+This is an assumed mapping, not measured velocity. The existing 0.20 m/s
+chassis command limit is unchanged and is separate from this calibration.
+Steering still sends integer-degree targets and 50 ms trigger pulses at 10 Hz.
+Physical smoothness requires checking PLC positioning/retrigger behavior and
+servo acceleration settings; host-side interpolation alone does not guarantee it.
+
+In terminal teleop, press `r` once for a manual drive reset: command raw 660,
+disable Y8/M58, pulse M222 ON/OFF, and remain stopped. Press a movement key
+again to resume. Restart both bridge and keyboard after updating to enable
+this reset topic. Reset is rejected while a communication fault is latched;
+reconnect first. Normal speed/steering updates never pulse M222.
 
 ### Feedback
 
@@ -157,25 +183,85 @@ They cover the original motion safety behavior plus configuration validation,
 log rotation, telemetry polling, heartbeat cleanup, and background-failure
 latching.
 
-## Run
+## ROS 2 open-loop keyboard and joystick control
 
-Keep the robot isolated/lifted and a hardware emergency stop within reach.
-The configured endpoint is ready to use; `--ip` and `--port` remain available
-for temporary overrides:
+The bridge writes commands but does not claim measured steering, measured
+speed, joint states, or odometry. Joystick has priority only while its deadman
+button is held. A source timeout of 0.75 seconds commands raw 660 and disables
+M58 and Y8.
+
+Keep all wheels lifted, keep a hardware emergency stop within reach, and verify
+the wheel mapping, steering signs/offsets, drive directions, joystick axes, and
+deadman button in `config/open_loop_bridge.yaml`.
+
+Terminal 1 -- connect to the real PLC:
 
 ```bash
-cd /home/tin/plc
-./run.sh
+cd /home/tin/Vinuni/src/hardware_interface/plc_bridge
+./run_bridge.sh --execute
 ```
 
-In the interactive shell, send one combined update with:
+Terminal 2 -- keyboard with live speed changes:
 
-```text
-motion 30 30 -30 -30 100 100 100 100
+```bash
+cd /home/tin/Vinuni/src/hardware_interface/plc_bridge
+./run_keyboard.sh
 ```
 
-`run.sh` enables real hardware access and the controller independently attempts
-runtime shutdown, software emergency stop, and controlled disconnect on exit.
+Hold `I/U/O/J/L/M/,/.` to command motion; release the key to stop after
+an 80 ms transition grace. Hold `q/z` to raise/lower linear and angular
+speed, `w/x` for linear speed, or `e/c` for angular speed. Speed and motion
+keys may be held together. The keyboard publishes targets at 50 Hz; the PLC
+write loop defaults to 10 Hz because each steering trigger pulse lasts 50 ms.
+`Space` or `K` commands an immediate stop. The terminal must support the
+Kitty keyboard protocol's key-release and report-all-keys modes for true key-up.
+By default the script detects support and falls back to standard terminal input.
+Use `./run_keyboard.sh --input-mode terminal` to skip detection. This fallback
+publishes at 50 Hz but infers release from a 0.75-second input timeout; it depends
+on terminal repeat while a key is held. Speed keys preserve the active movement
+and adjust by 1.1 per character. Space/K stop immediately. Use
+`--input-mode kitty` to require true key-up, or `--key-timeout 0.75` to tune
+the fallback timeout.
+
+Alternatively, use ROS teleop_twist_keyboard:
+
+```bash
+source /opt/ros/humble/setup.bash
+ros2 run teleop_twist_keyboard teleop_twist_keyboard \
+  --ros-args -p speed:=0.10 -p turn:=0.15
+```
+
+The movement layout matches `teleop_twist_keyboard`: `U I O / J K L / M , .`.
+Hold Shift with a motion key for holonomic translation. A new key changes the
+target immediately; the bridge ramps toward it and continues updating steering
+and wheel speed. The terminal input does not depend on OS keyboard repeat.
+Losing terminal focus commands zero, and the bridge's 0.75-second watchdog
+stops the drive if Twist messages disappear. A constant held Twist eventually
+produces a constant steering angle; the robot continues turning by wheel speed.
+
+Terminal 2 -- joystick instead:
+
+```bash
+source /opt/ros/humble/setup.bash
+ros2 run joy joy_node --ros-args -p autorepeat_rate:=20.0
+```
+
+The default deadman is joystick button index 4. Check the actual axes/buttons:
+
+```bash
+ros2 topic echo /joy
+```
+
+Inspect command acknowledgement (not physical feedback):
+
+```bash
+ros2 topic echo /plc_bridge/status
+```
+
+Normal timeout stops wheel drive but holds the last steering angle. Ctrl+C on
+the bridge attempts the full software emergency stop and disconnect sequence.
+If communication is already lost, only PLC watchdog logic or the hard-wired
+emergency stop can guarantee stopping.
 
 ## Model-name check
 

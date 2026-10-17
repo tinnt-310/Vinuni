@@ -17,6 +17,11 @@
 #include <nav_msgs/msg/odometry.hpp>
 #include <tf2_ros/transform_broadcaster.h>
 #include <tf2/LinearMath/Quaternion.h>
+#include "swerve_vehicle_control/swerve_kinematics.hpp"
+#include "swerve_vehicle_control/temporal_validity.hpp"
+#include "swerve_vehicle_control/parking_lease.hpp"
+#include <fr10_motion_interfaces/msg/vehicle_parking_lease.hpp>
+#include <fr10_motion_interfaces/msg/vehicle_parking_state.hpp>
 
 namespace swerve_vehicle_control
 {
@@ -91,17 +96,21 @@ private:
   double wheel_separation_x_;   // Wheelbase (m)
   double wheel_separation_y_;   // Track width (m)
   double wheel_radius_;         // Wheel radius (m)
+  double wheel_offset_x_;       // Wheel center offset from steering axis (m)
   double singularity_threshold_;
   double max_steering_speed_;
   double max_wheel_rate_;
   double cmd_vel_timeout_;
+  int64_t cmd_vel_timeout_ns_{0};
+  CommandTimeGate command_time_gate_;
+  std::atomic<bool> accepting_commands_{false};
   bool publish_tf_;
   double odom_cov_x_, odom_cov_y_, odom_cov_yaw_;
   double twist_cov_x_, twist_cov_y_, twist_cov_yaw_;
 
   // === Robot geometry ===
-  // Wheel positions relative to robot center: {x, y}
-  std::array<std::pair<double, double>, 4> wheel_positions_;
+  // Steering pivot positions relative to robot center.
+  std::array<WheelPosition, 4> steering_pivots_;
 
   // === Odometry state ===
   double x_{0.0}, y_{0.0}, theta_{0.0};
@@ -113,18 +122,31 @@ private:
   // Callback writes; update reads without blocking or allocating.
   struct VelocityCommand {
     double vx{0.0}, vy{0.0}, omega{0.0};
+    int64_t source_ns{0};
     int64_t received_ns{0};
+    int64_t receipt_steady_ns{0};
     bool valid{false};
   };
   realtime_tools::RealtimeBuffer<VelocityCommand> command_buffer_;
+  realtime_tools::RealtimeBuffer<ParkingRequest> parking_request_buffer_;
+  ParkingLease parking_lease_; // Actuator update is the sole writer.
+  std::atomic<uint64_t> parking_owner_{0}, parking_sequence_{0};
+  std::atomic<bool> parking_inhibited_{false};
+  std::atomic<uint64_t> parking_snapshot_sequence_{0};
+  std::atomic<uint8_t> parking_state_{0};
+  std::atomic<uint64_t> parking_rejected_commands_{0};
 
   // Fixed-size seqlock snapshot for the non-RT 30 Hz odometry timer.
   std::array<std::atomic<double>, 6> odom_snapshot_{};
   std::atomic<uint64_t> odom_sequence_{0};
   std::atomic<bool> odom_ready_{false};
+  std::atomic<int64_t> odom_stamp_ns_{0};
+  OdomSampleGate odom_sample_gate_;
 
   // === ROS 2 communication ===
   rclcpp::Subscription<geometry_msgs::msg::TwistStamped>::SharedPtr cmd_vel_sub_;
+  rclcpp::Subscription<fr10_motion_interfaces::msg::VehicleParkingLease>::SharedPtr parking_sub_;
+  rclcpp::Publisher<fr10_motion_interfaces::msg::VehicleParkingState>::SharedPtr parking_pub_;
   rclcpp::Publisher<nav_msgs::msg::Odometry>::SharedPtr odom_pub_;
   rclcpp::TimerBase::SharedPtr odom_timer_;
   std::unique_ptr<tf2_ros::TransformBroadcaster> tf_broadcaster_;

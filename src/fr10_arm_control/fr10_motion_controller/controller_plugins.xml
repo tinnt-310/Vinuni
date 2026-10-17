@@ -1,0 +1,11 @@
+<library path="fr10_motion_controller">
+  <class name="fr10_motion_controller/Fr10MotionController"
+         type="fr10_motion_controller::Fr10MotionController"
+         base_class_type="controller_interface::ControllerInterface">
+    <description>
+      Executes an immutable six-joint trajectory in the controller-manager
+      read-update-write cycle. It is the sole owner of the FR10 joint position
+      command interfaces.
+    </description>
+  </class>
+</library>

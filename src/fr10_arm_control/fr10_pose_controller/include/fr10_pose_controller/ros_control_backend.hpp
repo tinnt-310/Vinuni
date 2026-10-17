@@ -10,9 +10,9 @@
 #include <sensor_msgs/msg/joint_state.hpp>
 #include <std_msgs/msg/float64_multi_array.hpp>
 
-#include "fr10_pose_controller/core_types.hpp"
-#include "fr10_pose_controller/realtime_buffer.hpp"
-#include "fr10_pose_controller/robot_backend.hpp"
+#include "fr10_motion_core/core_types.hpp"
+#include "fr10_motion_core/realtime_buffer.hpp"
+#include "fr10_motion_core/robot_backend.hpp"
 
 namespace fr10_motion
 {
@@ -38,6 +38,16 @@ public:
   bool writeCommand(const MotionCommand & command) override;
   bool readState(RobotState & state) override;
 
+  struct FeedbackDiagnostics {
+    uint64_t accepted_callbacks{0};
+    uint64_t rejected_stamps{0};
+    uint64_t rejected_samples{0};
+    uint64_t dropped_buffer_writes{0};
+    double max_source_gap_s{0.0};
+    double max_receive_gap_s{0.0};
+  };
+  FeedbackDiagnostics feedbackDiagnostics() const;
+
   const char * name() const override { return "RosControlBackend"; }
 
 private:
@@ -50,7 +60,9 @@ private:
   double feedback_timeout_s_;
   bool require_driver_health_;
   struct DriverHealth {
-    std::array<double, 16> data{};
+    // Schema v2 adds ServoJ transport counters at indices 16..19. Keep the
+    // fixed-size buffer large enough before copying a validated v2 message.
+    std::array<double, 20> data{};
     double received_s{0.0};
   };
   RealtimeBuffer<DriverHealth> health_buffer_;
@@ -68,6 +80,11 @@ private:
   std::array<std::size_t, kJointCount> joint_state_index_map_{};
   std::vector<std::string> joint_state_layout_;
   bool joint_state_index_map_valid_{false};
+  std::atomic<uint64_t> accepted_feedback_callbacks_{0};
+  std::atomic<uint64_t> rejected_feedback_stamps_{0};
+  std::atomic<uint64_t> rejected_feedback_samples_{0};
+  std::atomic<double> max_source_gap_s_{0.0};
+  std::atomic<double> max_receive_gap_s_{0.0};
   std_msgs::msg::Float64MultiArray command_message_;
 };
 

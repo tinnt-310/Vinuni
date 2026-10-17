@@ -1,0 +1,61 @@
+{
+  "mode": "vehicle",
+  "duration_s": 38.9,
+  "launch_command": [
+    "ros2",
+    "launch",
+    "/home/tin/Vinuni/docs/ode_debug/final_repeat_20260927_vehicle_3/repro.launch.py",
+    "enable_arm:=false",
+    "enable_vehicle:=true",
+    "gui:=false",
+    "rviz:=false",
+    "gazebo_port:=11393"
+  ],
+  "lcp_errors": 0,
+  "nonfinite_log_tokens": 0,
+  "gzserver_crashed": false,
+  "arm_action_status": null,
+  "arm_max_final_error_rad": null,
+  "arm_finite": null,
+  "mounted_rest_goal_completed_before_drive": null,
+  "mounted_moving_goal_drive_overlap_s": null,
+  "vehicle": {
+    "sample_count": 1232,
+    "odom_count": 133,
+    "wheel_names_present": true,
+    "finite": true,
+    "odom_distance_m": 0.7500896755271073,
+    "pass": true
+  },
+  "warnings": [
+    "[spawn_entity.py-4] [ERROR] [1790447843.677014030] [spawn_entity]: Spawn service failed. Exiting.",
+    "[ERROR] [spawn_entity.py-4]: process has died [pid 175039, exit code 1, cmd '/opt/ros/humble/lib/gazebo_ros/spawn_entity.py -entity tram_sac_VF1 -file /home/tin/Vinuni/install_grouped/vehicle_description/share/vehicle_description/models/tram_sac_VF/model.sdf -x 10.5 -y 0.0 -z 0.0 -Y -1.57 --ros-args --params-file /tmp/launch_params_bxr5m2u6'].",
+    "[gzserver-1] [WARN] [1790447845.155780112] [gazebo_ros2_control]:  Desired controller update period (0.01 s) is slower than the gazebo simulation period (0.001 s)."
+  ],
+  "vehicle_pose": {
+    "samples": 560,
+    "wall_duration_s": 28.073448275999908,
+    "sim_duration_s": 28.0,
+    "finite": true,
+    "actual_displacement_m": [
+      0.7503323086681526,
+      -4.597324521798188e-05,
+      -0.0011092340466952733
+    ],
+    "actual_planar_distance_m": 0.7503323100765548,
+    "max_tilt_rad": 0.0004837181108317847,
+    "final_max_speed_m_s": 3.219565913489225e-09,
+    "final_pose": [
+      0.7503206338482037,
+      -5.205113853381862e-05,
+      -0.0012341992184004003
+    ],
+    "final_rpy": [
+      -0.00020278057925532348,
+      0.00019328038091254377,
+      -0.0001477882797670432
+    ],
+    "pass": true
+  },
+  "pass": true
+}

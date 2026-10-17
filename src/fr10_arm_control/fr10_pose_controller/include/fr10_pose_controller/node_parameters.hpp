@@ -6,12 +6,12 @@
 
 #include <rclcpp/node.hpp>
 
-#include "fr10_pose_controller/cartesian_route_planner.hpp"
-#include "fr10_pose_controller/cartesian_trajectory.hpp"
-#include "fr10_pose_controller/fr10_analytical_ik.hpp"
-#include "fr10_pose_controller/linear_insert_planner.hpp"
-#include "fr10_pose_controller/motion_controller.hpp"
-#include "fr10_pose_controller/pre_insert_planner.hpp"
+#include "fr10_motion_core/cartesian_route_planner.hpp"
+#include "fr10_motion_core/cartesian_trajectory.hpp"
+#include "fr10_motion_core/fr10_analytical_ik.hpp"
+#include "fr10_motion_core/linear_insert_planner.hpp"
+#include "fr10_motion_core/motion_controller.hpp"
+#include "fr10_motion_core/pre_insert_planner.hpp"
 
 namespace fr10_pose_controller {
 
@@ -32,10 +32,11 @@ struct NodeParameters {
   std::string joint_state_topic;
   std::string command_topic;
   std::string base_frame;
-  std::string diagnostic_flange_frame{"flange_link"};
+  std::string diagnostic_flange_frame{"plate_frame"};
   std::vector<std::string> joint_names;
   double nominal_period_s{0.008};
   double feedback_timeout_s{0.050};
+  bool require_driver_health{true};
   double diagnostic_log_rate_hz{1.0};
   double joint_velocity_scale{1.0};
   double joint_acceleration_scale{1.0};
@@ -57,7 +58,7 @@ struct NodeParameters {
   double cartesian_path_deviation_tolerance_m{0.002};
   bool lock_orientation{false};
   std::string kinematics_group{"fairino10_v6_group"};
-  std::string kinematics_tip_link{"tool0"};
+  std::string kinematics_tip_link{"charging_tcp"};
   std::string kinematics_safety_link{"wrist3_link"};
   bool collision_checking_enabled{true};
   std::string planning_scene_topic{"/monitored_planning_scene"};
@@ -74,6 +75,7 @@ struct NodeParameters {
   double min_wrist_radius_m{0.200};
   double max_jacobian_condition{30.0};
   bool analytical_ik_enabled{true};
+  bool analytical_ik_use_model_tool_transform{true};
   fr10_motion::Fr10AnalyticalIKConfig analytical_ik_config;
   double analytical_ik_model_position_tolerance_m{0.00005};
   double analytical_ik_model_orientation_tolerance_rad{0.00005};

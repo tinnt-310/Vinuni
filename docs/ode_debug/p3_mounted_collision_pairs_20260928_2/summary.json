@@ -1,0 +1,100 @@
+{
+  "clock_samples": 264,
+  "clock_sim_elapsed_s": 26.299999999999983,
+  "command": [
+    "ros2",
+    "launch",
+    "vehicle_bringup",
+    "simulation.launch.py",
+    "enable_vehicle:=true",
+    "enable_arm:=true",
+    "arm_controller_profile:=pose",
+    "gui:=false",
+    "rviz:=false",
+    "gazebo_port:=11395"
+  ],
+  "controllers": "\u001b[92mjoint_state_broadcaster\u001b[0m joint_state_broadcaster/JointStateBroadcaster      \u001b[92mactive\u001b[0m\n\u001b[92mfairino10_controller   \u001b[0m position_controllers/JointGroupPositionController  \u001b[92mactive\u001b[0m\n\u001b[92mswerve_controller      \u001b[0m swerve_vehicle_control/SwerveDriveController       \u001b[92mactive\u001b[0m\n",
+  "diagnostic": true,
+  "domain": 95,
+  "final_joint": [
+    2.014688344154081e-06,
+    -1.570795799671943,
+    1.5708060701274231,
+    -1.5707950738073784,
+    -1.5707945761957403,
+    -1.411385268212939e-06
+  ],
+  "final_status": "state=IDLE outcome=NONE mode=JOINT pose_policy=FREE_SPACE owner=NONE type=NONE revision=0 generation=0 scene_revision=1 active_scene_revision=0 command_seq=752 feedback_seq=412 feedback_age_ms=6.211 safety_known=false backend_ready=true loop_samples=752 loop_hz=124.939 mean_cycle_period_ms=8.003914 mean_abs_jitter_ms=0.143074 max_abs_jitter_ms=2.430925 max_cycle_period_ms=10.430925 period_p50_ms=8.250 period_p95_ms=8.250 period_p99_ms=8.750 execution_p50_ms=0.250 execution_p95_ms=0.250 execution_p99_ms=0.250 max_tick_execution_ms=0.899 tick_deadline_misses=0 scheduler_gaps=0 max_consecutive_tick_misses=0 max_feedback_age_ms=32.554 ik_mean_us=0.000 ik_max_us=0.000 position_error_m=0.000000 angular_error_rad=0.000000 path_deviation_m=0.000000 reference_actual_rad=0.000000 candidate_reference_actual_rad=0.000000 reference_lagging=false reference_lag_samples=0 max_delta_qdot_rad_s=0.000000 max_delta_v_m_s=0.000000 sdk_read_errors=0 sdk_write_errors=0 command_write_errors=0 sdk_errors=0 reason=NONE",
+  "final_tcp": [
+    [
+      -0.7899961202643734,
+      -0.15900304350816466,
+      0.6214907161306711
+    ],
+    [
+      -0.7071066937793701,
+      0.7071068685522365,
+      -4.693072200386519e-06,
+      6.052573205132236e-06
+    ]
+  ],
+  "gzserver_crash": false,
+  "initial_joint": [
+    2.014688475604487e-06,
+    -1.5707957996720576,
+    1.5708060701275128,
+    -1.5707950738074796,
+    -1.5707945761951612,
+    -1.4113852522257275e-06
+  ],
+  "initial_status": "state=IDLE outcome=NONE mode=JOINT pose_policy=FREE_SPACE owner=NONE type=NONE revision=0 generation=0 scene_revision=1 active_scene_revision=0 command_seq=2 feedback_seq=1 feedback_age_ms=11.037 safety_known=false backend_ready=true loop_samples=2 loop_hz=118.978 mean_cycle_period_ms=8.404943 mean_abs_jitter_ms=0.404943 max_abs_jitter_ms=0.801010 max_cycle_period_ms=8.801010 period_p50_ms=8.250 period_p95_ms=8.750 period_p99_ms=8.750 execution_p50_ms=0.250 execution_p95_ms=0.750 execution_p99_ms=0.750 max_tick_execution_ms=0.666 tick_deadline_misses=0 scheduler_gaps=0 max_consecutive_tick_misses=0 max_feedback_age_ms=11.037 ik_mean_us=0.000 ik_max_us=0.000 position_error_m=0.000000 angular_error_rad=0.000000 path_deviation_m=0.000000 reference_actual_rad=0.000000 candidate_reference_actual_rad=0.000000 reference_lagging=false reference_lag_samples=0 max_delta_qdot_rad_s=0.000000 max_delta_v_m_s=0.000000 sdk_read_errors=0 sdk_write_errors=0 command_write_errors=0 sdk_errors=0 reason=NONE",
+  "initial_tcp": [
+    [
+      -0.7899961202643729,
+      -0.15900304350826866,
+      0.6214907161306936
+    ],
+    [
+      -0.7071066937794193,
+      0.7071068685521871,
+      -4.693072260364284e-06,
+      6.052573054088848e-06
+    ]
+  ],
+  "launch_alive_at_measurement": true,
+  "launch_exit": 0,
+  "observers_alive_at_measurement": true,
+  "ode_lcp_count": 0,
+  "odom_samples": 451,
+  "pass": false,
+  "port": 11395,
+  "pose_reached": false,
+  "pose_target": [
+    [
+      -0.7699961202643729,
+      -0.15900304350826866,
+      0.6214907161306936
+    ],
+    [
+      -0.7071066937794193,
+      0.7071068685521871,
+      -4.693072260364284e-06,
+      6.052573054088848e-06
+    ]
+  ],
+  "ready": true,
+  "real_time_factor": 0.6359767807911479,
+  "tcp_samples_during_drive": 0,
+  "vehicle_actual_displacement_m": 0.0033762116980029983,
+  "vehicle_finite": true,
+  "vehicle_max_gap_wall_s": 0.0703327299997909,
+  "vehicle_observer_exit": 0,
+  "vehicle_samples": 420,
+  "vehicle_sim_elapsed_s": 13.072000000000003,
+  "wrist_actual_displacement_m": 4.488585263288507e-05,
+  "wrist_finite": true,
+  "wrist_max_gap_wall_s": 0.0698044029995799,
+  "wrist_observer_exit": 0,
+  "wrist_samples": 420,
+  "wrist_sim_elapsed_s": 13.025000000000006
+}

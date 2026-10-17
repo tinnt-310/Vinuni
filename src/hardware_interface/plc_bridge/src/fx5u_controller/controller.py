@@ -23,6 +23,7 @@ LOGGER = logging.getLogger("fx5u_controller.controller")
 SIGNED_WORD_MIN = -32_768
 SIGNED_WORD_MAX = 32_767
 BIT_DEVICE_RE = re.compile(r"^M\d+$")
+OUTPUT_DEVICE_RE = re.compile(r"^Y[0-9A-F]+$")
 
 
 class MitsubishiWheelController:
@@ -49,6 +50,10 @@ class MitsubishiWheelController:
             raise ValueError("wheels must contain exactly wheel IDs 1, 2, 3, and 4")
         if BIT_DEVICE_RE.fullmatch(speed_control.enable_device) is None:
             raise ValueError("speed_control.enable_device must have format M<number>")
+        if BIT_DEVICE_RE.fullmatch(speed_control.startup_reset_device) is None:
+            raise ValueError("speed_control.startup_reset_device must have format M<number>")
+        if OUTPUT_DEVICE_RE.fullmatch(speed_control.output_enable_device) is None:
+            raise ValueError("speed_control.output_enable_device must have format Y<hex>")
         for name, raw_value in (
             ("stop_value", speed_control.stop_value),
             ("minimum_value", speed_control.minimum_value),
@@ -185,11 +190,24 @@ class MitsubishiWheelController:
             self._pulse_locked(self._head("reset"), 4, "fault-reset")
             LOGGER.info("fault reset pulse wheels=all duration_s=%s", self.trigger_pulse_s)
 
+    def reset_drive_on_start(self) -> None:
+        """Pulse the configured drive reset once after connecting the bridge."""
+
+        with self._lock:
+            self._require_operational_locked()
+            self._pulse_locked(
+                self.speed_control.startup_reset_device, 1, "drive startup reset"
+            )
+            LOGGER.info(
+                "drive startup reset pulse device=%s duration_s=%s",
+                self.speed_control.startup_reset_device, self.trigger_pulse_s,
+            )
+
     def set_angle(self, wheel: int, angle_deg: int) -> None:
         with self._lock:
             self._require_operational_locked()
             wheel = self._validate_wheel(wheel)
-            angle_deg = self._validate_word(angle_deg, "angle_deg")
+            angle_deg = self._validate_angle(angle_deg, "angle_deg")
             LOGGER.info("angle stage requested wheel=%s degrees=%s", wheel, angle_deg)
             self._ensure_servo_locked(wheel)
             self._write_words_locked(self.wheels[wheel].angle, [angle_deg])
@@ -198,7 +216,7 @@ class MitsubishiWheelController:
     def set_angles(self, angle_deg_list: Sequence[int]) -> None:
         with self._lock:
             self._require_operational_locked()
-            angles = self._validate_four_words(angle_deg_list, "angle_deg_list")
+            angles = self._validate_four_angles(angle_deg_list, "angle_deg_list")
             LOGGER.info("angle stage requested wheels=all degrees=%s", angles)
             self._ensure_all_servos_locked()
             self._write_words_locked(self._head("angle"), angles)
@@ -276,7 +294,7 @@ class MitsubishiWheelController:
         with self._lock:
             self._require_operational_locked()
             wheel = self._validate_wheel(wheel)
-            angle_deg = self._validate_word(angle_deg, "angle_deg")
+            angle_deg = self._validate_angle(angle_deg, "angle_deg")
             LOGGER.info("angle command requested wheel=%s degrees=%s", wheel, angle_deg)
             self._ensure_servo_locked(wheel)
             self._write_words_locked(self.wheels[wheel].angle, [angle_deg])
@@ -286,7 +304,7 @@ class MitsubishiWheelController:
     def move_angles(self, angle_deg_list: Sequence[int]) -> None:
         with self._lock:
             self._require_operational_locked()
-            angles = self._validate_four_words(angle_deg_list, "angle_deg_list")
+            angles = self._validate_four_angles(angle_deg_list, "angle_deg_list")
             LOGGER.info("angle command requested wheels=all degrees=%s", angles)
             self._ensure_all_servos_locked()
             self._write_words_locked(self._head("angle"), angles)
@@ -302,6 +320,20 @@ class MitsubishiWheelController:
         """Compatibility alias for direct-value speed control."""
 
         self.set_speeds(speed_values)
+
+    def stop_drive(self) -> None:
+        """Stop wheel drive and disable M58 without disabling steering servos."""
+
+        with self._lock:
+            self._require_operational_locked()
+            errors: List[Tuple[str, BaseException]] = []
+            self._stop_speed_control_locked(errors)
+            if errors:
+                details = "; ".join(
+                    f"{operation}: {error}" for operation, error in errors
+                )
+                raise SLMPCommunicationError(f"Drive stop was incomplete: {details}")
+            LOGGER.info("wheel drive stopped and speed control disabled")
 
     def read_feedback(self, config: FeedbackConfig) -> TelemetrySnapshot:
         """Read only explicitly configured feedback devices."""
@@ -399,10 +431,12 @@ class MitsubishiWheelController:
         # Reassert M58 before every target write because software state is not
         # feedback and PLC logic may have cleared the device independently.
         self._write_bits_locked(self.speed_control.enable_device, [1])
+        self._write_bits_locked(self.speed_control.output_enable_device, [1])
         self.speed_control_enabled = True
         LOGGER.info(
-            "speed control enable acknowledged device=%s safe_raw=%s",
+            "speed control enable acknowledged devices=%s,%s safe_raw=%s",
             self.speed_control.enable_device,
+            self.speed_control.output_enable_device,
             self.speed_control.stop_value,
         )
 
@@ -411,11 +445,21 @@ class MitsubishiWheelController:
             self._write_words_locked(self._head("speed"), self._stop_speed_values())
         except Exception as exc:
             errors.append(("command all speeds to the stop value", exc))
+        output_off = False
+        control_off = False
+        try:
+            self._write_bits_locked(self.speed_control.output_enable_device, [0])
+        except Exception as exc:
+            errors.append((f"turn {self.speed_control.output_enable_device} OFF", exc))
+        else:
+            output_off = True
         try:
             self._write_bits_locked(self.speed_control.enable_device, [0])
         except Exception as exc:
             errors.append((f"turn {self.speed_control.enable_device} OFF", exc))
         else:
+            control_off = True
+        if output_off and control_off:
             self.speed_control_enabled = False
 
     def _pulse_locked(self, head_device: str, count: int, pulse_name: str) -> None:
@@ -540,6 +584,24 @@ class MitsubishiWheelController:
             raise ValueError(f"{name} must contain exactly four values")
         return [
             cls._validate_word(value, f"{name}[{index}]")
+            for index, value in enumerate(values)
+        ]
+
+    @classmethod
+    def _validate_angle(cls, value: int, name: str) -> int:
+        value = cls._validate_word(value, name)
+        if not 0 <= value < 360:
+            raise ValueError(f"{name}={value} is outside PLC steering range 0..359 degrees")
+        return value
+
+    @classmethod
+    def _validate_four_angles(cls, values: Sequence[int], name: str) -> Sequence[int]:
+        if isinstance(values, (str, bytes)) or not isinstance(values, Sequence):
+            raise TypeError(f"{name} must be a sequence of four integers")
+        if len(values) != 4:
+            raise ValueError(f"{name} must contain exactly four values")
+        return [
+            cls._validate_angle(value, f"{name}[{index}]")
             for index, value in enumerate(values)
         ]
 

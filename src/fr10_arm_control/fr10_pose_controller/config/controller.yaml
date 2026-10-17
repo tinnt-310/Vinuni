@@ -17,14 +17,14 @@ fr10_pose_controller:
       controlled_stop_topic: /fr10_motion/controlled_stop
       joint_state_topic: /joint_states
       command_topic: /fairino10_controller/commands
-      base_frame: base_link
+      base_frame: fr10_base_link
       joint_names: [j1, j2, j3, j4, j5, j6]
 
       diagnostics:
         # FLANGE is the exact tool mounting-face center in the unified runtime
         # display. The FLANGE-to-TCP transform is read from robot_description;
         # it is not duplicated here as a second geometry authority.
-        flange_frame: flange_link
+        flange_frame: plate_frame
         # Independent of both the 125 Hz control loop and 10 Hz status/FK
         # publisher. This is the comparison cadence; a human-readable block is
         # emitted only when its displayed motion/state content changes.
@@ -94,7 +94,7 @@ fr10_pose_controller:
 
       # Local MoveIt IK runs on a managed worker, never on the 125 Hz loop.
       kinematics_group: fairino10_v6_group
-      kinematics_tip_link: tool0
+      kinematics_tip_link: charging_tcp
       kinematics_safety_link: wrist3_link
       ik_timeout_s: 0.05
       collision_checking:
@@ -139,8 +139,8 @@ fr10_pose_controller:
         joint_space_step_rad: 0.03
         cylindrical_detour_radius_m: 0.350
 
-      # Closed-form model parameters are cross-checked against MoveIt FK at
-      # startup. Update these whenever the URDF tool transform changes.
+      # Closed-form arm dimensions are cross-checked against MoveIt FK at
+      # startup. The wrist3-to-TCP transform comes from robot_description.
       analytical_ik:
         enabled: true
         shoulder_height_m: 0.180
@@ -148,8 +148,7 @@ fr10_pose_controller:
         forearm_length_m: 0.586
         wrist_1_offset_m: 0.159
         wrist_2_offset_m: 0.114
-        wrist3_to_tip_translation_m: [0.060, 0.0, 0.268]
-        wrist3_to_tip_quaternion_xyzw: [0.0, 0.0, 0.0, 1.0]
+        use_model_tool_transform: true
         min_target_reach_m: 0.060
         max_target_reach_m: 1.750
         seed_weights: [1.0, 1.0, 1.0, 0.5, 0.5, 0.25]
@@ -178,3 +177,83 @@ fr10_pose_controller:
         max_angular_velocity_rad_s: 1.20
         max_angular_acceleration_rad_s2: 3.50
         max_angular_jerk_rad_s3: 20.0
+
+    # Shared force-position implementation. It remains disabled until the
+    # simulation fixture and legacy motion gates pass on the deployment host.
+    # Goal-specific force/torque ceilings are still mandatory in Insert.action.
+    force:
+      enabled: false
+      profile_id: simulation_v1
+      wrench_topic: /ft_sensor/wrench
+      source_status_topic: /ft_sensor/source_status
+      require_source_status: false
+      wrench_source_frame: charging_connector_link
+      wrench_target_frame: charging_tcp
+      wrench_source_sign: 1.0
+      filter_cutoff_hz: 20.0
+      no_progress_timeout_s: 2.0
+      minimum_progress_m: 0.0001
+      target_validity_s: 0.032
+      joint_velocity_scale: 0.10
+      joint_acceleration_scale: 0.10
+      joint_jerk_scale: 0.10
+      # Wrench rotation and moment arm are resolved from robot_description
+      # by the launch files; never copy a mesh-specific TCP offset here.
+      gravity_compensation:
+        owner: application
+        enabled: false
+        tool_mass_kg: 0.0
+        tool_cog_m: [0.0, 0.0, 0.0]
+        gravity_m_s2: [0.0, 0.0, -9.80665]
+      tare:
+        max_joint_velocity_rad_s: 0.005
+        pose_tolerance_m: 0.0005
+        orientation_tolerance_rad: 0.002
+        max_force_residual_n: 5.0
+        max_torque_residual_nm: 0.5
+        max_force_stddev_n: 0.25
+        max_torque_stddev_nm: 0.03
+      search:
+        # Radius0 retains the legacy fixed-corridor contract. The adaptive
+        # profile overrides these defaults with its commissioning evidence.
+        radius_m: 0.0
+        pitch_m: 0.00025
+        speed_m_s: 0.0005
+        stall_time_s: 0.5
+        budget_s: 180.0
+        progress_step_m: 0.0001
+        acquisition_depth_m: 0.004
+        acquisition_hold_s: 0.08
+        maximum_observation_gap_s: 0.05
+        contact_force_n: 0.5
+        force_n: 1.0
+        max_lateral_force_n: 1.0
+        max_torque_nm: 0.1
+        max_rotation_rad: 0.03490658503988659
+        anchor_position_tolerance_m: 0.00005
+        anchor_rotation_tolerance_rad: 0.00005
+      admittance:
+        mass: [1.0, 1.0, 1.0, 0.1, 0.1, 0.1]
+        damping: [50.0, 50.0, 50.0, 5.0, 5.0, 5.0]
+        stiffness: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+        max_correction: [0.02, 0.02, 0.02, 0.10, 0.10, 0.10]
+        max_velocity: [0.02, 0.02, 0.02, 0.10, 0.10, 0.10]
+        max_acceleration: [0.20, 0.20, 0.20, 1.0, 1.0, 1.0]
+      contact:
+        enter_force_n: 5.0
+        exit_force_n: 3.0
+        confirm_time_s: 0.040
+        release_time_s: 0.040
+      preinsert_hold_s: 0.10
+      depth_tolerance_m: 0.0005
+      force_error_tolerance_n: 1.0
+      force_rate_tolerance_n_s: 5.0
+      completion_hold_s: 0.20
+      safety:
+        max_force_rate_n_s: [1000.0, 1000.0, 1000.0]
+        max_correction: [0.02, 0.02, 0.02, 0.10, 0.10, 0.10]
+        stale_timeout_s: 0.050
+      ik:
+        max_joint_step_rad: 0.10
+        max_position_error_m: 0.001
+        max_orientation_error_rad: 0.01

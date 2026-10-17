@@ -1,0 +1,7 @@
+extends: matched_socket_commissioning.yaml
+fr10_pose_controller:
+  ros__parameters:
+    # Simulation commissioning: free-space plan to 5 mm above the mouth,
+    # then qualify stationary no-contact tare before compliant approach.
+    # All insertion speeds, gains, force/geometry/freshness gates are inherited.
+    force.goal.approach_distance_m: 0.005

@@ -1,0 +1,34 @@
+{
+  "arm": {
+    "link_count": 33,
+    "joint_count": 32,
+    "control_plugins": [],
+    "fr10_core_matches_before": true,
+    "root": "complete_visual"
+  },
+  "mounted": {
+    "link_count": 64,
+    "joint_count": 63,
+    "control_plugins": [],
+    "fr10_core_matches_before": true,
+    "root": "complete_visual"
+  },
+  "fake": {
+    "link_count": 33,
+    "joint_count": 32,
+    "control_plugins": [
+      "mock_components/GenericSystem"
+    ],
+    "fr10_core_matches_before": true,
+    "root": "complete_visual"
+  },
+  "fairino": {
+    "link_count": 33,
+    "joint_count": 32,
+    "control_plugins": [
+      "fairino_hardware_v3_9_3/FairinoHardwareInterface"
+    ],
+    "fr10_core_matches_before": true,
+    "root": "complete_visual"
+  }
+}

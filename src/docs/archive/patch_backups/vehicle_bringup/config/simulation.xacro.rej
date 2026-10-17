@@ -1,0 +1,9 @@
+--- src/vehicle_bringup/config/simulation.xacro
++++ src/vehicle_bringup/config/simulation.xacro
+@@ -13,4 +13,5 @@
+ </ros2_control>
+ <gazebo><plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control"><parameters>$(arg controller_yaml_file)</parameters></plugin></gazebo>
++<xacro:if value="$(arg enable_vehicle)"><gazebo><plugin filename="libvinuni_wheel_contact_surface.so" name="wheel_contact_surface"/></gazebo></xacro:if>
+ </robot>
+--- src/vehicle_bringup/package.xml
++++ src/vehicle_bringup/package.xml

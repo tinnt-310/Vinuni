@@ -5,8 +5,8 @@
 #include <iostream>
 #include <limits>
 
-#include "fr10_pose_controller/fr10_analytical_ik.hpp"
-#include "fr10_pose_controller/cartesian_route_planner.hpp"
+#include "fr10_motion_core/fr10_analytical_ik.hpp"
+#include "fr10_motion_core/cartesian_route_planner.hpp"
 #include "test_support.hpp"
 
 namespace {

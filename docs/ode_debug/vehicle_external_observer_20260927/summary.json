@@ -1,0 +1,35 @@
+{
+  "mode": "vehicle",
+  "duration_s": 46.36,
+  "launch_command": [
+    "ros2",
+    "launch",
+    "/home/tin/Vinuni/docs/ode_debug/vehicle_external_observer_20260927/repro.launch.py",
+    "enable_arm:=false",
+    "enable_vehicle:=true",
+    "gui:=false",
+    "rviz:=false",
+    "gazebo_port:=11393"
+  ],
+  "lcp_errors": 0,
+  "nonfinite_log_tokens": 0,
+  "gzserver_crashed": true,
+  "arm_action_status": null,
+  "arm_max_final_error_rad": null,
+  "arm_finite": null,
+  "mounted_rest_goal_completed_before_drive": null,
+  "mounted_moving_goal_drive_overlap_s": null,
+  "vehicle": {
+    "pass": false,
+    "failure": "steering and drive controllers did not become active"
+  },
+  "warnings": [
+    "[ERROR] [gzserver-1]: process has died [pid 213989, exit code -11, cmd 'gzserver /home/tin/Vinuni/install_grouped/vehicle_description/share/vehicle_description/worlds/vinfast_map.world -slibgazebo_ros_init.so -slibgazebo_ros_factory.so -slibgazebo_ros_force_system.so']."
+  ],
+  "vehicle_pose": {
+    "pass": false,
+    "reason": "Too few actual chassis pose samples",
+    "samples": 0
+  },
+  "pass": false
+}

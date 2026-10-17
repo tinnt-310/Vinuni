@@ -1,0 +1,20 @@
+schema: 1
+profile: matched_socket_v2
+# Candidates, not certified reachability results. The worker must validate the
+# complete robot/scene for each goal. Batch acceptance promotes only tested IDs.
+acceptance: PENDING
+approach_distance_m: 0.030
+stations:
+  front_low: {mouth_arm_m: [-0.66, -0.159, 0.20], tilt_up_deg: 0.0}
+  front_mid: {mouth_arm_m: [-0.72, -0.159, 0.32], tilt_up_deg: 0.0}
+  front_high: {mouth_arm_m: [-0.68, -0.159, 0.65], tilt_up_deg: 0.0}
+  left: {mouth_arm_m: [-0.65, 0.040, 0.40], tilt_up_deg: 0.0}
+  right: {mouth_arm_m: [-0.65, -0.340, 0.40], tilt_up_deg: 0.0}
+  tilted_up: {mouth_arm_m: [-0.70, -0.159, 0.45], tilt_up_deg: 20.0}
+initial_joint_rad:
+  home: [0.0, -1.570796326795, 1.570796326795, -1.570796326795, -1.570796326795, 0.0]
+  left: [0.15, -1.550796326795, 1.550796326795, -1.550796326795, -1.570796326795, 0.0]
+  right: [-0.15, -1.550796326795, 1.550796326795, -1.550796326795, -1.570796326795, 0.0]
+  # Old [-1.20,1.90,-2.270796...] shoulder/elbow/wrist preset intersects
+  # elevated fixtures at startup. This catalog change does not move live joints.
+  folded: [0.0, -2.094395102393, 2.094395102393, -1.570796326795, -1.570796326795, 0.0]

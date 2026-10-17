@@ -1,4 +1,4 @@
-#include "fr10_pose_controller/motion_controller.hpp"
+#include "fr10_motion_core/motion_controller.hpp"
 
 #include <memory>
 #include <string>

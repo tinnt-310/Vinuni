@@ -1,0 +1,10 @@
+{
+  "sample_count": 1712,
+  "odom_count": 180,
+  "wheel_names_present": true,
+  "finite": true,
+  "odom_distance_m": 1.2017900366270196,
+  "drive_start_wall": 5085.486374714,
+  "drive_end_wall": 5093.488440525,
+  "pass": true
+}

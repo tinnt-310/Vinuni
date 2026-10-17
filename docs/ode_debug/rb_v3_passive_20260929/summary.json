@@ -1,0 +1,9 @@
+{
+  "lcp_count": 11,
+  "first_lcp_wall": 18765.708310422,
+  "gzserver_crashed": false,
+  "controllers_ready": true,
+  "launch_returncode": 0,
+  "observer_returncode": 0,
+  "note": "Diagnostic trace only; no acceptance verdict from LCP count alone."
+}

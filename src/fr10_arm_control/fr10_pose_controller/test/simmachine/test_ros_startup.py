@@ -5,7 +5,7 @@ Tests:
 1. SimMachine Preflight (Docker, Ping, Ports, Process exclusivity)
 2. ROS2 Stack launch and lifecycle readiness
 3. Topic availability: /joint_states, /fr10_motion/tcp_pose, /controller_status
-4. TF base_link -> tool0 live transform lookup
+4. TF fr10_base_link -> charging_tcp live transform lookup
 5. AUTO_SYNC_WITHOUT_RVIZ: Verify stack initializes from measured robot pose
    without requiring RViz or dummy trajectories.
 """
@@ -65,20 +65,20 @@ def run_startup_test(robot_ip: str = "192.168.58.2", domain_id: int = 171,
         tf_ok = probe.tf_connected()
 
         outcomes["ROS_STARTUP"] = "PASS"
-        outcomes["TF_BASE_TOOL0"] = "PASS" if tf_ok else "FAIL"
+        outcomes["TF_FR10_BASE_CHARGING_TCP"] = "PASS" if tf_ok else "FAIL"
         outcomes["INITIAL_JOINT_RAD"] = initial_joint
         outcomes["INITIAL_TCP_M"] = initial_tcp
         outcomes["AUTO_SYNC_WITHOUT_RVIZ"] = "PASS" if (initial_joint and initial_tcp and tf_ok) else "FAIL"
 
         print(f"  ROS Startup: {outcomes['ROS_STARTUP']}")
-        print(f"  TF base_link -> tool0: {outcomes['TF_BASE_TOOL0']}")
+        print(f"  TF fr10_base_link -> charging_tcp: {outcomes['TF_FR10_BASE_CHARGING_TCP']}")
         print(f"  Initial Joint (rad): {initial_joint}")
         print(f"  Initial TCP (pos, quat): {initial_tcp}")
         print(f"  Auto-sync without RViz: {outcomes['AUTO_SYNC_WITHOUT_RVIZ']}")
 
         write_json(results_dir / "startup.json", outcomes)
         success = (outcomes["ROS_STARTUP"] == "PASS" and
-                   outcomes["TF_BASE_TOOL0"] == "PASS" and
+                   outcomes["TF_FR10_BASE_CHARGING_TCP"] == "PASS" and
                    outcomes["AUTO_SYNC_WITHOUT_RVIZ"] == "PASS")
         return 0 if success else 1
 

@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>fr10_force_control</name>
+  <version>0.1.0</version>
+  <description>ROS-free force-position/admittance control primitives for FR10.</description>
+  <maintainer email="maintainer@todo.todo">VinUni</maintainer>
+  <license>Apache-2.0</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <depend>fr10_motion_core</depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

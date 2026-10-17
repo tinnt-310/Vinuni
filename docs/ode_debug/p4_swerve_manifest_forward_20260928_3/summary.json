@@ -1,0 +1,59 @@
+{
+  "case": "forward",
+  "clock_samples": 262,
+  "clock_sim_elapsed_s": 26.799999999999983,
+  "command": [
+    "ros2",
+    "launch",
+    "vehicle_bringup",
+    "simulation.launch.py",
+    "enable_vehicle:=true",
+    "enable_arm:=false",
+    "gui:=false",
+    "rviz:=false",
+    "gazebo_port:=11396"
+  ],
+  "controllers": {
+    "joint_state_broadcaster": "active",
+    "swerve_controller": "active"
+  },
+  "diagnostic_valid": true,
+  "drive_start_wall_s": 2828.640246682,
+  "drive_stop_wall_s": 2833.64835711,
+  "expanded_urdf_sha256": "ca0fb1f27fab3f99b03bbc8c07e1d6ecb766ddfd05a70911545c471b7165ae74",
+  "gazebo_delta_xyz_m": [
+    0.5999311616863958,
+    4.990899761799956e-05,
+    -0.0012247957564720524
+  ],
+  "gazebo_delta_yaw_rad": -9.768746734914272e-05,
+  "gazebo_final_max_speed_m_s": 2.2157603932389333e-09,
+  "gazebo_finite": true,
+  "gazebo_master_ready": true,
+  "gazebo_max_gap_wall_s": 0.0679906979999032,
+  "gazebo_max_tilt_rad": 0.0003585604944818447,
+  "gazebo_post_stop_displacement_m": 0.0008522129213212346,
+  "gazebo_samples": 483,
+  "gazebo_sim_elapsed_s": 24.982,
+  "gazebo_wall_elapsed_s": 25.01456244799965,
+  "gzserver_crash": false,
+  "launch_alive_at_measurement": true,
+  "launch_exit": 0,
+  "launch_pid": 46977,
+  "normalized_command_samples": 101,
+  "observer_alive_at_measurement": true,
+  "observer_exit": 0,
+  "observer_pid": 47025,
+  "observer_pose_ready": true,
+  "ode_lcp_count": 0,
+  "odom_samples": 733,
+  "ready": true,
+  "real_time_factor": 0.9857935983877354,
+  "tf_samples": 733,
+  "twist": [
+    0.12,
+    0.0,
+    0.0
+  ],
+  "wheel_samples": 2456
+}

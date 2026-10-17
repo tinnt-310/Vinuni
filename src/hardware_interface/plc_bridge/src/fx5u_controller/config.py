@@ -32,6 +32,7 @@ EXPECTED_WHEEL_NAMES = {
     4: "left_bottom",
 }
 BIT_DEVICE_RE = re.compile(r"^M\d+$")
+OUTPUT_DEVICE_RE = re.compile(r"^Y[0-9A-F]+$")
 WORD_DEVICE_RE = re.compile(r"^D\d+$")
 VALID_LOG_LEVELS = {"DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"}
 
@@ -128,20 +129,37 @@ def _load_register_configuration(path: Union[Path, str]) -> RegisterMappingConfi
         devices = [getattr(wheels[wheel], field) for wheel in (1, 2, 3, 4)]
         _require_consecutive(devices, field)
     speed_control = _parse_speed_control(_section(data, "speed_control"))
-    if speed_control.enable_device in used_devices:
-        raise ConfigurationError(
-            f"PLC device {speed_control.enable_device} is assigned more than once"
-        )
+    for device in (
+        speed_control.enable_device,
+        speed_control.startup_reset_device,
+        speed_control.output_enable_device,
+    ):
+        if device in used_devices:
+            raise ConfigurationError(f"PLC device {device} is assigned more than once")
+        used_devices.add(device)
     return RegisterMappingConfig(wheels=wheels, speed_control=speed_control)
 
 
 def _parse_speed_control(raw: Mapping[str, Any]) -> SpeedControlConfig:
-    fields = {"enable_device", "stop_value", "minimum_value", "maximum_value"}
+    fields = {
+        "enable_device", "startup_reset_device", "output_enable_device",
+        "stop_value", "minimum_value", "maximum_value",
+    }
     _reject_unknown(raw, fields, "speed_control")
     enable_device = _device(
         _required(raw, "enable_device", "speed_control"),
         BIT_DEVICE_RE,
         "speed_control.enable_device",
+    )
+    startup_reset_device = _device(
+        _required(raw, "startup_reset_device", "speed_control"),
+        BIT_DEVICE_RE,
+        "speed_control.startup_reset_device",
+    )
+    output_enable_device = _device(
+        _required(raw, "output_enable_device", "speed_control"),
+        OUTPUT_DEVICE_RE,
+        "speed_control.output_enable_device",
     )
     stop_value = _signed_word(
         _required(raw, "stop_value", "speed_control"),
@@ -159,7 +177,10 @@ def _parse_speed_control(raw: Mapping[str, Any]) -> SpeedControlConfig:
         raise ConfigurationError("speed_control.minimum_value must not exceed maximum_value")
     if not minimum_value <= stop_value <= maximum_value:
         raise ConfigurationError("speed_control.stop_value must be within the configured range")
-    return SpeedControlConfig(enable_device, stop_value, minimum_value, maximum_value)
+    return SpeedControlConfig(
+        enable_device, stop_value, minimum_value, maximum_value,
+        startup_reset_device, output_enable_device
+    )
 
 
 def require_plc_endpoint(config: PLCConfig) -> Tuple[str, int]:
@@ -364,7 +385,11 @@ def _validate_device_separation(config: ApplicationConfig) -> None:
         for wheel in (1, 2, 3, 4)
         for field in ("trigger", "servo", "reset", "direction", "angle", "speed")
     }
-    command_devices.add(config.speed_control.enable_device)
+    command_devices.update((
+        config.speed_control.enable_device,
+        config.speed_control.startup_reset_device,
+        config.speed_control.output_enable_device,
+    ))
     feedback_devices = {
         device
         for group in (

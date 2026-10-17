@@ -3,9 +3,14 @@
 speed_control:
   # M58 remains ON while direct speed commands are active. It is not a pulse.
   enable_device: M58
-  # Values are written directly to D1020..D1023 without percentage conversion.
+  # Pulse once at bridge startup to reset the drive controller.
+  startup_reset_device: M222
+  # Turn ON before a non-stop speed target; turn OFF on stop.
+  output_enable_device: Y8
+  # Numeric raw range only: 660 is the lowest physical speed/stop (0.8 V);
+  # 0 is the highest physical speed (3.8 V). These are not speed min/max.
   stop_value: 660
-  minimum_value: 100
+  minimum_value: 0
   maximum_value: 660
 
 wheels:

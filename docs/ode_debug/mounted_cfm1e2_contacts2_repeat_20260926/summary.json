@@ -1,0 +1,31 @@
+{
+  "mode": "mounted",
+  "duration_s": 30.75,
+  "launch_command": [
+    "ros2",
+    "launch",
+    "/home/tin/Vinuni/docs/ode_debug/mounted_cfm1e2_contacts2_repeat_20260926/repro.launch.py",
+    "enable_arm:=true",
+    "enable_vehicle:=true",
+    "gui:=false",
+    "rviz:=false",
+    "gazebo_port:=11393"
+  ],
+  "lcp_errors": 19,
+  "nonfinite_log_tokens": 7,
+  "arm_action_status": 4,
+  "arm_max_final_error_rad": 6.295526391469908e-05,
+  "arm_finite": true,
+  "vehicle": {
+    "sample_count": 1230,
+    "odom_count": 133,
+    "wheel_names_present": true,
+    "finite": true,
+    "odom_distance_m": 0.8980228907161533,
+    "pass": true
+  },
+  "warnings": [
+    "[gzserver-1] [WARN] [1790427052.546410265] [gazebo_ros2_control]:  Desired controller update period (0.01 s) is slower than the gazebo simulation period (0.001 s)."
+  ],
+  "pass": false
+}

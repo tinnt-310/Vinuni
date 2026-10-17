@@ -170,7 +170,7 @@ class FullSimMachineSuite:
         self.initial_joint = list(q_init)
 
         self.record("ROS_STARTUP", "PASS", initial_joint=q_init, initial_tcp=tcp_init)
-        self.record("TF_BASE_TOOL0", "PASS" if tf_ok else "FAIL")
+        self.record("TF_FR10_BASE_CHARGING_TCP", "PASS" if tf_ok else "FAIL")
 
         # Auto-sync verification: test joint target relative to actual state without RViz planning
         safe_j = generate(q_init, 0, 15.0)
@@ -208,7 +208,7 @@ class FullSimMachineSuite:
 
         write_json(self.results_dir / "startup.json", {
             "ROS_STARTUP": "PASS",
-            "TF_BASE_TOOL0": "PASS" if tf_ok else "FAIL",
+            "TF_FR10_BASE_CHARGING_TCP": "PASS" if tf_ok else "FAIL",
             "AUTO_SYNC_WITHOUT_RVIZ": "PASS" if auto_sync else "FAIL",
             "initial_joint": q_init,
             "initial_tcp": tcp_init,
@@ -940,7 +940,7 @@ class FullSimMachineSuite:
 ## 3. ROS2 Runtime Startup & Auto-Sync
 
 - **ROS2 Node Startup**: {self._val('ROS_STARTUP')}
-- **TF Transform (`base_link` -> `tool0`)**: {self._val('TF_BASE_TOOL0')}
+- **TF Transform (`fr10_base_link` -> `charging_tcp`)**: {self._val('TF_FR10_BASE_CHARGING_TCP')}
 - **Auto-Sync Without RViz**: {self._val('AUTO_SYNC_WITHOUT_RVIZ')} (Initializes and executes relative motion directly from hardware feedback without requiring RViz MotionPlanning).
 
 ## 4. Single-Joint Motion Matrix

@@ -1,0 +1,62 @@
+{
+  "mode": "vehicle",
+  "duration_s": 41.05,
+  "launch_command": [
+    "ros2",
+    "launch",
+    "/home/tin/Vinuni/docs/ode_debug/final_repeat_20260927_vehicle_2/repro.launch.py",
+    "enable_arm:=false",
+    "enable_vehicle:=true",
+    "gui:=false",
+    "rviz:=false",
+    "gazebo_port:=11393"
+  ],
+  "lcp_errors": 0,
+  "nonfinite_log_tokens": 0,
+  "gzserver_crashed": false,
+  "arm_action_status": null,
+  "arm_max_final_error_rad": null,
+  "arm_finite": null,
+  "mounted_rest_goal_completed_before_drive": null,
+  "mounted_moving_goal_drive_overlap_s": null,
+  "vehicle": {
+    "sample_count": 720,
+    "odom_count": 100,
+    "wheel_names_present": true,
+    "finite": true,
+    "odom_distance_m": 0.195035777066984,
+    "pass": true
+  },
+  "warnings": [
+    "[spawn_entity.py-4] [ERROR] [1790447732.277334756] [spawn_entity]: Spawn service failed. Exiting.",
+    "[ERROR] [spawn_entity.py-4]: process has died [pid 173171, exit code 1, cmd '/opt/ros/humble/lib/gazebo_ros/spawn_entity.py -entity tram_sac_VF1 -file /home/tin/Vinuni/install_grouped/vehicle_description/share/vehicle_description/models/tram_sac_VF/model.sdf -x 10.5 -y 0.0 -z 0.0 -Y -1.57 --ros-args --params-file /tmp/launch_params_i1cb_o2z'].",
+    "[gzserver-1] [WARN] [1790447735.899761141] [gazebo_ros2_control]:  Desired controller update period (0.01 s) is slower than the gazebo simulation period (0.001 s).",
+    "[ERROR] [robot_state_publisher-2]: process has died [pid 173167, exit code -2, cmd '/opt/ros/humble/lib/robot_state_publisher/robot_state_publisher --ros-args --params-file /tmp/launch_params_q7zvlgc2 --params-file /tmp/launch_params_xjoh9y90']."
+  ],
+  "vehicle_pose": {
+    "samples": 494,
+    "wall_duration_s": 26.72348290299942,
+    "sim_duration_s": 24.69999999999999,
+    "finite": true,
+    "actual_displacement_m": [
+      0.1982543464661912,
+      7.43424741119483e-05,
+      -0.0008955066211521201
+    ],
+    "actual_planar_distance_m": 0.19825436040485978,
+    "max_tilt_rad": 0.0004250073685288361,
+    "final_max_speed_m_s": 6.06009203048556e-09,
+    "final_pose": [
+      0.19821133369461197,
+      5.4565886120966985e-05,
+      -0.0012342321762562891
+    ],
+    "final_rpy": [
+      -0.00020309670918759902,
+      0.00019319739631547654,
+      -0.0002206571733051894
+    ],
+    "pass": false
+  },
+  "pass": false
+}

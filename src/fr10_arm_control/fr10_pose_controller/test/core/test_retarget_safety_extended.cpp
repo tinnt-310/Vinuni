@@ -9,9 +9,9 @@
 #include <string>
 #include <vector>
 
-#include "fr10_pose_controller/cartesian_path.hpp"
-#include "fr10_pose_controller/joint_otg.hpp"
-#include "fr10_pose_controller/motion_controller.hpp"
+#include "fr10_motion_core/cartesian_path.hpp"
+#include "fr10_motion_core/joint_otg.hpp"
+#include "fr10_motion_core/motion_controller.hpp"
 #include "test_support.hpp"
 
 namespace {

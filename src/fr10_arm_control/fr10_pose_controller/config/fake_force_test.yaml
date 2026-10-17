@@ -1,0 +1,14 @@
+fr10_pose_controller:
+  ros__parameters:
+    # FakeSystem + deterministic spring only, not physical contact evidence.
+    force.enabled: true
+    force.profile_id: fake_v1
+    force.contact_object_id: force_contact_proxy
+    force.wrench_source_sign: 1.0
+    force.wrench_source_frame: charging_tcp
+    force.wrench_transform.target_to_source_m: [0.0, 0.0, 0.0]
+    force.filter_cutoff_hz: 0.1
+    force.admittance.damping: [500.0, 500.0, 500.0, 5.0, 5.0, 5.0]
+    force.admittance.max_correction: [0.00025, 0.00025, 0.00025, 0.10, 0.10, 0.10]
+    force.admittance.max_velocity: [0.001, 0.001, 0.001, 0.10, 0.10, 0.10]
+    force.admittance.max_acceleration: [0.02, 0.02, 0.02, 1.0, 1.0, 1.0]

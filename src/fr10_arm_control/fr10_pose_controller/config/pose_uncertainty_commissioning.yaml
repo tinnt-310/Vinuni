@@ -1,0 +1,54 @@
+extends: matched_socket_commissioning.yaml
+fr10_pose_controller:
+  ros__parameters:
+    # Draft pose uncertainty extension of matched_socket_commissioning.yaml.
+    # Shared launch merges the legacy profile, then this overlay. Physical
+    # FAIRINO force remains gated until independent sensor commissioning.
+    force.enabled: true
+    force.automatic_pose: true
+    force.profile_id: matched_socket_v2
+    force.process_mode: matched_mating
+    # Inherit the common matched64/96 ms worker/handover budget. FT/encoder
+    # freshness remains50 ms, independent of proposal and command leases.
+    force.goal.timeout_s: 600.0
+    force.search.radius_m: 0.0025
+    force.search.pitch_m: 0.00025
+    force.search.speed_m_s: 0.0005
+    force.search.stall_time_s: 0.5
+    force.search.budget_s: 180.0
+    force.search.acquisition_depth_m: 0.008
+    force.search.acquisition_hold_s: 0.25
+    force.search.max_torque_nm: 0.01
+    # Desired locating load must exceed contact-enter1 N + axial deadband0.5 N.
+    # A1 N objective can stop near0.5 N without ever qualifying loaded contact.
+    force.search.force_n: 2.0
+    # XY stiffness keeps bias drift bounded about a single accepted reference.
+    # Net-drive quiet intervals are <=25 um XY /50 urad rotation. Bias is
+    # separately qualified; these simulation gains do not certify real FT.
+    # Loaded contact/center probe restores yaw observability despite clearance.
+    # Acceptance requires independent keyed-fit evidence for each captured
+    # revision; real FT and the complete backend matrix remain uncommissioned.
+    force.search.yaw_probe_torque_nm: 0.15
+    force.search.yaw_contact_torque_nm: 0.10
+    force.search.yaw_center_gain_nm_rad: 25.0
+    # Sequential haptic X/Y scans share the bounded interval observer with yaw.
+    # Wall reaction threshold exceeds nominal shoulder friction (2 N * 0.4).
+    # CAD half-clearance is supplied by the shared station, never its true pose.
+    force.search.xy_probe_force_n: 1.5
+    force.search.xy_contact_force_n: 1.0
+    force.search.xy_center_gain_n_m: 1000.0
+    force.pre_stop_force_error_tolerance_n: 0.6
+    # Loaded yaw trace exposed a0.43 deg residual against the erroneous input
+    # spring. Reduce only rotational restoring stiffness, retain positive K,
+    # damping/limits and the50 urad net-drive deadband ratio. Acceptance remains
+    # the unchanged independent250 um keyed feature gate, not internal HOLD.
+    force.admittance.stiffness: [200.0, 200.0, 0.0, 0.02, 0.02, 0.02]
+    force.admittance.damping: [1000.0, 1000.0, 100000.0, 20.0, 20.0, 20.0]
+    force.admittance.drive_deadband: [0.005, 0.005, 0.50, 0.000001, 0.000001, 0.000001]
+    force.admittance.max_velocity: [0.0005, 0.0005, 0.000025, 0.002, 0.002, 0.002]
+    force.admittance.max_acceleration: [0.002, 0.002, 0.002, 0.02, 0.02, 0.02]
+    force.admittance.max_correction: [0.0025, 0.0025, 0.002, 0.03490658503988659, 0.03490658503988659, 0.03490658503988659]
+    force.safety.max_lateral_correction_norm_m: 0.0025
+    force.safety.max_rotation_correction_norm_rad: 0.03490658503988659
+    force.geometry.capture_lateral_tolerance_m: 0.003
+    force.geometry.capture_orientation_tolerance_rad: 0.04

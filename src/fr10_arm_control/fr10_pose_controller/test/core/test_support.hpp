@@ -6,8 +6,8 @@
 #include <iostream>
 #include <string>
 
-#include "fr10_pose_controller/core_types.hpp"
-#include "fr10_pose_controller/math_utils.hpp"
+#include "fr10_motion_core/core_types.hpp"
+#include "fr10_motion_core/math_utils.hpp"
 
 namespace fr10_motion_test {
 

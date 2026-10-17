@@ -1,0 +1,116 @@
+{
+  "ip": "192.168.58.2",
+  "target": "real",
+  "expected_web_version": "v3.9.3.1",
+  "expected_sdk_contains": "V2.3.3",
+  "expected_model_prefix": "FR10",
+  "duration_s": 2.0,
+  "period_s": 0.008,
+  "timeout_s": 40,
+  "guards": {
+    "max_frame_age_s": 0.05,
+    "max_joint_delta_deg": 2.0,
+    "max_tcp_delta_mm": 5.0,
+    "max_rotation_deg": 2.0,
+    "max_force_n": 20.0,
+    "max_torque_nm": 2.0
+  },
+  "servo": {
+    "joint_index": 0,
+    "joint_delta_deg": 0.2,
+    "cart_axis": 0,
+    "cart_delta_mm": 1.0,
+    "minimum_joint_response_deg": 0.05,
+    "minimum_cart_response_mm": 0.2,
+    "final_joint_tolerance_deg": 0.15,
+    "final_cart_tolerance_mm": 0.5,
+    "ext_axis_mm": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "torque": {
+    "prepared": false,
+    "torque_nm": null,
+    "max_abs_torque_nm": null,
+    "power_limit_w": null,
+    "velocity_limit_deg_s": null
+  },
+  "force": {
+    "fixture_ready": false,
+    "sensor_id": 1,
+    "select": [
+      0,
+      0,
+      1,
+      0,
+      0,
+      0
+    ],
+    "desired_wrench": null,
+    "pid": null,
+    "max_dis_mm": 1.0,
+    "max_ang_deg": 0.5,
+    "mass_rx_ry": [
+      2.0,
+      2.0
+    ],
+    "damping_rx_ry": [
+      8.0,
+      8.0
+    ],
+    "threshold_rx_ry": [
+      0.2,
+      0.2
+    ],
+    "adjust_coeff_rx_ry": [
+      1.0,
+      1.0
+    ],
+    "filter": 0,
+    "position_adaptation": 0,
+    "compliance_p": null,
+    "compliance_threshold_n": null,
+    "rcs": 0,
+    "threshold_n": 1.0,
+    "speed_mm_s": 0.2,
+    "max_distance_mm": 1.0,
+    "spiral_dr_mm": 0.1,
+    "spiral_max_time_ms": 1000,
+    "rotation_speed_deg_s": 0.2,
+    "max_angle_deg": 0.5,
+    "rotation_force_direction": 2,
+    "rotation_direction": 1,
+    "linear_direction": 1,
+    "surface_direction": 1,
+    "surface_axis": 3
+  },
+  "calibration": {
+    "stationary_no_contact_confirmed": false,
+    "payload_record_pose_prepared": false,
+    "payload_record_completed": false,
+    "sensor_coordinate_id": 1,
+    "zero_action": 1
+  },
+  "cnde": {
+    "port": 20006,
+    "cycle_ms": 8,
+    "fields": [
+      "actual_joint_pos",
+      "actual_TCP_pos"
+    ]
+  },
+  "force_movel": {
+    "reference_verified": false,
+    "expected_tool": 1,
+    "tool_axis": null,
+    "distance_mm": 2.0,
+    "speed_mm_s": 0.5,
+    "acceleration_mm_s2": 1.0,
+    "motion_timeout_s": 20.0,
+    "minimum_contact_n": 0.5,
+    "force_tolerance_n": 1.0
+  }
+}

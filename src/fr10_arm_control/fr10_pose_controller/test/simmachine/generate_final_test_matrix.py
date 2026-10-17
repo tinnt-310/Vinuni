@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
-"""Generate the canonical FAIRINO FR10 campaign test matrix.
+"""Recreate the archived 2026-08-30 FAIRINO FR10 campaign test matrix.
 
-The matrix combines the two CTest suites with the supplemental Docker
-SimMachine/runtime and offline feasibility cases.  It intentionally keeps
-BLOCKED cases and observed FAIL results; it does not reinterpret them as PASS.
+This historical dataset used the earlier flange_link/tool0 end-effector model.
+Its PASS entries are evidence only for that model; they do not certify the
+current vehicle_description D435/CCS2 model or A/B/C/D/E acceptance. The
+matrix retains observed FAIL and BLOCKED entries without rewriting history.
 """
 
 from __future__ import annotations
@@ -16,7 +17,7 @@ from collections import Counter
 from pathlib import Path
 
 
-ROOT = Path(__file__).resolve().parents[4]
+ROOT = Path(__file__).resolve().parents[5]
 RESULTS = ROOT / "test_results/complete_simmachine_20260830"
 FIELDS = ["ID", "Category", "Test", "Input", "Expected", "Metrics", "Result"]
 
@@ -230,7 +231,8 @@ with (RESULTS / "final_test_matrix.csv").open("w", encoding="utf-8", newline="")
 (RESULTS / "final_test_matrix.json").write_text(
     json.dumps(
         {
-            "classification": "canonical campaign matrix",
+            "classification": "historical 2026-08-30 vendor-model campaign",
+            "current_model_acceptance": False,
             "totals": {"total": len(rows), **expected_counts},
             "rows": rows,
         },

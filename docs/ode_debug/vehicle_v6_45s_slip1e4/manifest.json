@@ -1,0 +1,28 @@
+{
+  "case": "V6",
+  "spawn_z": 0.1,
+  "duration_s": 45.0,
+  "no_stations": false,
+  "motion_interval_s": [
+    10,
+    40.0
+  ],
+  "experimental_fdir": null,
+  "experimental_slip": 0.0001,
+  "command": [
+    "ros2",
+    "launch",
+    "/home/tin/Vinuni/docs/ode_debug/vehicle_v6_45s_slip1e4/probe.launch.py",
+    "enable_arm:=false",
+    "enable_vehicle:=true",
+    "gui:=false",
+    "rviz:=false",
+    "gazebo_port:=11394"
+  ],
+  "started": "2026-09-27T00:18:55+0700",
+  "hypothesis": "locate first LCP with unchanged production contacts/solver",
+  "changes": [
+    "diagnostic world plugin",
+    "controller activation isolation"
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "mode": "vehicle",
+  "duration_s": 61.92,
+  "controllers_ready": true,
+  "required_controllers": [
+    "joint_state_broadcaster",
+    "swerve_controller"
+  ],
+  "launch_command": [
+    "ros2",
+    "launch",
+    "/home/tin/Vinuni/docs/ode_debug/p3_swerve_vehicle_repeat_20260928_2/repro.launch.py",
+    "enable_arm:=false",
+    "enable_vehicle:=true",
+    "gui:=false",
+    "rviz:=false",
+    "gazebo_port:=11393"
+  ],
+  "lcp_errors": 0,
+  "nonfinite_log_tokens": 0,
+  "gzserver_crashed": false,
+  "arm_action_status": null,
+  "arm_max_final_error_rad": null,
+  "arm_finite": null,
+  "mounted_rest_goal_completed_before_drive": null,
+  "mounted_moving_goal_drive_overlap_s": null,
+  "vehicle": {
+    "sample_count": 781,
+    "odom_count": 275,
+    "wheel_names_present": true,
+    "finite": true,
+    "odom_distance_m": 0.6465440330408445,
+    "pass": true
+  },
+  "warnings": [
+    "[gzserver-1] [WARN] [1790534963.607426515] [gazebo_ros2_control]:  Desired controller update period (0.01 s) is slower than the gazebo simulation period (0.001 s).",
+    "[gzserver-1] [WARN] [1790534978.486427918] [swerve_controller]: TwistStamped timeout or clock discontinuity; stopping drive",
+    "[gzserver-1] [WARN] [1790534980.808785706] [swerve_controller]: TwistStamped timeout or clock discontinuity; stopping drive",
+    "[gzserver-1] [WARN] [1790534983.101370446] [swerve_controller]: TwistStamped timeout or clock discontinuity; stopping drive",
+    "[gzserver-1] [WARN] [1790534985.425813181] [swerve_controller]: TwistStamped timeout or clock discontinuity; stopping drive",
+    "[gzserver-1] [WARN] [1790534987.727089026] [swerve_controller]: TwistStamped timeout or clock discontinuity; stopping drive",
+    "[gzserver-1] [WARN] [1790534990.034807771] [swerve_controller]: TwistStamped timeout or clock discontinuity; stopping drive",
+    "[gzserver-1] [WARN] [1790534992.301905187] [swerve_controller]: TwistStamped timeout or clock discontinuity; stopping drive",
+    "[gzserver-1] [WARN] [1790534994.635883787] [swerve_controller]: TwistStamped timeout or clock discontinuity; stopping drive"
+  ],
+  "vehicle_pose": {
+    "samples": 619,
+    "wall_duration_s": 32.62795675900088,
+    "sim_duration_s": 28.290999999999997,
+    "finite": true,
+    "actual_displacement_m": [
+      0.6465241796178594,
+      -3.2661959594223544e-05,
+      -0.0012247949443653372
+    ],
+    "actual_planar_distance_m": 0.6465241804428893,
+    "max_tilt_rad": 0.00040004192410762854,
+    "final_max_speed_m_s": 4.99469118209508e-10,
+    "final_pose": [
+      0.646523901132964,
+      -3.288619201874686e-05,
+      -0.0012341972484125607
+    ],
+    "final_rpy": [
+      -0.00020276164937277192,
+      0.000193285353998133,
+      -0.0001645137357149632
+    ],
+    "pass": true
+  },
+  "pass": true
+}

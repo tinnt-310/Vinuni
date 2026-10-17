@@ -206,11 +206,12 @@ class ExtendedFakeSuite:
     def invalid_cases(self):
         current = self.probe.tcp_pose()
         cases = [
-            ("FAKE_NAN_POSE", [math.nan, *current[0][1:]], current[1], "base_link"),
-            ("FAKE_INF_POSE", [math.inf, *current[0][1:]], current[1], "base_link"),
-            ("FAKE_ZERO_QUAT", current[0], [0.0, 0.0, 0.0, 0.0], "base_link"),
-            ("FAKE_NAN_QUAT", current[0], [math.nan, 0.0, 0.0, 1.0], "base_link"),
+            ("FAKE_NAN_POSE", [math.nan, *current[0][1:]], current[1], "fr10_base_link"),
+            ("FAKE_INF_POSE", [math.inf, *current[0][1:]], current[1], "fr10_base_link"),
+            ("FAKE_ZERO_QUAT", current[0], [0.0, 0.0, 0.0, 0.0], "fr10_base_link"),
+            ("FAKE_NAN_QUAT", current[0], [math.nan, 0.0, 0.0, 1.0], "fr10_base_link"),
             ("FAKE_INVALID_FRAME", current[0], current[1], "unsupported_frame"),
+            ("FAKE_LEGACY_BASE_FRAME", current[0], current[1], "base_link"),
         ]
         for test_id, position, quaternion, frame in cases:
             before = generation(self.probe.status())
@@ -252,7 +253,7 @@ class ExtendedFakeSuite:
         accepted = generation(self.probe.status())
         for _ in range(10):
             self.probe.publish_pose_message(
-                [math.nan, valid[1], valid[2]], start[1], "base_link", True)
+                [math.nan, valid[1], valid[2]], start[1], "fr10_base_link", True)
             time.sleep(0.1)
         reached = self.probe.wait_pose(valid, start[1], timeout=15.0)
         holding = reached and self.wait_holding()

@@ -1,0 +1,73 @@
+{
+  "mode": "mounted",
+  "duration_s": 78.22,
+  "controllers_ready": true,
+  "required_controllers": [
+    "joint_state_broadcaster",
+    "joint_trajectory_controller",
+    "swerve_controller"
+  ],
+  "launch_command": [
+    "ros2",
+    "launch",
+    "/home/tin/Vinuni/docs/ode_debug/p1_swerve_mounted_20260928_1/repro.launch.py",
+    "enable_arm:=true",
+    "enable_vehicle:=true",
+    "gui:=false",
+    "rviz:=false",
+    "gazebo_port:=11393"
+  ],
+  "lcp_errors": 0,
+  "nonfinite_log_tokens": 0,
+  "gzserver_crashed": false,
+  "arm_action_status": 4,
+  "arm_max_final_error_rad": 9.632429910588769e-06,
+  "arm_finite": true,
+  "mounted_rest_goal_completed_before_drive": true,
+  "mounted_moving_goal_drive_overlap_s": 7.509272300999328,
+  "vehicle": {
+    "sample_count": 1134,
+    "odom_count": 605,
+    "wheel_names_present": true,
+    "finite": true,
+    "odom_distance_m": 0.644406335623788,
+    "drive_start_wall": 6050.981128448,
+    "drive_end_wall": 6058.995334724,
+    "pass": true
+  },
+  "warnings": [
+    "[gzserver-1] [WARN] [1790531569.394037124] [gazebo_ros2_control]:  Desired controller update period (0.01 s) is slower than the gazebo simulation period (0.001 s).",
+    "[gzserver-1] [WARN] [1790531596.765475210] [swerve_controller]: TwistStamped timeout or clock discontinuity; stopping drive",
+    "[gzserver-1] [WARN] [1790531600.368824083] [swerve_controller]: TwistStamped timeout or clock discontinuity; stopping drive",
+    "[gzserver-1] [WARN] [1790531603.653022349] [swerve_controller]: TwistStamped timeout or clock discontinuity; stopping drive",
+    "[gzserver-1] [WARN] [1790531607.341940286] [swerve_controller]: TwistStamped timeout or clock discontinuity; stopping drive",
+    "[gzserver-1] [WARN] [1790531611.025486293] [swerve_controller]: TwistStamped timeout or clock discontinuity; stopping drive",
+    "[gzserver-1] [WARN] [1790531614.524902322] [swerve_controller]: TwistStamped timeout or clock discontinuity; stopping drive"
+  ],
+  "vehicle_pose": {
+    "samples": 842,
+    "wall_duration_s": 45.010019780999755,
+    "sim_duration_s": 25.930000000000007,
+    "finite": true,
+    "actual_displacement_m": [
+      0.6493287149629161,
+      0.0003536157803213746,
+      -0.0012714501829250713
+    ],
+    "actual_planar_distance_m": 0.649328811250134,
+    "max_tilt_rad": 0.00076267436730018,
+    "final_max_speed_m_s": 9.721585166252258e-05,
+    "final_pose": [
+      0.6493284463629209,
+      0.0003534186374879348,
+      -0.0012808901451473176
+    ],
+    "final_rpy": [
+      -0.0002753738919465608,
+      0.0002119823874986271,
+      -0.00018020835691258174
+    ],
+    "pass": true
+  },
+  "pass": true
+}

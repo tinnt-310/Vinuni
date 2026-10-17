@@ -1,0 +1,11 @@
+--- tools/run_vehicle_probe.py
++++ tools/run_vehicle_probe.py
+@@ -36,5 +37,7 @@
+ launch = (root / 'src/vehicle_bringup/launch/simulation.launch.py').read_text()
+ launch = launch.replace("'worlds', 'vinfast_map.world'", repr(str(out / 'world.sdf')))
+ launch = launch.replace("'-z', '0.1' if vehicle_enabled else '0.0'", f"'-z', '{args.spawn_z}' if vehicle_enabled else '0.0'")
++probe_line = (f"    doc.documentElement.appendChild(__import__('xml.dom.minidom', fromlist=['parseString']).parseString('<gazebo><plugin name=\"ode_contact_probe\" filename=\"{plugin}\"/></gazebo>').documentElement)\n"
++              if not args.no_probe else '')
+ launch = launch.replace('    # Source Xacros retain package://.',
+-    f"    doc.documentElement.appendChild(__import__('xml.dom.minidom', fromlist=['parseString']).parseString('<gazebo><plugin name=\"ode_contact_probe\" filename=\"{plugin}\"/></gazebo>').documentElement)\n"
++    probe_line

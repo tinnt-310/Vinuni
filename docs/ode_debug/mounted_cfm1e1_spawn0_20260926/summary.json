@@ -1,0 +1,32 @@
+{
+  "mode": "mounted",
+  "duration_s": 30.69,
+  "launch_command": [
+    "ros2",
+    "launch",
+    "/home/tin/Vinuni/docs/ode_debug/mounted_cfm1e1_spawn0_20260926/repro.launch.py",
+    "enable_arm:=true",
+    "enable_vehicle:=true",
+    "gui:=false",
+    "rviz:=false",
+    "gazebo_port:=11393"
+  ],
+  "lcp_errors": 1938,
+  "nonfinite_log_tokens": 1011,
+  "arm_action_status": 4,
+  "arm_max_final_error_rad": 0.003148664941409862,
+  "arm_finite": true,
+  "vehicle": {
+    "sample_count": 1217,
+    "odom_count": 131,
+    "wheel_names_present": true,
+    "finite": true,
+    "odom_distance_m": 0.6353814826231665,
+    "pass": true
+  },
+  "warnings": [
+    "[gzserver-1] [WARN] [1790426685.427449530] [gazebo_ros2_control]:  Desired controller update period (0.01 s) is slower than the gazebo simulation period (0.001 s).",
+    "[ERROR] [robot_state_publisher-2]: process has died [pid 309537, exit code -2, cmd '/opt/ros/humble/lib/robot_state_publisher/robot_state_publisher --ros-args --params-file /tmp/launch_params_smc_41yd --params-file /tmp/launch_params_ct255tld']."
+  ],
+  "pass": false
+}

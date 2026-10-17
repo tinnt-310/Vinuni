@@ -1,0 +1,324 @@
+cmake_minimum_required(VERSION 3.8)
+project(fr10_pose_controller)
+
+cmake_policy(SET CMP0069 NEW)
+include(CheckIPOSupported)
+check_ipo_supported(RESULT FR10_IPO_SUPPORTED OUTPUT FR10_IPO_ERROR)
+option(FR10_ENABLE_NATIVE_OPTIMIZATION
+  "Enable deployment-host O3/native/LTO optimization" ON)
+
+function(fr10_optimize_target target_name)
+  if(FR10_ENABLE_NATIVE_OPTIMIZATION AND
+     (CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang"))
+    target_compile_options(${target_name} PRIVATE -O3 -DNDEBUG -march=native)
+    if(FR10_IPO_SUPPORTED)
+      set_property(TARGET ${target_name} PROPERTY INTERPROCEDURAL_OPTIMIZATION TRUE)
+    endif()
+  endif()
+endfunction()
+
+if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+  add_compile_options(-Wall -Wextra -Wpedantic)
+endif()
+
+find_package(ament_cmake REQUIRED)
+find_package(rclcpp REQUIRED)
+find_package(geometry_msgs REQUIRED)
+find_package(sensor_msgs REQUIRED)
+find_package(std_msgs REQUIRED)
+find_package(moveit_core REQUIRED)
+find_package(moveit_ros_planning REQUIRED)
+find_package(eigen3_cmake_module REQUIRED)
+find_package(Eigen3 REQUIRED)
+find_package(ruckig 0.9 REQUIRED)
+
+add_library(fr10_motion SHARED
+  src/joint_otg.cpp
+  src/cartesian_path.cpp
+  src/trajectory_trace_validator.cpp
+  src/cartesian_route_planner.cpp
+  src/cartesian_trajectory.cpp
+  src/continuous_ik.cpp
+  src/fr10_analytical_ik.cpp
+  src/pre_insert_planner.cpp
+  src/linear_insert_planner.cpp
+  src/motion_controller.cpp
+)
+
+add_library(fr10_backends SHARED
+  src/ros_control_backend.cpp
+)
+
+target_compile_features(fr10_motion PUBLIC cxx_std_17)
+target_include_directories(fr10_motion PUBLIC
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+  $<INSTALL_INTERFACE:include>
+)
+target_compile_features(fr10_backends PUBLIC cxx_std_17)
+target_include_directories(fr10_backends PUBLIC
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+  $<INSTALL_INTERFACE:include>
+)
+ament_target_dependencies(fr10_backends
+  rclcpp
+  sensor_msgs
+  std_msgs
+)
+
+target_link_libraries(fr10_motion ruckig::ruckig Eigen3::Eigen)
+target_link_libraries(fr10_backends
+  fr10_motion
+  ruckig::ruckig
+)
+fr10_optimize_target(fr10_motion)
+fr10_optimize_target(fr10_backends)
+
+add_executable(fr10_pose_controller_node
+  src/fr10_pose_controller_node.cpp
+  src/motion_adapter.cpp
+  src/moveit_ik_provider.cpp
+  src/node_parameters.cpp
+)
+target_compile_features(fr10_pose_controller_node PUBLIC cxx_std_17)
+target_link_libraries(fr10_pose_controller_node fr10_motion fr10_backends)
+target_link_libraries(fr10_pose_controller_node Eigen3::Eigen)
+target_compile_definitions(fr10_pose_controller_node PRIVATE
+  EIGEN_MAX_ALIGN_BYTES=16
+  EIGEN_MALLOC_ALREADY_ALIGNED=1
+)
+ament_target_dependencies(fr10_pose_controller_node
+  rclcpp
+  geometry_msgs
+  moveit_core
+  moveit_ros_planning
+  sensor_msgs
+  std_msgs
+)
+# Do not apply -march=native to the MoveIt-facing adapter. MoveIt Humble is
+# distributed with a 16-byte Eigen ABI; native AVX alignment across this shared
+# library boundary can corrupt MatrixXd ownership. The ROS-free core remains
+# native/LTO optimized.
+
+add_executable(test_joint_retargeting
+  test/test_joint_retargeting.cpp
+)
+target_compile_features(test_joint_retargeting PUBLIC cxx_std_17)
+target_link_libraries(test_joint_retargeting fr10_motion)
+
+add_executable(test_motion_controller
+  test/test_motion_controller.cpp
+)
+target_compile_features(test_motion_controller PUBLIC cxx_std_17)
+target_include_directories(test_motion_controller PRIVATE test/core)
+target_link_libraries(test_motion_controller fr10_motion)
+
+add_executable(fr10_kinematic_probe
+  test/core/fr10_kinematic_probe.cpp
+)
+target_compile_features(fr10_kinematic_probe PUBLIC cxx_std_17)
+target_include_directories(fr10_kinematic_probe PRIVATE test/core)
+target_link_libraries(fr10_kinematic_probe fr10_motion)
+
+add_executable(test_moveit_collision_provider
+  test/core/test_moveit_collision_provider.cpp
+  src/moveit_ik_provider.cpp
+)
+target_compile_features(test_moveit_collision_provider PUBLIC cxx_std_17)
+target_include_directories(test_moveit_collision_provider PRIVATE test/core)
+target_link_libraries(test_moveit_collision_provider fr10_motion Eigen3::Eigen)
+target_compile_definitions(test_moveit_collision_provider PRIVATE
+  EIGEN_MAX_ALIGN_BYTES=16
+  EIGEN_MALLOC_ALREADY_ALIGNED=1
+)
+ament_target_dependencies(test_moveit_collision_provider
+  geometry_msgs
+  moveit_core
+  moveit_ros_planning
+)
+
+set(FR10_CORE_TESTS
+  test_reference_lag_stop
+  test_joint_otg_matrix
+  test_cartesian_path
+  test_trajectory_trace_validator
+  test_cartesian_tracking
+  test_path_time_parameterizer
+  test_invalid_commands
+  test_command_arbitration
+  test_library_consumer
+  test_workspace
+  test_analytical_ik
+  test_insertion_planners
+  test_realtime_buffer
+  test_precision_insertion_extended
+  test_kinematics_extended
+  test_retarget_safety_extended
+  test_diagnostic_display
+)
+
+foreach(test_target IN LISTS FR10_CORE_TESTS)
+  add_executable(${test_target} test/core/${test_target}.cpp)
+  target_compile_features(${test_target} PUBLIC cxx_std_17)
+  target_include_directories(${test_target} PRIVATE test/core)
+  target_link_libraries(${test_target} fr10_motion)
+endforeach()
+
+include(CTest)
+if(BUILD_TESTING)
+  add_test(NAME reference_lag_stop COMMAND test_reference_lag_stop)
+  find_package(Python3 REQUIRED COMPONENTS Interpreter)
+  add_test(
+    NAME fairino_v393_abi
+    COMMAND ${Python3_EXECUTABLE}
+      ${CMAKE_CURRENT_SOURCE_DIR}/test/abi/test_fairino_v393_abi.py
+      --workspace ${CMAKE_CURRENT_SOURCE_DIR}/../../..
+      --plugin
+        ${CMAKE_INSTALL_PREFIX}/../fairino_hardware_v3_9_3/lib/fairino_hardware_v3_9_3/libfairino_hardware.so
+      --backend
+        ${CMAKE_INSTALL_PREFIX}/lib/libfr10_backends.so)
+  add_test(NAME joint_otg_matrix COMMAND test_joint_otg_matrix)
+  add_test(NAME cartesian_path COMMAND test_cartesian_path)
+  add_test(NAME trajectory_trace_validator COMMAND test_trajectory_trace_validator)
+  add_test(NAME cartesian_tracking COMMAND test_cartesian_tracking)
+  add_test(NAME path_time_parameterizer COMMAND test_path_time_parameterizer)
+  add_test(NAME invalid_commands COMMAND test_invalid_commands)
+  add_test(NAME command_arbitration COMMAND test_command_arbitration)
+  add_test(NAME library_consumer COMMAND test_library_consumer)
+  add_test(NAME workspace COMMAND test_workspace)
+  add_test(NAME analytical_ik COMMAND test_analytical_ik)
+  add_test(NAME insertion_planners COMMAND test_insertion_planners)
+  add_test(NAME realtime_buffer COMMAND test_realtime_buffer)
+  add_test(NAME diagnostic_display COMMAND test_diagnostic_display)
+  add_test(NAME motion_executor COMMAND test_motion_controller)
+  add_test(NAME moveit_collision_provider COMMAND test_moveit_collision_provider)
+
+  set(FR10_PRECISION_INSERTION_CASES
+    PI_BASE_POS_X
+    PI_BASE_NEG_X
+    PI_BASE_POS_Y
+    PI_BASE_NEG_Y
+    PI_BASE_POS_Z
+    PI_BASE_NEG_Z
+    PI_ROTATED_LOCAL_Z
+    PI_ROTATED_LOCAL_X
+    PI_PREINSERT_DISTANCE_MATRIX
+    PI_ORIENTATION_PRESERVATION
+    PI_WAYPOINT_DENSITY
+    PI_NO_JOINT_SHORTCUT
+  )
+  foreach(case_id IN LISTS FR10_PRECISION_INSERTION_CASES)
+    string(TOLOWER ${case_id} case_name)
+    add_test(
+      NAME extended_${case_name}
+      COMMAND test_precision_insertion_extended --case ${case_id})
+  endforeach()
+
+  set(FR10_KINEMATICS_CASES
+    K_IK_FK_CONSISTENCY
+    K_CONTINUOUS_BRANCH
+    K_WRIST_OUTSIDE
+    K_WRIST_BOUNDARY
+    K_WRIST_INSIDE
+    K_ELBOW_OUTSIDE
+    K_ELBOW_INSIDE
+    K_RADIAL_BARRIER
+    K_JACOBIAN_SIGMA_TREND
+    K_JACOBIAN_CONDITION
+    K_UNREACHABLE
+    K_JOINT_LIMIT
+    K_ANALYTICAL_BENCHMARK
+    K_MOVEIT_NUMERICAL_NOT_ACTIVE
+  )
+  foreach(case_id IN LISTS FR10_KINEMATICS_CASES)
+    string(TOLOWER ${case_id} case_name)
+    add_test(
+      NAME extended_${case_name}
+      COMMAND test_kinematics_extended --case ${case_id})
+    if(case_id STREQUAL "K_MOVEIT_NUMERICAL_NOT_ACTIVE")
+      set_tests_properties(extended_${case_name}
+        PROPERTIES SKIP_RETURN_CODE 77)
+    endif()
+  endforeach()
+
+  set(FR10_RETARGET_SAFETY_CASES
+    RT_STREAM_10HZ
+    RT_STREAM_20HZ
+    RT_STREAM_50HZ
+    RT_STREAM_100HZ
+    RT_DIRECTION_REVERSAL
+    RT_RAPID_ALTERNATION
+    RT_POSE_NOMINAL_TIMESTAMP_PLAYBACK
+    RT_POSE_MISSED_CYCLE_PLAYBACK
+    S_NAN_POSE
+    S_INF_POSE
+    S_INVALID_QUAT
+    S_OWNERSHIP
+    S_CONTROLLED_STOP_PROFILE
+    S_PATH_FAULT_HYSTERESIS
+    S_STALE_POSE_ACTIVATION
+    S_POSE_FAULT_CONTROLLED_STOP
+    S_FAULT_TRANSITION
+    S_HARDWARE_ESTOP_INDICATION
+    S_RECOVERY
+    S_TARGET_REJECTED_AFTER_ESTOP_INDICATION
+  )
+  foreach(case_id IN LISTS FR10_RETARGET_SAFETY_CASES)
+    string(TOLOWER ${case_id} case_name)
+    add_test(
+      NAME extended_${case_name}
+      COMMAND test_retarget_safety_extended --case ${case_id})
+  endforeach()
+
+endif()
+
+install(TARGETS fr10_motion
+  EXPORT export_${PROJECT_NAME}
+  LIBRARY DESTINATION lib
+  ARCHIVE DESTINATION lib
+  RUNTIME DESTINATION bin
+  INCLUDES DESTINATION include
+)
+
+install(TARGETS fr10_backends
+  LIBRARY DESTINATION lib
+  ARCHIVE DESTINATION lib
+  RUNTIME DESTINATION bin
+)
+
+install(TARGETS fr10_pose_controller_node
+  DESTINATION lib/${PROJECT_NAME}
+)
+
+install(FILES
+  include/fr10_motion_core/core_types.hpp
+  include/fr10_motion_core/math_utils.hpp
+  include/fr10_motion_core/diagnostic_display.hpp
+  include/fr10_motion_core/joint_otg.hpp
+  include/fr10_motion_core/cartesian_path.hpp
+  include/fr10_motion_core/cartesian_tracking.hpp
+  include/fr10_motion_core/cartesian_route_planner.hpp
+  include/fr10_motion_core/cartesian_trajectory.hpp
+  include/fr10_motion_core/fr10_analytical_ik.hpp
+  include/fr10_motion_core/ik_provider.hpp
+  include/fr10_motion_core/pre_insert_planner.hpp
+  include/fr10_motion_core/linear_insert_planner.hpp
+  include/fr10_motion_core/realtime_buffer.hpp
+  include/fr10_motion_core/continuous_ik.hpp
+  include/fr10_motion_core/motion_controller.hpp
+  include/fr10_motion_core/robot_backend.hpp
+  include/fr10_pose_controller/ros_control_backend.hpp
+  DESTINATION include/fr10_pose_controller
+)
+
+install(DIRECTORY config launch
+  DESTINATION share/${PROJECT_NAME}
+)
+
+ament_export_targets(export_${PROJECT_NAME} HAS_LIBRARY_TARGET)
+ament_export_dependencies(
+  eigen3_cmake_module
+  Eigen3
+  ruckig
+)
+ament_export_include_directories(include)
+ament_package()

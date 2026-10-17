@@ -3,7 +3,7 @@
 #include <cmath>
 #include <iostream>
 
-#include "fr10_pose_controller/joint_otg.hpp"
+#include "fr10_motion_core/joint_otg.hpp"
 
 int main() {
   constexpr double period_s = 0.008;

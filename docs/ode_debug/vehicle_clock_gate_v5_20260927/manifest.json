@@ -1,0 +1,34 @@
+{
+  "case": "V5",
+  "spawn_z": 0.0,
+  "duration_s": 45.0,
+  "no_stations": false,
+  "no_probe": true,
+  "omit_state_plugin": true,
+  "omit_lidar_sensor": false,
+  "stations_before_robot": false,
+  "omit_angled_barrier": false,
+  "motion_interval_s": [
+    10,
+    15.0
+  ],
+  "experimental_fdir": null,
+  "experimental_slip": null,
+  "surface_slip": null,
+  "command": [
+    "ros2",
+    "launch",
+    "/home/tin/Vinuni/docs/ode_debug/vehicle_clock_gate_v5_20260927/probe.launch.py",
+    "enable_arm:=false",
+    "enable_vehicle:=true",
+    "gui:=false",
+    "rviz:=false",
+    "gazebo_port:=11394"
+  ],
+  "started": "2026-09-27T10:16:49+0700",
+  "hypothesis": "locate first LCP with unchanged production contacts/solver",
+  "changes": [
+    "diagnostic world plugin",
+    "controller activation isolation"
+  ]
+}

@@ -17,7 +17,7 @@ import time
 
 from ros_health import ProbeContext
 
-WORKSPACE = Path(__file__).resolve().parents[4]
+WORKSPACE = Path(__file__).resolve().parents[5]
 
 
 def wait_until(predicate, timeout):
@@ -89,7 +89,7 @@ def main():
     launch = subprocess.Popen([
         "ros2", "launch", "fr10_pose_controller", "fr10_pose_controller.launch.py",
         "use_fake_hardware:=false", "use_rviz:=false", "robot_ip:=192.168.58.2",
-        "controller_overlay:=" + str(WORKSPACE / "src/fr10_pose_controller/config/simmachine_smooth.yaml"),
+        "controller_overlay:=" + str(WORKSPACE / "src/fr10_arm_control/fr10_pose_controller/config/simmachine_smooth.yaml"),
     ], stdout=logfile, stderr=subprocess.STDOUT, start_new_session=True)
     context = ProbeContext(int(os.environ.get("ROS_DOMAIN_ID", "183")))
     try:

@@ -1,0 +1,13 @@
+--- src/vehicle_bringup/CMakeLists.txt
++++ src/vehicle_bringup/CMakeLists.txt
+@@ -9,4 +9,9 @@
+ install(DIRECTORY maps/ DESTINATION share/${PROJECT_NAME}/maps)
+ install(DIRECTORY rviz/ DESTINATION share/${PROJECT_NAME}/rviz)
++if(BUILD_TESTING)
++  find_package(ament_cmake_pytest REQUIRED)
++  ament_add_pytest_test(test_simulation_station_sequence
++    test/test_simulation_station_sequence.py)
++endif()
+ ament_package()
+--- a/src/vehicle_bringup/package.xml
++++ b/src/vehicle_bringup/package.xml

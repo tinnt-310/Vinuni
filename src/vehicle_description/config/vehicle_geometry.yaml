@@ -1,0 +1,57 @@
+# Canonical RB Charging V3 geometry. CAD values are the simulation baseline;
+# they have not yet been checked against physical mass-property measurements.
+vehicle:
+  model: rb_charging_v3
+  wheelbase: 1.10
+  track_width: 0.58
+  wheel_radius: 0.214671
+  wheel_width: 0.273591
+  wheel_offset_x: 0.005062
+  # ODE damping validated at CAD mass in zero, forward and rotation cases.
+  wheel_contact_kd: 10000.0
+  # Precision Gazebo constraint-motor servo, independent of arm PD gains.
+  steering_motor_position_gain: 50.0
+  steering_motor_velocity_limit: 3.0
+  # Mounted approach limits: prevent chassis reaction from breaking the
+  # unchanged precision parking velocity barriers before reaching preinsert.
+  precision_arm_free_space_velocity_scale: 0.025
+  precision_arm_free_space_acceleration_scale: 0.025
+  precision_arm_free_space_jerk_scale: 0.003125
+  precision_arm_free_space_linear_velocity_scale: 0.025
+  # Strict mounted withdrawal unloads the shoulder without exciting chassis
+  # pitch. Same joint jerk barrier as approach. Loaded-start speed is separate;
+  # normal extraction may reach3 mm/s only after the initial unloading region.
+  precision_arm_insertion_velocity_scale: 0.025
+  precision_arm_insertion_acceleration_scale: 0.025
+  precision_arm_insertion_jerk_scale: 0.003125
+  precision_arm_insertion_linear_velocity_scale: 0.00375
+  precision_arm_retract_initial_velocity_m_s: 0.0000025
+  steering_axis_height: 0.50878
+  wheel_axle_drop: 0.295439
+  body_length: 2.04292
+  body_width: 1.01147
+  body_collision_height: 1.043485
+  body_collision_center_z: 0.7655225
+  body_bottom_height: 0.243780
+  deck_thickness: 0.020
+  chassis_center_x: -0.00115
+  # The STL already contains both the upper-deck LiDAR and the recessed FR10
+  # mounting pocket.  These coordinates are measured from base_link CAD.
+  body_max_height: 1.287265
+  deck_top_height: 1.240780
+  arm_mount_x: 0.502310
+  arm_mount_z: 1.174780
+  arm_recess_size_x: 0.190000
+  arm_recess_size_y: 0.240000
+  # D455 body centre measured from the CAD pocket between the two front lamps.
+  # Pocket bounds are x=0.966930..0.992410 m, y=+/-0.066901 m and
+  # z=0.473780..0.505780 m.  The 26 mm-deep camera is seated against the
+  # pocket rear face, leaving its front plate about 0.52 mm proud.
+  d455_body_center_x: 0.979930
+  lidar_x: 0.840050
+  lidar_body_bottom_height: 1.244575
+  lidar_height: 0.042690
+  lidar_radius: 0.030000
+  lidar_scan_height_from_bottom: 0.0215
+  d455_optical_height: 0.489780
+  arm_home: [0, -1.5707963267948966, 1.5707963267948966, -1.5707963267948966, -1.5707963267948966, 0]

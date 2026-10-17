@@ -1,0 +1,13 @@
+extends: pose_uncertainty_commissioning.yaml
+fr10_pose_controller:
+  ros__parameters:
+    # MuJoCo-only commissioning candidate. The input pose may be wrong while
+    # the physical CAD socket remains fixed. Acceptance is per recorded case.
+    force.goal.approach_distance_m: 0.005
+    # Free-space timing derates this 12.5 mm/s cap to about 10 mm/s measured
+    # at RTF=1. Compliant travel requests 1 mm/s of simulation time.
+    # Contact simulation can run slower; report measured wall speed separately.
+    controller.pose_policies.free_space.linear_scale: 0.015625
+    force.goal.insertion_speed_m_s: 0.001
+    # Keep the calibrated uncertainty filter, gains and nominal lead barrier.
+    # Faster axial gains left coupled moments oscillating in the final scan.

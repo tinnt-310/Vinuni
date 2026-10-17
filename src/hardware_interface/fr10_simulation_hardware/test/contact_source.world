@@ -1,0 +1,6 @@
+<sdf version="1.6"><world name="contact_source_test">
+  <gravity>0 0 -9.80665</gravity>
+  <physics type="ode" name="ode"><max_step_size>.001</max_step_size><real_time_update_rate>0</real_time_update_rate><ode><solver><type>quick</type><iters>100</iters><sor>1</sor></solver><constraints><contact_surface_layer>0</contact_surface_layer></constraints></ode></physics>
+  <model name="ground"><static>true</static><pose>0 0 -.05 0 0 .2</pose><link name="ground"><inertial><mass>100</mass><inertia><ixx>10</ixx><iyy>10</iyy><izz>10</izz></inertia></inertial><collision name="floor"><geometry><box><size>2 2 .1</size></box></geometry></collision></link></model>
+  <model name="tool"><pose>0 0 .0501 0 0 .7</pose><allow_auto_disable>false</allow_auto_disable><link name="charging_connector_link"><inertial><mass>1</mass><inertia><ixx>.01</ixx><iyy>.01</iyy><izz>.01</izz></inertia></inertial><collision name="box"><geometry><box><size>.1 .1 .1</size></box></geometry></collision></link></model>
+</world></sdf>

@@ -1,0 +1,39 @@
+# Simulation servo calibration; units rad, N m, seconds. Not cabinet gains.
+# Position PID applies torque through Gazebo physics, preserving contact loads.
+# Wrist stiffness keeps the keyed fit under contact moment; measured-velocity
+# damping suppresses the lightly damped transient on load release.
+kp: [35000.0, 45000.0, 35000.0, 9000.0, 7000.0, 5000.0]
+# Physical mass/CoG gravity feedforward replaces gravity-holding integrals.
+# Integrating position error against the seated shoulder stores contact torque
+# and kicks the keyed plug sideways when withdrawal starts.
+ki: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+kd: [390.0, 495.0, 390.0, 99.0, 85.0, 71.0]
+# control_toolbox::Pid clamps the integral CONTRIBUTION in N m. Gazebo's
+# parameter is named max_integral_error, but is passed as initPid(i_max).
+# Retained limits for optional residual integration; canonical gains use ki=0.
+integral_torque_limit_nm: [150.0, 150.0, 150.0, 28.0, 28.0, 28.0]
+# Integration refinement for the physics-step encoder servo. The 1 ms
+# arm-only/home startup exhibits alternating encoder velocity and FT load.
+# Keep the same PD, effort limits and contact gates during convergence checks.
+matched_gazebo_physics:
+  max_step_size_s: 0.0000625
+# Gazebo combines two surfaces: kp is harmonic, kd additive. A0.01 m/s
+# penetration-recovery cap clips stationary support near2 N/contact with
+# kd_total200 Ns/m; the5 N seating controller then keeps sinking. This cap
+# belongs to constraint recovery, not commanded robot velocity.
+matched_gazebo_contact:
+  stiffness_n_m: 20000.0
+  damping_n_s_m: 100.0
+  max_correcting_velocity_m_s: 0.1
+# Matched CAD MuJoCo contact calibration (constraint parameters, not measured
+# material properties). Ramp impedance across the first 50 micrometres of
+# penetration, then retain the stiff constraint. No collision radius/margin.
+# Independent physical acceptance still requires penetration <=50 micrometres.
+matched_mujoco_contact:
+  # Convex distance convergence for thin collar cells against exact triangles.
+  # 1 um default produced false 164 um contacts at a measured <1 um overlap.
+  # Tighten numerical accuracy; preserve CAD, loads and the 50 um acceptance.
+  ccd_tolerance: 1.0e-10
+  ccd_iterations: 200
+  solref: [-20000.0, -300.0]
+  solimp: [0.0, 0.99, 0.00005, 0.5, 2.0]

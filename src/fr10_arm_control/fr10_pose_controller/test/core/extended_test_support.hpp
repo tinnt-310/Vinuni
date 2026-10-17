@@ -12,11 +12,11 @@
 #include <Eigen/Dense>
 #include <Eigen/SVD>
 
-#include "fr10_pose_controller/cartesian_path.hpp"
-#include "fr10_pose_controller/cartesian_trajectory.hpp"
-#include "fr10_pose_controller/continuous_ik.hpp"
-#include "fr10_pose_controller/fr10_analytical_ik.hpp"
-#include "fr10_pose_controller/math_utils.hpp"
+#include "fr10_motion_core/cartesian_path.hpp"
+#include "fr10_motion_core/cartesian_trajectory.hpp"
+#include "fr10_motion_core/continuous_ik.hpp"
+#include "fr10_motion_core/fr10_analytical_ik.hpp"
+#include "fr10_motion_core/math_utils.hpp"
 #include "test_support.hpp"
 
 namespace fr10_motion_test {

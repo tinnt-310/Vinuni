@@ -10,8 +10,9 @@ import sys
 from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
-if str(PROJECT_ROOT) not in sys.path:
-    sys.path.insert(0, str(PROJECT_ROOT))
+for import_root in (PROJECT_ROOT, PROJECT_ROOT / "src"):
+    if str(import_root) not in sys.path:
+        sys.path.insert(0, str(import_root))
 
 from scripts.common import DEFAULT_CONFIG, build_runtime, safe_shutdown  # noqa: E402
 from fx5u_controller import (  # noqa: E402
@@ -47,7 +48,8 @@ class WheelControllerShell(cmd.Cmd):
         print(f"Connected: {self.controller.connected}")
         print(f"Communication fault: {self.controller.communication_fault}")
         print(
-            f"Speed control {self.controller.speed_control.enable_device}: "
+            f"Speed control {self.controller.speed_control.enable_device}/"
+            f"{self.controller.speed_control.output_enable_device}: "
             f"{'ON-command acknowledged' if self.controller.speed_control_enabled else 'OFF'}"
         )
         print(f"Runtime services: {'RUNNING' if self.runtime.running else 'STOPPED'}")
@@ -267,6 +269,9 @@ def main() -> int:
     exit_code = 0
     try:
         controller.connect()
+        controller.stop_drive()
+        controller.reset_drive_on_start()
+        controller.stop_drive()
         runtime.start()
         WheelControllerShell(controller, runtime, logger).cmdloop()
     except KeyboardInterrupt:

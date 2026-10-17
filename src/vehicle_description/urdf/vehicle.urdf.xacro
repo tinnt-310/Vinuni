@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://wiki.ros.org/xacro" name="complete_visual">
+    <!-- One FR10 model for standalone and vehicle-mounted Gazebo profiles.
+         Only the parent mount and optional vehicle links differ. -->
+    <xacro:arg name="enable_vehicle" default="true"/>
+    <xacro:arg name="enable_arm" default="true"/>
+    <xacro:arg name="enable_arm_camera" default="true"/>
+    <!-- Gazebo-only proxy for the fixed arm base, matching the measured
+         clearance used by both standalone and mounted simulations. -->
+    <xacro:arg name="sim_base_collision_proxy" default="false"/>
+    <!-- Test-only F/T load-cell chain and Gazebo plugin. Disabled for production and
+         for every non-Gazebo backend unless explicitly requested. -->
+    <xacro:arg name="enable_force_sensor" default="false"/>
+    <xacro:arg name="charging_tool_profile" default="legacy"/>
+    <xacro:arg name="wrist_layout" default="calibrated"/>
+    <!-- Lets the combined vehicle_bringup graph enable only the Gazebo FT
+         plugin without adding a second ros2_control system. -->
+    <xacro:arg name="force_sensor_sim_gazebo" default="false"/>
+    <!-- Geometry is identical for Gazebo, GenericSystem and FAIRINO.  Only
+         actuator ownership is selected here; Gazebo's combined control graph
+         is added by vehicle_bringup/config/simulation.xacro. -->
+    <xacro:arg name="control_backend" default="none"/>
+    <xacro:arg name="initial_positions_file" default=""/>
+    <xacro:arg name="gazebo_controller_yaml" default=""/>
+    <xacro:arg name="robot_ip" default="192.168.58.2"/>
+    <xacro:arg name="hardware_plugin" default="fairino_hardware_v3_9_3/FairinoHardwareInterface"/>
+
+    <xacro:if value="$(arg enable_vehicle)">
+      <xacro:include filename="vehicle_base.xacro"/>
+    </xacro:if>
+    <xacro:unless value="$(arg enable_vehicle)">
+      <xacro:include filename="vehicle_dimensions.xacro"/>
+    </xacro:unless>
+    <xacro:include filename="inertial_macros.xacro"/>
+
+    <xacro:if value="$(arg enable_arm)">
+      <xacro:include filename="fr10_arm.urdf"/>
+      <xacro:if value="$(arg enable_vehicle)">
+        <link name="robot_base"/>
+        <joint name="base_to_robot_base" type="fixed">
+          <parent link="base_link"/><child link="robot_base"/>
+          <origin xyz="${robot_x} 0 ${robot_z}" rpy="0 0 ${pi}"/>
+        </joint>
+        <joint name="base_to_fr10" type="fixed"><parent link="robot_base"/><child link="fr10_base_link"/></joint>
+      </xacro:if>
+      <xacro:unless value="$(arg enable_vehicle)">
+        <link name="world"/>
+        <joint name="world_to_fr10" type="fixed">
+          <parent link="world"/><child link="fr10_base_link"/>
+        </joint>
+      </xacro:unless>
+      <xacro:include filename="fr10_wrist.xacro"/>
+      <xacro:if value="${'$(arg wrist_layout)' == 'photo_dc_d455'}">
+        <xacro:include filename="fr10_photo_wrist.xacro"/>
+        <xacro:fr10_photo_wrist enable_camera="$(arg enable_arm_camera)"/>
+      </xacro:if>
+      <xacro:unless value="${'$(arg wrist_layout)' == 'photo_dc_d455'}">
+      <xacro:fr10_wrist
+        tool_profile="$(arg charging_tool_profile)"
+        enable_camera="$(arg enable_arm_camera)"
+        enable_force_sensor="${'$(arg enable_force_sensor)' == 'true'}"
+        sim_gazebo="${'$(arg control_backend)' == 'gazebo' or '$(arg force_sensor_sim_gazebo)' == 'true'}"/>
+      </xacro:unless>
+      <xacro:if value="${'$(arg control_backend)' != 'none'}">
+        <xacro:include filename="fr10_ros2_control.xacro"/>
+        <xacro:fr10_ros2_control
+          name="FR10System"
+          initial_positions_file="$(arg initial_positions_file)"
+          control_backend="$(arg control_backend)"
+          dynamic_simulation="${'$(arg control_backend)' == 'gazebo' and '$(arg charging_tool_profile)' == 'matched_socket_v2'}"
+          robot_ip="$(arg robot_ip)"
+          hardware_plugin="$(arg hardware_plugin)"/>
+      </xacro:if>
+      <xacro:if value="${'$(arg control_backend)' == 'gazebo'}">
+        <gazebo>
+          <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
+            <parameters>$(arg gazebo_controller_yaml)</parameters>
+          </plugin>
+        </gazebo>
+      </xacro:if>
+    </xacro:if>
+
+    <xacro:if value="$(arg enable_vehicle)">
+      <xacro:include filename="body_sensors.xacro"/>
+      <xacro:body_sensors/>
+    </xacro:if>
+</robot>

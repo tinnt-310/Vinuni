@@ -11,6 +11,9 @@
 #include <array>
 #include <vector>
 #include <std_msgs/msg/float64_multi_array.hpp>
+#include <geometry_msgs/msg/wrench_stamped.hpp>
+#include <fr10_motion_interfaces/msg/wrench_source_status.hpp>
+#include <realtime_tools/realtime_publisher.hpp>
 #include "libfairino/include/robot.h"
 
 
@@ -19,36 +22,41 @@
 namespace fairino_hardware
 {
 
-class FairinoHardwareInterface: public hardware_interface::SystemInterface{
+class FairinoHardwareInterface : public hardware_interface::SystemInterface
+{
 public:
   RCLCPP_SHARED_PTR_DEFINITIONS(FairinoHardwareInterface)
 
   // Some FAIRINO SDK releases leave their CNDE receive thread alive after CloseRPC().
   // Destroying FRRobot then causes a verified use-after-free during shutdown.
   // Keep one reusable instance for this process and let the OS reclaim it.
-  ~FairinoHardwareInterface() override { (void)_ptr_robot.release(); }
+  ~FairinoHardwareInterface() override {(void)_ptr_robot.release();}
 
   FAIRINO_HARDWARE_PUBLIC
-  hardware_interface::CallbackReturn on_init(const hardware_interface::HardwareInfo& info) override;
+  hardware_interface::CallbackReturn on_init(
+    const hardware_interface::HardwareInfo & info) override;
 
   //FAIRINO_HARDWARE_PUBLIC
   //hardware_interface::CallbackReturn on_configure(const rclcpp_lifecycle::State &) override;
 
   FAIRINO_HARDWARE_PUBLIC
-  hardware_interface::CallbackReturn on_activate(const rclcpp_lifecycle::State& previous_state) override;
-  
-  FAIRINO_HARDWARE_PUBLIC
-  hardware_interface::CallbackReturn on_deactivate(const rclcpp_lifecycle::State& previous_state) override;
+  hardware_interface::CallbackReturn on_activate(const rclcpp_lifecycle::State & previous_state)
+  override;
 
   FAIRINO_HARDWARE_PUBLIC
-  hardware_interface::CallbackReturn on_error(const rclcpp_lifecycle::State& previous_state) override;
-  
+  hardware_interface::CallbackReturn on_deactivate(const rclcpp_lifecycle::State & previous_state)
+  override;
+
+  FAIRINO_HARDWARE_PUBLIC
+  hardware_interface::CallbackReturn on_error(const rclcpp_lifecycle::State & previous_state)
+  override;
+
   FAIRINO_HARDWARE_PUBLIC
   std::vector<hardware_interface::StateInterface> export_state_interfaces() override;
-  
+
   FAIRINO_HARDWARE_PUBLIC
   std::vector<hardware_interface::CommandInterface> export_command_interfaces() override;
-  
+
   // hardware_interface::return_type prepare_command_mode_switch(
   //   const std::vector<std::string> & start_interfaces,
   //   const std::vector<std::string> & stop_interfaces) override;
@@ -57,14 +65,26 @@ public:
   //   const std::vector<std::string>& stop_interfaces) override;
 
   FAIRINO_HARDWARE_PUBLIC
-  hardware_interface::return_type read(const rclcpp::Time & time, const rclcpp::Duration & period) override;
-  
+  hardware_interface::return_type read(
+    const rclcpp::Time & time,
+    const rclcpp::Duration & period) override;
+
   FAIRINO_HARDWARE_PUBLIC
-  hardware_interface::return_type write(const rclcpp::Time & time, const rclcpp::Duration & period) override;
-  
+  hardware_interface::return_type write(
+    const rclcpp::Time & time,
+    const rclcpp::Duration & period) override;
+
 private:
   hardware_interface::CallbackReturn stopAndClose(const char * context);
   void publishHealth(int read_error);
+  void publishForceSensor(const rclcpp::Time & time, bool packet_online);
+  using WrenchPublisher = realtime_tools::RealtimePublisher<geometry_msgs::msg::WrenchStamped>;
+  using ForceStatusPublisher =
+    realtime_tools::RealtimePublisher<fr10_motion_interfaces::msg::WrenchSourceStatus>;
+  std::unique_ptr<WrenchPublisher> raw_force_pub_;
+  std::unique_ptr<WrenchPublisher> reference_force_pub_;
+  std::unique_ptr<ForceStatusPublisher> force_status_pub_;
+  uint64_t force_published_sequence_{0};
   rclcpp::Node::SharedPtr health_node_;
   rclcpp::Publisher<std_msgs::msg::Float64MultiArray>::SharedPtr health_pub_;
   std_msgs::msg::Float64MultiArray health_message_;
@@ -75,6 +95,11 @@ private:
   int last_write_error_{0};
   int last_frame_{-1};
   std::chrono::steady_clock::time_point last_frame_time_{};
+  uint64_t servo_write_sequence_{0};
+  uint64_t servo_success_sequence_{0};
+  double last_servo_write_gap_s_{0.0};
+  bool have_servo_write_time_{false};
+  std::chrono::steady_clock::time_point last_servo_write_time_{};
 
   double _jnt_position_command[6];
   double _jnt_velocity_command[6];

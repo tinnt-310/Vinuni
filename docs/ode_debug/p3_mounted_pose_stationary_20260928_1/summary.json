@@ -1,0 +1,108 @@
+{
+  "clock_samples": 395,
+  "clock_sim_elapsed_s": 39.400000000000006,
+  "command": [
+    "ros2",
+    "launch",
+    "vehicle_bringup",
+    "simulation.launch.py",
+    "enable_vehicle:=true",
+    "enable_arm:=true",
+    "arm_controller_profile:=pose",
+    "gui:=false",
+    "rviz:=false",
+    "gazebo_port:=11395"
+  ],
+  "controllers": "\u001b[92mjoint_state_broadcaster\u001b[0m joint_state_broadcaster/JointStateBroadcaster      \u001b[92mactive\u001b[0m\n\u001b[92mfairino10_controller   \u001b[0m position_controllers/JointGroupPositionController  \u001b[92mactive\u001b[0m\n\u001b[92mswerve_controller      \u001b[0m swerve_vehicle_control/SwerveDriveController       \u001b[92mactive\u001b[0m\n",
+  "diagnostic": true,
+  "diagnostic_status": "state=HOLDING outcome=GOAL_REACHED mode=POSE pose_policy=INSERTION owner=POSE_PATH type=JOINT_POSITION revision=0 generation=2 scene_revision=1 active_scene_revision=1 command_seq=4511 feedback_seq=4508 feedback_age_ms=5.864 safety_known=false backend_ready=true loop_samples=4511 loop_hz=124.996 mean_cycle_period_ms=8.000234 mean_abs_jitter_ms=0.021018 max_abs_jitter_ms=0.154303 max_cycle_period_ms=8.154303 period_p50_ms=8.250 period_p95_ms=8.250 period_p99_ms=8.250 execution_p50_ms=0.250 execution_p95_ms=0.250 execution_p99_ms=0.250 max_tick_execution_ms=0.224 tick_deadline_misses=0 scheduler_gaps=0 max_consecutive_tick_misses=0 max_feedback_age_ms=8.200 ik_mean_us=18.694 ik_max_us=67.151 position_error_m=0.000010 angular_error_rad=0.000016 path_deviation_m=0.000004 reference_actual_rad=0.000010 candidate_reference_actual_rad=0.000010 reference_lagging=false reference_lag_samples=0 max_delta_qdot_rad_s=0.003126 max_delta_v_m_s=0.000000 sdk_read_errors=0 sdk_write_errors=0 command_write_errors=0 sdk_errors=0 reason=NONE",
+  "domain": 95,
+  "drive_only": false,
+  "drive_start_wall_s": 272.646072689,
+  "final_joint": [
+    4.560882588933168e-06,
+    -1.59936963058227,
+    1.5989027927689685,
+    -1.5703024262383103,
+    -1.5707963739805244,
+    3.950690930842882e-06
+  ],
+  "final_status": "state=HOLDING outcome=GOAL_REACHED mode=POSE pose_policy=INSERTION owner=POSE_PATH type=JOINT_POSITION revision=0 generation=2 scene_revision=1 active_scene_revision=1 command_seq=4511 feedback_seq=4508 feedback_age_ms=5.864 safety_known=false backend_ready=true loop_samples=4511 loop_hz=124.996 mean_cycle_period_ms=8.000234 mean_abs_jitter_ms=0.021018 max_abs_jitter_ms=0.154303 max_cycle_period_ms=8.154303 period_p50_ms=8.250 period_p95_ms=8.250 period_p99_ms=8.250 execution_p50_ms=0.250 execution_p95_ms=0.250 execution_p99_ms=0.250 max_tick_execution_ms=0.224 tick_deadline_misses=0 scheduler_gaps=0 max_consecutive_tick_misses=0 max_feedback_age_ms=8.200 ik_mean_us=18.694 ik_max_us=67.151 position_error_m=0.000010 angular_error_rad=0.000016 path_deviation_m=0.000004 reference_actual_rad=0.000010 candidate_reference_actual_rad=0.000010 reference_lagging=false reference_lag_samples=0 max_delta_qdot_rad_s=0.003126 max_delta_v_m_s=0.000000 sdk_read_errors=0 sdk_write_errors=0 command_write_errors=0 sdk_errors=0 reason=NONE",
+  "final_tcp": [
+    [
+      -0.7699926744853017,
+      -0.1590040164105976,
+      0.621481399293858
+    ],
+    [
+      -0.7071056981424418,
+      0.7071078640595473,
+      -9.551372618603057e-06,
+      1.218220900644555e-05
+    ]
+  ],
+  "gzserver_crash": false,
+  "initial_joint": [
+    2.0146883450422592e-06,
+    -1.5707957996719502,
+    1.5708060701274569,
+    -1.5707950738075533,
+    -1.5707945761954374,
+    -1.4113854547304072e-06
+  ],
+  "initial_status": "state=IDLE outcome=NONE mode=JOINT pose_policy=FREE_SPACE owner=NONE type=NONE revision=0 generation=0 scene_revision=1 active_scene_revision=0 command_seq=11 feedback_seq=11 feedback_age_ms=6.671 safety_known=false backend_ready=true loop_samples=11 loop_hz=124.946 mean_cycle_period_ms=8.003441 mean_abs_jitter_ms=0.030769 max_abs_jitter_ms=0.088822 max_cycle_period_ms=8.088822 period_p50_ms=8.250 period_p95_ms=8.250 period_p99_ms=8.250 execution_p50_ms=0.250 execution_p95_ms=0.250 execution_p99_ms=0.250 max_tick_execution_ms=0.103 tick_deadline_misses=0 scheduler_gaps=0 max_consecutive_tick_misses=0 max_feedback_age_ms=6.913 ik_mean_us=0.000 ik_max_us=0.000 position_error_m=0.000000 angular_error_rad=0.000000 path_deviation_m=0.000000 reference_actual_rad=0.000000 candidate_reference_actual_rad=0.000000 reference_lagging=false reference_lag_samples=0 max_delta_qdot_rad_s=0.000000 max_delta_v_m_s=0.000000 sdk_read_errors=0 sdk_write_errors=0 command_write_errors=0 sdk_errors=0 reason=NONE",
+  "initial_tcp": [
+    [
+      -0.789996120264385,
+      -0.1590030435082022,
+      0.6214907161306766
+    ],
+    [
+      -0.7071066937793945,
+      0.707106868552212,
+      -4.6930722217399535e-06,
+      6.052573144212388e-06
+    ]
+  ],
+  "joint_feedback_samples": 4576,
+  "joint_max_receive_gap_s": 0.038484977999985404,
+  "joint_max_source_gap_s": 0.008000000000009777,
+  "launch_alive_at_measurement": true,
+  "launch_exit": 0,
+  "normalized_command_samples": 0,
+  "observers_alive_at_measurement": true,
+  "ode_lcp_count": 0,
+  "odom_samples": 1063,
+  "pass": false,
+  "port": 11395,
+  "pose_reached": true,
+  "pose_target": [
+    [
+      -0.769996120264385,
+      -0.1590030435082022,
+      0.6214907161306766
+    ],
+    [
+      -0.7071066937793945,
+      0.707106868552212,
+      -4.6930722217399535e-06,
+      6.052573144212388e-06
+    ]
+  ],
+  "ready": true,
+  "real_time_factor": 0.9840195029670481,
+  "tcp_samples_during_drive": 0,
+  "vehicle_actual_displacement_m": 0.0030401977569622404,
+  "vehicle_finite": true,
+  "vehicle_max_gap_wall_s": 0.06813423599999169,
+  "vehicle_observer_exit": 0,
+  "vehicle_samples": 720,
+  "vehicle_sim_elapsed_s": 37.07299999999998,
+  "wheel_state_samples": 4574,
+  "wrist_actual_displacement_m": 0.019997418654647478,
+  "wrist_finite": true,
+  "wrist_max_gap_wall_s": 0.06808568700000706,
+  "wrist_observer_exit": 0,
+  "wrist_samples": 718,
+  "wrist_sim_elapsed_s": 37.089999999999975
+}

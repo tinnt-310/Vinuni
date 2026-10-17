@@ -1,0 +1,36 @@
+{
+  "mode": "vehicle",
+  "duration_s": 52.59,
+  "launch_command": [
+    "ros2",
+    "launch",
+    "/home/tin/Vinuni/docs/ode_debug/postserial_20260927_vehicle_2/repro.launch.py",
+    "enable_arm:=false",
+    "enable_vehicle:=true",
+    "gui:=false",
+    "rviz:=false",
+    "gazebo_port:=11393"
+  ],
+  "lcp_errors": 0,
+  "nonfinite_log_tokens": 0,
+  "gzserver_crashed": false,
+  "arm_action_status": null,
+  "arm_max_final_error_rad": null,
+  "arm_finite": null,
+  "mounted_rest_goal_completed_before_drive": null,
+  "mounted_moving_goal_drive_overlap_s": null,
+  "vehicle": {
+    "pass": false,
+    "failure": "steering and drive controllers did not become active"
+  },
+  "warnings": [
+    "[spawn_entity.py-3] [ERROR] [1790449892.548464775] [spawn_entity]: Spawn service failed. Exiting.",
+    "[ERROR] [spawn_entity.py-3]: process has died [pid 208340, exit code 1, cmd '/opt/ros/humble/lib/gazebo_ros/spawn_entity.py -entity tram_sac_VF1 -file /home/tin/Vinuni/install_grouped/vehicle_description/share/vehicle_description/models/tram_sac_VF/model.sdf -x 10.5 -y 0.0 -z 0.0 -Y -1.57 --ros-args --params-file /tmp/launch_params_n1j583mt']."
+  ],
+  "vehicle_pose": {
+    "pass": false,
+    "reason": "Too few actual chassis pose samples",
+    "samples": 0
+  },
+  "pass": false
+}

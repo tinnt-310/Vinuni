@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:include filename="$(find realsense2_description)/urdf/_d455.urdf.xacro"/>
+  <xacro:include filename="d435_simulation.xacro"/>
+  <xacro:macro name="photo_box" params="name parent xyz size mass:=0.1">
+    <link name="${name}">
+      <visual><geometry><box size="${size}"/></geometry><material name="photo_white"><color rgba="0.88 0.89 0.88 1"/></material></visual>
+      <collision><geometry><box size="${size}"/></geometry></collision>
+      <xacro:inertial_box mass="${mass}" x="${float(size.split()[0])}" y="${float(size.split()[1])}" z="${float(size.split()[2])}"><origin xyz="0 0 0"/></xacro:inertial_box>
+    </link>
+    <joint name="${name}_fixed" type="fixed"><parent link="${parent}"/><child link="${name}"/><origin xyz="${xyz}"/></joint>
+  </xacro:macro>
+  <xacro:macro name="photo_contact" params="contact">
+    <xacro:property name="xy" value="${contact['xy_m']}"/>
+    <visual name="${contact['name']}_insulator"><origin xyz="${xy[0]} ${xy[1]} 0.102"/>
+      <geometry><cylinder radius="${contact['collar_radius_m']}" length="0.008"/></geometry>
+      <material name="photo_insulator"><color rgba="0.13 0.14 0.15 1"/></material>
+    </visual>
+    <visual name="${contact['name']}_male"><origin xyz="${xy[0]} ${xy[1]} 0.106"/>
+      <geometry><cylinder radius="${contact['radius_m']}" length="0.008"/></geometry>
+      <material name="photo_brass"><color rgba="0.80 0.62 0.28 1"/></material>
+    </visual>
+    <collision name="${contact['name']}_male"><origin xyz="${xy[0]} ${xy[1]} 0.106"/>
+      <geometry><cylinder radius="${contact['radius_m']}" length="0.008"/></geometry>
+    </collision>
+  </xacro:macro>
+  <xacro:macro name="fr10_photo_wrist" params="enable_camera:=true">
+    <xacro:property name="photo" value="${xacro.load_yaml('$(find vehicle_description)/config/fr10_photo_layout.yaml')}"/>
+    <link name="plate_frame"/>
+    <joint name="wrist3_to_plate" type="fixed"><parent link="wrist3_link"/><child link="plate_frame"/><origin xyz="0 0 0.106" rpy="0 0 ${pi}"/></joint>
+    <link name="wrist_mount_backplate">
+      <visual><origin xyz="0 0 0.004"/><geometry><cylinder radius="0.055" length="0.008"/></geometry><material name="photo_white"><color rgba="0.88 0.89 0.88 1"/></material></visual>
+      <collision><origin xyz="0 0 0.004"/><geometry><cylinder radius="0.055" length="0.008"/></geometry></collision>
+      <xacro:inertial_cylinder mass="0.15" length="0.008" radius="0.055"><origin xyz="0 0 0.004"/></xacro:inertial_cylinder>
+    </link>
+    <joint name="plate_to_backplate" type="fixed"><parent link="plate_frame"/><child link="wrist_mount_backplate"/></joint>
+    <xacro:photo_box name="camera_support_left" parent="plate_frame" xyz="-0.04 0 0.0115" size="0.012 0.024 0.007"/>
+    <xacro:photo_box name="camera_support_right" parent="plate_frame" xyz="0.04 0 0.0115" size="0.012 0.024 0.007"/>
+    <xacro:photo_box name="camera_rear_mount" parent="plate_frame" xyz="0 0 0.011" size="0.130 0.034 0.008"/>
+    <xacro:photo_box name="charger_support_left" parent="plate_frame" xyz="-0.050 0.095 0.040" size="0.012 0.135 0.064" mass="0.2"/>
+    <xacro:photo_box name="charger_support_right" parent="plate_frame" xyz="0.050 0.095 0.040" size="0.012 0.135 0.064" mass="0.2"/>
+    <xacro:photo_box name="charger_backbone" parent="plate_frame" xyz="0 0.080 0.004" size="0.124 0.190 0.008" mass="0.2"/>
+    <xacro:photo_mesh_part name="charger_rear_mount" mesh="rear_pad.stl"/>
+    <xacro:photo_mesh_part name="charger_cradle_left" mesh="clamp_left.stl"/>
+    <xacro:photo_mesh_part name="charger_cradle_right" mesh="clamp_right.stl"/>
+    <link name="charging_connector_link">
+      <visual><origin xyz="0 0 -0.075"/><geometry><mesh filename="package://vehicle_description/meshes/fr10_photo_mount/dc_housing.stl"/></geometry><material name="photo_black"><color rgba="0.065 0.068 0.070 1"/></material></visual>
+      <collision><origin xyz="0 0 0.05"/><geometry><box size="0.090 0.135 0.100"/></geometry></collision>
+      <xacro:photo_contact contact="${photo['contacts'][0]}"/><xacro:photo_contact contact="${photo['contacts'][1]}"/>
+      <xacro:photo_contact contact="${photo['contacts'][2]}"/><xacro:photo_contact contact="${photo['contacts'][3]}"/>
+      <xacro:photo_contact contact="${photo['contacts'][4]}"/><xacro:photo_contact contact="${photo['contacts'][5]}"/>
+      <xacro:photo_contact contact="${photo['contacts'][6]}"/><xacro:photo_contact contact="${photo['contacts'][7]}"/>
+      <xacro:photo_contact contact="${photo['contacts'][8]}"/>
+      <xacro:inertial_box mass="3.0" x="0.090" y="0.135" z="0.110"><origin xyz="0 0 0.05"/></xacro:inertial_box>
+    </link>
+    <joint name="plate_to_charging_connector" type="fixed"><parent link="plate_frame"/><child link="charging_connector_link"/><origin xyz="0 0.095 0.075"/></joint>
+    <link name="charging_tcp"/>
+    <joint name="connector_to_tcp" type="fixed"><parent link="charging_connector_link"/><child link="charging_tcp"/><origin xyz="0 0 0.110"/></joint>
+    <link name="Charge_link"/><joint name="connector_to_charge_alias" type="fixed"><parent link="charging_connector_link"/><child link="Charge_link"/></joint>
+    <link name="d455_wrist_mount_frame"/>
+    <joint name="plate_to_d455_wrist" type="fixed"><parent link="plate_frame"/><child link="d455_wrist_mount_frame"/></joint>
+    <xacro:sensor_d455 parent="d455_wrist_mount_frame" name="camera" use_nominal_extrinsics="true">
+      <origin xyz="0 -0.014499767 0.0252" rpy="${-pi/2} ${-pi/2} 0"/>
+    </xacro:sensor_d455>
+    <link name="camera_front_visual">
+      <visual><geometry><mesh filename="package://vehicle_description/meshes/fr10_photo_mount/d455_fascia.stl"/></geometry><material name="photo_glass"><color rgba="0.025 0.030 0.035 1"/></material></visual>
+      <xacro:photo_lens x="-0.0475"/><xacro:photo_lens x="0"/><xacro:photo_lens x="0.0475"/>
+    </link>
+    <joint name="camera_front_visual_fixed" type="fixed"><parent link="plate_frame"/><child link="camera_front_visual"/></joint>
+    <link name="arm_camera_link_optical"/><joint name="camera_optical_alias" type="fixed"><parent link="camera_depth_optical_frame"/><child link="arm_camera_link_optical"/></joint>
+    <xacro:if value="${enable_camera}"><xacro:d435_simulation/></xacro:if>
+  </xacro:macro>
+  <xacro:macro name="photo_lens" params="x">
+    <visual><origin xyz="${x} 0 0.0416"/><geometry><cylinder radius="0.006" length="0.0005"/></geometry><material name="photo_lens_ring"><color rgba="0.16 0.18 0.19 1"/></material></visual>
+    <visual><origin xyz="${x} 0 0.04195"/><geometry><cylinder radius="0.0038" length="0.0003"/></geometry><material name="photo_lens_glass"><color rgba="0.04 0.11 0.12 1"/></material></visual>
+  </xacro:macro>
+  <xacro:macro name="photo_mesh_part" params="name mesh">
+    <link name="${name}">
+      <visual><geometry><mesh filename="package://vehicle_description/meshes/fr10_photo_mount/${mesh}"/></geometry><material name="photo_white"><color rgba="0.88 0.89 0.88 1"/></material></visual>
+      <collision><geometry><mesh filename="package://vehicle_description/meshes/fr10_photo_mount/${mesh}"/></geometry></collision>
+      <xacro:inertial_box mass="0.15" x="0.112" y="0.157" z="0.035"><origin xyz="0 0 0.095"/></xacro:inertial_box>
+    </link>
+    <joint name="${name}_fixed" type="fixed"><parent link="plate_frame"/><child link="${name}"/><origin xyz="0 0.095 0"/></joint>
+  </xacro:macro>
+</robot>

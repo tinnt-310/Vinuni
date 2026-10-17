@@ -1,0 +1,10 @@
+{
+  "shutdown": {
+    "backend_clean": true,
+    "duration_s": 0.46804959199971563,
+    "forced": false,
+    "returncode": 0,
+    "segfault": false
+  },
+  "startup": "FAIL"
+}

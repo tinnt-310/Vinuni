@@ -2,7 +2,7 @@
 #include <iostream>
 #include <utility>
 
-#include "fr10_pose_controller/motion_controller.hpp"
+#include "fr10_motion_core/motion_controller.hpp"
 #include "test_support.hpp"
 
 namespace {

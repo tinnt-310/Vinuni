@@ -27,8 +27,19 @@ from safe_joint_target import MAX_JOINT, MIN_JOINT, SafeTarget, generate
 from sdk_log_monitor import analyze as analyze_log
 
 
-WORKSPACE = pathlib.Path(__file__).resolve().parents[4]
-PACKAGE = WORKSPACE / "src" / "fr10_pose_controller"
+WORKSPACE = pathlib.Path(__file__).resolve().parents[5]
+
+
+def select_install_setup() -> pathlib.Path:
+    """Select a verified overlay; default preserves existing test behavior."""
+    candidate = pathlib.Path(os.environ.get(
+        'FR10_TEST_SETUP', str(WORKSPACE / 'install/setup.bash'))).resolve()
+    if not candidate.is_file():
+        raise FileNotFoundError(f'ROS test setup not found: {candidate}')
+    return candidate
+
+
+PACKAGE = WORKSPACE / "src" / "fr10_arm_control" / "fr10_pose_controller"
 
 
 def timestamp_slug() -> str:
@@ -66,7 +77,7 @@ def run(command: Iterable[str], timeout: float = 30.0,
 def sourced_bash(command: str, timeout: float = 120.0) -> Dict[str, Any]:
     setup = (
         "source /opt/ros/humble/setup.bash && "
-        f"source {shlex.quote(str(WORKSPACE / 'install/setup.bash'))} && "
+        f"source {shlex.quote(str(select_install_setup()))} && "
     )
     return run(["/bin/bash", "-lc", setup + command], timeout=timeout)
 
@@ -168,14 +179,17 @@ class ManagedLaunch:
     @classmethod
     def start(cls, results_dir: pathlib.Path, robot_ip: str,
               domain_id: int,
-              use_fake_hardware: bool = False) -> "ManagedLaunch":
+              use_fake_hardware: bool = False,
+              controller_overlay: str = "") -> "ManagedLaunch":
         results_dir.mkdir(parents=True, exist_ok=True)
         log_path = results_dir / "runtime.log"
         log_handle = log_path.open("w")
         hardware_value = "true" if use_fake_hardware else "false"
+        overlay_arg = (f" controller_overlay:={shlex.quote(controller_overlay)}"
+                       if controller_overlay else "")
         command = (
             "source /opt/ros/humble/setup.bash && "
-            f"source {shlex.quote(str(WORKSPACE / 'install/setup.bash'))} && "
+            f"source {shlex.quote(str(select_install_setup()))} && "
             f"export ROS_DOMAIN_ID={domain_id} && "
             "export RMW_LOCALHOST_ONLY=1 && "
             f"export ROS_LOG_DIR={shlex.quote(str(results_dir / 'ros_log'))} && "
@@ -183,6 +197,7 @@ class ManagedLaunch:
             f"use_fake_hardware:={hardware_value} use_gazebo:=false use_rviz:=false "
             f"backend:=ros_control robot_ip:={shlex.quote(robot_ip)} "
             "start_robot_stack:=true"
+            f"{overlay_arg}"
         )
         process = subprocess.Popen(
             ["/bin/bash", "-lc", command], cwd=WORKSPACE,

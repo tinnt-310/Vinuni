@@ -1,0 +1,46 @@
+{
+  "candidate": "CPU ray always_on=false, production Xacro; controller and world unchanged",
+  "runs": [
+    {
+      "path": "docs/ode_debug/p2_prod_defer_forward_20260928_1/summary.json",
+      "fresh_launch_pid": 64080,
+      "canonical_urdf_sha256": "58d6673fe59475b884cf4e592ea75ac07616acc4378bc279265cc51ff24763f3",
+      "scan_contract_valid": true,
+      "scan_samples": 251,
+      "scan_max_gap_wall_s": 0.13284833599982449,
+      "measured_pose_samples": 487,
+      "gazebo_dx_m": 0.5987302099159986,
+      "ode_lcp_count": 0,
+      "gzserver_crash": false,
+      "diagnostic_valid": true
+    },
+    {
+      "path": "docs/ode_debug/p2_prod_defer_forward_20260928_2/summary.json",
+      "fresh_launch_pid": 64808,
+      "canonical_urdf_sha256": "58d6673fe59475b884cf4e592ea75ac07616acc4378bc279265cc51ff24763f3",
+      "scan_contract_valid": true,
+      "scan_samples": 256,
+      "scan_max_gap_wall_s": 0.2328407140003037,
+      "measured_pose_samples": 496,
+      "gazebo_dx_m": 0.5999311617403521,
+      "ode_lcp_count": 0,
+      "gzserver_crash": false,
+      "diagnostic_valid": true
+    },
+    {
+      "path": "docs/ode_debug/p2_prod_defer_forward_20260928_3/summary.json",
+      "fresh_launch_pid": 65313,
+      "canonical_urdf_sha256": "58d6673fe59475b884cf4e592ea75ac07616acc4378bc279265cc51ff24763f3",
+      "scan_contract_valid": true,
+      "scan_samples": 266,
+      "scan_max_gap_wall_s": 0.13370537699984197,
+      "measured_pose_samples": 515,
+      "gazebo_dx_m": 0.5987302100331681,
+      "ode_lcp_count": 0,
+      "gzserver_crash": false,
+      "diagnostic_valid": true
+    }
+  ],
+  "same_canonical_model": true,
+  "three_consecutive_diagnostic_valid": true
+}

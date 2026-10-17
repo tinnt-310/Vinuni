@@ -34,7 +34,7 @@
   <exec_depend>gazebo_ros</exec_depend>
   <exec_depend>gazebo_ros2_control</exec_depend>
   <exec_depend>gazebo_plugins</exec_depend>
-  <exec_depend>fairino_description</exec_depend>
+  <exec_depend>vehicle_description</exec_depend>
   <exec_depend>fairino_hardware_v3_9_3</exec_depend>
   <exec_depend>realsense2_description</exec_depend>
   <exec_depend>moveit_configs_utils</exec_depend>

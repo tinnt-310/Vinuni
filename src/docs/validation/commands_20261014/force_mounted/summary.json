@@ -1,0 +1,39 @@
+{
+  "profile": "force_mounted",
+  "command": [
+    "ros2",
+    "launch",
+    "vehicle_bringup",
+    "bringup.launch.py",
+    "use_arm:=true",
+    "use_vehicle:=true",
+    "use_force:=true",
+    "use_gazebo:=true",
+    "gui:=false",
+    "rviz:=false",
+    "gazebo_port:=49539",
+    "station:=front_mid",
+    "initial_state:=home",
+    "demo:=false"
+  ],
+  "domain": 184,
+  "passed": true,
+  "controllers": [
+    "fairino10_controller",
+    "joint_state_broadcaster",
+    "swerve_controller"
+  ],
+  "tf": [
+    "world",
+    "charging_tcp"
+  ],
+  "force_action_ready": true,
+  "samples": {
+    "clock": 958,
+    "scan": 5,
+    "joint": 6369,
+    "odom": 484,
+    "tcp": 147
+  },
+  "launch_exit": 0
+}

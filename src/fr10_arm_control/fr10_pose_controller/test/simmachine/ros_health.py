@@ -32,7 +32,9 @@ class RuntimeProbe(Node):
             depth=100, reliability=ReliabilityPolicy.BEST_EFFORT,
             durability=DurabilityPolicy.VOLATILE,
             history=HistoryPolicy.KEEP_LAST)
-        self.create_subscription(JointState, "/joint_states", self._joint_cb, reliable)
+        # Sensor-data QoS receives both reliable hardware/broadcaster feedback
+        # and best-effort physics adapters, as the production backend does.
+        self.create_subscription(JointState, "/joint_states", self._joint_cb, sensor)
         self.create_subscription(PoseStamped, "/fr10_motion/tcp_pose", self._tcp_cb, sensor)
         self.create_subscription(String, "/controller_status", self._status_cb, transient)
         self.create_subscription(
@@ -51,8 +53,10 @@ class RuntimeProbe(Node):
         self.tf_listener = TransformListener(self.tf_buffer, self)
         self.lock = threading.Lock()
         self.joint_stamps = []
+        self.joint_source_history = []
         self.joint_history = []
         self.tcp_history = []
+        self.tcp_source_history = []
         self.status_history = []
         self.latest_joint: Optional[JointState] = None
         self.latest_tcp: Optional[PoseStamped] = None
@@ -119,18 +123,25 @@ class RuntimeProbe(Node):
             self.joint_velocity_source = velocity_source
             self.latest_joint = canonical
             self.joint_stamps.append(stamp)
+            self.joint_source_history.append(
+                (stamp, message.header.stamp.sec +
+                 message.header.stamp.nanosec * 1e-9))
             self.joint_history.append((stamp, list(canonical.position),
                                        list(canonical.velocity)))
 
     def _tcp_cb(self, message):
         stamp = time.monotonic()
+        received_wall_s = time.time()
+        source_s = message.header.stamp.sec + message.header.stamp.nanosec * 1e-9
         pose = message.pose
+        position = [pose.position.x, pose.position.y, pose.position.z]
+        orientation = [pose.orientation.x, pose.orientation.y,
+                       pose.orientation.z, pose.orientation.w]
         with self.lock:
             self.latest_tcp = message
-            self.tcp_history.append((stamp,
-                                     [pose.position.x, pose.position.y, pose.position.z],
-                                     [pose.orientation.x, pose.orientation.y,
-                                      pose.orientation.z, pose.orientation.w]))
+            self.tcp_history.append((stamp, position, orientation))
+            self.tcp_source_history.append(
+                (source_s, position, orientation, stamp, received_wall_s))
 
     def _status_cb(self, message):
         with self.lock:
@@ -195,7 +206,7 @@ class RuntimeProbe(Node):
         self.joint_pub.publish(message)
 
     def publish_pose(self, position: Sequence[float], quaternion: Sequence[float]):
-        self.publish_pose_message(position, quaternion, "base_link", True)
+        self.publish_pose_message(position, quaternion, "fr10_base_link", True)
 
     def publish_pose_message(self, position: Sequence[float],
                              quaternion: Sequence[float], frame_id: str,
@@ -273,7 +284,7 @@ class RuntimeProbe(Node):
 
     def tf_connected(self) -> bool:
         try:
-            self.tf_buffer.lookup_transform("base_link", "tool0", rclpy.time.Time())
+            self.tf_buffer.lookup_transform("fr10_base_link", "charging_tcp", rclpy.time.Time())
             return True
         except Exception:
             return False

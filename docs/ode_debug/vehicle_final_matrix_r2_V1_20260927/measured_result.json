@@ -1,0 +1,36 @@
+{
+  "case": "V1",
+  "lcp_count": 0,
+  "samples": 576,
+  "trace_source": "transport_state.jsonl",
+  "duration_s": 28.874105601999872,
+  "physics_finite": true,
+  "ros_finite": true,
+  "topics": {
+    "controller_states": 273,
+    "/joint_states": 2842
+  },
+  "active_controllers": [
+    "joint_state_broadcaster"
+  ],
+  "actual_displacement_m": [
+    1.3554074464357246e-10,
+    -1.36422058187851e-09,
+    -1.911811819965692e-10
+  ],
+  "actual_yaw_change_rad": -8.723597264272419e-07,
+  "max_settled_tilt_rad": 0.00020318246277345296,
+  "final_max_speed_m_s": 1.1109147292663802e-10,
+  "final_pose": [
+    7.8903838439924e-05,
+    0.00014238218723034744,
+    -0.001234241368001987
+  ],
+  "final_rpy": [
+    -0.00020318246277345296,
+    0.00019317629993370736,
+    7.362245564721495e-06
+  ],
+  "pass": true,
+  "scope": "Diagnostic gate; motion accuracy and full acceptance matrix still require review."
+}

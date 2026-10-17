@@ -1,0 +1,84 @@
+fr10_pose_controller:
+  ros__parameters:
+    # Draft simulation profile. Promotion requires motion/capture/contact gates.
+    # Calibration/testing may explicitly enable this profile; never real SDK.
+    force.base_motion_pose_window_s: 0.016
+    force.enabled: true
+    force.automatic_pose: true
+    force.profile_id: matched_socket_v2
+    force.process_mode: matched_mating
+    # Commissioning approach must remain within the plant's measured tracking
+    # response; retain the independent 1 degree reference lead barrier.
+    controller.pose_policies.free_space.joint_velocity_scale: 0.25
+    controller.pose_policies.free_space.joint_acceleration_scale: 0.50
+    controller.pose_policies.free_space.joint_jerk_scale: 0.25
+    controller.pose_policies.free_space.linear_scale: 0.125
+    controller.pose_policies.free_space.angular_scale: 0.25
+    # Withdrawal retains the strict Cartesian path. At 15 mm/s the ODE
+    # wrist transient exceeds the keyed fit; commission at <=3 mm/s.
+    controller.pose_policies.insertion.joint_velocity_scale: 0.10
+    controller.pose_policies.insertion.joint_acceleration_scale: 0.31622776601683794
+    controller.pose_policies.insertion.joint_jerk_scale: 0.10
+    controller.pose_policies.insertion.linear_scale: 0.00375
+    controller.pose_policies.insertion.angular_scale: 0.10
+    # Both matched profiles use the same worker. Measured35 ms exact collision/
+    # braking validation plus two8 ms handovers requires more than48 ms.
+    # These bounded budgets do not renew a pending proposal or sensor freshness.
+    force.target_validity_s: 0.064
+    force.command_lease_s: 0.096
+    force.goal.insertion_speed_m_s: 0.0005
+    force.goal.timeout_s: 300.0
+    force.max_nominal_lead_m: 0.0001
+    # 25 um/s seating correction allows only50 um in the unchanged2 s
+    # no-progress window. Count10 um directional progress; oscillation never
+    # renews the monotonic depth reference or the independent load objective.
+    force.minimum_progress_m: 0.00001
+    # Unload the seated shoulder gently before speeding up the same straight
+    # withdrawal. Mounted launch supplies its calibrated speed from geometry.
+    force.retract_initial_velocity_m_s: 0.000025
+    force.retract_initial_distance_m: 0.0001
+    force.joint_acceleration_scale: 0.25
+    force.joint_jerk_scale: 0.50
+    # Detect the edge while the load is low, before lateral alignment.
+    force.contact.enter_force_n: 1.0
+    force.contact.exit_force_n: 0.5
+    force.contact.confirm_time_s: 0.016
+    force.contact_object_id: charging_port_mating_surfaces
+    force.contact_links: [charging_mating_nose, charging_mating_shoulder]
+    force.wrench_source_frame: charging_connector_link
+    force.wrench_target_frame: charging_tcp
+    force.wrench_source_sign: -1.0
+    # Seated raw contact ripple: 5 Hz yields only 80 ms uninterrupted force/
+    # rate dwell; 1 Hz replay yields 488 ms. The ~0.16 s filter time constant
+    # stays below axial D/K_contact (~0.57 s) and lateral D/K (0.50 s).
+    # Raw overload and raw force/torque limits remain independent of filtering.
+    force.filter_cutoff_hz: 1.0
+    force.admittance.mass: [1.0, 1.0, 1.0, 0.10, 0.10, 0.10]
+    # The shoulder trace showed ~175 kN/m effective axial contact stiffness
+    # in MuJoCo. Keep the admittance bandwidth below the measured filter +
+    # worker + actuator delay; these are simulation commissioning gains.
+    # Stage46 full-cycle commissioning: shoulder moments redistribute within
+    # the unchanged2 s progress window rather than accumulating axial load.
+    force.admittance.damping: [10000.0, 10000.0, 100000.0, 200.0, 200.0, 200.0]
+    # Restore the keyed mouth pose after unloading an edge. Pure damping
+    # leaves lateral/rotational offsets integrated after contact disappears.
+    # Axial stiffness stays zero so seating remains force controlled.
+    force.admittance.stiffness: [20000.0, 20000.0, 0.0, 50.0, 50.0, 50.0]
+    # Continuous dead zone on net drive (force error minus spring restoring
+    # force), not on measured/verification data. Lateral/rotational static
+    # restoring residuals are <=25 um / 60 urad. The rotational quiet-region
+    # norm is below the unchanged 0.10 Nm full-wrench verification tolerance.
+    # Axial deadband uses half the 1 N verification tolerance, leaving
+    # measured contact ripple margin without widening the acceptance band.
+    force.admittance.drive_deadband: [0.50, 0.50, 0.50, 0.003, 0.003, 0.003]
+    # Slower axial correction bounds the displacement accumulated through
+    # the measured filtering/actuator delay at the stiff seating shoulder.
+    force.admittance.max_velocity: [0.0002, 0.0002, 0.000025, 0.002, 0.002, 0.002]
+    force.admittance.max_acceleration: [0.002, 0.002, 0.002, 0.02, 0.02, 0.02]
+    force.admittance.max_correction: [0.002, 0.002, 0.002, 0.03490658503988659, 0.03490658503988659, 0.03490658503988659]
+    force.safety.max_lateral_correction_norm_m: 0.002
+    force.safety.max_rotation_correction_norm_rad: 0.03490658503988659
+    force.geometry.capture_lateral_tolerance_m: 0.002
+    force.geometry.capture_orientation_tolerance_rad: 0.03490658503988659
+    force.gravity_compensation.enabled: true
+    force.gravity_compensation.calibrated: true

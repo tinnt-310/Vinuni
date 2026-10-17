@@ -4,6 +4,10 @@ install/
 log/
 build_grouped/
 install_grouped/
+.colcon/
+build_*/
+install_*/
+log_*/
 
 # Python
 __pycache__/
@@ -34,3 +38,11 @@ Makefile
 *.bak
 *.tmp
 *~
+
+# Local Python environment and generated simulation output
+/.venv/
+/test_results/
+/docs/ode_debug/**/physics.jsonl
+
+# Local vendor manual exceeds GitHub's regular Git file-size limit
+/src/fairino-doc-en-readthedocs-io-en-3.9.3.pdf

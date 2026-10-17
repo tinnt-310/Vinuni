@@ -1,0 +1,4 @@
+{
+  "pass": false,
+  "failure": "steering and drive controllers did not become active"
+}

@@ -51,7 +51,10 @@ Trước khi chạy `./run.sh`:
 |    3 | Trái trên | M102    | M112  | M122  | D1002 | D1022  |
 |    4 | Trái dưới | M103    | M113  | M123  | D1003 | D1023  |
 
-Góc được gửi trực tiếp theo độ, không nhân hệ số. Ví dụ `-30` được ghi là giá trị word có dấu `-30`.
+Góc được gửi bằng một D word nguyên cho mỗi bánh, trong dải `0..359°`.
+Góc `90°` là tư thế bánh để robot đi thẳng. Bridge ROS 2 tự cộng mốc 90°
+và chuẩn hóa góc về dải này; CLI nhận trực tiếp góc tuyệt đối của PLC.
+Chưa thể gửi số lẻ độ qua mapping một word hiện tại.
 
 Tốc độ là giá trị raw; không được hiểu là RPM hoặc mm/s khi PLC/servo chưa xác nhận đơn vị.
 
@@ -191,13 +194,13 @@ angle <góc_bánh_1> <góc_bánh_2> <góc_bánh_3> <góc_bánh_4>
 Ví dụ:
 
 ```text
-angle 30 30 -30 -30
+angle 100 100 80 80
 ```
 
 Chuỗi ghi chính xác:
 
 ```text
-D1000..D1003 = [30, 30, -30, -30]
+D1000..D1003 = [100, 100, 80, 80]
 
 M100..M103 = [1, 1, 1, 1]
 
@@ -214,22 +217,22 @@ Cú pháp cho một bánh:
 angle <số_bánh> <góc_độ>
 ```
 
-Ví dụ, đặt bánh số 1 ở `+30°`:
+Ví dụ, đặt bánh số 1 ở `100°`:
 
 ```text
-angle 1 30
+angle 1 100
 ```
 
-Ví dụ, đặt bánh số 3 ở `-45°`:
+Ví dụ, đặt bánh số 3 ở `80°`:
 
 ```text
-angle 3 -45
+angle 3 80
 ```
 
-Đưa lệnh góc cả bốn bánh về `0°`:
+Đưa cả bốn bánh về góc đi thẳng `90°`:
 
 ```text
-angle 0 0 0 0
+angle 90 90 90 90
 ```
 
 ---
@@ -245,20 +248,23 @@ speed <speed_1> <speed_2> <speed_3> <speed_4>
 Ví dụ:
 
 ```text
-speed 10 10 10 10
+speed 650 650 650 650
 ```
 
-Chuỗi ghi:
+Ở lệnh tốc độ đầu tiên, chuỗi ghi là:
 
 ```text
-D1020..D1023 = [10, 10, 10, 10]
+D1020..D1023 = [660, 660, 660, 660]
 
-M100..M103 = [1, 1, 1, 1]
+M58 = 1
 
-chờ 0.05 s
+Y8 = 1
 
-M100..M103 = [0, 0, 0, 0]
+D1020..D1023 = [650, 650, 650, 650]
 ```
+
+Các lần sau vẫn xác nhận `M58 = 1` và `Y8 = 1` trước khi ghi raw mới. Trigger
+`M100..M103` chỉ dùng cho lệnh góc, không dùng cho tốc độ.
 
 Lệnh này không ghi `D1000..D1003`.
 
@@ -271,73 +277,35 @@ speed <số_bánh> <giá_trị_raw>
 Ví dụ:
 
 ```text
-speed 2 10
+speed 2 650
 ```
 
-Gửi tốc độ 0 cho cả bốn bánh:
+Gửi **raw bằng 0** cho cả bốn bánh:
 
 ```text
 speed 0 0 0 0
 ```
 
-Không gửi tốc độ khác 0 trên máy thật trước khi xác nhận đơn vị, dấu quay và giới hạn tốc độ trong PLC/servo.
+Raw 0 tương ứng 3.8 V/tốc độ lớn nhất, không phải dừng. Raw 660 tương ứng
+0.8 V và là giá trị dừng đã cấu hình. Để dừng đúng trình tự, dùng lệnh `stop`.
+Chỉ thử tốc độ khi xe đã được kê bánh và có Emergency Stop phần cứng.
 
 ---
 
-### 6.6. Lệnh `motion`: gửi đồng thời góc và tốc độ
+### 6.6. Điều khiển kết hợp góc và tốc độ
 
-Cú pháp gồm đúng tám số, bốn góc trước và bốn tốc độ sau:
-
-```text
-motion <góc_1> <góc_2> <góc_3> <góc_4> <speed_1> <speed_2> <speed_3> <speed_4>
-```
-
-Ví dụ:
-
-```text
-motion 30 30 -30 -30 100 100 100 100
-```
-
-Ý nghĩa từng giá trị:
-
-```text
-góc:
-D1000 = 30
-D1001 = 30
-D1002 = -30
-D1003 = -30
-
-tốc độ:
-D1020 = 100
-D1021 = 100
-D1022 = 100
-D1023 = 100
-```
-
-Chuỗi ghi chính xác:
-
-```text
-D1000..D1003 = [30, 30, -30, -30]
-
-D1020..D1023 = [100, 100, 100, 100]
-
-M100..M103 = [1, 1, 1, 1]
-
-chờ 0.05 s
-
-M100..M103 = [0, 0, 0, 0]
-```
-
-`motion` dùng một xung trigger cho cả hai dải dữ liệu, nên thời gian giữ khóa do xung là 50 ms thay vì 100 ms khi gọi `angle` rồi `speed` riêng biệt.
-
-Chỉ dùng `motion` sau khi xác nhận PLC đọc cả dải góc và dải tốc độ trong cùng sự kiện `M100..M103`.
-
-Nếu PLC xử lý chúng thành hai bước riêng, phải tiếp tục dùng `angle` và `speed` riêng.
-
-Hiện tại `motion` chỉ hỗ trợ cập nhật cả bốn bánh, không có cú pháp kết hợp cho một bánh.
+CLI hiện không cung cấp lệnh `motion`. Khi bridge khởi động, tốc độ được đặt
+về raw 660, Y8/M58 tắt, rồi M222 được bật và tắt sau 0,05 s để reset.
+Lệnh lái đầu tiên gửi góc, xung M100..M103 và chờ ổn định.
+Sau đó bridge giới hạn mức đổi góc lái 30°/s và tốc độ raw tối đa 15 đơn vị
+mỗi lần ghi; góc và tốc độ có thể được cập nhật cùng chu kỳ trong khi Y8/M58
+vẫn bật. Khi cần đổi chiều M của bánh, tốc độ raw được đưa về 660 trước rồi
+mới đổi chiều; Y8/M58 không bị tắt trong chuyển tiếp. Raw 660 là tốc độ vật lý
+nhỏ nhất/mức dừng, raw 0 là tốc độ vật lý lớn nhất. Bàn phím terminal phát
+target 50 Hz nếu hỗ trợ sự kiện nhấn/nhả phím CSI-u; nhịp ghi PLC mặc định 10 Hz.
+Xem mục điều khiển ROS 2 trong `README.md`.
 
 ---
-
 ### 6.7. Dừng và thoát
 
 Dừng phần mềm:
@@ -384,11 +352,11 @@ reset all
 
 servo on all
 
-angle 0 0 0 0
+angle 90 90 90 90
 
-angle 10 10 -10 -10
+angle 100 100 80 80
 
-angle 0 0 0 0
+angle 90 90 90 90
 
 servo off all
 
@@ -405,37 +373,28 @@ M110..M113
 
 trong GX Works3 khi chạy.
 
-Không gửi `speed` hoặc `motion` trong bài thử chỉ-góc.
+Không gửi `speed` trong bài thử chỉ-góc.
 
 ---
 
 ## 8. Trình tự commissioning góc và tốc độ
 
-Chỉ dùng sau khi đã xác nhận đơn vị tốc độ và logic trigger của PLC:
+CLI không có lệnh `motion`. Sau khi xác nhận mapping từng bánh, dùng bridge
+ROS 2 với bánh xe được kê khỏi mặt đất:
 
-```text
-status
-
-reset all
-
-servo on all
-
-motion 0 0 0 0 0 0 0 0
-
-motion 10 10 -10 -10 10 10 10 10
-
-motion 0 0 0 0 0 0 0 0
-
-stop
-
-exit
+```bash
+cd /home/tin/Vinuni/src/hardware_interface/plc_bridge
+./run_bridge.sh --execute
 ```
+
+Bridge giới hạn vận tốc, yêu cầu deadman joystick và tự dừng khi mất lệnh.
+Lệnh bàn phím/joystick chi tiết nằm trong `README.md`.
 
 ---
 
 ## 9. Điều kiện chưa được xác nhận
 
-* Giới hạn góc cơ khí thực tế; phần mềm hiện chỉ giới hạn theo word có dấu `-32768..32767`.
+* Giới hạn góc cơ khí thực tế; phần mềm giới hạn lệnh PLC trong `0..359°` nguyên.
 * Đơn vị, dấu quay và giới hạn của tốc độ raw.
 * Địa chỉ Servo Ready, góc thực tế, tốc độ thực tế và alarm code.
 * Địa chỉ heartbeat/watchdog và ladder dừng an toàn tương ứng.

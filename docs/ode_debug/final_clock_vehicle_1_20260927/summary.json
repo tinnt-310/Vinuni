@@ -1,0 +1,38 @@
+{
+  "mode": "vehicle",
+  "duration_s": 55.71,
+  "launch_command": [
+    "ros2",
+    "launch",
+    "/home/tin/Vinuni/docs/ode_debug/final_clock_vehicle_1_20260927/repro.launch.py",
+    "enable_arm:=false",
+    "enable_vehicle:=true",
+    "gui:=false",
+    "rviz:=false",
+    "gazebo_port:=11393"
+  ],
+  "lcp_errors": 0,
+  "nonfinite_log_tokens": 0,
+  "gzserver_crashed": true,
+  "arm_action_status": null,
+  "arm_max_final_error_rad": null,
+  "arm_finite": null,
+  "mounted_rest_goal_completed_before_drive": null,
+  "mounted_moving_goal_drive_overlap_s": null,
+  "vehicle": {
+    "pass": false,
+    "failure": "steering and drive controllers did not become active"
+  },
+  "warnings": [
+    "[gzserver-1] [WARN] [1790479307.655328057] [gazebo_ros2_control]:  Desired controller update period (0.01 s) is slower than the gazebo simulation period (0.001 s).",
+    "[ERROR] [gzserver-1]: process has died [pid 28944, exit code -6, cmd 'gzserver /home/tin/Vinuni/install_grouped/vehicle_description/share/vehicle_description/worlds/vinfast_map.world -slibgazebo_ros_init.so -slibgazebo_ros_factory.so -slibgazebo_ros_force_system.so'].",
+    "[ERROR] [spawner-9]: process[spawner-9] failed to terminate '5' seconds after receiving 'SIGINT', escalating to 'SIGTERM'",
+    "[ERROR] [spawner-9]: process has died [pid 29338, exit code -15, cmd '/opt/ros/humble/lib/controller_manager/spawner joint_state_broadcaster --ros-args --params-file /tmp/launch_params_7276_r7v']."
+  ],
+  "vehicle_pose": {
+    "pass": false,
+    "reason": "Too few actual chassis pose samples",
+    "samples": 89
+  },
+  "pass": false
+}

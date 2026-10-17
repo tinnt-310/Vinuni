@@ -1,0 +1,29 @@
+# Arm-only/front_mid simulation commissioning profile. Pair with
+# matched_physics_step_s:=0.0001, 2000 solver iterations and camera disabled.
+# Wall speed depends on measured RTF (~0.08 here), path and contact state;
+# these are simulation-time limits, not a wall-clock servo or hardware gains.
+extends: matched_socket_near_preinsert.yaml
+fr10_pose_controller:
+  ros__parameters:
+    # 0.80 m/s deployment limit * 0.18 = 144 mm/s simulation.
+    # Preserve the v=k, a=sqrt(k), jerk=k joint scaling convention.
+    controller.pose_policies.free_space.linear_scale: 0.18
+    controller.pose_policies.free_space.joint_velocity_scale: 0.30
+    controller.pose_policies.free_space.joint_acceleration_scale: 0.5477225575051661
+    controller.pose_policies.free_space.joint_jerk_scale: 0.30
+    # ~1 mm/s wall before the depth-based seating taper at the observed RTF.
+    force.goal.insertion_speed_m_s: 0.012
+    # Zero-velocity online endpoints need sufficient position lookahead;
+    # 0.1 mm saturated near0.19 mm/s wall despite the faster nominal goal.
+    # This lead also enters the existing pre-shoulder braking/taper distance.
+    force.max_nominal_lead_m: 0.001
+    force.admittance.max_acceleration: [0.002, 0.002, 0.20, 0.02, 0.02, 0.02]
+    # Pair the faster force response with a shorter filter delay. Softer
+    # rotational restoration lets the keyed assembly redistribute moments;
+    # the full-wrench completion objective still requires <=0.1 Nm.
+    force.filter_cutoff_hz: 2.0
+    force.admittance.damping: [10000.0, 10000.0, 30000.0, 80.0, 80.0, 80.0]
+    force.admittance.stiffness: [20000.0, 20000.0, 0.0, 20.0, 20.0, 20.0]
+    # Seating remains much slower than the air approach. Force/torque/fit,
+    # tare/freshness limits, deadbands and loaded retract are inherited.
+    force.admittance.max_velocity: [0.0002, 0.0002, 0.0001, 0.002, 0.002, 0.002]

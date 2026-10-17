@@ -5,6 +5,20 @@ exactly two control modes, `ControlMode::JOINT` and `ControlMode::POSE`. They
 share one 125 Hz joint-only executor and reach the robot through
 `ros2_control`. MoveIt Servo and Cartesian Servo are intentionally not used.
 
+The current matched force insertion contract and commissioning evidence are
+documented in [the insertion specification](../../../docs/fr10_insertion_pipeline.md).
+With `force.automatic_pose: true`, `/charging_port/raw_pose` is the socket-mouth
+pose and autonomously runs preinsert, six-axis compliance, seating verification
+and stationary HOLD. The position-only legacy policy below remains available
+when force is disabled. Free POSE uses `/fr10_motion/pose_target`.
+
+While a force session owns motion, tracking logs display `FORCE` and its phase,
+for example `[TRACKING | FORCE | APPROACH_COMPLIANT | 125.0 Hz]` or
+`[HOLDING | FORCE | FT_ZERO | 125.0 Hz]`. Internal pose/joint handovers do not
+change this task label. Force HOLD, stopping and retained faults keep the label
+until ownership is released; enabling force without an active session leaves
+ordinary POSE/JOINT logs unchanged.
+
 The sole supported runtime backend is
 `fairino_hardware_v3_9_3/FairinoHardwareInterface`. It uses its colocated SDK
 2.3.3 for both Docker SimMachine and a physical controller;
@@ -24,9 +38,13 @@ ControlMode::JOINT                 ControlMode::POSE
                               -> ros2_control -> ServoJ 125 Hz
 ```
 
-`FREE_SPACE` and `INSERTION` are `PoseExecutionPolicy` values, not public
-modes. `PRE_INSERT` is currently a configured 250 mm geometric waypoint and
-not a mode. Every
+For the position-only legacy policy above, `FREE_SPACE` and `INSERTION` are
+`PoseExecutionPolicy` values, not public modes. Its `PRE_INSERT` is a configured
+250 mm geometric waypoint. The matched force profile instead uses the station
+preinsert clearance (currently30 mm), qualified no-contact tare, six-axis
+admittance/search and a measured accepted corridor for explicit withdrawal.
+The force session still issues only validated targets to the same MotionExecutor.
+Every position-only
 single accepted Pose autonomously queues `CURRENT -> PRE_INSERT`, waits for a
 settled HOLDING boundary, then queues the strict linear insertion. Retraction
 runs the retained INSERTION line in reverse to PRE_INSERT.
@@ -50,11 +68,12 @@ PlanningScene snapshot and carries its scene revision. A stale result is
 replanned; a collision-relevant scene update during active motion requests a
 controlled stop.
 
-If a free-space direct joint route is invalid and its planar chord intersects
-the 200 mm base exclusion cylinder, the planner uses a deterministic 350 mm
-cylindrical arc. There is no random/RRT fallback. The same closed-form route is
-produced for identical inputs; every arc sample still passes the analytical
-singularity barriers and PlanningScene validation before execution.
+Free-space planning ranks complete insertion-capable IK branches, tries dense
+direct joint interpolation, then uses bounded RRTConnect for intermediate joint
+waypoints. Dense FK/collision validation is authoritative; a rejected coarse
+solution triggers finer sampling and another search within the same budget.
+The core still provides its deterministic cylindrical-route API for legacy
+callers; every route retains the configured singularity and collision barriers.
 
 The analytical geometry is cross-checked against independent MoveIt FK at
 startup. `PathTimeParameterizer` applies one
@@ -63,8 +82,10 @@ IK path and samples it at 8 ms. The operational triad uses velocity factor
 `k`, acceleration factor `sqrt(k)`, and jerk factor `k`, with a minimum
 200 ms ramp boundary. Every sample is checked against joint and
 Cartesian limits and validated through MoveIt FK before the immutable buffer is
-prepared and handed to `MotionExecutor`; planning, IK, structural scans, spline
-construction, and FK never run in the 125 Hz timer. Mid-motion planning seeds
+prepared and handed to `MotionExecutor`; route planning, IK search, structural
+scans, spline construction, and MoveIt FK stay on the managed worker. The
+125 Hz tick uses closed-form FK and a constant-time insertion-axis check at the
+measured PRE_INSERT boundary, without materializing a path. Mid-motion planning seeds
 the new trajectory with the live generated velocity and acceleration rather
 than forcing them to zero. Constraint accounting is per joint; one joint's
 slope is no longer compared against another joint's limit. The arbitrary
@@ -104,10 +125,13 @@ silence watchdog.
 - `/joint_command`: `sensor_msgs/msg/JointState`; names must contain `j1` to
   `j6` exactly once. Values are degrees by default; set
   `controller.joint_input_unit: radians` for REP-103 input.
-- `/charging_port/raw_pose`: reliable `geometry_msgs/msg/PoseStamped`; the
-  sole POSE input. Frame must equal `base_link`, position is metres, and
-  orientation is XYZW. One final pose autonomously runs FREE_SPACE staging and
-  the non-bending INSERTION line.
+- `/charging_port/raw_pose`: reliable `geometry_msgs/msg/PoseStamped` socket
+  input. Frame must equal `fr10_base_link`, position is metres, orientation is
+  XYZW. With force enabled/automatic it denotes the socket mouth and runs the
+  matched force session; otherwise it runs position-only staging/insertion.
+- `/fr10_motion/pose_target`: reliable `geometry_msgs/msg/PoseStamped` free
+  pose input through the same worker and executor; rejected while the force
+  session owns motion.
 - `/fr10_motion/retract`: reliable `std_msgs/msg/Empty`; executes the retained
   insertion line in reverse to PRE_INSERT without switching to free-space.
 - `/fr10_motion/controlled_stop`: `std_msgs/msg/Empty`; explicitly requests a
@@ -131,10 +155,12 @@ late callback is recorded as jitter and never skips ahead across several
 position references.
 
 If a moving retarget has negative or incompatible velocity projection on the
-new path tangent, timing returns `REQUIRES_CONTROLLED_STOP`. The node retains
-the target, performs bounded jerk-limited deceleration to zero, enters HOLDING,
-and replans from that zero-velocity boundary; it does not keep increasing jerk
-or shrinking a contradictory scalar time law.
+new path tangent, or if scalar time scaling remains infeasible with a nonzero
+moving boundary, timing returns `REQUIRES_CONTROLLED_STOP`. The node retains
+the target, performs jerk-limited deceleration to zero, enters HOLDING, and
+replans from that boundary. Timing-stop retries are capped at one per target;
+a stationary failure is rejected without relaxing any limit. Stale activation
+replans have their own bounded recovery path.
 
 Cartesian monitoring keeps perpendicular error, along-track lag, and
 quaternion orientation error separate. It runs in a non-control callback and
@@ -152,12 +178,26 @@ their normal rates. Cartesian display angles follow the FAIRINO fixed-axis
 X/Y/Z convention in degrees; pose error remains a quaternion distance
 internally, and joint error uses wrapped radians internally.
 
-The FLANGE-to-TCP transform is resolved from the loaded `robot_description` at
-startup. With the current placeholder end-effector assembly it is
-`flange_link -> tool0 = [0.060, 0.000, 0.162] m` with identity rotation. This
-does not match the specified cylindrical tool TCP translation
-`[0.060, 0.000, 0.175] m` (13 mm Z discrepancy), so startup reports a model
-mismatch and deliberately does not rewrite the URDF.
+The arm geometry and D435/CCS2 wrist are owned by
+`vehicle_description/urdf/vehicle.urdf.xacro` for standalone and mounted
+runs. The arm root is `fr10_base_link`, the commanded TCP is
+`charging_tcp`, and the diagnostics mounting-face frame is `plate_frame`.
+Tool 0 is the centre of the mechanical flange face (`plate_frame`); Tool 1
+is the centre of the front mating surface (`charging_tcp`), not the tool CoG.
+The sole calibration is `vehicle_description/config/fr10_tool.yaml`:
+`plate_frame -> charging_tcp` translation `[0.055140, -0.046496, 0.215297] m`
+and fixed-axis XYZ rotation `[0, 0, 136.840] degrees`. Thus both +Z axes agree.
+All geometry representations use this same transform; mesh-local front-face
+offsets only position the mesh behind that TCP. Launch files also derive the
+wrench rotation and moment arm from the expanded description. The
+upstream `wrist3_link -> plate_frame` joint adds
+`[0.000, 0.000, 0.106] m` and a 180-degree Z rotation. Runtime FK and
+diagnostics resolve these transforms from `robot_description`; they do
+not keep a second hardcoded tool offset. The model's bracket and connector
+collision/inertia approximations need physical verification before hardware
+TCP accuracy can be accepted.
+Manual analytical-IK tool transforms and disabling `use_model_tool_transform`
+are rejected at startup, so the runtime cannot select a second tool calibration.
 
 Parameters and engineering limits are in
 [config/controller.yaml](config/controller.yaml). They are not certified robot
@@ -172,27 +212,74 @@ colcon build --symlink-install \
 ctest --test-dir build/fr10_pose_controller --output-on-failure
 
 # Optional local GenericSystem smoke diagnostic (not runtime acceptance)
-PYTHONPATH=src/fr10_pose_controller/test/simmachine:${PYTHONPATH} \
-/usr/bin/python3 src/fr10_pose_controller/test/simmachine/test_fake_runtime.py
+PYTHONPATH=src/fr10_arm_control/fr10_pose_controller/test/simmachine:${PYTHONPATH} \
+/usr/bin/python3 src/fr10_arm_control/fr10_pose_controller/test/simmachine/test_fake_runtime.py
 
 # Optional local deterministic GenericSystem diagnostic
-PYTHONPATH=src/fr10_pose_controller/test/simmachine:${PYTHONPATH} \
+PYTHONPATH=src/fr10_arm_control/fr10_pose_controller/test/simmachine:${PYTHONPATH} \
 /usr/bin/python3 \
-  src/fr10_pose_controller/test/simmachine/test_extended_fake_runtime.py \
+  src/fr10_arm_control/fr10_pose_controller/test/simmachine/test_extended_fake_runtime.py \
   --results-dir test_results/extended_fake
 
 # Offline kinematic/control feasibility basin (CSV, JSON, SVG)
-PYTHONPATH=src/fr10_pose_controller/test/simmachine:${PYTHONPATH} \
+PYTHONPATH=src/fr10_arm_control/fr10_pose_controller/test/simmachine:${PYTHONPATH} \
 /usr/bin/python3 \
-  src/fr10_pose_controller/test/simmachine/test_extended_capture_basin.py \
+  src/fr10_arm_control/fr10_pose_controller/test/simmachine/test_extended_capture_basin.py \
   --output-dir test_results/extended_basin
 ```
 
-The extended CTest matrix deliberately leaves unavailable capabilities at
-CTest skip code 77. PlanningScene collision validation has a deterministic
-dynamic-object fixture. Contact/force confirmation and the MoveIt numerical-IK
-benchmark fixture remain unavailable. The capture-basin utility does not model
-connector contact mechanics or certify insertion.
+The extended CTest matrix leaves the unavailable MoveIt numerical-IK benchmark
+at skip code 77. PlanningScene collision validation has a deterministic dynamic
+object fixture. Shared force math/FSM tests and simulation spring-contact tests
+are described below; they do not certify physical connector mating.
+
+## Shared force-position insertion (simulation-only, default OFF)
+
+`/fr10_force/insert` uses `fr10_motion_interfaces/action/Insert`. It is an action,
+not a third public `ControlMode`; JOINT/POSE commands are BUSY while it owns motion.
+Cancel/controlled stop have priority. Command ownership remains in MotionRuntime.
+
+```text
+WrenchStamped → validation/raw limits → sign/tare/gravity → moment-arm transform
+             → insertion axes → low-pass → contact/safety
+nominal TCP → shared ForcePositionController → corrected TCP → ContinuousIKStepper
+            → FORCE_ONLINE MotionExecutor/Ruckig → sole joint-position backend
+```
+
+`fr10_force_control` and the insertion FSM/session contain no ROS/MoveIt/SDK API.
+ROS adapters consume `/ft_sensor/wrench`, optionally `/ft_sensor/source_status`,
+and expose `/ft_sensor/tare`, `/ft_sensor/status` and `/fr10_force/*` diagnostics.
+Filtered wrench, error and correction use the session-specific
+`fr10_force/insertion_axes_at_tcp_<generation>` frame: fixed insertion orientation,
+origin at the measured TCP. Its TF is published with the accepted sensor stamp.
+`correction` uses TwistStamped as displacement telemetry (metres / rotation-vector
+radians), not a commanded twist. Nominal/corrected poses use `fr10_base_link`.
+`joint_reference` reports acknowledged q/qdot/qddot; it is NOT an actuator channel.
+
+The goal defines one primary insertion axis; the matched profile selects all six
+admittance axes. A worker validates an axial
+collision corridor and sampled braking states against a pinned scene, allowing
+only the configured connector/socket proxy contact pair. This is sampled
+validation, not a certified dynamic-envelope proof. Completion requires measured
+depth tolerance, force error/stability dwell and no fault. Faults never auto-retract.
+HOLD completion requests acknowledged controlled deceleration, freezes the
+admittance state, keeps wrench safety active, and only returns success at a
+stationary executor boundary. The matched commissioning harness then verifies five source seconds of stable
+measured HOLD and independent keyed geometry before explicit measured-axis retract. Executor
+diagnostics may say `STOPPED_BEFORE_GOAL` because this boundary uses the shared
+stop primitive; the Insert result remains SUCCESS with completed controlled stop.
+
+Test overlays in `config/{fake,gazebo,mujoco}_force_test.yaml` are calibrated only
+for the 2000 N/m spring proxy. The legacy spring fixture retains GazeboSystem/JGP; the matched fixture uses
+the dynamics-aware torque hardware and exact CAD contact adapter. MuJoCo's test bridge
+is a topic-based joint-position plant, not a ros2_control plugin. Native FAIRINO
+force APIs are not used. The default is disabled and the node rejects force
+activation with the FAIRINO hardware plugin. Only the independently verified
+Docker SimMachine transport proof permits a labeled virtual CAD source; real FT
+commissioning remains locked.
+See [sensor handoff](../../../docs/fr10_force_sensor_handoff.md) and
+[recorded evidence](../../../test_results/fr10_force_control_20261001T035857Z/REPORT.md)
+for gaps and reproduction commands.
 
 ## Local GenericSystem smoke environment
 
@@ -261,7 +348,8 @@ still required for contact-aware mating acceptance. The insertion segment
 remains straight and never reuses a curved free-space detour. Remaining work
 includes physical precision/load characterization and confirmation with
 FAIRINO that the bundled SDK's documented ServoJ `cmdT` recommendation applies
-unchanged to controller firmware used on the real robot. Force mode remains
-out of scope until F/T hardware is verified.
+unchanged to controller firmware used on the real robot. Shared force simulation
+is implemented; real force commissioning and matched CAD contact validation
+remain unavailable and cannot be replaced by synthetic-wrench tests.
 
 See the [master specification](../../doc/MASTER_SYSTEM_SPECIFICATION.md).

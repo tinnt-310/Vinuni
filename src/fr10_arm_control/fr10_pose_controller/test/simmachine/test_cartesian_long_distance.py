@@ -10,6 +10,9 @@ import math
 import pathlib
 import time
 
+from rclpy.duration import Duration
+from rclpy.time import Time
+
 from common import (
     ManagedLaunch,
     ProbeContext,
@@ -51,8 +54,8 @@ def max_joint_step(rows) -> float:
     return maximum
 
 
-def wrist_radius(position, quaternion) -> float:
-    """Planar radius of wrist3 from the configured wrist3->tool0 transform."""
+def wrist_radius(position, quaternion, tcp_to_wrist3) -> float:
+    """Planar wrist3 radius using the fixed transform read from the live TF tree."""
     x, y, z, w = quaternion
     rotation = (
         (1.0 - 2.0 * (y * y + z * z), 2.0 * (x * y - z * w),
@@ -62,10 +65,9 @@ def wrist_radius(position, quaternion) -> float:
         (2.0 * (x * z - y * w), 2.0 * (y * z + x * w),
          1.0 - 2.0 * (x * x + y * y)),
     )
-    wrist3_to_tcp = (0.060, 0.0, 0.268)
-    offset = [sum(rotation[row][column] * wrist3_to_tcp[column]
+    offset = [sum(rotation[row][column] * tcp_to_wrist3[column]
                   for column in range(3)) for row in range(3)]
-    return math.hypot(position[0] - offset[0], position[1] - offset[1])
+    return math.hypot(position[0] + offset[0], position[1] + offset[1])
 
 
 def write_tcp_csv(path: pathlib.Path, rows) -> None:
@@ -95,11 +97,25 @@ def run(robot_ip: str, domain_id: int, results_dir: pathlib.Path) -> int:
         if not probe.wait_ready(timeout=30.0):
             outcomes["RUNTIME"] = {"result": "FAIL", "reason": "not ready"}
             return 1
-        # Keep tool0 +Z along base +Y.  The Cartesian coordinates in this
+        try:
+            wrist_transform = probe.tf_buffer.lookup_transform(
+                "charging_tcp", "wrist3_link", Time(),
+                timeout=Duration(seconds=5.0))
+            translation = wrist_transform.transform.translation
+            tcp_to_wrist3 = (translation.x, translation.y, translation.z)
+            if not all(math.isfinite(value) for value in tcp_to_wrist3):
+                raise ValueError("nonfinite TCP-to-wrist3 transform")
+        except Exception as error:
+            outcomes["TF_WRIST3"] = {
+                "result": "INVALID", "reason": str(error),
+                "target": "charging_tcp", "source": "wrist3_link"}
+            return 1
+
+        # Keep charging_tcp +Z along arm-base +Y. The Cartesian coordinates in this
         # matrix intentionally leave orientation unspecified; inheriting an
         # arbitrary previous-test wrist attitude can turn an otherwise valid
-        # endpoint into a self-collision during the mandatory 200 mm staging
-        # segment.  This fixed connector attitude makes every run repeatable.
+        # endpoint into a self-collision during the configured staging
+        # segment. This fixed connector attitude makes every run repeatable.
         # RPY [-180, -60, -60] deg.  A deterministic offline scan starts at
         # the live auto-synchronised joint state and validates the complete
         # six-endpoint FREE_SPACE -> INSERTION sequence, not endpoints alone.
@@ -139,7 +155,8 @@ def run(robot_ip: str, domain_id: int, results_dir: pathlib.Path) -> int:
                 default=math.inf,
             )
             min_wrist_radius_m = min(
-                (wrist_radius(row[1], row[2]) for row in tcp_rows),
+                (wrist_radius(row[1], row[2], tcp_to_wrist3)
+                 for row in tcp_rows),
                 default=math.inf,
             )
             maximum_path_deviation_m = max(
@@ -175,6 +192,7 @@ def run(robot_ip: str, domain_id: int, results_dir: pathlib.Path) -> int:
                 "final_orientation_error_rad": final_orientation_error_rad,
                 "min_tcp_radius_m": min_tcp_radius_m,
                 "min_wrist_radius_m": min_wrist_radius_m,
+                "tf_tcp_to_wrist3_m": tcp_to_wrist3,
                 "max_path_deviation_m": maximum_path_deviation_m,
                 "max_adjacent_joint_step_rad": adjacent_joint_step_rad,
                 "status": status,

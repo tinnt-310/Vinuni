@@ -1,0 +1,14 @@
+extends: pose_uncertainty_commissioning.yaml
+fr10_pose_controller:
+  ros__parameters:
+    # Explicit ideal physical-contact source. The raw wrist load cell remains
+    # available on /ft_sensor/wrench for comparison; there is no fallback.
+    # This source excludes gravity/internal tool loads and is not real FT proof.
+    force.wrench_topic: /fr10_simulation/contact_wrench
+    force.wrench_source_frame: charging_tcp
+    force.wrench_target_frame: charging_tcp
+    force.wrench_source_sign: 1.0
+    force.wrench_transform.target_to_source_m: [0.0, 0.0, 0.0]
+    force.gravity_compensation.owner: source
+    force.gravity_compensation.enabled: false
+    force.gravity_compensation.calibrated: false

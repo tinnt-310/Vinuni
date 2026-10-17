@@ -1,0 +1,18 @@
+fr10_pose_controller:
+  ros__parameters:
+    # Test-only opt-in for src/vehicle_bringup/test/integration/fr10_mujoco_bridge.py. Never load this overlay
+    # on FAIRINO hardware.
+    force.enabled: true
+    force.profile_id: mujoco_v1
+    force.contact_object_id: force_contact_proxy
+    # Contact moments are already resolved at TCP by the MuJoCo bridge.
+    force.wrench_source_sign: 1.0
+    force.filter_cutoff_hz: 0.1
+    force.wrench_source_frame: charging_tcp
+    force.wrench_transform.target_to_source_m: [0.0, 0.0, 0.0]
+    # Calibrated for the 2000 N/m test spring and its joint-position plant.
+    # Keep correction slower than the approach to bound contact overshoot.
+    force.admittance.damping: [500.0, 500.0, 500.0, 5.0, 5.0, 5.0]
+    force.admittance.max_velocity: [0.001, 0.001, 0.001, 0.10, 0.10, 0.10]
+    force.admittance.max_acceleration: [0.02, 0.02, 0.02, 1.0, 1.0, 1.0]
+    force.admittance.max_correction: [0.00025, 0.00025, 0.00025, 0.10, 0.10, 0.10]

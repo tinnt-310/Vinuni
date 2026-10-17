@@ -1,0 +1,59 @@
+{
+  "mode": "vehicle",
+  "duration_s": 29.92,
+  "launch_command": [
+    "ros2",
+    "launch",
+    "/home/tin/Vinuni/docs/ode_debug/vehicle_backtrace_trial2_20260927/repro.launch.py",
+    "enable_arm:=false",
+    "enable_vehicle:=true",
+    "gui:=false",
+    "rviz:=false",
+    "gazebo_port:=11393"
+  ],
+  "lcp_errors": 0,
+  "nonfinite_log_tokens": 0,
+  "gzserver_crashed": false,
+  "arm_action_status": null,
+  "arm_max_final_error_rad": null,
+  "arm_finite": null,
+  "mounted_rest_goal_completed_before_drive": null,
+  "mounted_moving_goal_drive_overlap_s": null,
+  "vehicle": {
+    "sample_count": 1043,
+    "odom_count": 115,
+    "wheel_names_present": true,
+    "finite": true,
+    "odom_distance_m": 0.7350639956717145,
+    "pass": true
+  },
+  "warnings": [
+    "[gzserver-1] [WARN] [1790450826.905514110] [gazebo_ros2_control]:  Desired controller update period (0.01 s) is slower than the gazebo simulation period (0.001 s)."
+  ],
+  "vehicle_pose": {
+    "samples": 501,
+    "wall_duration_s": 25.80506178200085,
+    "sim_duration_s": 25.769999999999982,
+    "finite": true,
+    "actual_displacement_m": [
+      0.7382695009779464,
+      -4.8764017501418794e-05,
+      -0.0012247964244745946
+    ],
+    "actual_planar_distance_m": 0.7382695025884216,
+    "max_tilt_rad": 0.0004242033175831941,
+    "final_max_speed_m_s": 2.8488691894811164e-09,
+    "final_pose": [
+      0.738269222493051,
+      -4.898824992594211e-05,
+      -0.0012341987285218181
+    ],
+    "final_rpy": [
+      -0.00020277587289503662,
+      0.00019328161762859243,
+      -0.00015404395289825312
+    ],
+    "pass": true
+  },
+  "pass": true
+}

@@ -29,6 +29,8 @@ class SpeedControlConfig:
     stop_value: int
     minimum_value: int
     maximum_value: int
+    startup_reset_device: str
+    output_enable_device: str
 
 
 @dataclass(frozen=True)

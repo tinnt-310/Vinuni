@@ -1,0 +1,7 @@
+# Proposed simulation mounting layout, not measured camera extrinsics.
+# Camera housing centre is aligned with the flange axis, not the tool offset.
+housing_center_xy_in_flange_m: [0.0, 0.0]
+rear_face_from_flange_m: 0.030
+# Optical +Z follows insertion +Z; camera roll follows the tool clocking.
+# Original D435 CAD depth after rotating camera X onto connector Z.
+housing_depth_m: 0.0250547

@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>fr10_insertion_manager</name>
+  <version>0.1.0</version>
+  <description>Insertion FSM and shared force-session orchestration for FR10.</description>
+  <maintainer email="maintainer@todo.todo">VinUni</maintainer>
+  <license>Apache-2.0</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <depend>fr10_force_control</depend>
+  <depend>fr10_motion_core</depend>
+  <depend>fr10_motion_interfaces</depend>
+  <depend>geometry_msgs</depend>
+  <depend>nav_msgs</depend>
+  <depend>rclcpp</depend>
+  <depend>rclcpp_action</depend>
+  <depend>std_msgs</depend>
+  <depend>tf2_msgs</depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

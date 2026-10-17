@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:property name="vehicle" value="${xacro.load_yaml('$(find vehicle_description)/config/vehicle_geometry.yaml')['vehicle']}"/>
+  <xacro:property name="wheelbase" value="${vehicle['wheelbase']}"/>
+  <xacro:property name="track_width" value="${vehicle['track_width']}"/>
+  <xacro:property name="wheel_offset_x" value="${vehicle['wheel_offset_x']}"/>
+  <xacro:property name="steering_axis_height" value="${vehicle['steering_axis_height']}"/>
+  <xacro:property name="chassis_length" value="${vehicle['body_length']}"/>
+  <xacro:property name="chassis_width" value="${vehicle['body_width']}"/>
+  <xacro:property name="chassis_center_x" value="${vehicle['chassis_center_x']}"/>
+  <xacro:property name="roof_z" value="${vehicle['deck_top_height']}"/>
+  <xacro:property name="robot_x" value="${vehicle['arm_mount_x']}"/>
+  <xacro:property name="robot_z" value="${vehicle['arm_mount_z']}"/>
+  <xacro:property name="lidar_x" value="${vehicle['lidar_x']}"/>
+</robot>

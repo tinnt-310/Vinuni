@@ -1,0 +1,12 @@
+<library path="fr10_gazebo_torque_system">
+  <class name="fr10_simulation_hardware/GazeboTorqueSystem"
+         type="fr10_simulation_hardware::GazeboTorqueSystem"
+         base_class_type="gazebo_ros2_control::GazeboSystemInterface">
+    <description>Position servo with measured-velocity damping and physical torque limits.</description>
+</class>
+  <class name="fr10_simulation_hardware/GazeboWheelMotorSystem"
+         type="fr10_simulation_hardware::GazeboWheelMotorSystem"
+         base_class_type="gazebo_ros2_control::GazeboSystemInterface">
+    <description>Physical effort-limited steering and drive constraint motors for precision parking.</description>
+  </class>
+</library>

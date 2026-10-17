@@ -1,0 +1,22 @@
+uint8 IDLE=0
+uint8 TRACKING=1
+uint8 STOPPING=2
+uint8 HOLDING=3
+uint8 FAULT=4
+
+std_msgs/Header header
+uint8 state
+uint64 generation
+uint64 command_sequence
+uint64 driver_write_sequence
+uint64 driver_success_sequence
+float64 progress
+float64[6] reference_joint_position
+float64[6] reference_joint_velocity
+float64[6] reference_joint_acceleration
+float64 max_reference_error_rad
+float64 cycle_period_s
+float64 cycle_jitter_s
+float64 driver_write_gap_s
+int32 driver_error_code
+string detail

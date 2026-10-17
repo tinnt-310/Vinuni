@@ -40,6 +40,8 @@ NodeParameters NodeParameters::declare(rclcpp::Node *node) {
   if (!std::isfinite(params.feedback_timeout_s) || params.feedback_timeout_s <= 0.0) {
     throw std::runtime_error("controller.feedback_timeout_s must be positive and finite");
   }
+  params.require_driver_health = node->declare_parameter<bool>(
+      "controller.require_driver_health", true);
   params.backend_name =
       node->declare_parameter<std::string>("controller.backend", "ros_control");
   params.robot_ip = node->declare_parameter<std::string>(
@@ -64,9 +66,9 @@ NodeParameters NodeParameters::declare(rclcpp::Node *node) {
   params.command_topic = node->declare_parameter<std::string>(
       "controller.command_topic", "/fairino10_controller/commands");
   params.base_frame = node->declare_parameter<std::string>(
-      "controller.base_frame", "base_link");
+      "controller.base_frame", "fr10_base_link");
   params.diagnostic_flange_frame = node->declare_parameter<std::string>(
-      "controller.diagnostics.flange_frame", "flange_link");
+      "controller.diagnostics.flange_frame", "plate_frame");
   params.diagnostic_log_rate_hz = node->declare_parameter<double>(
       "controller.diagnostics.status_log_rate_hz", 1.0);
   if (!(params.diagnostic_log_rate_hz > 0.0) ||
@@ -186,7 +188,7 @@ NodeParameters NodeParameters::declare(rclcpp::Node *node) {
   params.kinematics_group = node->declare_parameter<std::string>(
       "controller.kinematics_group", "fairino10_v6_group");
   params.kinematics_tip_link = node->declare_parameter<std::string>(
-      "controller.kinematics_tip_link", "tool0");
+      "controller.kinematics_tip_link", "charging_tcp");
   params.kinematics_safety_link = node->declare_parameter<std::string>(
       "controller.kinematics_safety_link", "wrist3_link");
   params.ik_timeout_s =
@@ -363,18 +365,19 @@ NodeParameters NodeParameters::declare(rclcpp::Node *node) {
   params.analytical_ik_config.wrist_2_offset_m =
       node->declare_parameter<double>(
           "controller.analytical_ik.wrist_2_offset_m", 0.114);
-  params.analytical_ik_config.wrist3_to_tip.position_m = vectorToArray<3>(
-      node->declare_parameter<std::vector<double>>(
-          "controller.analytical_ik.wrist3_to_tip_translation_m",
-          {0.060, 0.0, 0.268}),
-      "controller.analytical_ik.wrist3_to_tip_translation_m");
-  params.analytical_ik_config.wrist3_to_tip.orientation_quat =
-      vectorToArray<4>(node->declare_parameter<std::vector<double>>(
-                           "controller.analytical_ik."
-                           "wrist3_to_tip_quaternion_xyzw",
-                           {0.0, 0.0, 0.0, 1.0}),
-                       "controller.analytical_ik."
-                       "wrist3_to_tip_quaternion_xyzw");
+  params.analytical_ik_use_model_tool_transform =
+      node->declare_parameter<bool>(
+          "controller.analytical_ik.use_model_tool_transform", true);
+  const auto manual_tool_translation = node->declare_parameter<std::vector<double>>(
+      "controller.analytical_ik.wrist3_to_tip_translation_m", std::vector<double>{});
+  const auto manual_tool_rotation = node->declare_parameter<std::vector<double>>(
+      "controller.analytical_ik.wrist3_to_tip_quaternion_xyzw", std::vector<double>{});
+  if (!params.analytical_ik_use_model_tool_transform ||
+      !manual_tool_translation.empty() || !manual_tool_rotation.empty()) {
+    throw std::invalid_argument(
+        "FR10 tool geometry must come from robot_description; update "
+        "vehicle_description/config/fr10_tool.yaml instead of manual IK offsets");
+  }
   params.analytical_ik_config.min_target_reach_m =
       node->declare_parameter<double>(
           "controller.analytical_ik.min_target_reach_m", 0.060);

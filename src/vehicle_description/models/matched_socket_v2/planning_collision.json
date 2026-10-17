@@ -1,0 +1,1830 @@
+{
+  "schema": 1,
+  "operation": "concatenate_binary_facets_without_geometry_changes",
+  "link": "charging_mating_nose",
+  "sources": [
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_0_0_0.stl",
+      "sha256": "714317df94b48e44535f1bd2c71334084934c38851528a43cd29552639d306de",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_0_0_1.stl",
+      "sha256": "9e32cf750ce5ace4271079920559b1ec0394a68fc6402096d5fe5441c75868ba",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_0_1_0.stl",
+      "sha256": "4bc4f3c195092451614ec2d68f61a0c195c82df173e81aa870e682d211c57be4",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_0_1_1.stl",
+      "sha256": "6b4755f83a0e21b6b91b600006f63483eb93ff9013b055fbbc0a8cc16e6c7a23",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_0_2_0.stl",
+      "sha256": "1e2c58a1d24c1a6b1805a61b5ffea15cd286df53d1103dc25d89df0881c13233",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_0_2_1.stl",
+      "sha256": "ebe2a5926e5520fe9d6d6d88ddd8a50d3c5fe59ceb91782c08790ef6d82b0d80",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_0_3_0.stl",
+      "sha256": "80718293024fd9a4628d8a5c0d514436776f348f7d7375c83faa988208738889",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_0_3_1.stl",
+      "sha256": "e61cdc7ec5053a87ec7410917155030347694ddae638136aa03b9dd2d1b8a8b3",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_0_4_0.stl",
+      "sha256": "87becbe32d9e3dc3ce5b827d2e56d81bbcd1e2f0cb52037c5a302da9e37ecf60",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_0_4_1.stl",
+      "sha256": "f997b23f166e43c0efd37842d6c1e7eab63e34882c850f428e074aa5f20df400",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_0_5_0.stl",
+      "sha256": "9c8288fd68bcb1b5cf86fb4a806e37c3acd9abf6a66e447ebf53102a869cbaa0",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_0_5_1.stl",
+      "sha256": "f7271258f92f5b0069ba38cee7d55c015066184aeb592082b83af4b68ce2b73a",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_0_6_0.stl",
+      "sha256": "1f920a1e90554a24af39b254ef84d01e17243982dd37497a5e32a9e0eae30267",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_0_6_1.stl",
+      "sha256": "d5de4c85fbe2a82f2685fdb0148c0bb624c02d678a87a05643cdc4daf2ddbc47",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_0_7_0.stl",
+      "sha256": "45799012ad6adab26ebaa4416bebc2d26ee33a2f4804482f11ea0ae5fa9a18f2",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_0_7_1.stl",
+      "sha256": "28bc920098a2c506989c79a1e8bdbdd14d09fd010b30582b2f01b9499781f021",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_0_8_0.stl",
+      "sha256": "482b96eaf99a7fb9b66f8035aee393c91202cf31b972fbe98d4e117740d4a78c",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_0_8_1.stl",
+      "sha256": "ed42fac6d9619ce209a8cf8f06f00a66bea528d2ad0dc9ad667a3b42406abb14",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_0_9_0.stl",
+      "sha256": "d067703a982f833592fe442716a60a1d5dbd8445ec76e99e4ad912ea221cac52",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_0_9_1.stl",
+      "sha256": "bd730881215b6ead5d1c5f6cff8978e5af574bb8574226c7defc5a2c35d7ba9d",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_0_10_0.stl",
+      "sha256": "073c9cb168464957e23a97647945ca497a0a93b7cbc1c359162c22da9e00d299",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_0_10_1.stl",
+      "sha256": "88ea861c4566999088780f2f6d6019ab70e0470d792a508497f0ba60074d004e",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_0_11_0.stl",
+      "sha256": "948d4a93fe4d5bdf729d9479aa623d0b409f0f417667e2bcc2db29413b37bc8a",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_0_11_1.stl",
+      "sha256": "b42b55747da2d50b8158f25c732b3c035907d829fb5da175ef1de4caab23994b",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_0_12_0.stl",
+      "sha256": "f5c566792a7b76453d46f7d85017e62c77bb17c69ab8ca8da1cebf19f182e0e1",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_0_12_1.stl",
+      "sha256": "cf98ab0ebe997e39d14e82d9731ef9f5a4cd38ec8fcbaa5cd3b7b89f577ef5ee",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_0_13_0.stl",
+      "sha256": "973ed44117c6c0f1605ca44d73e2687c696c4d39c2aba9f2968461548d6b8303",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_0_13_1.stl",
+      "sha256": "9d61b7c255fda30c8a484dc66723396a6cb012b991a69ced3c802416ef94a1cc",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_0_14_0.stl",
+      "sha256": "93d27e0fc3d9cfd0729db8864138e21282c4c494f5b530ff86237980af211ef4",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_0_14_1.stl",
+      "sha256": "df06b92cabf31c69451a2d38e056d32d2d3a6f94015064f2e31e665b40ff3bcd",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_0_15_0.stl",
+      "sha256": "b1105bb300a5dafa46f36fff8bcdc879aa06e9a751e2dae944fb28ce5e593a1c",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_0_15_1.stl",
+      "sha256": "80855f221814091c6085489bc3ee318375cc57e2eaa787db3788534cae64ea38",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_0_16_0.stl",
+      "sha256": "498e23b6c7c2d0b4ec0863327080543c8e2e2fb989f82b5a077f5090f33f91ba",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_0_16_1.stl",
+      "sha256": "7eb9227137d884d96f52fec21245cccd86b19af39332fa216221197c131f718e",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_0_17_0.stl",
+      "sha256": "ea70ebd1f52fb68a0a9dc22350e4662d1f0184f988636a0c467f7cec18e9edec",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_0_17_1.stl",
+      "sha256": "86d9de3d0948df0a563365f30936c169a60969151c7bb14066daad9ea95aa1f5",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_0_18_0.stl",
+      "sha256": "d1cbe5a47dec099955bcc97f68d7392d7cae04e0a7a60f05f949a515acd0f857",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_0_18_1.stl",
+      "sha256": "14059d209e109ef138186373a135e8f23bbf64bd7d6532b32ab4b9b5f3aa49ad",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_0_19_0.stl",
+      "sha256": "7012704922178521f01e5729c695bd0cb409af9f54ab17a3b32f09a65f08e519",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_0_19_1.stl",
+      "sha256": "80e79dd0b88d482c29096c8409eb7577dec98559e79722cf9c8165937b6e410d",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_0_20_0.stl",
+      "sha256": "5dc095d4d12d5ff1c089e403e4864f0a0f199367ba53fcf3b1044a96854fc874",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_0_20_1.stl",
+      "sha256": "f7f18be38941ca1adada17e29a02c7cea4eefd96284df2ed235cb54110e06683",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_0_21_0.stl",
+      "sha256": "929d1c71c713cc4cd57648044e00270e9677462c8ba4141f2f6b82aa852ac61c",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_0_21_1.stl",
+      "sha256": "40c8a21b219b05a59885aa5c1701d6ab9d7492121fef5ada4c2cd3d4b5504bec",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_0_22_0.stl",
+      "sha256": "aa5ae526cf829e475d8b558ef45ce09c1426b0f2dc213c25c31462902b63e413",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_0_22_1.stl",
+      "sha256": "272eb6b491b764f73106d290dec95dc8cb0e6b5aac18b931d4a446c5b089adf3",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_0_23_0.stl",
+      "sha256": "fa0d92e6b62c5a2c28226469aa08775d70e613cab5f2280d2c4585b37580a5ff",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_0_23_1.stl",
+      "sha256": "1e2f5e8d93f45d69cda01d16e04f82c73e9d9410902730802addc3ea4c41698f",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_0_24_0.stl",
+      "sha256": "5bd4ef69f5c48df2e3351bef3f34c21886b6103f39c337b90ffc47f6deb9f220",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_0_24_1.stl",
+      "sha256": "b2a0c57b206dbdc82673a1d84b106e99200ab99b1de81a1c2c424a8d2e8a9b42",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_1_0_0.stl",
+      "sha256": "2ac9bdc2ec1a58694a7380a718db25e4459c4ba947a5b24de194482256251ef8",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_1_0_1.stl",
+      "sha256": "9ca30d2dcc1001f6b8e39c84ad7d3c7d1adb773bfef8f6196b707605e483591e",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_1_1_0.stl",
+      "sha256": "d14833eb95743907fd0ee6dd210f3260cde81d68ca3bf348aa3ee4acf34e4305",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_1_1_1.stl",
+      "sha256": "59dad8b20a394c5629e1bdc95b961f098b01d283dabd07f98176a79d389f7e0d",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_1_2_0.stl",
+      "sha256": "505ad278bb10cf353c720074cfe0890e4a7b99e65d511a161bf716d55c5c740c",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_1_2_1.stl",
+      "sha256": "94e98393ac1149e5fa7e09d505a0d833a5a1535a6c5bf56931c563657ff80ad6",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_1_3_0.stl",
+      "sha256": "ddb685aed2908d88bdac2010ddf506fa92c118f7c8b890ebcbbea6d57b009add",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_1_3_1.stl",
+      "sha256": "57236cd917c954caa4033b974872ae29ed16ccb96f1b9e1bf2a3659b7d3e9fed",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_1_4_0.stl",
+      "sha256": "6d4acfceee02265f5ace8b986f61e079bb21d34965599ae7d3a93de55da43c86",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_1_4_1.stl",
+      "sha256": "19fee51d9fa11856195e285523e251736436974de62ca6a8f8893166b981f623",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_1_5_0.stl",
+      "sha256": "3dac2894facfff6b1817dcaf46cc246098a8fcb7fd7cfc2761a057122a9ce6f8",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_1_5_1.stl",
+      "sha256": "f1349afb8c5e9fc7dc829e89ee1a2cee759b208d4932ef908a13d96221848be3",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_1_6_0.stl",
+      "sha256": "69211688d77833bc28af59f401af744d1959254258447a8d89173600db9af0ed",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_1_6_1.stl",
+      "sha256": "1bbab388e6be92a603ef9426c52b47e8964b4b7238f748ed167ccf4513baf0bc",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_1_7_0.stl",
+      "sha256": "c9f0e8e962d656a0144aa82f8c19891312f26986156976028fe041e902065dc7",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_1_7_1.stl",
+      "sha256": "645980340c6f6fda3690931c2fa663f541cfaa85db5c842488b3bb0eb786ac93",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_1_8_0.stl",
+      "sha256": "55a2f079f5096248c720596f100f0d386532a06e12d3200b4f5c8f4386527eb0",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_1_8_1.stl",
+      "sha256": "6de10c9dd8e6442f99a1eee902c23bbc3931ba454b482fc20c2e552183c6e384",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_1_9_0.stl",
+      "sha256": "ec5e03c5fa41c8353e3dd355bc071e9a365af02777b3c9fc1a0f2a4b2604d95b",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_1_9_1.stl",
+      "sha256": "5c4f17d65142ee4067f9475698ceb69cf356c8df8fe9c65051b17b6292a83e8b",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_1_10_0.stl",
+      "sha256": "2e75616b7e7de3d9d99543128ff7f0ceda9ee5367d02900225aaa9e63ef09a76",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_1_10_1.stl",
+      "sha256": "ff54e51e8f1cbbed387b665be44751dfe94b4148c11c169e47b81d3fc59df428",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_1_11_0.stl",
+      "sha256": "681ebe4476de6c4dda5f4d16d74c72100220dcb2ff417cc94b1aecc208bb04a7",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_1_11_1.stl",
+      "sha256": "85edd2649e9e30b50fe0569d7702483db98827256d0b5a46a1cf15ed85b9a4ee",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_1_12_0.stl",
+      "sha256": "2c62ad37102f99853f2f45e822c2809bc4f1424122f17ada787702f6884d18ff",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_1_12_1.stl",
+      "sha256": "12b3237f88d3344b72f0930a1194e15291f69c91e4c0fce1b6413536422c9371",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_1_13_0.stl",
+      "sha256": "4630e368e99db56fbbb51e454b9deb5c1c194deb162a280c2d3d0c7228cf40a2",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_1_13_1.stl",
+      "sha256": "fc05f32449857a90fe42ffe099e0bc7a6fe804abe9e79b94f24599777bf51130",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_1_14_0.stl",
+      "sha256": "efbf6df854ad73991e79222af8ef8771fe78afe147a105562865ea91e67f1bb4",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_1_14_1.stl",
+      "sha256": "f0d7d83d1e82a6d19d2981962de269ea6ca81b47fb7ee5ac6c8c446fde13f1f4",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_1_15_0.stl",
+      "sha256": "b2ae418c71fd87ff685a4a5845e5137767fcfb65e8a2495e088866de87d8e2d9",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_1_15_1.stl",
+      "sha256": "4eceb08b44abd78675789e81631462352164c27c81c9e6adb72a0593627bfc52",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_1_16_0.stl",
+      "sha256": "c8d7ffe29ac4fa73755b78fe59d180c629cc797850a82796ea4e9fc330cfb8c2",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_1_16_1.stl",
+      "sha256": "e1485e42b7c39aa2dceb7b4dc48a01d9393619ef62f117fccab6443e3a74b3fe",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_1_17_0.stl",
+      "sha256": "6ab6efc0a7ccbe1f2901b921dd560800084db3a1cba9e6a1da3ecf70accc07d5",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_1_17_1.stl",
+      "sha256": "019d9c5275c4e7e90aa485d97a6843d8d820b423c591ca9d5a60e30d3f3733cc",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_1_18_0.stl",
+      "sha256": "55158278fee0058a8ce15e02f898f7299e2be4b069d30751e236604ccf8a36a4",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_1_18_1.stl",
+      "sha256": "59460f3d4e97ee5f45d154dc190bdfc5b0bbd04be0723e16964a402b0c579a97",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_1_19_0.stl",
+      "sha256": "2d1989b8501e32d2ba60e79b682e9b6da7e2928bc228d4b7dd484876adaf3cfb",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_1_19_1.stl",
+      "sha256": "bd61925f2824597a950983cc50a4b8d946ab9a94bd1d82771bc4f83dcdb13a32",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_1_20_0.stl",
+      "sha256": "5c2b0572b9b7a235061a6bc202019fde13dffdf1455e0e8c1979d4306543e0f7",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_1_20_1.stl",
+      "sha256": "1615390902423586a356c7af978ef58a72af6401dc37927fd0a9ba9f6d3030fc",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_1_21_0.stl",
+      "sha256": "84a39e42a090887466cfb8e87ebada757c4b07254265a403d4dc4b37eb21eb01",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_1_21_1.stl",
+      "sha256": "c087af025a1cce6555a0d7fde793157b22d57c74dd1e3343f9c32cb19a665c53",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_1_22_0.stl",
+      "sha256": "929f163077acabd91a8c46f7c533fc5faaaf855d7510dd79cf31cfb63214a6ee",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_1_22_1.stl",
+      "sha256": "51b58df9c0f6731e9dd3823b42cf6bcc86c304a32ec290cce912e402c1b0119e",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_1_23_0.stl",
+      "sha256": "9b17d0f9af11f23a4f276eecdd376170cd417b634ca76ac4f833a591c7990f4e",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_1_23_1.stl",
+      "sha256": "869ffc833e265a7df1462cbb937a1494a71cec95a79f8c03602f1dcab1c461f6",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_1_24_0.stl",
+      "sha256": "c5bacdc7c8774b47ca48c3e9b04302e920f8d1febecbfe872c3e9135f80bdb08",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_1_24_1.stl",
+      "sha256": "d2694c745ee4572cda5703563e0332bc0d4b6c3ca7f9d1ef704c58c710be018e",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_2_0_0.stl",
+      "sha256": "a32d3221c0bdd3ad862c1a43d60ce6fcc9e868404b0be753522b177a57f8a707",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_2_0_1.stl",
+      "sha256": "4a8ab203cdab8cd535801deaebb7f7d02e5d082f7653fc94cfd7d4885735c8cd",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_2_1_0.stl",
+      "sha256": "d3dc65dfa09a37c4d4dade281e24503615bc4c43be4ab6f264103cbffbeafed6",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_2_1_1.stl",
+      "sha256": "083d489f37fa63a2bc2292dfb60d2c01a8c66eb27a1d70c1accc9009a84a8c49",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_2_2_0.stl",
+      "sha256": "557b3b68f69fa75179cb401d303f073d71467a1fd9c010ff7e928e3e6e789593",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_2_2_1.stl",
+      "sha256": "3379138550e5d3e1ca13fbb64bf38a47c34247ad03d5e28d1c104e83e2561f52",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_2_3_0.stl",
+      "sha256": "6f0cafc30a43b615086b2e80e3cef1e29f2f4bf5e1dac9dba2228220c96a5181",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_2_3_1.stl",
+      "sha256": "1bd596ce54bd632bc2a049ccb1995281c949954a9b4cbe0de3880d7ea1038dac",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_2_4_0.stl",
+      "sha256": "7cd05a429d0bd8cbc98dfb48fecf2484c716559bee85b94f392d90a47871602d",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_2_4_1.stl",
+      "sha256": "6d7accdb6ad39953cc809049d1a21be895aea4b1898f93393380477e7a4b2626",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_2_5_0.stl",
+      "sha256": "6cd37c22b83d568c2d64f5e6b9bd3b6beba745d3da5832b4c703a6fd82cfa77d",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_2_5_1.stl",
+      "sha256": "cbd919c412a01eda0628b05369e62e76ec8403f1d501146b67a6d4cddfc45471",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_2_6_0.stl",
+      "sha256": "1d1efe8b3e89fd59694050208656c0d0845d9d0b4af31e1f8c41bf905925aaad",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_2_6_1.stl",
+      "sha256": "e9bc04ca62fadcc4d297c174410cfb49fd9aba3cfbb6b56a3d0ef6b86bc9b7b6",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_2_7_0.stl",
+      "sha256": "06de960595c7240ab63e54f2aad4d5a467aa8fac10abe5dd63f22148526012ff",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_2_7_1.stl",
+      "sha256": "5d0167cbb7ce737ec192a2651c2c4045c6ed59afce69f5abd67b60091289d55b",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_2_8_0.stl",
+      "sha256": "868944c5fa4179ceee233535c5222d54035745b56ff3124a7a038f1f14f2a4b7",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_2_8_1.stl",
+      "sha256": "f3f8ac1d1ecea1bef7308765d19e5f64c2b360bcf15e40ad1fd1d51e92bd7932",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_2_9_0.stl",
+      "sha256": "6b556b4b153eb2a673d347c327046835cb2c286bad8f071b3b1501c5206ea89d",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_2_9_1.stl",
+      "sha256": "a51da7507e46f6486795bab4113e391347d6cf6ccd7eed4fc5279b00441e398f",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_2_10_0.stl",
+      "sha256": "da9a672c5e8bf24b178ecdfc9384c211e5956393ab902bc9accaf11e70a46ac7",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_2_10_1.stl",
+      "sha256": "291185a413d9231d4c8115d331e4aa841ee4aceabc085e9821390b63dcd9a2a8",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_2_11_0.stl",
+      "sha256": "90bf1e32437b6dc6aa63d4102cf8369e94004741a236d347e39a7d5b2503aef1",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_2_11_1.stl",
+      "sha256": "b14e95b80229ad71983972dae32ef5898a374da29d57acb322663387b7cd2638",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_2_12_0.stl",
+      "sha256": "ce61cbff32d583ec6eb9526794a27418446803f2116b00543e932e14ce6480b4",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_2_12_1.stl",
+      "sha256": "81514f695e0a354601ff0eda7f7aaee1910b053760755d5f73f2813e1542a19b",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_2_13_0.stl",
+      "sha256": "bb928200eed4e96dfc7737dc76e5028f659e0a4ad38a4fa9bb091ad8979c373c",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_2_13_1.stl",
+      "sha256": "9095cdf6e50ab3c9109de46521be1802d97a4ba97f8a7bc1ae56b6e0d2804b8f",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_2_14_0.stl",
+      "sha256": "2d081ce265e64282d104b0cf611dde921bbae86dd426833033a74dcf18c19422",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_2_14_1.stl",
+      "sha256": "470a16c1fe2f1856acf98f8cbb51da309fe5dc2393d766f3410c90ea7d0d4493",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_2_15_0.stl",
+      "sha256": "a718317d7e1f7e218fe8ff9c316e9aa616bd07720edc677d3590a661f6e0904e",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_2_15_1.stl",
+      "sha256": "dfce07a3daa53dde13e8fdc455972e57afe0170bf9aa9518af73450aed1bf796",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_2_16_0.stl",
+      "sha256": "cf833a89e504998d6328c9d3f20f369c1e5503002d5376effe9906193e90268d",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_2_16_1.stl",
+      "sha256": "4fb7ed3ead6a0588b4312545307445d11f353acb55591592a4af6973038c3b53",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_2_17_0.stl",
+      "sha256": "de909902454e48f7010c757ed4d32acc4a85f963df4c866e9b0c7e5bc3762f42",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_2_17_1.stl",
+      "sha256": "4b3d043672d031d1f617114f0d12b04ebd0ef842a4c5761b596ca31b8ce43294",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_2_18_0.stl",
+      "sha256": "8bbfbc5f298c6f9d9e5627fbe5709a42e2f9fe341db5c1b820edc55dd3ba7e2b",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_2_18_1.stl",
+      "sha256": "edadf63d5bf93353c46f4920a8a5645e5be214f18fabac86faf84a1213c8a4a9",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_2_19_0.stl",
+      "sha256": "783aed33c6eb496c79b52a93642574f0a6715ffdccb7b1414affb3c8023dbb14",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_2_19_1.stl",
+      "sha256": "438e9f9102b41e5af66b84c2a4e3e8032080674225cb68959afcdb6eef4d3ada",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_3_0_0.stl",
+      "sha256": "e658c864777c879cf288948274a1d37d5c201344a6961cedca197c493758f410",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_3_0_1.stl",
+      "sha256": "68a1ff3e7454b56576083be84a129c63646b21c63dcacb48cc5174aae80d1a25",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_3_1_0.stl",
+      "sha256": "0411729a5f7a283ad389d982904028369852a4d26102e2c04671903fa9df20bb",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_3_1_1.stl",
+      "sha256": "9813c65847fad6b1c2b9db6f31415b526abc606efa9c12cb5073dbae0935fdbb",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_3_2_0.stl",
+      "sha256": "447c150ea6d665cc77e1b4dbd5b1177c9162f0db8cd4ccad47b42e84b344ee74",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_3_2_1.stl",
+      "sha256": "1647658e9e6dfb67e014a69ee66781a2f4f2cdb8ea8df560abc243bfee455a0d",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_3_3_0.stl",
+      "sha256": "3516d31bfbefbb1fbedf518543bcfdd5cdda517bfaf2d77ba64f7edb4f81aaad",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_3_3_1.stl",
+      "sha256": "8d2a7e302f9ce87d640f4c4d2ead706af8c048db1c7515546ce89348f15da4e4",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_3_4_0.stl",
+      "sha256": "099eacdb21fcc54c5a9eef55ed0e3876fd3eb0768b2815f38e5c103cc42d1d3c",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_3_4_1.stl",
+      "sha256": "ec5113f61cd805e521c9ca95d18d10f9e9eaa90961a5548a27fe4a5b5e71448a",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_3_5_0.stl",
+      "sha256": "9ed3cf69c2f5d8bac092b0a4d4ed0373b7be447f09c8a5b9774b5a0d1f8b1641",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_3_5_1.stl",
+      "sha256": "a7e461762be37c252cc2a563a2bf34eb974c40b5d46cace081f74cf3c31328f8",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_3_6_0.stl",
+      "sha256": "b8ec525c51169b31ed735c965c4b62c5b69cca31e203e4d3719600d92819a7e5",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_3_6_1.stl",
+      "sha256": "5033954dd182f46e669e712bd7e5aaa01f9e715ed19e08036d7f93bce4e493a7",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_3_7_0.stl",
+      "sha256": "5488d8d68d661aae90e93369a9590b17b8f33af4723e847ae9277f68cfba7a92",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_3_7_1.stl",
+      "sha256": "986cdad6d8bd8ee13361c58db54ee41500e8b7a7cf0123b75e62c2d9f9f8c671",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_3_8_0.stl",
+      "sha256": "131026477f537df013ce2e76190fe130551a7040b2bff9ad6cc5654f0aba9c01",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_3_8_1.stl",
+      "sha256": "eb70e9cae3105ea18862069bc90335af21e3188d54a73a4c52f3a133335381ee",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_3_9_0.stl",
+      "sha256": "bcdd78865c4eebccabfeef69a508d45cd255a561d31147ab11fa9ebbdfcd4945",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_3_9_1.stl",
+      "sha256": "fe3f13b66c47baaa73b4469ab212723dbfab89b8e86c3207b984434d406193c5",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_3_10_0.stl",
+      "sha256": "f331116820fa701fd7bd2db50daa55f59fcb7b2062ccdd5af16eb18c94792234",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_3_10_1.stl",
+      "sha256": "f355ef790a503d0dc3a394843696f9fd19b86433c987fb28c3a361f7f6571cc4",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_3_11_0.stl",
+      "sha256": "ea4c17b429c92f7606701a138ad45ae5361cba223a42ee547a4d534d925c48d5",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_3_11_1.stl",
+      "sha256": "cd739eb274abf86c13c33c5d95b580eb418946be2a60015f25ccb887f6d4f8a9",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_3_12_0.stl",
+      "sha256": "05dda8dc95591a32770bac63fc9b3c5f3a00d0e8df7c189cbb22159f361f6a9b",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_3_12_1.stl",
+      "sha256": "d98f073a8e9b521760025fb9f9c6ba6c450280abadeba5fef636380bc9530e00",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_3_13_0.stl",
+      "sha256": "ed38ec0685ffc57abbc5730fbf6a5f9d5e2fb119f6c9b23cbfa707d78744d299",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_3_13_1.stl",
+      "sha256": "c5f6f7df2816ea2c6d16f5edad2fb9ee3b34051bdf38e35682e1e9d4f7d79bc9",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_3_14_0.stl",
+      "sha256": "416b873d07b0614d23d7939b7fc2fc8cf09f55287ce32ad9a51fcec2e8860ff7",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_3_14_1.stl",
+      "sha256": "b179d1fc83304395ac7574f23f184a8be4f490a3beeef789ee1efd01f373ba01",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_3_15_0.stl",
+      "sha256": "dd460c18287141556fdfb17652031cfc926accb559717e2a0b2d7d87c6967c1f",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_3_15_1.stl",
+      "sha256": "8da08b9c434eb5537b02e33cb1ebed514a15e1bd70fffaef059be2ad68a94e97",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_3_16_0.stl",
+      "sha256": "e6e211977dea1994f94e311389dd7de53798945aa8448da8bc7e55d30d07364b",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_3_16_1.stl",
+      "sha256": "82e43184734ce7088b4c2d752a149f0fad62aef043178c7f0c3c129e0f1a900c",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_3_17_0.stl",
+      "sha256": "2885213cfc1babf303d0f716d56d5186187dc5e2db471c0532627281095256f7",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_3_17_1.stl",
+      "sha256": "5f186cef434d205d9ef8e8e41f7d367fef2c319cae0126e57494039cfebc1a1a",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_3_18_0.stl",
+      "sha256": "18a316ecf24e7c8637349144749c77a60e52f9fbf79ddf95f43942f852452aca",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_3_18_1.stl",
+      "sha256": "c96eb12c2fa9adfd8ad98a63bcbecda9af6be612f5579cdefa8da83e6d352539",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_3_19_0.stl",
+      "sha256": "a93715c5b57226b6f839aa7fe41b75c1e379aaf6dabb133f32d4da6cc6adab0b",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_3_19_1.stl",
+      "sha256": "e4edd13b5ecfd05cb0d92b40e10ee43d13505403fb76c2191d12d51db1466c25",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_4_0_0.stl",
+      "sha256": "386c3e447c11964b60245840262aa31fcce7e63710c03c5a1b1249408994e9b4",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_4_0_1.stl",
+      "sha256": "734e0376440ee4c934f675b6c700907606baa642fe29ac498c4b5321987f1a97",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_4_1_0.stl",
+      "sha256": "feb6e55bf3e6646499d1225f3ab8eeced7f9138506e12b8427ea85ed9e196edd",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_4_1_1.stl",
+      "sha256": "3d61941a7a41c6eb89dfe56f7da15b82630ecc21ee6cc9ea6b524f1eb92dbebb",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_4_2_0.stl",
+      "sha256": "c74e879f4b7dcf737509c436eae6ade1d2824868414bb03523df72b9973fc7a0",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_4_2_1.stl",
+      "sha256": "54c42cbfc4aac5403241b6e5b6eab7037dd5f6b60b8657719774dfca79e26433",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_4_3_0.stl",
+      "sha256": "ca7afd944aed119b790f2bac621f24b3f39371a03a3f99ab23d0100897fd5f3b",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_4_3_1.stl",
+      "sha256": "83215e2f03e0d28f7367ae68601914973677533a831cbe64a22b5880d61e47fb",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_4_4_0.stl",
+      "sha256": "432646d7b58fe9d1215db1b934af978c810ef66b993307ed0598592a0c979b9e",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_4_4_1.stl",
+      "sha256": "7cf5540eedf4084a096c6696e40fd1e0172224ddca0079e15d5d43b322bd742e",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_4_5_0.stl",
+      "sha256": "2f7a88fee28654f18d4d58ee185d946336a5c71db4ea0c0e5993f6fa6ce78122",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_4_5_1.stl",
+      "sha256": "c11ce4a3030b0cc092e29d207fb7b3a433c24e091cbfa603c43de76481407363",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_4_6_0.stl",
+      "sha256": "78a572063c3898b6a5faa249bd65858f7e4fd523f2bac6cd400b2f23692b72fe",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_4_6_1.stl",
+      "sha256": "b1121e149ca2d13bcd37f43cddbbcf3c634d15a6926fd23cbc8e3a3a4a391674",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_4_7_0.stl",
+      "sha256": "f3a217a2444d1764293e87ad8c80371b1b90300ac53b85c9bb9b7c441c00340b",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_4_7_1.stl",
+      "sha256": "707c09020e1990f535fe13488a12a60dcf9f9dd4936476462b6e823a77fed200",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_4_8_0.stl",
+      "sha256": "cf27a1f76bba814b2780411eea0ff27752aaad523339dac540ebd5e27bdc73a2",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_4_8_1.stl",
+      "sha256": "e7887d769ff0e497d75c0b5b59a5349c276e978172a02f5a67224800b0d70b9c",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_4_9_0.stl",
+      "sha256": "3d81b3e33f6f77419f50c65e1a4bf1a76683a62d540e0c1390bf87b5cffd454d",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_4_9_1.stl",
+      "sha256": "c6ee51c18013717e6465a2fad6799fac5476337c8514bda0e2523537cc2bae4c",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_4_10_0.stl",
+      "sha256": "e7700711cff52479fc6135dc08acf7b65b2ecd259a3ad9823a6a0adc60bead04",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_4_10_1.stl",
+      "sha256": "926b50b9d654662193bb22066ca78c0f8f2de47b53cead9b36ba6fb760e81d31",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_4_11_0.stl",
+      "sha256": "5ab27a1a8919baaf76bd5e8a5eab0c5608853983d2ee447e9d2a9b2d60eff2d4",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_4_11_1.stl",
+      "sha256": "0a450738dc7e318de7236d17206e9377255d0a86d6a718f05c50e12206499ba8",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_4_12_0.stl",
+      "sha256": "f04c9f4b4b477225b8b64530fbfd0ba667a34c8a6553a489638b0128e1a6561d",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_4_12_1.stl",
+      "sha256": "0e6735f2e40f9a089c2181b5cdaab81c554a2e64eefb3f13949aea64b8c59ec1",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_4_13_0.stl",
+      "sha256": "afc1fb77c5a81b2e288b0f2eb2a6704e6a2b7d9b9151f35b5d446218ee6a15a5",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_4_13_1.stl",
+      "sha256": "98db83c1f44a4b9345eac3cdf40b2f3402cbd150390b526dc3e35e581aab7844",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_4_14_0.stl",
+      "sha256": "68c421653b93b2b7c3795432fa7e40a592c56b2790d3632578f91d7682d00358",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_4_14_1.stl",
+      "sha256": "55b4c0d8103b3b762c8d194b192003522d08f04098aac5488ef198408c83041a",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_4_15_0.stl",
+      "sha256": "acd2470f59b927ab990f31cd66ca606d3d150163c54766df9658e5e1fb0b7f98",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_4_15_1.stl",
+      "sha256": "7db77592a33e7d6a1f4476e9a266b6d250990cfaf4f09ac677de23d0b373955e",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_4_16_0.stl",
+      "sha256": "43e88fd32319cfe2b01604973bf511a8d18fdbeb4d5704b7c0802c2edc257a5c",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_4_16_1.stl",
+      "sha256": "4cdb4e9dbf2d266dd58918ee6d728cb7acbca29d98576649c9771c21a6802a77",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_4_17_0.stl",
+      "sha256": "9bd6d703708902065f72f89a111fb1062bdae9355d57971f77670ae9dee3f56a",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_4_17_1.stl",
+      "sha256": "51a5d6686ffc851afdeede2443df54ce6dd6740d4e80428cc03154783d9756cb",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_4_18_0.stl",
+      "sha256": "1517fc491d88e2af1bed92eb27223799704b8a8e6cf8abf4ccccce710aead5ee",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_4_18_1.stl",
+      "sha256": "782cba62257f03e03f1013cd5b0c21cdd07ff01db6a9c7ed1ec329cd4ecea900",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_4_19_0.stl",
+      "sha256": "ec96461f84b9b7a4a878f42e4fcf8b89bf9b14f00e84c48a7cd366bc11a3c5ca",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_4_19_1.stl",
+      "sha256": "9f6a88b63f903dcaa0f981f364e7c75acca8dd8067f3e147ae47d82e3cb88a03",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_5_0_0.stl",
+      "sha256": "3014fcd95bf837b112a93c01c790aa1e5dc033e8caaeeed2100a663bd39f883e",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_5_0_1.stl",
+      "sha256": "0a5027cb538d7b5edfc689991467b05fc6599b9d352b60780b22b37c08aab196",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_5_1_0.stl",
+      "sha256": "cd16693256e05753b945fcc74fe34dc474d2a0a553fca0c68ca350886f2ad2ed",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_5_1_1.stl",
+      "sha256": "971b1b53b3ffac645b8355c39cda8179ca8777b9e2d84b0731f8caa63f3c3e4a",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_5_2_0.stl",
+      "sha256": "bd0ffc23915b48df7310e1312dc77ae703267cc6e57d448f13038d147e5b80ae",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_5_2_1.stl",
+      "sha256": "d7acf742e07365b605eecda483bc006c77bef613d3064ee57576e462a1c51c0d",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_5_3_0.stl",
+      "sha256": "8160063b8bc502701a3759df577fc6392efe83e3ef8b896a2925cea4472a4024",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_5_3_1.stl",
+      "sha256": "bb8e6be52626da6ac8a46f5c6172a430270a957a9aa6675d529180bc8de9a77e",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_5_4_0.stl",
+      "sha256": "4c8bbd21abe174cc381ce53eff74c1e4a7cfc8b69ee25ca3e65dc5663bb7645f",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_5_4_1.stl",
+      "sha256": "b930ea0d590611296ee2b7eb05f86df2f8dd1ba72b37830d8deda4ff840fe99a",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_5_5_0.stl",
+      "sha256": "e2fb76599c5eb0bd4c0442c3102017b013c2444b0ca3afd7effca31a15717c90",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_5_5_1.stl",
+      "sha256": "d15832f9d8043ca92caa24f1e46a235d1c19802202605da87aa422fc4a2e5b99",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_5_6_0.stl",
+      "sha256": "e74c65d9b019b6fcc4afd795c39e96797acbb6a8cfaa424c2bfb7d6765470d6e",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_5_6_1.stl",
+      "sha256": "9fa0843055ad723bf305e18f61d5de6bc05f3363f01e546f3b13793bcbc65728",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_5_7_0.stl",
+      "sha256": "8b12f17423bca27b52f627a0afb7668679093acff60307afdbbc41225ec94810",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_5_7_1.stl",
+      "sha256": "ad5a8edc3fcdf34f474f00f23eda2128f7ba0078a0503f7927a772b5df321867",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_5_8_0.stl",
+      "sha256": "6936b3c5682a6640ae8ae4170af16a34f9c60a96d91c64a8326ed0150c6f2e70",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_5_8_1.stl",
+      "sha256": "c5378dacb603bdc287c045d0f3b57305bf4b338beaf0a5410bba2c81dbcf6bc9",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_5_9_0.stl",
+      "sha256": "c31198a17b1f3b9052f664404c8b6d0f32ba63754e1d6870d569b81c3bffeeb8",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_5_9_1.stl",
+      "sha256": "4587705e0c3a21c74f38089ddc9d22aeb989eeefd2f984517ca3dce7be739d82",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_5_10_0.stl",
+      "sha256": "8d41f89d30d8260062364b40ea51a516db490b93c0b35094c89b85833c419879",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_5_10_1.stl",
+      "sha256": "6d8ef4ac2abd84255e1d026202e59a0e01b591013f7b335ec2a9edd60f6272d3",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_5_11_0.stl",
+      "sha256": "afcd9d07d941b99075d0c34d896aabf4482d9237c1ed7def9bf0a85b824e9a6e",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_5_11_1.stl",
+      "sha256": "7e5822c021747d057a8722065624242a2d0b1f5615d7176e828551197357127d",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_5_12_0.stl",
+      "sha256": "75bef124eb893be468d3475113f9af342398f3b77e45cfaba0cdf705454928b9",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_5_12_1.stl",
+      "sha256": "ae4a2f6502036298847baa80b73c6918222c037c54c6f2f9619c929e08a4ca06",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_5_13_0.stl",
+      "sha256": "fdf1c680e534c4ee390d5f1b644d0d4c4a1c5eb23f637dbaad13af30976f6105",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_5_13_1.stl",
+      "sha256": "30dd400594612c2197f3eb0df49494fb3ae8a53c30ffe5ae2142a7bca956e5f7",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_5_14_0.stl",
+      "sha256": "515491ea3f6395bb12d9f7ace0148baa431c6d90336f4ca726dfd9b101b807e7",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_5_14_1.stl",
+      "sha256": "e7e65a435dc0df9a9327b76720aeeff4bd5fcc6077b4364011dffd49140a50de",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_5_15_0.stl",
+      "sha256": "f29a5d95d5c62dde11342aa1437bd1df396872d51a3daa0355820b9345b7b367",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_5_15_1.stl",
+      "sha256": "7bffe6ba7c13344ef385238cfdc9860921206e6f77be074f6e26f012e3aa9d12",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_5_16_0.stl",
+      "sha256": "aab8f8606397198718de8c93965521eab46f7cb98bb91ef64dffe33bca8142fe",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_5_16_1.stl",
+      "sha256": "ba1879d1d8c7b12e61815aa255a46dec91bb7169172099841c5173b62cb5ec13",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_5_17_0.stl",
+      "sha256": "8e5cd023a3ca40036feb16c92173f2a9ff25fa209588a0988a418c2ff98a0337",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_5_17_1.stl",
+      "sha256": "16fc86d32135ca1d4a2bc53e62bf5146cbccd58477d7fc3e735eee1a515b0364",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_5_18_0.stl",
+      "sha256": "e3cb6a2eb4d544452aa7c65e0969f6e209ef513a8d8972cc130ca0ad5e526ebc",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_5_18_1.stl",
+      "sha256": "9f43f0fa344b69641fb0cf312561fb258779a8f4737288bae3fb0b28d5fca0e1",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_5_19_0.stl",
+      "sha256": "36818c80d8519a193eeadce3665cdfdaec53445f34ec24e4f06f424d4c322201",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_5_19_1.stl",
+      "sha256": "f0e1431c31b94162708c99a64ffb988230b1d0d1d62053cd584df5093e8bd34c",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_6_0_0.stl",
+      "sha256": "a6e76c25edeccce4cd83b5162b8d4675593d10aa48b50ada358eadd9468efa1e",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_6_0_1.stl",
+      "sha256": "2425218bbe20111bc285bd379c8a7f8e6fb99150f2ae5eba1da7766f7c9fae3d",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_6_1_0.stl",
+      "sha256": "9e3a44dff84e55ad6607274fb648010de6ff87aada7f50a821dd725e9733065d",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_6_1_1.stl",
+      "sha256": "3f88e36b500252f83e4fb93409fce8b90eae8bdc6b29b77ae943eb3fc20ac819",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_6_2_0.stl",
+      "sha256": "5ae118a9afa8f219733167c37c5cbbd9b255918d60c76097155d837144df93d7",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_6_2_1.stl",
+      "sha256": "02917cdf236f9687ca96645124cae3f02587b38aa94bd06ea31d6a612b08615e",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_6_3_0.stl",
+      "sha256": "f4921c424449ed12f17ac51ed75510caaf63e175640a324eefbb43213661f9d2",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_6_3_1.stl",
+      "sha256": "8d1aa998a2cae11447eaa9a875e5bcd0dc9748adbc09878065317b745d0aec80",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_6_4_0.stl",
+      "sha256": "07570c02bde7394e9075a7629171ff370570d32946021ad676745ed3b9dc7415",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_6_4_1.stl",
+      "sha256": "30a2d548139e790b9d884c2d11738ccba2efbb89f7a60a4737288ce188b8f01b",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_6_5_0.stl",
+      "sha256": "a42b33caa9d416fe3ef8e8b7e43e2e9f3781ff82d6bdc4fbce0ac8c344c6dd83",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_6_5_1.stl",
+      "sha256": "7619d1708ad0e1f6cdbbe725e73a0ecf47bb33f374f36561c8fa6b4851387746",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_6_6_0.stl",
+      "sha256": "62755153fbe08c501b9624fb6e8cf3e28b8d56d7562da3fe0e25814ca0adb394",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_6_6_1.stl",
+      "sha256": "eb2f63b08c560b899c986fb86d3cb56fdc9397e7c428f63ff094b5b5fc450405",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_6_7_0.stl",
+      "sha256": "7c01de6b31b36a07be0248f9bce2f24bc6a26fe9ece4afa731c89e931dfefaeb",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_6_7_1.stl",
+      "sha256": "3176efde1ebb02507b016fa99c082da848d3727de6c303e65d3fc5c035070736",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_6_8_0.stl",
+      "sha256": "05d860d7ff53e93d8725ea7abb2f51908bcc6f657de52453d76254a755df514e",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_6_8_1.stl",
+      "sha256": "d8dec48925c7cd77d084893524266ae34a11678b8be9aa3cb4263962bcb56007",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_6_9_0.stl",
+      "sha256": "6b5ee6db66a7d49779220cfc064f28c5ba510397df2bf161aeb219f715e36fd1",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_6_9_1.stl",
+      "sha256": "c17badd370f68f2813a3a423fa5336ad77084cc008d79cc698cb1351f39c91c8",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_6_10_0.stl",
+      "sha256": "c7ae553085992c496cfa8c9480b3d1b7c5b342ee247286e5036e7ab4c725e867",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_6_10_1.stl",
+      "sha256": "6e49ee7a0ef35d5fef7446312d6e452cf089f39968ee286201ffaa06d904dccf",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_6_11_0.stl",
+      "sha256": "dbb81e7b222974b4b7a51815a35aec489b85dbde47a4b78c68d336a5f672e87e",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_6_11_1.stl",
+      "sha256": "35900c2495d6c3199456b46e09f4a20091a42a246395a7c9baec5a7d6d7524a1",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_6_12_0.stl",
+      "sha256": "cfe8529b17fc48025c26dc635851531d84ec96959c5c79e95173958a13a134d8",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_6_12_1.stl",
+      "sha256": "157e57c7de07f02d6ed2dee4dd25229adf128a3a02567fa7d8a8d613ef22a303",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_6_13_0.stl",
+      "sha256": "14951268b820132b77b6482e0d467c1cca00f115cb976cf0c8c1f9f2827c93b6",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_6_13_1.stl",
+      "sha256": "1db1398a70271e88b1dd61aef8efc6b4b9f9fe1a1e65bad639210029024490ff",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_6_14_0.stl",
+      "sha256": "19bee199c37acf6aee4e81fab5938d795b1df68c3d586c7148d7ff4df0ebaab6",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_6_14_1.stl",
+      "sha256": "38651802e3971195f77900c959a19b0df51a3c68150ef21e6b60fc1baf0093bc",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_6_15_0.stl",
+      "sha256": "098f3dbe242c9307782e8d588a0b4c1897c79a359664696c872d905597ed6ebf",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_6_15_1.stl",
+      "sha256": "92f20c9e1d738863ee9861167df47914d1d56cccbf3d289520a5c5648aeb5fea",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_6_16_0.stl",
+      "sha256": "e03d58733941909f45909348d8000a2debdda4bc35ce58c1aedb9d2bff8ea2e8",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_6_16_1.stl",
+      "sha256": "4b58c07773dd72befc309561993dcd970c7b32dab70738552b5210e2531a41db",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_6_17_0.stl",
+      "sha256": "1d65fa7774cfc27af7790a4c7322d451bdc063c83e04532faa1e53b7060e0fb9",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_6_17_1.stl",
+      "sha256": "9581dd7311fbf430247c0f94924b8c977b49737f190b6baf43959997f9b82146",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_6_18_0.stl",
+      "sha256": "35008e36f682e9311e790656d52e83cc3c57ce2caf2901204a28fb5dca11fb91",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_6_18_1.stl",
+      "sha256": "8a4eb7a7ab0291f04d22565f809230e26cec3bfa0b465e49022aa7e296e14161",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_6_19_0.stl",
+      "sha256": "0f3e56b7b8b0d4a85e22fbf21ff9156f08c29f13f4673fb0d957dabace3bfeb5",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_6_19_1.stl",
+      "sha256": "178eec736a8814a64c2196cd414efd387d944e074f66e0b9b6c9c36c987e11b1",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_7_0_0.stl",
+      "sha256": "9a14f66b25d49c016f5bb6f02f99392aba79cfd5ecbc831c8748bcf6b038e469",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_7_0_1.stl",
+      "sha256": "a11dfef571733d854f152751de4e02559df5eeff637428647706cbc353f6f0a2",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_7_1_0.stl",
+      "sha256": "a4ebf19969663ba1fe0df8e71814cd0bd7279bd46f450adadef00e51f6ffd975",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_7_1_1.stl",
+      "sha256": "a4179177fdd3940c386809a3c0d32a7394076c45bb7ea27f3f9552e649d7a9dd",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_7_2_0.stl",
+      "sha256": "ae73281206805f6759c290469517171813c9fba239dc4e3ccb8b52fa083b142d",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_7_2_1.stl",
+      "sha256": "1c1c2cdd88377a7fc41c10e85e5da7399874e0d64d4b0f92a98e8b721e698bfd",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_7_3_0.stl",
+      "sha256": "d9127b9a7bd4398fdab45c55bd7d9ecc5680cb369b7ec0ec6c9c1e9b0b51297f",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_7_3_1.stl",
+      "sha256": "6d2ba3abb915285271196e0f291e8639b31d91268d3378c1170d77ca3881ad60",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_7_4_0.stl",
+      "sha256": "02df4d504573b9e09f958c357c4ef4eef058ffff53caf0c5689fd36eceb4773e",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_7_4_1.stl",
+      "sha256": "0943dca9804e6a1bac6236e5ecc1586c3fc1654285977c09e52993bcaf890475",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_7_5_0.stl",
+      "sha256": "ff77036ff2cb1f9636070ff885c4f53b6ccedbdda86c40188c3365e0854de340",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_7_5_1.stl",
+      "sha256": "883012b411bab6b0abfab9f13e41a2fba61ae6dcae7bcb2ffbbc0b65d11796f8",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_7_6_0.stl",
+      "sha256": "17852ed64f33a764aa738cff59b31c91753f585d0ead912f71213c90cf9c27ae",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_7_6_1.stl",
+      "sha256": "9fcff507818be4a104c67fdace5baaf8a93923575ed30f2cff36d5e2dbd911c3",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_7_7_0.stl",
+      "sha256": "cd4180c093a3fad885dde536a252e0ca48f279053f942cc432f352de14945d07",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_7_7_1.stl",
+      "sha256": "0ed48be7474ae29e36798cbd86687c14edcde010e8179e5faf1552f62fdbf466",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_7_8_0.stl",
+      "sha256": "adae80322678eedc90b1512203d50179643d225aac3f2ddf4476dfd67a95ac77",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_7_8_1.stl",
+      "sha256": "44e7a93a3ad5e15a52a120f758dbd95887000ceb9e67193076f88df31fe34ffb",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_7_9_0.stl",
+      "sha256": "6fc070e002db3e0135517462a4f33c454bf290a42ae100a2a47d6f2ed1d81f3b",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_7_9_1.stl",
+      "sha256": "5966aba452390ca8905822c08a16d9ce83afe5c17ebc149c29d03e047758277e",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_7_10_0.stl",
+      "sha256": "04c01f7e14557ba7f462c4d92dbd592cc9facc047f9f2bd88b911bec97a63f52",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_7_10_1.stl",
+      "sha256": "5ba8f5606dbd4cd8479401535a1f00bde200a62d0d96b9109600ff5c109a202e",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_7_11_0.stl",
+      "sha256": "91e12798aaffe7a6af979ac2c1b1390e2977e7d8b4f90ac888b7f24c1b1a11fe",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_7_11_1.stl",
+      "sha256": "ae0f3eb7e4fe26ece9a846ab80c4dff21709ee910018b7caf42f42581ab66a0b",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_7_12_0.stl",
+      "sha256": "bbb20289fc7384f2cae40d3d5df14b70b22ef3236ca407cc0a9f6a7d66323345",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_7_12_1.stl",
+      "sha256": "7ad3b65530586af1486d60250298b0bd456f704977733eda1768e4ace4741f74",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_7_13_0.stl",
+      "sha256": "d74bdadaff312348f587a7aafff505af3b8316ff928f725fa9242ce4503659d1",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_7_13_1.stl",
+      "sha256": "6656f8167bf9dd662721880b86d12f0f257b4299961637c22e43ce1d3052949e",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_7_14_0.stl",
+      "sha256": "8a5effde8df5d8e7ad3a96cfc3b7864141d92b7c07641034aff85b8445f21fe4",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_7_14_1.stl",
+      "sha256": "d4230baf23a9ffd1ad3a6d308746383989c8c41c06900248f87246ea874a180e",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_7_15_0.stl",
+      "sha256": "cc0e4d42845a8dfaaba2ce38fd6fcd8f984f5a8155f9361180aab9902c2d95c3",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_7_15_1.stl",
+      "sha256": "977f4929be6ec93ffae0236b6f139f9f0e50b17be42015739a8ec8af049b3ae5",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_8_0_0.stl",
+      "sha256": "6916c9ad937c89a65abaed0c59d06540b825a4a21f56b7d6b04562934dd22aea",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_8_0_1.stl",
+      "sha256": "0cafc3229a35ccc7cc53903f858e24f7efccb424f16aaf97afaeea29d894a8d8",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_8_1_0.stl",
+      "sha256": "8490bfe2d92c623b52a94488b230dbe015746cc09986ece4c4b644d9d22e210e",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_8_1_1.stl",
+      "sha256": "5bac3f0f8fc802b15d750945fde561a76d60e79bcbf805ec296580677f40893a",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_8_2_0.stl",
+      "sha256": "75d6df47bcb1edda77a498f5ee764e1a744ed75f31719b0c35ed07e19c63fc34",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_8_2_1.stl",
+      "sha256": "7e02a6c9839b917d23d5b9993d55fb13c8c4407fc0c0ea094c387f8c7fda03b2",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_8_3_0.stl",
+      "sha256": "080c1b07c8cb93fb851975402394c50fc0c27ac41ea6425db46bcbc04cec5fbf",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_8_3_1.stl",
+      "sha256": "60cb60a7d0acf05d32e63cad39ce34fbc8b7e231a645f05b494052e60ecb12dc",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_8_4_0.stl",
+      "sha256": "f5e160d46f31d4c0b8565a5330a7b44aa3f753417817c39ca4424195655160df",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_8_4_1.stl",
+      "sha256": "ccbd4c4ab5b864fb7799af2bdb0abe9b9c7208266694974e4d89eec644491d0c",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_8_5_0.stl",
+      "sha256": "1b350ae0352e8a93630185b2f775d8ee9bc0adebadfe0b1bed4367f1faafb645",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_8_5_1.stl",
+      "sha256": "95c66608e77c6d803335e4e6d085cf5f1cb1199f8bd79f3500fded9bf75cbf64",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_8_6_0.stl",
+      "sha256": "2ed2280f2e6e1cab4cf28c64650e1a16bf914204e432a89899efc34c280fbf47",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_8_6_1.stl",
+      "sha256": "115e4c5af76225a7c1bc4a72e2ecca16f487f75689461198654bc592ee54035d",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_8_7_0.stl",
+      "sha256": "8430bc008f0ff4d046a19e30c84c90ada0c8a27e4e61142120fc33caeca3ece7",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_8_7_1.stl",
+      "sha256": "70b5290b556638b0906ba29da9c00e015a579937ef89218cc6bcbc420dd28a85",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_8_8_0.stl",
+      "sha256": "903acce841c56ba965ac23f5b4331d80b1ce9f1995ffb8f0a03895c02c0b8bc1",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_8_8_1.stl",
+      "sha256": "6d837f5d052ff66edaf7360e0712924727b2691536c992259c1b7ddaea7d70e6",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_8_9_0.stl",
+      "sha256": "8898f2895fe140d13e00a36e7b1ac3a94645d30ecb8649d69dc887716eb3a2b1",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_8_9_1.stl",
+      "sha256": "d7debbf7c6999cc49d796e12fbcdadd1852fd53b18b72a2313f68749f48fcdd8",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_8_10_0.stl",
+      "sha256": "b976b0ef61f7b6d78253ad9884e5aaa047826847ed15d4e0e9350f6fa28ed0a0",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_8_10_1.stl",
+      "sha256": "cbcf5df8ed7259cb394ab022a2677e4de76d79f00ad50a224a14ec94313d3615",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_8_11_0.stl",
+      "sha256": "b4e089a35760eeea8020463b0d99cbdb84e8adaaac0697f4d984ce8932f25231",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_8_11_1.stl",
+      "sha256": "e2922730486c1b1ade571f6911e5babcc8b4f87730dd43a3d49ec9311bdaccf8",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_8_12_0.stl",
+      "sha256": "2b6461a7109ff118f13823b1953adcb3e3be24cb080a0f22f6e700f7afc7b640",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_8_12_1.stl",
+      "sha256": "c802265c71b79d50803199a9e40b1e5b0d61e1ce4c898d7e45053c67f0694d22",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_8_13_0.stl",
+      "sha256": "8cfb7d7c42768418f2374c9f581f88c39f393ffb7c136235d25f4dff97fa32a2",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_8_13_1.stl",
+      "sha256": "e7bf1d2e3b518a2e5842d605d3d10f4633a65760f3c932a45e55ca4816d65ee1",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_8_14_0.stl",
+      "sha256": "d6abeac45a94902e9a758012f5c3334e71557d9c1f1bf6db9a791ed392308ac1",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_8_14_1.stl",
+      "sha256": "ed03ef3f529ca480fb4c44b64d89dfccb931accdc39cb70702d9444c63a84ad0",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_8_15_0.stl",
+      "sha256": "c958c47fccaae08277ea297157dc1f43d045f345f4cae82f72f5f61e8d41c46c",
+      "facets": 12
+    },
+    {
+      "uri": "package://vehicle_description/models/matched_socket_v2/collision/collar_8_15_1.stl",
+      "sha256": "b2f4b81c40f7c8e91d9ff7805cfb928cef9ab76e8f7473a728bd5f62f5e5c228",
+      "facets": 12
+    }
+  ],
+  "facets": 4368,
+  "mesh_uri": "package://vehicle_description/models/matched_socket_v2/collision/mating_nose_bvh.stl",
+  "sha256": "c1582c791b8646380c6de73f791338d4d1d26b8b9911ed4da52720ca09811b69"
+}

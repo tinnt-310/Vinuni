@@ -3,7 +3,7 @@
 #include <iostream>
 #include <thread>
 
-#include "fr10_pose_controller/realtime_buffer.hpp"
+#include "fr10_motion_core/realtime_buffer.hpp"
 #include "test_support.hpp"
 
 namespace {

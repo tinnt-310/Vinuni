@@ -1,0 +1,1050 @@
+{"wall": 2983.36058882, "line": "[INFO] [launch]: All log files can be found below /home/tin/.ros/log/2026-09-27-00-33-33-390451-Tin-Legion5-75141"}
+{"wall": 2983.360619582, "line": "[INFO] [launch]: Default logging verbosity is set to INFO"}
+{"wall": 2983.744036686, "line": "[INFO] [gzserver-1]: process started with pid [75192]"}
+{"wall": 2983.744104696, "line": "[INFO] [robot_state_publisher-2]: process started with pid [75194]"}
+{"wall": 2983.744146971, "line": "[INFO] [spawn_entity.py-3]: process started with pid [75196]"}
+{"wall": 2983.744179327, "line": "[INFO] [spawn_entity.py-4]: process started with pid [75198]"}
+{"wall": 2983.744211509, "line": "[INFO] [spawn_entity.py-5]: process started with pid [75200]"}
+{"wall": 2983.744241967, "line": "[INFO] [spawn_entity.py-6]: process started with pid [75202]"}
+{"wall": 2983.744271664, "line": "[INFO] [swerve_drive-7]: process started with pid [75204]"}
+{"wall": 2983.759189231, "line": "[swerve_drive-7] [INFO] [1790444013.789633760] [swerve_controller]: Swerve L=0.800 W=0.700 r=0.210, input=/cmd_vel, wheel-feedback odometry"}
+{"wall": 2983.795856138, "line": "[robot_state_publisher-2] [INFO] [1790444013.826093573] [robot_state_publisher]: got segment Revolute1_1"}
+{"wall": 2983.796068914, "line": "[robot_state_publisher-2] [INFO] [1790444013.826215709] [robot_state_publisher]: got segment Revolute2_1"}
+{"wall": 2983.796101611, "line": "[robot_state_publisher-2] [INFO] [1790444013.826227194] [robot_state_publisher]: got segment Revolute3_1"}
+{"wall": 2983.796130799, "line": "[robot_state_publisher-2] [INFO] [1790444013.826235213] [robot_state_publisher]: got segment Revolute4_1"}
+{"wall": 2983.79615975, "line": "[robot_state_publisher-2] [INFO] [1790444013.826242090] [robot_state_publisher]: got segment Wheel1_1"}
+{"wall": 2983.796186459, "line": "[robot_state_publisher-2] [INFO] [1790444013.826249144] [robot_state_publisher]: got segment Wheel2_1"}
+{"wall": 2983.796212963, "line": "[robot_state_publisher-2] [INFO] [1790444013.826256146] [robot_state_publisher]: got segment Wheel3_1"}
+{"wall": 2983.796239661, "line": "[robot_state_publisher-2] [INFO] [1790444013.826262951] [robot_state_publisher]: got segment Wheel4_1"}
+{"wall": 2983.79626585, "line": "[robot_state_publisher-2] [INFO] [1790444013.826269866] [robot_state_publisher]: got segment base_footprint"}
+{"wall": 2983.796291983, "line": "[robot_state_publisher-2] [INFO] [1790444013.826276698] [robot_state_publisher]: got segment base_link"}
+{"wall": 2983.796317881, "line": "[robot_state_publisher-2] [INFO] [1790444013.826283397] [robot_state_publisher]: got segment d455_accel_frame"}
+{"wall": 2983.79634464, "line": "[robot_state_publisher-2] [INFO] [1790444013.826290323] [robot_state_publisher]: got segment d455_accel_optical_frame"}
+{"wall": 2983.79636977, "line": "[robot_state_publisher-2] [INFO] [1790444013.826297489] [robot_state_publisher]: got segment d455_bottom_screw_frame"}
+{"wall": 2983.796395306, "line": "[robot_state_publisher-2] [INFO] [1790444013.826304244] [robot_state_publisher]: got segment d455_color_frame"}
+{"wall": 2983.796420648, "line": "[robot_state_publisher-2] [INFO] [1790444013.826311073] [robot_state_publisher]: got segment d455_color_optical_frame"}
+{"wall": 2983.796446655, "line": "[robot_state_publisher-2] [INFO] [1790444013.826317866] [robot_state_publisher]: got segment d455_depth_frame"}
+{"wall": 2983.796471304, "line": "[robot_state_publisher-2] [INFO] [1790444013.826324785] [robot_state_publisher]: got segment d455_depth_optical_frame"}
+{"wall": 2983.796496647, "line": "[robot_state_publisher-2] [INFO] [1790444013.826331547] [robot_state_publisher]: got segment d455_front_bracket"}
+{"wall": 2983.796521682, "line": "[robot_state_publisher-2] [INFO] [1790444013.826338277] [robot_state_publisher]: got segment d455_gyro_frame"}
+{"wall": 2983.796547205, "line": "[robot_state_publisher-2] [INFO] [1790444013.826344858] [robot_state_publisher]: got segment d455_gyro_optical_frame"}
+{"wall": 2983.796572258, "line": "[robot_state_publisher-2] [INFO] [1790444013.826351449] [robot_state_publisher]: got segment d455_imu_optical_frame"}
+{"wall": 2983.796597618, "line": "[robot_state_publisher-2] [INFO] [1790444013.826358057] [robot_state_publisher]: got segment d455_infra1_frame"}
+{"wall": 2983.79662352, "line": "[robot_state_publisher-2] [INFO] [1790444013.826365039] [robot_state_publisher]: got segment d455_infra1_optical_frame"}
+{"wall": 2983.79664842, "line": "[robot_state_publisher-2] [INFO] [1790444013.826371760] [robot_state_publisher]: got segment d455_infra2_frame"}
+{"wall": 2983.796673649, "line": "[robot_state_publisher-2] [INFO] [1790444013.826378649] [robot_state_publisher]: got segment d455_infra2_optical_frame"}
+{"wall": 2983.796699188, "line": "[robot_state_publisher-2] [INFO] [1790444013.826385410] [robot_state_publisher]: got segment d455_link"}
+{"wall": 2983.796724327, "line": "[robot_state_publisher-2] [INFO] [1790444013.826392391] [robot_state_publisher]: got segment d455_mount_frame"}
+{"wall": 2983.796749651, "line": "[robot_state_publisher-2] [INFO] [1790444013.826399010] [robot_state_publisher]: got segment laser_frame"}
+{"wall": 2983.796775211, "line": "[robot_state_publisher-2] [INFO] [1790444013.826405579] [robot_state_publisher]: got segment lidar_link"}
+{"wall": 2983.796799281, "line": "[robot_state_publisher-2] [INFO] [1790444013.826412251] [robot_state_publisher]: got segment lidar_mount_frame"}
+{"wall": 2983.796824699, "line": "[robot_state_publisher-2] [INFO] [1790444013.826419148] [robot_state_publisher]: got segment roof_frame"}
+{"wall": 2984.013392579, "line": "[spawn_entity.py-6] [INFO] [1790444014.043743909] [spawn_entity]: Spawn Entity started"}
+{"wall": 2984.013558988, "line": "[spawn_entity.py-6] [INFO] [1790444014.043954133] [spawn_entity]: Loading entity XML from file /home/tin/Vinuni/install_grouped/vehicle_description/share/vehicle_description/models/tram_sac_VF/model.sdf"}
+{"wall": 2984.013769124, "line": "[spawn_entity.py-6] [INFO] [1790444014.044305775] [spawn_entity]: Waiting for service /spawn_entity, timeout = 30"}
+{"wall": 2984.013902441, "line": "[spawn_entity.py-6] [INFO] [1790444014.044455928] [spawn_entity]: Waiting for service /spawn_entity"}
+{"wall": 2984.021073445, "line": "[spawn_entity.py-3] [INFO] [1790444014.051395523] [spawn_entity]: Spawn Entity started"}
+{"wall": 2984.021233682, "line": "[spawn_entity.py-3] [INFO] [1790444014.051601634] [spawn_entity]: Loading entity published on topic robot_description"}
+{"wall": 2984.022224745, "line": "[spawn_entity.py-3] [INFO] [1790444014.052733574] [spawn_entity]: Waiting for entity xml on robot_description"}
+{"wall": 2984.022622962, "line": "[spawn_entity.py-5] [INFO] [1790444014.053002179] [spawn_entity]: Spawn Entity started"}
+{"wall": 2984.022903274, "line": "[spawn_entity.py-5] [INFO] [1790444014.053390871] [spawn_entity]: Loading entity XML from file /home/tin/Vinuni/install_grouped/vehicle_description/share/vehicle_description/models/tram_sac_VF/model.sdf"}
+{"wall": 2984.023506918, "line": "[spawn_entity.py-5] [INFO] [1790444014.054002368] [spawn_entity]: Waiting for service /spawn_entity, timeout = 30"}
+{"wall": 2984.023841426, "line": "[spawn_entity.py-5] [INFO] [1790444014.054338713] [spawn_entity]: Waiting for service /spawn_entity"}
+{"wall": 2984.033196188, "line": "[spawn_entity.py-3] [INFO] [1790444014.063590126] [spawn_entity]: Waiting for service /spawn_entity, timeout = 30"}
+{"wall": 2984.033317161, "line": "[spawn_entity.py-3] [INFO] [1790444014.063771049] [spawn_entity]: Waiting for service /spawn_entity"}
+{"wall": 2984.041589324, "line": "[spawn_entity.py-4] [INFO] [1790444014.071983397] [spawn_entity]: Spawn Entity started"}
+{"wall": 2984.041670153, "line": "[spawn_entity.py-4] [INFO] [1790444014.072181317] [spawn_entity]: Loading entity XML from file /home/tin/Vinuni/install_grouped/vehicle_description/share/vehicle_description/models/tram_sac_VF/model.sdf"}
+{"wall": 2984.041960519, "line": "[spawn_entity.py-4] [INFO] [1790444014.072504982] [spawn_entity]: Waiting for service /spawn_entity, timeout = 30"}
+{"wall": 2984.042107949, "line": "[spawn_entity.py-4] [INFO] [1790444014.072658751] [spawn_entity]: Waiting for service /spawn_entity"}
+{"wall": 2984.517355746, "line": "[spawn_entity.py-6] [INFO] [1790444014.547392574] [spawn_entity]: Calling service /spawn_entity"}
+{"wall": 2984.528595797, "line": "[spawn_entity.py-5] [INFO] [1790444014.558957352] [spawn_entity]: Calling service /spawn_entity"}
+{"wall": 2984.536364266, "line": "[spawn_entity.py-3] [INFO] [1790444014.566744912] [spawn_entity]: Calling service /spawn_entity"}
+{"wall": 2984.545567713, "line": "[spawn_entity.py-4] [INFO] [1790444014.575707412] [spawn_entity]: Calling service /spawn_entity"}
+{"wall": 2984.758514302, "line": "[spawn_entity.py-6] [INFO] [1790444014.788733543] [spawn_entity]: Spawn status: SpawnEntity: Successfully spawned entity [tram_sac_VF3]"}
+{"wall": 2984.885162172, "line": "[INFO] [spawn_entity.py-6]: process has finished cleanly [pid 75202]"}
+{"wall": 2985.008163506, "line": "[spawn_entity.py-5] [INFO] [1790444015.038427912] [spawn_entity]: Spawn status: SpawnEntity: Successfully spawned entity [tram_sac_VF2]"}
+{"wall": 2985.017082253, "line": "[gzserver-1] \u001b[1;33mWarning [parser_urdf.cc:1134]\u001b[0m multiple inconsistent <name> exists due to fixed joint reduction overwriting previous value [Gazebo/Silver] with [Gazebo/White]."}
+{"wall": 2985.017113387, "line": "[gzserver-1] \u001b[1;33mWarning [parser_urdf.cc:1134]\u001b[0m multiple inconsistent <name> exists due to fixed joint reduction overwriting previous value [Gazebo/Silver] with [Gazebo/White]."}
+{"wall": 2985.017121996, "line": "[gzserver-1] \u001b[1;33mWarning [parser_urdf.cc:1134]\u001b[0m multiple inconsistent <name> exists due to fixed joint reduction overwriting previous value [Gazebo/Silver] with [Gazebo/White]."}
+{"wall": 2985.017134382, "line": "[gzserver-1] \u001b[1;33mWarning [parser_urdf.cc:1134]\u001b[0m multiple inconsistent <name> exists due to fixed joint reduction overwriting previous value [Gazebo/Silver] with [Gazebo/White]."}
+{"wall": 2985.017141166, "line": "[gzserver-1] \u001b[1;33mWarning [parser_urdf.cc:1134]\u001b[0m multiple inconsistent <name> exists due to fixed joint reduction overwriting previous value [Gazebo/Silver] with [Gazebo/White]."}
+{"wall": 2985.017146695, "line": "[gzserver-1] \u001b[1;33mWarning [parser_urdf.cc:1134]\u001b[0m multiple inconsistent <name> exists due to fixed joint reduction overwriting previous value [Gazebo/Silver] with [Gazebo/White]."}
+{"wall": 2985.01727139, "line": "[gzserver-1] \u001b[1;33mWarning [parser_urdf.cc:1134]\u001b[0m multiple inconsistent <name> exists due to fixed joint reduction overwriting previous value [Gazebo/Silver] with [Gazebo/White]."}
+{"wall": 2985.017286465, "line": "[gzserver-1] \u001b[1;33mWarning [parser_urdf.cc:1134]\u001b[0m multiple inconsistent <name> exists due to fixed joint reduction overwriting previous value [Gazebo/Silver] with [Gazebo/White]."}
+{"wall": 2985.017443291, "line": "[gzserver-1] \u001b[1;33mWarning [parser_urdf.cc:1134]\u001b[0m multiple inconsistent <name> exists due to fixed joint reduction overwriting previous value [Gazebo/Silver] with [Gazebo/White]."}
+{"wall": 2985.01745829, "line": "[gzserver-1] \u001b[1;33mWarning [parser_urdf.cc:1134]\u001b[0m multiple inconsistent <name> exists due to fixed joint reduction overwriting previous value [Gazebo/Silver] with [Gazebo/White]."}
+{"wall": 2985.017466441, "line": "[gzserver-1] \u001b[1;33mWarning [parser_urdf.cc:1134]\u001b[0m multiple inconsistent <name> exists due to fixed joint reduction overwriting previous value [Gazebo/Silver] with [Gazebo/Gold]."}
+{"wall": 2985.017472515, "line": "[gzserver-1] \u001b[1;33mWarning [parser_urdf.cc:1134]\u001b[0m multiple inconsistent <name> exists due to fixed joint reduction overwriting previous value [Gazebo/Silver] with [Gazebo/Gold]."}
+{"wall": 2985.017487721, "line": "[gzserver-1] \u001b[1;33mWarning [parser_urdf.cc:1134]\u001b[0m multiple inconsistent <name> exists due to fixed joint reduction overwriting previous value [Gazebo/Silver] with [Gazebo/Gold]."}
+{"wall": 2985.017494541, "line": "[gzserver-1] \u001b[1;33mWarning [parser_urdf.cc:1134]\u001b[0m multiple inconsistent <name> exists due to fixed joint reduction overwriting previous value [Gazebo/Silver] with [Gazebo/Black]."}
+{"wall": 2985.017500002, "line": "[gzserver-1] \u001b[1;33mWarning [parser_urdf.cc:1134]\u001b[0m multiple inconsistent <name> exists due to fixed joint reduction overwriting previous value [Gazebo/Silver] with [Gazebo/Black]."}
+{"wall": 2985.017586351, "line": "[gzserver-1] \u001b[1;33mWarning [parser_urdf.cc:1134]\u001b[0m multiple inconsistent <name> exists due to fixed joint reduction overwriting previous value [Gazebo/Silver] with [Gazebo/Gold]."}
+{"wall": 2985.017609843, "line": "[gzserver-1] \u001b[1;33mWarning [parser_urdf.cc:1134]\u001b[0m multiple inconsistent <name> exists due to fixed joint reduction overwriting previous value [Gazebo/Silver] with [Gazebo/Gold]."}
+{"wall": 2985.017638491, "line": "[gzserver-1] \u001b[1;33mWarning [parser_urdf.cc:1134]\u001b[0m multiple inconsistent <name> exists due to fixed joint reduction overwriting previous value [Gazebo/Silver] with [Gazebo/Gold]."}
+{"wall": 2985.017658295, "line": "[gzserver-1] \u001b[1;33mWarning [parser_urdf.cc:1134]\u001b[0m multiple inconsistent <name> exists due to fixed joint reduction overwriting previous value [Gazebo/Silver] with [Gazebo/Black]."}
+{"wall": 2985.017747264, "line": "[gzserver-1] \u001b[1;33mWarning [parser_urdf.cc:1134]\u001b[0m multiple inconsistent <name> exists due to fixed joint reduction overwriting previous value [Gazebo/Silver] with [Gazebo/Black]."}
+{"wall": 2985.017823834, "line": "[gzserver-1] \u001b[1;33mWarning [parser_urdf.cc:1134]\u001b[0m multiple inconsistent <name> exists due to fixed joint reduction overwriting previous value [Gazebo/Silver] with [Gazebo/Gold]."}
+{"wall": 2985.017847377, "line": "[gzserver-1] \u001b[1;33mWarning [parser_urdf.cc:1134]\u001b[0m multiple inconsistent <name> exists due to fixed joint reduction overwriting previous value [Gazebo/Silver] with [Gazebo/Gold]."}
+{"wall": 2985.017867962, "line": "[gzserver-1] \u001b[1;33mWarning [parser_urdf.cc:1134]\u001b[0m multiple inconsistent <name> exists due to fixed joint reduction overwriting previous value [Gazebo/Silver] with [Gazebo/Gold]."}
+{"wall": 2985.01788811, "line": "[gzserver-1] \u001b[1;33mWarning [parser_urdf.cc:1134]\u001b[0m multiple inconsistent <name> exists due to fixed joint reduction overwriting previous value [Gazebo/Silver] with [Gazebo/Black]."}
+{"wall": 2985.017904096, "line": "[gzserver-1] \u001b[1;33mWarning [parser_urdf.cc:1134]\u001b[0m multiple inconsistent <name> exists due to fixed joint reduction overwriting previous value [Gazebo/Silver] with [Gazebo/Black]."}
+{"wall": 2985.017979719, "line": "[gzserver-1] \u001b[1;33mWarning [parser_urdf.cc:1134]\u001b[0m multiple inconsistent <name> exists due to fixed joint reduction overwriting previous value [Gazebo/Silver] with [Gazebo/Gold]."}
+{"wall": 2985.018009133, "line": "[gzserver-1] \u001b[1;33mWarning [parser_urdf.cc:1134]\u001b[0m multiple inconsistent <name> exists due to fixed joint reduction overwriting previous value [Gazebo/Silver] with [Gazebo/Gold]."}
+{"wall": 2985.018026315, "line": "[gzserver-1] \u001b[1;33mWarning [parser_urdf.cc:1134]\u001b[0m multiple inconsistent <name> exists due to fixed joint reduction overwriting previous value [Gazebo/Silver] with [Gazebo/Gold]."}
+{"wall": 2985.01804457, "line": "[gzserver-1] \u001b[1;33mWarning [parser_urdf.cc:1134]\u001b[0m multiple inconsistent <name> exists due to fixed joint reduction overwriting previous value [Gazebo/Silver] with [Gazebo/Black]."}
+{"wall": 2985.01806221, "line": "[gzserver-1] \u001b[1;33mWarning [parser_urdf.cc:1134]\u001b[0m multiple inconsistent <name> exists due to fixed joint reduction overwriting previous value [Gazebo/Silver] with [Gazebo/Black]."}
+{"wall": 2985.137893623, "line": "[INFO] [spawn_entity.py-5]: process has finished cleanly [pid 75200]"}
+{"wall": 2985.443553714, "line": "[gzserver-1] [INFO] [1790444015.473884423] [body_camera.d455_simulator]: Publishing camera info to [/body_camera/d455/camera_info]"}
+{"wall": 2985.444161571, "line": "[gzserver-1] [INFO] [1790444015.474658779] [body_camera.d455_simulator]: Publishing depth camera info to [/body_camera/d455/depth/camera_info]"}
+{"wall": 2985.444411458, "line": "[gzserver-1] [INFO] [1790444015.474941465] [body_camera.d455_simulator]: Publishing pointcloud to [/body_camera/d455/points]"}
+{"wall": 2985.455649473, "line": "[spawn_entity.py-3] [INFO] [1790444015.485996359] [spawn_entity]: Spawn status: SpawnEntity: Successfully spawned entity [my_mobile_manipulator]"}
+{"wall": 2985.469017192, "line": "[gzserver-1] [INFO] [1790444015.499375385] [gazebo_ros2_control]: Loading gazebo_ros2_control plugin"}
+{"wall": 2985.471359239, "line": "[gzserver-1] [INFO] [1790444015.501764144] [gazebo_ros2_control]: Starting gazebo_ros2_control plugin in namespace: /"}
+{"wall": 2985.471406035, "line": "[gzserver-1] [INFO] [1790444015.501789460] [gazebo_ros2_control]: Starting gazebo_ros2_control plugin in ros 2 node: gazebo_ros2_control"}
+{"wall": 2985.473192273, "line": "[gzserver-1] [INFO] [1790444015.503663520] [gazebo_ros2_control]: connected to service!! robot_state_publisher"}
+{"wall": 2985.473665158, "line": "[gzserver-1] [INFO] [1790444015.504164138] [gazebo_ros2_control]: Received urdf from param server, parsing..."}
+{"wall": 2985.473763312, "line": "[gzserver-1] [INFO] [1790444015.504184572] [gazebo_ros2_control]: Loading parameter files /tmp/vinuni_sim_wqrb5yjm/controllers.yaml"}
+{"wall": 2985.480228352, "line": "[gzserver-1] [INFO] [1790444015.510691429] [gazebo_ros2_control]: Loading joint: Revolute1_to_base_link"}
+{"wall": 2985.480264363, "line": "[gzserver-1] [INFO] [1790444015.510709702] [gazebo_ros2_control]: \tState:"}
+{"wall": 2985.480287934, "line": "[gzserver-1] [INFO] [1790444015.510714958] [gazebo_ros2_control]: \t\t velocity"}
+{"wall": 2985.480411284, "line": "[gzserver-1] [INFO] [1790444015.510719422] [gazebo_ros2_control]: \t\t position"}
+{"wall": 2985.480438046, "line": "[gzserver-1] [INFO] [1790444015.510723295] [gazebo_ros2_control]: \tCommand:"}
+{"wall": 2985.480459432, "line": "[gzserver-1] [INFO] [1790444015.510726360] [gazebo_ros2_control]: \t\t position"}
+{"wall": 2985.480563964, "line": "[gzserver-1] [INFO] [1790444015.510829382] [gazebo_ros2_control]: Loading joint: Revolute2_to_base_link"}
+{"wall": 2985.48059174, "line": "[gzserver-1] [INFO] [1790444015.510834237] [gazebo_ros2_control]: \tState:"}
+{"wall": 2985.480614863, "line": "[gzserver-1] [INFO] [1790444015.510837548] [gazebo_ros2_control]: \t\t velocity"}
+{"wall": 2985.480635111, "line": "[gzserver-1] [INFO] [1790444015.510840811] [gazebo_ros2_control]: \t\t position"}
+{"wall": 2985.480654618, "line": "[gzserver-1] [INFO] [1790444015.510843896] [gazebo_ros2_control]: \tCommand:"}
+{"wall": 2985.480673994, "line": "[gzserver-1] [INFO] [1790444015.510846673] [gazebo_ros2_control]: \t\t position"}
+{"wall": 2985.480692507, "line": "[gzserver-1] [INFO] [1790444015.510887219] [gazebo_ros2_control]: Loading joint: Revolute3_to_base_link"}
+{"wall": 2985.480710715, "line": "[gzserver-1] [INFO] [1790444015.510890631] [gazebo_ros2_control]: \tState:"}
+{"wall": 2985.480728877, "line": "[gzserver-1] [INFO] [1790444015.510893739] [gazebo_ros2_control]: \t\t velocity"}
+{"wall": 2985.480746076, "line": "[gzserver-1] [INFO] [1790444015.510896701] [gazebo_ros2_control]: \t\t position"}
+{"wall": 2985.48076362, "line": "[gzserver-1] [INFO] [1790444015.510899583] [gazebo_ros2_control]: \tCommand:"}
+{"wall": 2985.480780998, "line": "[gzserver-1] [INFO] [1790444015.510902438] [gazebo_ros2_control]: \t\t position"}
+{"wall": 2985.480881546, "line": "[gzserver-1] [INFO] [1790444015.510936913] [gazebo_ros2_control]: Loading joint: Revolute4_to_base_link"}
+{"wall": 2985.480907032, "line": "[gzserver-1] [INFO] [1790444015.510940479] [gazebo_ros2_control]: \tState:"}
+{"wall": 2985.480929099, "line": "[gzserver-1] [INFO] [1790444015.510943425] [gazebo_ros2_control]: \t\t velocity"}
+{"wall": 2985.480948802, "line": "[gzserver-1] [INFO] [1790444015.510946271] [gazebo_ros2_control]: \t\t position"}
+{"wall": 2985.480966678, "line": "[gzserver-1] [INFO] [1790444015.510949072] [gazebo_ros2_control]: \tCommand:"}
+{"wall": 2985.480984702, "line": "[gzserver-1] [INFO] [1790444015.510951861] [gazebo_ros2_control]: \t\t position"}
+{"wall": 2985.481080567, "line": "[gzserver-1] [INFO] [1790444015.510988637] [gazebo_ros2_control]: Loading joint: Wheel1_to_Revolute1"}
+{"wall": 2985.481106835, "line": "[gzserver-1] [INFO] [1790444015.510992064] [gazebo_ros2_control]: \tState:"}
+{"wall": 2985.481128321, "line": "[gzserver-1] [INFO] [1790444015.510995010] [gazebo_ros2_control]: \t\t velocity"}
+{"wall": 2985.481147797, "line": "[gzserver-1] [INFO] [1790444015.510998452] [gazebo_ros2_control]: \t\t position"}
+{"wall": 2985.481166906, "line": "[gzserver-1] [INFO] [1790444015.511001581] [gazebo_ros2_control]: \tCommand:"}
+{"wall": 2985.481186267, "line": "[gzserver-1] [INFO] [1790444015.511005769] [gazebo_ros2_control]: \t\t velocity"}
+{"wall": 2985.481204277, "line": "[gzserver-1] [INFO] [1790444015.511064361] [gazebo_ros2_control]: Loading joint: Wheel2_to_Revolute2"}
+{"wall": 2985.481221974, "line": "[gzserver-1] [INFO] [1790444015.511067718] [gazebo_ros2_control]: \tState:"}
+{"wall": 2985.481239894, "line": "[gzserver-1] [INFO] [1790444015.511070768] [gazebo_ros2_control]: \t\t velocity"}
+{"wall": 2985.481263199, "line": "[gzserver-1] [INFO] [1790444015.511073724] [gazebo_ros2_control]: \t\t position"}
+{"wall": 2985.481274222, "line": "[gzserver-1] [INFO] [1790444015.511076604] [gazebo_ros2_control]: \tCommand:"}
+{"wall": 2985.481291629, "line": "[gzserver-1] [INFO] [1790444015.511080194] [gazebo_ros2_control]: \t\t velocity"}
+{"wall": 2985.481373688, "line": "[gzserver-1] [INFO] [1790444015.511113346] [gazebo_ros2_control]: Loading joint: Wheel3_to_Revolute3"}
+{"wall": 2985.481397518, "line": "[gzserver-1] [INFO] [1790444015.511116735] [gazebo_ros2_control]: \tState:"}
+{"wall": 2985.481418398, "line": "[gzserver-1] [INFO] [1790444015.511119642] [gazebo_ros2_control]: \t\t velocity"}
+{"wall": 2985.481436635, "line": "[gzserver-1] [INFO] [1790444015.511122426] [gazebo_ros2_control]: \t\t position"}
+{"wall": 2985.481454583, "line": "[gzserver-1] [INFO] [1790444015.511125556] [gazebo_ros2_control]: \tCommand:"}
+{"wall": 2985.481477193, "line": "[gzserver-1] [INFO] [1790444015.511129603] [gazebo_ros2_control]: \t\t velocity"}
+{"wall": 2985.481495451, "line": "[gzserver-1] [INFO] [1790444015.511163477] [gazebo_ros2_control]: Loading joint: Wheel4_to_Revolute4"}
+{"wall": 2985.48152953, "line": "[gzserver-1] [INFO] [1790444015.511167486] [gazebo_ros2_control]: \tState:"}
+{"wall": 2985.481561986, "line": "[gzserver-1] [INFO] [1790444015.511170474] [gazebo_ros2_control]: \t\t velocity"}
+{"wall": 2985.481572478, "line": "[gzserver-1] [INFO] [1790444015.511173428] [gazebo_ros2_control]: \t\t position"}
+{"wall": 2985.481583631, "line": "[gzserver-1] [INFO] [1790444015.511191165] [gazebo_ros2_control]: \tCommand:"}
+{"wall": 2985.481594186, "line": "[gzserver-1] [INFO] [1790444015.511195591] [gazebo_ros2_control]: \t\t velocity"}
+{"wall": 2985.481603989, "line": "[gzserver-1] [INFO] [1790444015.511250053] [resource_manager]: Initialize hardware 'GazeboSystem'"}
+{"wall": 2985.481623396, "line": "[gzserver-1] [INFO] [1790444015.511326358] [resource_manager]: Successful initialization of hardware 'GazeboSystem'"}
+{"wall": 2985.481639463, "line": "[gzserver-1] [INFO] [1790444015.511374179] [resource_manager]: 'configure' hardware 'GazeboSystem'"}
+{"wall": 2985.481658241, "line": "[gzserver-1] [INFO] [1790444015.511379233] [resource_manager]: Successful 'configure' of hardware 'GazeboSystem'"}
+{"wall": 2985.481675046, "line": "[gzserver-1] [INFO] [1790444015.511384714] [resource_manager]: 'activate' hardware 'GazeboSystem'"}
+{"wall": 2985.481692524, "line": "[gzserver-1] [INFO] [1790444015.511388168] [resource_manager]: Successful 'activate' of hardware 'GazeboSystem'"}
+{"wall": 2985.48177395, "line": "[gzserver-1] [INFO] [1790444015.511424783] [gazebo_ros2_control]: Loading controller_manager"}
+{"wall": 2985.490682382, "line": "[gzserver-1] [WARN] [1790444015.521104603] [gazebo_ros2_control]:  Desired controller update period (0.01 s) is slower than the gazebo simulation period (0.001 s)."}
+{"wall": 2985.490876817, "line": "[gzserver-1] [INFO] [1790444015.521214064] [gazebo_ros2_control]: Loaded gazebo_ros2_control."}
+{"wall": 2985.579761728, "line": "[INFO] [spawn_entity.py-3]: process has finished cleanly [pid 75196]"}
+{"wall": 2985.58165209, "line": "[INFO] [spawner-8]: process started with pid [75513]"}
+{"wall": 2985.718420674, "line": "[spawn_entity.py-4] [INFO] [1790444015.748690633] [spawn_entity]: Spawn status: SpawnEntity: Successfully spawned entity [tram_sac_VF1]"}
+{"wall": 2985.84458089, "line": "[INFO] [spawn_entity.py-4]: process has finished cleanly [pid 75198]"}
+{"wall": 2986.128905033, "line": "[spawner-8] [INFO] [1790444016.159185334] [spawner_joint_state_broadcaster]: waiting for service /controller_manager/list_controllers to become available..."}
+{"wall": 2987.137302325, "line": "[gzserver-1] [INFO] [1790444017.167191988] [controller_manager]: Loading controller 'joint_state_broadcaster'"}
+{"wall": 2987.154850695, "line": "[spawner-8] [INFO] [1790444017.185105785] [spawner_joint_state_broadcaster]: \u001b[94mLoaded \u001b[1mjoint_state_broadcaster\u001b[0m"}
+{"wall": 2987.155752108, "line": "[gzserver-1] [INFO] [1790444017.186126831] [controller_manager]: Configuring controller 'joint_state_broadcaster'"}
+{"wall": 2987.156106911, "line": "[gzserver-1] [INFO] [1790444017.186444572] [joint_state_broadcaster]: 'joints' or 'interfaces' parameter is empty. All available state interfaces will be published"}
+{"wall": 2987.184403723, "line": "[spawner-8] [INFO] [1790444017.214712461] [spawner_joint_state_broadcaster]: \u001b[92mConfigured and activated \u001b[1mjoint_state_broadcaster\u001b[0m"}
+{"wall": 2987.313875371, "line": "[INFO] [spawner-8]: process has finished cleanly [pid 75513]"}
+{"wall": 2987.324220755, "line": "[INFO] [spawner-9]: process started with pid [75586]"}
+{"wall": 2987.32441789, "line": "[INFO] [spawner-10]: process started with pid [75588]"}
+{"wall": 2988.583385639, "line": "[gzserver-1] [INFO] [1790444018.613562923] [controller_manager]: Loading controller 'steering_controller'"}
+{"wall": 2988.597985212, "line": "[gzserver-1] [INFO] [1790444018.628295982] [controller_manager]: Loading controller 'drive_controller'"}
+{"wall": 2988.611264866, "line": "[spawner-9] [INFO] [1790444018.641609023] [spawner_steering_controller]: \u001b[94mLoaded \u001b[1msteering_controller\u001b[0m"}
+{"wall": 2988.611851489, "line": "[gzserver-1] [INFO] [1790444018.642313460] [controller_manager]: Configuring controller 'steering_controller'"}
+{"wall": 2988.612646938, "line": "[gzserver-1] [INFO] [1790444018.643145835] [steering_controller]: configure successful"}
+{"wall": 2988.618560946, "line": "[spawner-10] [INFO] [1790444018.649055503] [spawner_drive_controller]: \u001b[94mLoaded \u001b[1mdrive_controller\u001b[0m"}
+{"wall": 2988.626237852, "line": "[gzserver-1] [INFO] [1790444018.656737126] [steering_controller]: activate successful"}
+{"wall": 2988.636282871, "line": "[gzserver-1] [INFO] [1790444018.666690069] [controller_manager]: Configuring controller 'drive_controller'"}
+{"wall": 2988.636784394, "line": "[gzserver-1] [INFO] [1790444018.667161411] [drive_controller]: configure successful"}
+{"wall": 2988.637106578, "line": "[spawner-9] [INFO] [1790444018.667535045] [spawner_steering_controller]: \u001b[92mConfigured and activated \u001b[1msteering_controller\u001b[0m"}
+{"wall": 2988.656454015, "line": "[gzserver-1] [INFO] [1790444018.686651564] [drive_controller]: activate successful"}
+{"wall": 2988.666887767, "line": "[spawner-10] [INFO] [1790444018.697297016] [spawner_drive_controller]: \u001b[92mConfigured and activated \u001b[1mdrive_controller\u001b[0m"}
+{"wall": 2988.7759352, "line": "[INFO] [spawner-9]: process has finished cleanly [pid 75586]"}
+{"wall": 2988.789974042, "line": "[INFO] [spawner-10]: process has finished cleanly [pid 75588]"}
+{"wall": 3011.987678952, "line": "[gzserver-1]"}
+{"wall": 3011.9877365, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-3.7333e+02)"}
+{"wall": 3012.012461631, "line": "[gzserver-1]"}
+{"wall": 3012.01251651, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-9.2800e+02)"}
+{"wall": 3012.022434485, "line": "[gzserver-1]"}
+{"wall": 3012.02248778, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-2.0640e+03)"}
+{"wall": 3012.217011005, "line": "[gzserver-1]"}
+{"wall": 3012.217091108, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-1.1520e+03)"}
+{"wall": 3012.227690525, "line": "[gzserver-1]"}
+{"wall": 3012.227840488, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-2.9600e+02)"}
+{"wall": 3012.230688366, "line": "[gzserver-1]"}
+{"wall": 3012.230758325, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-1.1520e+03)"}
+{"wall": 3012.3020903, "line": "[gzserver-1]"}
+{"wall": 3012.302167943, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-1.0880e+03)"}
+{"wall": 3012.643423731, "line": "[gzserver-1]"}
+{"wall": 3012.643537463, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-inf)"}
+{"wall": 3012.765980754, "line": "[gzserver-1]"}
+{"wall": 3012.766090536, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3012.793646937, "line": "[gzserver-1]"}
+{"wall": 3012.793691259, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-7.9139e+02)"}
+{"wall": 3012.799602541, "line": "[gzserver-1]"}
+{"wall": 3012.799644961, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-3.6948e+04)"}
+{"wall": 3012.806442871, "line": "[gzserver-1]"}
+{"wall": 3012.806495485, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-inf)"}
+{"wall": 3012.825416712, "line": "[gzserver-1]"}
+{"wall": 3012.825465531, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-inf)"}
+{"wall": 3012.833451932, "line": "[gzserver-1]"}
+{"wall": 3012.833513557, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-inf)"}
+{"wall": 3012.845160103, "line": "[gzserver-1]"}
+{"wall": 3012.845265158, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3012.848846314, "line": "[gzserver-1]"}
+{"wall": 3012.84890803, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3012.857265667, "line": "[gzserver-1]"}
+{"wall": 3012.857313149, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-inf)"}
+{"wall": 3012.873464908, "line": "[gzserver-1]"}
+{"wall": 3012.873514498, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-5.2020e+10)"}
+{"wall": 3012.876480496, "line": "[gzserver-1]"}
+{"wall": 3012.876571222, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-2.3885e+09)"}
+{"wall": 3012.880629798, "line": "[gzserver-1]"}
+{"wall": 3012.880687283, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-inf)"}
+{"wall": 3012.891732006, "line": "[gzserver-1]"}
+{"wall": 3012.891789752, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-inf)"}
+{"wall": 3012.915959786, "line": "[gzserver-1]"}
+{"wall": 3012.916023286, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3012.927883009, "line": "[gzserver-1]"}
+{"wall": 3012.927925099, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-inf)"}
+{"wall": 3012.948076113, "line": "[gzserver-1]"}
+{"wall": 3012.948154894, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3012.964024538, "line": "[gzserver-1]"}
+{"wall": 3012.964063197, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3012.994455075, "line": "[gzserver-1]"}
+{"wall": 3012.99465744, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3013.012753233, "line": "[gzserver-1]"}
+{"wall": 3013.012898924, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-inf)"}
+{"wall": 3013.039725476, "line": "[gzserver-1]"}
+{"wall": 3013.039791753, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3013.070060803, "line": "[gzserver-1]"}
+{"wall": 3013.070113535, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-1.4363e+10)"}
+{"wall": 3013.087883403, "line": "[gzserver-1]"}
+{"wall": 3013.087933712, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3013.093763424, "line": "[gzserver-1]"}
+{"wall": 3013.093818113, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3013.105241924, "line": "[gzserver-1]"}
+{"wall": 3013.105288967, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-1.6344e+11)"}
+{"wall": 3013.113940808, "line": "[gzserver-1]"}
+{"wall": 3013.113995786, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3013.11459949, "line": "[gzserver-1]"}
+{"wall": 3013.114655485, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3013.121684606, "line": "[gzserver-1]"}
+{"wall": 3013.121733585, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3013.122554921, "line": "[gzserver-1]"}
+{"wall": 3013.122578054, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3013.14982469, "line": "[gzserver-1]"}
+{"wall": 3013.149903746, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3013.16001446, "line": "[gzserver-1]"}
+{"wall": 3013.160164521, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-1.0407e+10)"}
+{"wall": 3013.160567199, "line": "[gzserver-1]"}
+{"wall": 3013.160649748, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3013.171190923, "line": "[gzserver-1]"}
+{"wall": 3013.17129209, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3013.180953327, "line": "[gzserver-1]"}
+{"wall": 3013.18110723, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3013.184062457, "line": "[gzserver-1]"}
+{"wall": 3013.184109143, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3013.203345156, "line": "[gzserver-1]"}
+{"wall": 3013.203512464, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-inf)"}
+{"wall": 3013.209108407, "line": "[gzserver-1]"}
+{"wall": 3013.209234272, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3013.226586001, "line": "[gzserver-1]"}
+{"wall": 3013.226639489, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-inf)"}
+{"wall": 3013.243161424, "line": "[gzserver-1]"}
+{"wall": 3013.24328286, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-inf)"}
+{"wall": 3013.276525439, "line": "[gzserver-1]"}
+{"wall": 3013.276649019, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-1.2910e+10)"}
+{"wall": 3013.282078373, "line": "[gzserver-1]"}
+{"wall": 3013.282200434, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3013.305329719, "line": "[gzserver-1]"}
+{"wall": 3013.30544073, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-1.3481e+10)"}
+{"wall": 3013.322245827, "line": "[gzserver-1]"}
+{"wall": 3013.322353, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3013.322939812, "line": "[gzserver-1]"}
+{"wall": 3013.323017047, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3013.338273776, "line": "[gzserver-1]"}
+{"wall": 3013.338359035, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3013.340514382, "line": "[gzserver-1]"}
+{"wall": 3013.340615436, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-0.0000e+00)"}
+{"wall": 3013.367658739, "line": "[gzserver-1]"}
+{"wall": 3013.36778266, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-inf)"}
+{"wall": 3013.377204816, "line": "[gzserver-1]"}
+{"wall": 3013.377319586, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3013.394607379, "line": "[gzserver-1]"}
+{"wall": 3013.394673285, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3013.404905433, "line": "[gzserver-1]"}
+{"wall": 3013.405046678, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-7.9648e+09)"}
+{"wall": 3013.405486353, "line": "[gzserver-1]"}
+{"wall": 3013.405565929, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3013.420972703, "line": "[gzserver-1]"}
+{"wall": 3013.421075007, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-1.4213e+10)"}
+{"wall": 3013.423671377, "line": "[gzserver-1]"}
+{"wall": 3013.423692567, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-inf)"}
+{"wall": 3013.428824906, "line": "[gzserver-1]"}
+{"wall": 3013.428854878, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-2.9448e+04)"}
+{"wall": 3013.429541593, "line": "[gzserver-1]"}
+{"wall": 3013.42955638, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3013.438603373, "line": "[gzserver-1]"}
+{"wall": 3013.438642707, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3013.465991616, "line": "[gzserver-1]"}
+{"wall": 3013.466144101, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3013.477541289, "line": "[gzserver-1]"}
+{"wall": 3013.477704754, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-2.8643e+10)"}
+{"wall": 3013.484064536, "line": "[gzserver-1]"}
+{"wall": 3013.484191924, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-inf)"}
+{"wall": 3013.487233811, "line": "[gzserver-1]"}
+{"wall": 3013.487327418, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-inf)"}
+{"wall": 3013.499307783, "line": "[gzserver-1]"}
+{"wall": 3013.499388021, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-1.8059e+05)"}
+{"wall": 3013.501997965, "line": "[gzserver-1]"}
+{"wall": 3013.50206081, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3013.536722919, "line": "[gzserver-1]"}
+{"wall": 3013.536807396, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3013.546878433, "line": "[gzserver-1]"}
+{"wall": 3013.546982162, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3013.564321244, "line": "[gzserver-1]"}
+{"wall": 3013.564376406, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-inf)"}
+{"wall": 3013.636620475, "line": "[gzserver-1]"}
+{"wall": 3013.636666587, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3013.696689487, "line": "[gzserver-1]"}
+{"wall": 3013.696765342, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3013.729523976, "line": "[gzserver-1]"}
+{"wall": 3013.729605319, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-0.0000e+00)"}
+{"wall": 3013.800770824, "line": "[gzserver-1]"}
+{"wall": 3013.800855189, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3013.816888024, "line": "[gzserver-1]"}
+{"wall": 3013.816948863, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-5.6800e+02)"}
+{"wall": 3013.82762766, "line": "[gzserver-1]"}
+{"wall": 3013.827676964, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3013.847958895, "line": "[gzserver-1]"}
+{"wall": 3013.848045925, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3013.877061756, "line": "[gzserver-1]"}
+{"wall": 3013.877193681, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3013.923468753, "line": "[gzserver-1]"}
+{"wall": 3013.923529489, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-2.8800e+02)"}
+{"wall": 3014.00495653, "line": "[gzserver-1]"}
+{"wall": 3014.005070071, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3014.024645999, "line": "[gzserver-1]"}
+{"wall": 3014.024673982, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-8.0000e+00)"}
+{"wall": 3014.063948559, "line": "[gzserver-1]"}
+{"wall": 3014.064049456, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-2.2400e+03)"}
+{"wall": 3014.138529302, "line": "[gzserver-1]"}
+{"wall": 3014.138607762, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3014.146396712, "line": "[gzserver-1]"}
+{"wall": 3014.146471939, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-3.2453e-11)"}
+{"wall": 3014.153393739, "line": "[gzserver-1]"}
+{"wall": 3014.153481615, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3014.187828052, "line": "[gzserver-1]"}
+{"wall": 3014.187912944, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3014.205721796, "line": "[gzserver-1]"}
+{"wall": 3014.205831705, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3014.229357703, "line": "[gzserver-1]"}
+{"wall": 3014.229428533, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3014.312808978, "line": "[gzserver-1]"}
+{"wall": 3014.312897866, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3014.324570206, "line": "[gzserver-1]"}
+{"wall": 3014.324685941, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3014.441692264, "line": "[gzserver-1]"}
+{"wall": 3014.441779685, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-0.0000e+00)"}
+{"wall": 3014.451022916, "line": "[gzserver-1]"}
+{"wall": 3014.451109225, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3014.458839739, "line": "[gzserver-1]"}
+{"wall": 3014.458975883, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3014.471839309, "line": "[gzserver-1]"}
+{"wall": 3014.471998333, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3014.485845534, "line": "[gzserver-1]"}
+{"wall": 3014.485933158, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-0.0000e+00)"}
+{"wall": 3014.612110599, "line": "[gzserver-1]"}
+{"wall": 3014.612189069, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3014.642076734, "line": "[gzserver-1]"}
+{"wall": 3014.642159553, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-0.0000e+00)"}
+{"wall": 3014.679940924, "line": "[gzserver-1]"}
+{"wall": 3014.680097704, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3014.68502387, "line": "[gzserver-1]"}
+{"wall": 3014.685143244, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-0.0000e+00)"}
+{"wall": 3014.697969652, "line": "[gzserver-1]"}
+{"wall": 3014.69808956, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3014.818417276, "line": "[gzserver-1]"}
+{"wall": 3014.818484878, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3014.848305711, "line": "[gzserver-1]"}
+{"wall": 3014.848390301, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3014.923343874, "line": "[gzserver-1]"}
+{"wall": 3014.92343393, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3014.927152005, "line": "[gzserver-1]"}
+{"wall": 3014.927236576, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3014.963514649, "line": "[gzserver-1]"}
+{"wall": 3014.963731449, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3014.991453947, "line": "[gzserver-1]"}
+{"wall": 3014.991574959, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3015.02850073, "line": "[gzserver-1]"}
+{"wall": 3015.028579843, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3015.314867606, "line": "[gzserver-1]"}
+{"wall": 3015.314938469, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3015.431662304, "line": "[gzserver-1]"}
+{"wall": 3015.431723102, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3015.442594523, "line": "[gzserver-1]"}
+{"wall": 3015.442661704, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3015.446533962, "line": "[gzserver-1]"}
+{"wall": 3015.446581466, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3015.495795749, "line": "[gzserver-1]"}
+{"wall": 3015.495883166, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3015.505609379, "line": "[gzserver-1]"}
+{"wall": 3015.505663828, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3015.511375455, "line": "[gzserver-1]"}
+{"wall": 3015.511405707, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3015.541403217, "line": "[gzserver-1]"}
+{"wall": 3015.541458569, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3015.606019064, "line": "[gzserver-1]"}
+{"wall": 3015.606149692, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3015.630673872, "line": "[gzserver-1]"}
+{"wall": 3015.630730192, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3015.63339859, "line": "[gzserver-1]"}
+{"wall": 3015.633432941, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3015.638359785, "line": "[gzserver-1]"}
+{"wall": 3015.638397879, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3015.653192926, "line": "[gzserver-1]"}
+{"wall": 3015.653306321, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-4.7624e-11)"}
+{"wall": 3015.66368677, "line": "[gzserver-1]"}
+{"wall": 3015.66377081, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-3.3656e-25)"}
+{"wall": 3015.710825556, "line": "[gzserver-1]"}
+{"wall": 3015.710914227, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-0.0000e+00)"}
+{"wall": 3015.741937955, "line": "[gzserver-1]"}
+{"wall": 3015.741984101, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3015.824604023, "line": "[gzserver-1]"}
+{"wall": 3015.824658171, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-0.0000e+00)"}
+{"wall": 3015.832410846, "line": "[gzserver-1]"}
+{"wall": 3015.832455288, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3015.938040301, "line": "[gzserver-1]"}
+{"wall": 3015.938096556, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3015.942109365, "line": "[gzserver-1]"}
+{"wall": 3015.942149622, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3015.979610707, "line": "[gzserver-1]"}
+{"wall": 3015.979739777, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3015.982575008, "line": "[gzserver-1]"}
+{"wall": 3015.982754971, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3015.984621029, "line": "[gzserver-1]"}
+{"wall": 3015.984673139, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-3.0046e-14)"}
+{"wall": 3016.010526956, "line": "[gzserver-1]"}
+{"wall": 3016.010585907, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3016.021463411, "line": "[gzserver-1]"}
+{"wall": 3016.021523277, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-0.0000e+00)"}
+{"wall": 3016.031388739, "line": "[gzserver-1]"}
+{"wall": 3016.031420925, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3016.075910556, "line": "[gzserver-1]"}
+{"wall": 3016.076049465, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3016.220090359, "line": "[gzserver-1]"}
+{"wall": 3016.220210365, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3016.22391166, "line": "[gzserver-1]"}
+{"wall": 3016.224027886, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3016.228674242, "line": "[gzserver-1]"}
+{"wall": 3016.228743939, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3016.241660408, "line": "[gzserver-1]"}
+{"wall": 3016.241715603, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3016.248700868, "line": "[gzserver-1]"}
+{"wall": 3016.248790523, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3016.255779804, "line": "[gzserver-1]"}
+{"wall": 3016.255867128, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-0.0000e+00)"}
+{"wall": 3016.274856006, "line": "[gzserver-1]"}
+{"wall": 3016.274976858, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-0.0000e+00)"}
+{"wall": 3016.278782274, "line": "[gzserver-1]"}
+{"wall": 3016.278919803, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3016.308885115, "line": "[gzserver-1]"}
+{"wall": 3016.308948005, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-0.0000e+00)"}
+{"wall": 3016.34982114, "line": "[gzserver-1]"}
+{"wall": 3016.349887413, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-1.6640e+03)"}
+{"wall": 3016.377248898, "line": "[gzserver-1]"}
+{"wall": 3016.377371537, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-0.0000e+00)"}
+{"wall": 3016.397911224, "line": "[gzserver-1]"}
+{"wall": 3016.398049906, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3016.426954625, "line": "[gzserver-1]"}
+{"wall": 3016.427015079, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-0.0000e+00)"}
+{"wall": 3016.433718048, "line": "[gzserver-1]"}
+{"wall": 3016.433751005, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3016.449028415, "line": "[gzserver-1]"}
+{"wall": 3016.449110213, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-0.0000e+00)"}
+{"wall": 3016.483098881, "line": "[gzserver-1]"}
+{"wall": 3016.483166459, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3016.5130251, "line": "[gzserver-1]"}
+{"wall": 3016.513074275, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-7.5791e-14)"}
+{"wall": 3016.620075712, "line": "[gzserver-1]"}
+{"wall": 3016.620142516, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3016.708062063, "line": "[gzserver-1]"}
+{"wall": 3016.708217818, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-0.0000e+00)"}
+{"wall": 3016.740681847, "line": "[gzserver-1]"}
+{"wall": 3016.740728423, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3016.761868612, "line": "[gzserver-1]"}
+{"wall": 3016.761973575, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-0.0000e+00)"}
+{"wall": 3016.79081532, "line": "[gzserver-1]"}
+{"wall": 3016.790900507, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3016.794790893, "line": "[gzserver-1]"}
+{"wall": 3016.794902471, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3016.807938585, "line": "[gzserver-1]"}
+{"wall": 3016.808096857, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3016.810948395, "line": "[gzserver-1]"}
+{"wall": 3016.811112253, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3016.866037428, "line": "[gzserver-1]"}
+{"wall": 3016.866146911, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3016.876752501, "line": "[gzserver-1]"}
+{"wall": 3016.876841071, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3016.880627847, "line": "[gzserver-1]"}
+{"wall": 3016.880700964, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3016.979360169, "line": "[gzserver-1]"}
+{"wall": 3016.979457279, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-0.0000e+00)"}
+{"wall": 3017.008211369, "line": "[gzserver-1]"}
+{"wall": 3017.008320282, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-inf)"}
+{"wall": 3017.010079497, "line": "[gzserver-1]"}
+{"wall": 3017.010167817, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-1.9840e+03)"}
+{"wall": 3017.070472389, "line": "[gzserver-1]"}
+{"wall": 3017.070561815, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3017.092917668, "line": "[gzserver-1]"}
+{"wall": 3017.093058351, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3017.111086271, "line": "[gzserver-1]"}
+{"wall": 3017.111277781, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3017.150441531, "line": "[gzserver-1]"}
+{"wall": 3017.150638867, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-inf)"}
+{"wall": 3017.158984483, "line": "[gzserver-1]"}
+{"wall": 3017.159051204, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-1.8026e+11)"}
+{"wall": 3017.180940716, "line": "[gzserver-1]"}
+{"wall": 3017.180997925, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-1.3801e+11)"}
+{"wall": 3017.193304235, "line": "[gzserver-1]"}
+{"wall": 3017.193402591, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3017.19776806, "line": "[gzserver-1]"}
+{"wall": 3017.197807582, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-2.9832e+11)"}
+{"wall": 3017.201609618, "line": "[gzserver-1]"}
+{"wall": 3017.201654264, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3017.219181273, "line": "[gzserver-1]"}
+{"wall": 3017.219373588, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3017.2229745, "line": "[gzserver-1]"}
+{"wall": 3017.223042843, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3017.226060867, "line": "[gzserver-1]"}
+{"wall": 3017.226099026, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3017.246688483, "line": "[gzserver-1]"}
+{"wall": 3017.246745233, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-inf)"}
+{"wall": 3017.25158816, "line": "[gzserver-1]"}
+{"wall": 3017.251692328, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-0.0000e+00)"}
+{"wall": 3017.25489688, "line": "[gzserver-1]"}
+{"wall": 3017.254965155, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-inf)"}
+{"wall": 3017.262940189, "line": "[gzserver-1]"}
+{"wall": 3017.263014262, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-2.6300e+07)"}
+{"wall": 3017.265809069, "line": "[gzserver-1]"}
+{"wall": 3017.265867473, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-8.9068e+10)"}
+{"wall": 3017.294551672, "line": "[gzserver-1]"}
+{"wall": 3017.294620427, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3017.313780246, "line": "[gzserver-1]"}
+{"wall": 3017.313856721, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-4.6227e+11)"}
+{"wall": 3017.321778207, "line": "[gzserver-1]"}
+{"wall": 3017.321853417, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-3.7781e+11)"}
+{"wall": 3017.324022832, "line": "[gzserver-1]"}
+{"wall": 3017.324131342, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3017.33304882, "line": "[gzserver-1]"}
+{"wall": 3017.33310549, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-1.6800e+11)"}
+{"wall": 3017.346990721, "line": "[gzserver-1]"}
+{"wall": 3017.347120981, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3017.3511755, "line": "[gzserver-1]"}
+{"wall": 3017.351300119, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-1.0838e+12)"}
+{"wall": 3017.363158047, "line": "[gzserver-1]"}
+{"wall": 3017.363311059, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-inf)"}
+{"wall": 3017.3709945, "line": "[gzserver-1]"}
+{"wall": 3017.371123077, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-2.9144e+11)"}
+{"wall": 3017.377333426, "line": "[gzserver-1]"}
+{"wall": 3017.377426338, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-0.0000e+00)"}
+{"wall": 3017.379024564, "line": "[gzserver-1]"}
+{"wall": 3017.379118736, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-inf)"}
+{"wall": 3017.389988694, "line": "[gzserver-1]"}
+{"wall": 3017.390118795, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3017.404990687, "line": "[gzserver-1]"}
+{"wall": 3017.405104415, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3017.415017837, "line": "[gzserver-1]"}
+{"wall": 3017.415141298, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-1.1886e-10)"}
+{"wall": 3017.488816001, "line": "[gzserver-1]"}
+{"wall": 3017.488924385, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3017.533815426, "line": "[gzserver-1]"}
+{"wall": 3017.53386805, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3017.540660855, "line": "[gzserver-1]"}
+{"wall": 3017.540696426, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-0.0000e+00)"}
+{"wall": 3017.546903007, "line": "[gzserver-1]"}
+{"wall": 3017.546961534, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3017.572963834, "line": "[gzserver-1]"}
+{"wall": 3017.573192471, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3017.57798432, "line": "[gzserver-1]"}
+{"wall": 3017.578059254, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3017.593890083, "line": "[gzserver-1]"}
+{"wall": 3017.593982823, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3017.615933144, "line": "[gzserver-1]"}
+{"wall": 3017.616039039, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3017.660011093, "line": "[gzserver-1]"}
+{"wall": 3017.660197809, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3017.72687257, "line": "[gzserver-1]"}
+{"wall": 3017.726965955, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3017.732508231, "line": "[gzserver-1]"}
+{"wall": 3017.732546218, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3017.763969319, "line": "[gzserver-1]"}
+{"wall": 3017.764111572, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3017.818095176, "line": "[gzserver-1]"}
+{"wall": 3017.818214278, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3017.831908232, "line": "[gzserver-1]"}
+{"wall": 3017.831966246, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3017.843927703, "line": "[gzserver-1]"}
+{"wall": 3017.843980315, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3017.852161875, "line": "[gzserver-1]"}
+{"wall": 3017.852219772, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-inf)"}
+{"wall": 3017.880128509, "line": "[gzserver-1]"}
+{"wall": 3017.880242983, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-inf)"}
+{"wall": 3017.888117254, "line": "[gzserver-1]"}
+{"wall": 3017.888224126, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3017.898196037, "line": "[gzserver-1]"}
+{"wall": 3017.898294519, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3017.94114395, "line": "[gzserver-1]"}
+{"wall": 3017.941223774, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-inf)"}
+{"wall": 3017.955310078, "line": "[gzserver-1]"}
+{"wall": 3017.955435906, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3018.056116565, "line": "[gzserver-1]"}
+{"wall": 3018.056211041, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3018.078784117, "line": "[gzserver-1]"}
+{"wall": 3018.078887871, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-inf)"}
+{"wall": 3018.095926647, "line": "[gzserver-1]"}
+{"wall": 3018.096070625, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3018.099805223, "line": "[gzserver-1]"}
+{"wall": 3018.099943753, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3018.166206782, "line": "[gzserver-1]"}
+{"wall": 3018.166331104, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3018.192855207, "line": "[gzserver-1]"}
+{"wall": 3018.192955376, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3018.215932034, "line": "[gzserver-1]"}
+{"wall": 3018.216081186, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-inf)"}
+{"wall": 3018.223015136, "line": "[gzserver-1]"}
+{"wall": 3018.223161683, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-inf)"}
+{"wall": 3018.229855467, "line": "[gzserver-1]"}
+{"wall": 3018.229969777, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-0.0000e+00)"}
+{"wall": 3018.252065796, "line": "[gzserver-1]"}
+{"wall": 3018.252226082, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3018.275107272, "line": "[gzserver-1]"}
+{"wall": 3018.275267903, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3018.284929434, "line": "[gzserver-1]"}
+{"wall": 3018.28507915, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3018.342714194, "line": "[gzserver-1]"}
+{"wall": 3018.34275, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3018.368939159, "line": "[gzserver-1]"}
+{"wall": 3018.369030468, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3018.426930412, "line": "[gzserver-1]"}
+{"wall": 3018.427013176, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-inf)"}
+{"wall": 3018.434799825, "line": "[gzserver-1]"}
+{"wall": 3018.434870414, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3018.441861741, "line": "[gzserver-1]"}
+{"wall": 3018.441971581, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3018.448026612, "line": "[gzserver-1]"}
+{"wall": 3018.448122704, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3018.466097017, "line": "[gzserver-1]"}
+{"wall": 3018.466205347, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-inf)"}
+{"wall": 3018.506287423, "line": "[gzserver-1]"}
+{"wall": 3018.506353704, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-4.4800e+02)"}
+{"wall": 3018.557371129, "line": "[gzserver-1]"}
+{"wall": 3018.55744451, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3018.567073677, "line": "[gzserver-1]"}
+{"wall": 3018.567116053, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-1.8400e+03)"}
+{"wall": 3018.577033423, "line": "[gzserver-1]"}
+{"wall": 3018.577072736, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3018.579948688, "line": "[gzserver-1]"}
+{"wall": 3018.57998663, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-inf)"}
+{"wall": 3018.607472973, "line": "[gzserver-1]"}
+{"wall": 3018.607536655, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3018.610252174, "line": "[gzserver-1]"}
+{"wall": 3018.610455493, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3018.610973475, "line": "[gzserver-1]"}
+{"wall": 3018.611058706, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-inf)"}
+{"wall": 3018.643357209, "line": "[gzserver-1]"}
+{"wall": 3018.643450313, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-2.7600e+02)"}
+{"wall": 3018.660425049, "line": "[gzserver-1]"}
+{"wall": 3018.660541507, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3018.678358217, "line": "[gzserver-1]"}
+{"wall": 3018.67845766, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-2.4815e+02)"}
+{"wall": 3018.721172799, "line": "[gzserver-1]"}
+{"wall": 3018.721296628, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-inf)"}
+{"wall": 3018.729922926, "line": "[gzserver-1]"}
+{"wall": 3018.729992152, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-inf)"}
+{"wall": 3018.736565587, "line": "[gzserver-1]"}
+{"wall": 3018.736608164, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-0.0000e+00)"}
+{"wall": 3018.742461351, "line": "[gzserver-1]"}
+{"wall": 3018.742504236, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-inf)"}
+{"wall": 3018.74658584, "line": "[gzserver-1]"}
+{"wall": 3018.746651162, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3018.749591101, "line": "[gzserver-1]"}
+{"wall": 3018.749678192, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3018.764907868, "line": "[gzserver-1]"}
+{"wall": 3018.76496573, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3018.778088227, "line": "[gzserver-1]"}
+{"wall": 3018.778223874, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-inf)"}
+{"wall": 3018.785088112, "line": "[gzserver-1]"}
+{"wall": 3018.785182725, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3018.796017322, "line": "[gzserver-1]"}
+{"wall": 3018.796119569, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3018.803009792, "line": "[gzserver-1]"}
+{"wall": 3018.80314673, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-0.0000e+00)"}
+{"wall": 3018.810028252, "line": "[gzserver-1]"}
+{"wall": 3018.810162828, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-inf)"}
+{"wall": 3018.828117305, "line": "[gzserver-1]"}
+{"wall": 3018.82819167, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3018.832660351, "line": "[gzserver-1]"}
+{"wall": 3018.832702307, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-0.0000e+00)"}
+{"wall": 3018.838516695, "line": "[gzserver-1]"}
+{"wall": 3018.8385375, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-inf)"}
+{"wall": 3018.843587731, "line": "[gzserver-1]"}
+{"wall": 3018.843606611, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-inf)"}
+{"wall": 3018.864070082, "line": "[gzserver-1]"}
+{"wall": 3018.864135738, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3018.870228455, "line": "[gzserver-1]"}
+{"wall": 3018.870293279, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-inf)"}
+{"wall": 3018.880084105, "line": "[gzserver-1]"}
+{"wall": 3018.880144877, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3018.887317455, "line": "[gzserver-1]"}
+{"wall": 3018.887366337, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3018.928902314, "line": "[gzserver-1]"}
+{"wall": 3018.928959612, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-inf)"}
+{"wall": 3018.983955003, "line": "[gzserver-1]"}
+{"wall": 3018.984086194, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3019.031719422, "line": "[gzserver-1]"}
+{"wall": 3019.031763241, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-inf)"}
+{"wall": 3019.033459043, "line": "[gzserver-1]"}
+{"wall": 3019.03348445, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-0.0000e+00)"}
+{"wall": 3019.089978973, "line": "[gzserver-1]"}
+{"wall": 3019.090083597, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-1.2800e+02)"}
+{"wall": 3019.120070459, "line": "[gzserver-1]"}
+{"wall": 3019.120184197, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3019.15104072, "line": "[gzserver-1]"}
+{"wall": 3019.151137586, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3019.156053013, "line": "[gzserver-1]"}
+{"wall": 3019.156191705, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3019.158048266, "line": "[gzserver-1]"}
+{"wall": 3019.158180806, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-inf)"}
+{"wall": 3019.166892213, "line": "[gzserver-1]"}
+{"wall": 3019.166941042, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-inf)"}
+{"wall": 3019.206352521, "line": "[gzserver-1]"}
+{"wall": 3019.206424253, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3019.210220193, "line": "[gzserver-1]"}
+{"wall": 3019.210280207, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3019.251450212, "line": "[gzserver-1]"}
+{"wall": 3019.251524778, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3019.293724309, "line": "[gzserver-1]"}
+{"wall": 3019.293784329, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3019.341540512, "line": "[gzserver-1]"}
+{"wall": 3019.341570631, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-1.6241e-14)"}
+{"wall": 3019.363622591, "line": "[gzserver-1]"}
+{"wall": 3019.363708795, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-6.7200e+02)"}
+{"wall": 3019.372636305, "line": "[gzserver-1]"}
+{"wall": 3019.372719376, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-0.0000e+00)"}
+{"wall": 3019.374605238, "line": "[gzserver-1]"}
+{"wall": 3019.374676104, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-0.0000e+00)"}
+{"wall": 3019.385622398, "line": "[gzserver-1]"}
+{"wall": 3019.385706804, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-0.0000e+00)"}
+{"wall": 3019.433539622, "line": "[gzserver-1]"}
+{"wall": 3019.433585805, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3019.436301944, "line": "[gzserver-1]"}
+{"wall": 3019.436329104, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3019.48082852, "line": "[gzserver-1]"}
+{"wall": 3019.480916186, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3019.516301539, "line": "[gzserver-1]"}
+{"wall": 3019.516557288, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3019.528057993, "line": "[gzserver-1]"}
+{"wall": 3019.528113624, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3019.532721446, "line": "[gzserver-1]"}
+{"wall": 3019.532766669, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3019.590919197, "line": "[gzserver-1]"}
+{"wall": 3019.59103994, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3019.596565609, "line": "[gzserver-1]"}
+{"wall": 3019.596627902, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-1.4720e+03)"}
+{"wall": 3019.609747843, "line": "[gzserver-1]"}
+{"wall": 3019.609862123, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3019.619991526, "line": "[gzserver-1]"}
+{"wall": 3019.620068458, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3019.675815139, "line": "[gzserver-1]"}
+{"wall": 3019.675941976, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3019.754369461, "line": "[gzserver-1]"}
+{"wall": 3019.754411287, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3019.794634678, "line": "[gzserver-1]"}
+{"wall": 3019.794725321, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3019.834563466, "line": "[gzserver-1]"}
+{"wall": 3019.834602442, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3019.869491905, "line": "[gzserver-1]"}
+{"wall": 3019.869535473, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3019.989034644, "line": "[gzserver-1]"}
+{"wall": 3019.989157372, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3020.008105636, "line": "[gzserver-1]"}
+{"wall": 3020.008311938, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3020.121424161, "line": "[gzserver-1]"}
+{"wall": 3020.121521553, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3020.251680749, "line": "[gzserver-1]"}
+{"wall": 3020.251770635, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3020.276917474, "line": "[gzserver-1]"}
+{"wall": 3020.276997816, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3020.281068826, "line": "[gzserver-1]"}
+{"wall": 3020.281123227, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-0.0000e+00)"}
+{"wall": 3020.473946881, "line": "[gzserver-1]"}
+{"wall": 3020.474063031, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-0.0000e+00)"}
+{"wall": 3020.506895239, "line": "[gzserver-1]"}
+{"wall": 3020.507039511, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3020.537647999, "line": "[gzserver-1]"}
+{"wall": 3020.537708678, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3020.546658147, "line": "[gzserver-1]"}
+{"wall": 3020.546733489, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3020.57771714, "line": "[gzserver-1]"}
+{"wall": 3020.577809301, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3020.60774799, "line": "[gzserver-1]"}
+{"wall": 3020.607861423, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3020.636510862, "line": "[gzserver-1]"}
+{"wall": 3020.636571174, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3020.644388837, "line": "[gzserver-1]"}
+{"wall": 3020.644458324, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3020.648452211, "line": "[gzserver-1]"}
+{"wall": 3020.648529918, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3020.667784433, "line": "[gzserver-1]"}
+{"wall": 3020.667914917, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-0.0000e+00)"}
+{"wall": 3020.673617665, "line": "[gzserver-1]"}
+{"wall": 3020.673725291, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3020.720217594, "line": "[gzserver-1]"}
+{"wall": 3020.720337909, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-0.0000e+00)"}
+{"wall": 3020.752127771, "line": "[gzserver-1]"}
+{"wall": 3020.752227509, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3020.876895906, "line": "[gzserver-1]"}
+{"wall": 3020.877051759, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-0.0000e+00)"}
+{"wall": 3020.883680939, "line": "[gzserver-1]"}
+{"wall": 3020.8838017, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3020.904683251, "line": "[gzserver-1]"}
+{"wall": 3020.904836744, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3020.911727264, "line": "[gzserver-1]"}
+{"wall": 3020.911843215, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3021.00116547, "line": "[gzserver-1]"}
+{"wall": 3021.001293615, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3021.032829561, "line": "[gzserver-1]"}
+{"wall": 3021.032870817, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3021.043605737, "line": "[gzserver-1]"}
+{"wall": 3021.043647362, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-0.0000e+00)"}
+{"wall": 3021.050488565, "line": "[gzserver-1]"}
+{"wall": 3021.050515927, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3021.058503248, "line": "[gzserver-1]"}
+{"wall": 3021.058532423, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3021.156970475, "line": "[gzserver-1]"}
+{"wall": 3021.157108346, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3021.202959264, "line": "[gzserver-1]"}
+{"wall": 3021.203069611, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3021.277320309, "line": "[gzserver-1]"}
+{"wall": 3021.277560558, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3021.354596048, "line": "[gzserver-1]"}
+{"wall": 3021.354748748, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-0.0000e+00)"}
+{"wall": 3021.379924594, "line": "[gzserver-1]"}
+{"wall": 3021.380079972, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3021.447546082, "line": "[gzserver-1]"}
+{"wall": 3021.447589907, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3021.489975248, "line": "[gzserver-1]"}
+{"wall": 3021.490172735, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3021.530885683, "line": "[gzserver-1]"}
+{"wall": 3021.530961006, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3021.548618601, "line": "[gzserver-1]"}
+{"wall": 3021.548683917, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3021.584928304, "line": "[gzserver-1]"}
+{"wall": 3021.585011774, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3021.60584207, "line": "[gzserver-1]"}
+{"wall": 3021.605941567, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3021.624814001, "line": "[gzserver-1]"}
+{"wall": 3021.62502505, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3021.67188237, "line": "[gzserver-1]"}
+{"wall": 3021.672025685, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3021.679849482, "line": "[gzserver-1]"}
+{"wall": 3021.679939736, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-0.0000e+00)"}
+{"wall": 3021.74371439, "line": "[gzserver-1]"}
+{"wall": 3021.743748883, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3021.746433253, "line": "[gzserver-1]"}
+{"wall": 3021.74647358, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3021.774613812, "line": "[gzserver-1]"}
+{"wall": 3021.774670151, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3021.81790681, "line": "[gzserver-1]"}
+{"wall": 3021.81804702, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3021.839622161, "line": "[gzserver-1]"}
+{"wall": 3021.839673948, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3021.911939975, "line": "[gzserver-1]"}
+{"wall": 3021.91201357, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-0.0000e+00)"}
+{"wall": 3021.989189702, "line": "[gzserver-1]"}
+{"wall": 3021.989312233, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3022.000822326, "line": "[gzserver-1]"}
+{"wall": 3022.000922099, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3022.021089949, "line": "[gzserver-1]"}
+{"wall": 3022.02121821, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3022.023998811, "line": "[gzserver-1]"}
+{"wall": 3022.024116909, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3022.033077364, "line": "[gzserver-1]"}
+{"wall": 3022.033139361, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3022.064878461, "line": "[gzserver-1]"}
+{"wall": 3022.064918404, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3022.088161153, "line": "[gzserver-1]"}
+{"wall": 3022.088227648, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3022.104078826, "line": "[gzserver-1]"}
+{"wall": 3022.104221496, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3022.145124655, "line": "[gzserver-1]"}
+{"wall": 3022.145203613, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3022.160935679, "line": "[gzserver-1]"}
+{"wall": 3022.160995957, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3022.190518163, "line": "[gzserver-1]"}
+{"wall": 3022.190656667, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-0.0000e+00)"}
+{"wall": 3022.192352185, "line": "[gzserver-1]"}
+{"wall": 3022.192473789, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-0.0000e+00)"}
+{"wall": 3022.206879572, "line": "[gzserver-1]"}
+{"wall": 3022.20704464, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-0.0000e+00)"}
+{"wall": 3022.209863114, "line": "[gzserver-1]"}
+{"wall": 3022.209998092, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3022.216697293, "line": "[gzserver-1]"}
+{"wall": 3022.216804094, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3022.244553825, "line": "[gzserver-1]"}
+{"wall": 3022.244614638, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3022.284902675, "line": "[gzserver-1]"}
+{"wall": 3022.28501062, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3022.302853699, "line": "[gzserver-1]"}
+{"wall": 3022.302935543, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3022.334717886, "line": "[gzserver-1]"}
+{"wall": 3022.334802973, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-0.0000e+00)"}
+{"wall": 3022.337458351, "line": "[gzserver-1]"}
+{"wall": 3022.337516744, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3022.353559684, "line": "[gzserver-1]"}
+{"wall": 3022.353640496, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3022.443508074, "line": "[gzserver-1]"}
+{"wall": 3022.443538517, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3022.460564962, "line": "[gzserver-1]"}
+{"wall": 3022.460607477, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3022.472750622, "line": "[gzserver-1]"}
+{"wall": 3022.47277285, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3022.504985059, "line": "[gzserver-1]"}
+{"wall": 3022.505122141, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3022.524820188, "line": "[gzserver-1]"}
+{"wall": 3022.524908717, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-inf)"}
+{"wall": 3022.544493704, "line": "[gzserver-1]"}
+{"wall": 3022.54453249, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3022.547393122, "line": "[gzserver-1]"}
+{"wall": 3022.547429402, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3022.549501545, "line": "[gzserver-1]"}
+{"wall": 3022.549546325, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-0.0000e+00)"}
+{"wall": 3022.581035514, "line": "[gzserver-1]"}
+{"wall": 3022.581106705, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3022.614422101, "line": "[gzserver-1]"}
+{"wall": 3022.614617251, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-inf)"}
+{"wall": 3022.63511105, "line": "[gzserver-1]"}
+{"wall": 3022.635238485, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3022.666269485, "line": "[gzserver-1]"}
+{"wall": 3022.666376222, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3022.691263967, "line": "[gzserver-1]"}
+{"wall": 3022.69139094, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-0.0000e+00)"}
+{"wall": 3022.709144145, "line": "[gzserver-1]"}
+{"wall": 3022.709260459, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3022.715111847, "line": "[gzserver-1]"}
+{"wall": 3022.715231281, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3022.717344372, "line": "[gzserver-1]"}
+{"wall": 3022.717465207, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3022.746830383, "line": "[gzserver-1]"}
+{"wall": 3022.746876474, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-0.0000e+00)"}
+{"wall": 3022.798298892, "line": "[gzserver-1]"}
+{"wall": 3022.798461952, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-0.0000e+00)"}
+{"wall": 3022.801145642, "line": "[gzserver-1]"}
+{"wall": 3022.801199435, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3022.897222566, "line": "[gzserver-1]"}
+{"wall": 3022.897330881, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-0.0000e+00)"}
+{"wall": 3022.944541546, "line": "[gzserver-1]"}
+{"wall": 3022.944578315, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-inf)"}
+{"wall": 3022.985863121, "line": "[gzserver-1]"}
+{"wall": 3022.986040967, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3023.021844935, "line": "[gzserver-1]"}
+{"wall": 3023.021931883, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-0.0000e+00)"}
+{"wall": 3023.074884639, "line": "[gzserver-1]"}
+{"wall": 3023.074994167, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3023.090758369, "line": "[gzserver-1]"}
+{"wall": 3023.090876893, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3023.093504226, "line": "[gzserver-1]"}
+{"wall": 3023.093572468, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3023.12890971, "line": "[gzserver-1]"}
+{"wall": 3023.128980313, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3023.181904151, "line": "[gzserver-1]"}
+{"wall": 3023.18196994, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3023.188861433, "line": "[gzserver-1]"}
+{"wall": 3023.188920396, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-0.0000e+00)"}
+{"wall": 3023.189870075, "line": "[gzserver-1]"}
+{"wall": 3023.189928694, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3023.19354626, "line": "[gzserver-1]"}
+{"wall": 3023.19371977, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3023.200665656, "line": "[gzserver-1]"}
+{"wall": 3023.200759484, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3023.206456524, "line": "[gzserver-1]"}
+{"wall": 3023.206546727, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3023.228126283, "line": "[gzserver-1]"}
+{"wall": 3023.228227236, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3023.232836449, "line": "[gzserver-1]"}
+{"wall": 3023.232905841, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3023.256738215, "line": "[gzserver-1]"}
+{"wall": 3023.256791856, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3023.265981213, "line": "[gzserver-1]"}
+{"wall": 3023.266241382, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3023.288049004, "line": "[gzserver-1]"}
+{"wall": 3023.28818176, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3023.332430921, "line": "[gzserver-1]"}
+{"wall": 3023.332516031, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-inf)"}
+{"wall": 3023.352091453, "line": "[gzserver-1]"}
+{"wall": 3023.352177605, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3023.35915461, "line": "[gzserver-1]"}
+{"wall": 3023.359275069, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3023.373076544, "line": "[gzserver-1]"}
+{"wall": 3023.373148918, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3023.37520315, "line": "[gzserver-1]"}
+{"wall": 3023.375309858, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-0.0000e+00)"}
+{"wall": 3023.447916589, "line": "[gzserver-1]"}
+{"wall": 3023.44797344, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3023.506662067, "line": "[gzserver-1]"}
+{"wall": 3023.506818395, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-0.0000e+00)"}
+{"wall": 3023.510300795, "line": "[gzserver-1]"}
+{"wall": 3023.510433049, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3023.566458436, "line": "[gzserver-1]"}
+{"wall": 3023.566569766, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-inf)"}
+{"wall": 3023.648227444, "line": "[gzserver-1]"}
+{"wall": 3023.648271816, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3023.653317837, "line": "[gzserver-1]"}
+{"wall": 3023.653374233, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3025.6146611, "line": "[gzserver-1]"}
+{"wall": 3025.614761404, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=-3.3517e-04)"}
+{"wall": 3025.633606629, "line": "[gzserver-1]"}
+{"wall": 3025.633679808, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3027.122213903, "line": "[gzserver-1]"}
+{"wall": 3027.122403249, "line": "[gzserver-1] ODE Message 3: LCP internal error, s <= 0 (s=0.0000e+00)"}
+{"wall": 3028.60324853, "line": "[WARNING] [launch]: user interrupted with ctrl-c (SIGINT)"}
+{"wall": 3028.605163539, "line": "[INFO] [swerve_drive-7]: sending signal 'SIGINT' to process[swerve_drive-7]"}
+{"wall": 3028.60583936, "line": "[INFO] [robot_state_publisher-2]: sending signal 'SIGINT' to process[robot_state_publisher-2]"}
+{"wall": 3028.606343007, "line": "[INFO] [gzserver-1]: sending signal 'SIGINT' to process[gzserver-1]"}
+{"wall": 3028.606476205, "line": "[robot_state_publisher-2] [INFO] [1790444058.633628270] [rclcpp]: signal_handler(SIGINT/SIGTERM)"}
+{"wall": 3028.60654897, "line": "[swerve_drive-7] [INFO] [1790444058.633647229] [rclcpp]: signal_handler(SIGINT/SIGTERM)"}
+{"wall": 3028.606625155, "line": "[swerve_drive-7] [INFO] [1790444058.635813648] [rclcpp]: signal_handler(SIGINT/SIGTERM)"}
+{"wall": 3028.60670896, "line": "[robot_state_publisher-2] [INFO] [1790444058.636483631] [rclcpp]: signal_handler(SIGINT/SIGTERM)"}
+{"wall": 3028.712203397, "line": "[INFO] [swerve_drive-7]: process has finished cleanly [pid 75204]"}
+{"wall": 3028.712987068, "line": "[INFO] [robot_state_publisher-2]: process has finished cleanly [pid 75194]"}
+{"wall": 3028.795871221, "line": "[INFO] [gzserver-1]: process has finished cleanly [pid 75192]"}
+{"wall": 3028.796258891, "line": "[INFO] [launch]: process[gzserver-1] was required: shutting down launched system"}

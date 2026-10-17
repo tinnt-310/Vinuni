@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:macro name="frame_box" params="xyz sx sy sz">
+    <visual><origin xyz="${xyz}"/><geometry><box size="${sx} ${sy} ${sz}"/></geometry><material name="white"/></visual>
+    <collision><origin xyz="${xyz}"/><geometry><box size="${sx} ${sy} ${sz}"/></geometry></collision>
+  </xacro:macro>
+  <xacro:macro name="vehicle_chassis" params="">
+    <link name="base_link">
+      <inertial>
+        <origin xyz="0.0007208851411323752 -0.0029979110100775155 0.6503985877150293" rpy="0 0 0"/>
+        <mass value="350.20415493401595"/>
+        <inertia ixx="65.175648" iyy="195.31842" izz="193.381829"
+                 ixy="-0.172511" iyz="-0.142023" ixz="-3.113836"/>
+      </inertial>
+      <visual>
+        <geometry>
+          <mesh filename="package://vehicle_description/meshes/rb_charging_v3/base_link.stl"
+                scale="0.001 0.001 0.001"/>
+        </geometry>
+        <material name="silver"/>
+      </visual>
+      <!-- Primitive decomposition follows the upper-deck recess instead of
+           filling it with the former full-height box. -->
+      <collision name="lower_body">
+        <origin xyz="${chassis_center_x} 0 ${(vehicle['body_bottom_height']+vehicle['arm_mount_z'])/2}"/>
+        <geometry>
+          <box size="${chassis_length} ${chassis_width} ${vehicle['arm_mount_z']-vehicle['body_bottom_height']}"/>
+        </geometry>
+      </collision>
+      <xacro:property name="body_min_x" value="${chassis_center_x-chassis_length/2}"/>
+      <xacro:property name="body_max_x" value="${chassis_center_x+chassis_length/2}"/>
+      <xacro:property name="recess_min_x" value="${robot_x-vehicle['arm_recess_size_x']/2}"/>
+      <xacro:property name="recess_max_x" value="${robot_x+vehicle['arm_recess_size_x']/2}"/>
+      <xacro:property name="upper_z" value="${(vehicle['arm_mount_z']+vehicle['deck_top_height'])/2}"/>
+      <xacro:property name="upper_h" value="${vehicle['deck_top_height']-vehicle['arm_mount_z']}"/>
+      <collision name="upper_deck_rear">
+        <origin xyz="${(body_min_x+recess_min_x)/2} 0 ${upper_z}"/>
+        <geometry><box size="${recess_min_x-body_min_x} ${chassis_width} ${upper_h}"/></geometry>
+      </collision>
+      <collision name="upper_deck_front">
+        <origin xyz="${(recess_max_x+body_max_x)/2} 0 ${upper_z}"/>
+        <geometry><box size="${body_max_x-recess_max_x} ${chassis_width} ${upper_h}"/></geometry>
+      </collision>
+      <collision name="upper_deck_left">
+        <origin xyz="${robot_x} ${(vehicle['arm_recess_size_y']/2+chassis_width/2)/2} ${upper_z}"/>
+        <geometry><box size="${vehicle['arm_recess_size_x']} ${chassis_width/2-vehicle['arm_recess_size_y']/2} ${upper_h}"/></geometry>
+      </collision>
+      <collision name="upper_deck_right">
+        <origin xyz="${robot_x} ${-(vehicle['arm_recess_size_y']/2+chassis_width/2)/2} ${upper_z}"/>
+        <geometry><box size="${vehicle['arm_recess_size_x']} ${chassis_width/2-vehicle['arm_recess_size_y']/2} ${upper_h}"/></geometry>
+      </collision>
+      <!-- Collision only: the LiDAR visual and mass already belong to the CAD
+           base mesh and base_link inertia. -->
+      <collision name="integrated_lidar">
+        <origin xyz="${lidar_x} 0 ${vehicle['lidar_body_bottom_height']+vehicle['lidar_height']/2}"/>
+        <geometry><cylinder radius="${vehicle['lidar_radius']}" length="${vehicle['lidar_height']}"/></geometry>
+      </collision>
+    </link>
+    <link name="roof_frame"/>
+    <joint name="base_to_roof" type="fixed">
+      <parent link="base_link"/><child link="roof_frame"/>
+      <origin xyz="0 0 ${roof_z}"/>
+    </joint>
+  </xacro:macro>
+</robot>

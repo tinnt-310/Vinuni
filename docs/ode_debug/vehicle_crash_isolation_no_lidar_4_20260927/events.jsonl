@@ -1,0 +1,201 @@
+{"wall": 8132.554632187, "line": "[INFO] [launch]: All log files can be found below /home/tin/.ros/log/2026-09-27-01-59-22-584587-Tin-Legion5-196645"}
+{"wall": 8132.554680035, "line": "[INFO] [launch]: Default logging verbosity is set to INFO"}
+{"wall": 8132.929961057, "line": "[INFO] [gzserver-1]: process started with pid [196658]"}
+{"wall": 8132.930055184, "line": "[INFO] [robot_state_publisher-2]: process started with pid [196660]"}
+{"wall": 8132.93009961, "line": "[INFO] [spawn_entity.py-3]: process started with pid [196662]"}
+{"wall": 8132.930135808, "line": "[INFO] [spawn_entity.py-4]: process started with pid [196664]"}
+{"wall": 8132.930168359, "line": "[INFO] [spawn_entity.py-5]: process started with pid [196666]"}
+{"wall": 8132.930200384, "line": "[INFO] [spawn_entity.py-6]: process started with pid [196668]"}
+{"wall": 8132.930234127, "line": "[INFO] [swerve_drive-7]: process started with pid [196670]"}
+{"wall": 8132.950735202, "line": "[swerve_drive-7] [INFO] [1790449162.981064120] [swerve_controller]: Swerve L=0.800 W=0.700 r=0.210, input=/cmd_vel, wheel-feedback odometry"}
+{"wall": 8132.981201773, "line": "[robot_state_publisher-2] [INFO] [1790449163.011357884] [robot_state_publisher]: got segment Revolute1_1"}
+{"wall": 8132.981386038, "line": "[robot_state_publisher-2] [INFO] [1790449163.011480592] [robot_state_publisher]: got segment Revolute2_1"}
+{"wall": 8132.981422923, "line": "[robot_state_publisher-2] [INFO] [1790449163.011492287] [robot_state_publisher]: got segment Revolute3_1"}
+{"wall": 8132.981436638, "line": "[robot_state_publisher-2] [INFO] [1790449163.011500481] [robot_state_publisher]: got segment Revolute4_1"}
+{"wall": 8132.981458777, "line": "[robot_state_publisher-2] [INFO] [1790449163.011507880] [robot_state_publisher]: got segment Wheel1_1"}
+{"wall": 8132.981484975, "line": "[robot_state_publisher-2] [INFO] [1790449163.011514982] [robot_state_publisher]: got segment Wheel2_1"}
+{"wall": 8132.981512105, "line": "[robot_state_publisher-2] [INFO] [1790449163.011522054] [robot_state_publisher]: got segment Wheel3_1"}
+{"wall": 8132.981538909, "line": "[robot_state_publisher-2] [INFO] [1790449163.011528862] [robot_state_publisher]: got segment Wheel4_1"}
+{"wall": 8132.981684446, "line": "[robot_state_publisher-2] [INFO] [1790449163.011535823] [robot_state_publisher]: got segment base_footprint"}
+{"wall": 8132.981710954, "line": "[robot_state_publisher-2] [INFO] [1790449163.011543164] [robot_state_publisher]: got segment base_link"}
+{"wall": 8132.981739277, "line": "[robot_state_publisher-2] [INFO] [1790449163.011550369] [robot_state_publisher]: got segment d455_accel_frame"}
+{"wall": 8132.981767132, "line": "[robot_state_publisher-2] [INFO] [1790449163.011557259] [robot_state_publisher]: got segment d455_accel_optical_frame"}
+{"wall": 8132.981793491, "line": "[robot_state_publisher-2] [INFO] [1790449163.011564748] [robot_state_publisher]: got segment d455_bottom_screw_frame"}
+{"wall": 8132.981820852, "line": "[robot_state_publisher-2] [INFO] [1790449163.011572019] [robot_state_publisher]: got segment d455_color_frame"}
+{"wall": 8132.98184772, "line": "[robot_state_publisher-2] [INFO] [1790449163.011579210] [robot_state_publisher]: got segment d455_color_optical_frame"}
+{"wall": 8132.981875135, "line": "[robot_state_publisher-2] [INFO] [1790449163.011586191] [robot_state_publisher]: got segment d455_depth_frame"}
+{"wall": 8132.981902335, "line": "[robot_state_publisher-2] [INFO] [1790449163.011593134] [robot_state_publisher]: got segment d455_depth_optical_frame"}
+{"wall": 8132.981929724, "line": "[robot_state_publisher-2] [INFO] [1790449163.011600108] [robot_state_publisher]: got segment d455_front_bracket"}
+{"wall": 8132.981958747, "line": "[robot_state_publisher-2] [INFO] [1790449163.011606983] [robot_state_publisher]: got segment d455_gyro_frame"}
+{"wall": 8132.981984852, "line": "[robot_state_publisher-2] [INFO] [1790449163.011613741] [robot_state_publisher]: got segment d455_gyro_optical_frame"}
+{"wall": 8132.982018561, "line": "[robot_state_publisher-2] [INFO] [1790449163.011627536] [robot_state_publisher]: got segment d455_imu_optical_frame"}
+{"wall": 8132.982045352, "line": "[robot_state_publisher-2] [INFO] [1790449163.011634716] [robot_state_publisher]: got segment d455_infra1_frame"}
+{"wall": 8132.982071476, "line": "[robot_state_publisher-2] [INFO] [1790449163.011642018] [robot_state_publisher]: got segment d455_infra1_optical_frame"}
+{"wall": 8132.982096668, "line": "[robot_state_publisher-2] [INFO] [1790449163.011648704] [robot_state_publisher]: got segment d455_infra2_frame"}
+{"wall": 8132.98212232, "line": "[robot_state_publisher-2] [INFO] [1790449163.011655647] [robot_state_publisher]: got segment d455_infra2_optical_frame"}
+{"wall": 8132.982148045, "line": "[robot_state_publisher-2] [INFO] [1790449163.011662537] [robot_state_publisher]: got segment d455_link"}
+{"wall": 8132.982173647, "line": "[robot_state_publisher-2] [INFO] [1790449163.011669312] [robot_state_publisher]: got segment d455_mount_frame"}
+{"wall": 8132.982199016, "line": "[robot_state_publisher-2] [INFO] [1790449163.011675993] [robot_state_publisher]: got segment laser_frame"}
+{"wall": 8132.982224648, "line": "[robot_state_publisher-2] [INFO] [1790449163.011682805] [robot_state_publisher]: got segment lidar_link"}
+{"wall": 8132.982250752, "line": "[robot_state_publisher-2] [INFO] [1790449163.011689590] [robot_state_publisher]: got segment lidar_mount_frame"}
+{"wall": 8132.982276506, "line": "[robot_state_publisher-2] [INFO] [1790449163.011696481] [robot_state_publisher]: got segment roof_frame"}
+{"wall": 8133.193559866, "line": "[spawn_entity.py-3] [INFO] [1790449163.223819814] [spawn_entity]: Spawn Entity started"}
+{"wall": 8133.193777562, "line": "[spawn_entity.py-3] [INFO] [1790449163.224063599] [spawn_entity]: Loading entity published on topic robot_description"}
+{"wall": 8133.194693895, "line": "[spawn_entity.py-3] [INFO] [1790449163.225144385] [spawn_entity]: Waiting for entity xml on robot_description"}
+{"wall": 8133.205802659, "line": "[spawn_entity.py-3] [INFO] [1790449163.236145866] [spawn_entity]: Waiting for service /spawn_entity, timeout = 30"}
+{"wall": 8133.205907148, "line": "[spawn_entity.py-3] [INFO] [1790449163.236327064] [spawn_entity]: Waiting for service /spawn_entity"}
+{"wall": 8133.209620758, "line": "[spawn_entity.py-6] [INFO] [1790449163.240088928] [spawn_entity]: Spawn Entity started"}
+{"wall": 8133.209758019, "line": "[spawn_entity.py-6] [INFO] [1790449163.240282319] [spawn_entity]: Loading entity XML from file /home/tin/Vinuni/install_grouped/vehicle_description/share/vehicle_description/models/tram_sac_VF/model.sdf"}
+{"wall": 8133.210068575, "line": "[spawn_entity.py-6] [INFO] [1790449163.240603255] [spawn_entity]: Waiting for service /spawn_entity, timeout = 30"}
+{"wall": 8133.210206147, "line": "[spawn_entity.py-6] [INFO] [1790449163.240760252] [spawn_entity]: Waiting for service /spawn_entity"}
+{"wall": 8133.221670676, "line": "[spawn_entity.py-4] [INFO] [1790449163.252049724] [spawn_entity]: Spawn Entity started"}
+{"wall": 8133.221767637, "line": "[spawn_entity.py-4] [INFO] [1790449163.252240404] [spawn_entity]: Loading entity XML from file /home/tin/Vinuni/install_grouped/vehicle_description/share/vehicle_description/models/tram_sac_VF/model.sdf"}
+{"wall": 8133.2220156, "line": "[spawn_entity.py-4] [INFO] [1790449163.252560515] [spawn_entity]: Waiting for service /spawn_entity, timeout = 30"}
+{"wall": 8133.222161936, "line": "[spawn_entity.py-4] [INFO] [1790449163.252716447] [spawn_entity]: Waiting for service /spawn_entity"}
+{"wall": 8133.226052792, "line": "[spawn_entity.py-5] [INFO] [1790449163.256545080] [spawn_entity]: Spawn Entity started"}
+{"wall": 8133.22618529, "line": "[spawn_entity.py-5] [INFO] [1790449163.256738423] [spawn_entity]: Loading entity XML from file /home/tin/Vinuni/install_grouped/vehicle_description/share/vehicle_description/models/tram_sac_VF/model.sdf"}
+{"wall": 8133.226497778, "line": "[spawn_entity.py-5] [INFO] [1790449163.257053749] [spawn_entity]: Waiting for service /spawn_entity, timeout = 30"}
+{"wall": 8133.226644812, "line": "[spawn_entity.py-5] [INFO] [1790449163.257203378] [spawn_entity]: Waiting for service /spawn_entity"}
+{"wall": 8133.251399373, "line": "[gzserver-1] [WARN] [1790449163.281647063] [gazebo]: New subscription discovered on topic '/clock', requesting incompatible QoS. No messages will be sent to it. Last incompatible policy: RELIABILITY_QOS_POLICY"}
+{"wall": 8133.709817553, "line": "[spawn_entity.py-3] [INFO] [1790449163.739668548] [spawn_entity]: Calling service /spawn_entity"}
+{"wall": 8133.713730468, "line": "[spawn_entity.py-6] [INFO] [1790449163.743840665] [spawn_entity]: Calling service /spawn_entity"}
+{"wall": 8133.725832078, "line": "[spawn_entity.py-4] [INFO] [1790449163.756118098] [spawn_entity]: Calling service /spawn_entity"}
+{"wall": 8133.727878443, "line": "[gzserver-1] \u001b[1;33mWarning [parser_urdf.cc:1134]\u001b[0m multiple inconsistent <name> exists due to fixed joint reduction overwriting previous value [Gazebo/Silver] with [Gazebo/White]."}
+{"wall": 8133.727963264, "line": "[gzserver-1] \u001b[1;33mWarning [parser_urdf.cc:1134]\u001b[0m multiple inconsistent <name> exists due to fixed joint reduction overwriting previous value [Gazebo/Silver] with [Gazebo/White]."}
+{"wall": 8133.72801964, "line": "[gzserver-1] \u001b[1;33mWarning [parser_urdf.cc:1134]\u001b[0m multiple inconsistent <name> exists due to fixed joint reduction overwriting previous value [Gazebo/Silver] with [Gazebo/White]."}
+{"wall": 8133.728061949, "line": "[gzserver-1] \u001b[1;33mWarning [parser_urdf.cc:1134]\u001b[0m multiple inconsistent <name> exists due to fixed joint reduction overwriting previous value [Gazebo/Silver] with [Gazebo/White]."}
+{"wall": 8133.728340329, "line": "[gzserver-1] \u001b[1;33mWarning [parser_urdf.cc:1134]\u001b[0m multiple inconsistent <name> exists due to fixed joint reduction overwriting previous value [Gazebo/Silver] with [Gazebo/White]."}
+{"wall": 8133.728389533, "line": "[gzserver-1] \u001b[1;33mWarning [parser_urdf.cc:1134]\u001b[0m multiple inconsistent <name> exists due to fixed joint reduction overwriting previous value [Gazebo/Silver] with [Gazebo/White]."}
+{"wall": 8133.728602686, "line": "[gzserver-1] \u001b[1;33mWarning [parser_urdf.cc:1134]\u001b[0m multiple inconsistent <name> exists due to fixed joint reduction overwriting previous value [Gazebo/Silver] with [Gazebo/White]."}
+{"wall": 8133.728649044, "line": "[gzserver-1] \u001b[1;33mWarning [parser_urdf.cc:1134]\u001b[0m multiple inconsistent <name> exists due to fixed joint reduction overwriting previous value [Gazebo/Silver] with [Gazebo/White]."}
+{"wall": 8133.728687076, "line": "[gzserver-1] \u001b[1;33mWarning [parser_urdf.cc:1134]\u001b[0m multiple inconsistent <name> exists due to fixed joint reduction overwriting previous value [Gazebo/Silver] with [Gazebo/White]."}
+{"wall": 8133.728753374, "line": "[gzserver-1] \u001b[1;33mWarning [parser_urdf.cc:1134]\u001b[0m multiple inconsistent <name> exists due to fixed joint reduction overwriting previous value [Gazebo/Silver] with [Gazebo/White]."}
+{"wall": 8133.728768844, "line": "[gzserver-1] \u001b[1;33mWarning [parser_urdf.cc:1134]\u001b[0m multiple inconsistent <name> exists due to fixed joint reduction overwriting previous value [Gazebo/Silver] with [Gazebo/Gold]."}
+{"wall": 8133.728797716, "line": "[gzserver-1] \u001b[1;33mWarning [parser_urdf.cc:1134]\u001b[0m multiple inconsistent <name> exists due to fixed joint reduction overwriting previous value [Gazebo/Silver] with [Gazebo/Gold]."}
+{"wall": 8133.728831644, "line": "[gzserver-1] \u001b[1;33mWarning [parser_urdf.cc:1134]\u001b[0m multiple inconsistent <name> exists due to fixed joint reduction overwriting previous value [Gazebo/Silver] with [Gazebo/Gold]."}
+{"wall": 8133.728867383, "line": "[gzserver-1] \u001b[1;33mWarning [parser_urdf.cc:1134]\u001b[0m multiple inconsistent <name> exists due to fixed joint reduction overwriting previous value [Gazebo/Silver] with [Gazebo/Black]."}
+{"wall": 8133.729066151, "line": "[gzserver-1] \u001b[1;33mWarning [parser_urdf.cc:1134]\u001b[0m multiple inconsistent <name> exists due to fixed joint reduction overwriting previous value [Gazebo/Silver] with [Gazebo/Black]."}
+{"wall": 8133.72924312, "line": "[gzserver-1] \u001b[1;33mWarning [parser_urdf.cc:1134]\u001b[0m multiple inconsistent <name> exists due to fixed joint reduction overwriting previous value [Gazebo/Silver] with [Gazebo/Gold]."}
+{"wall": 8133.729299816, "line": "[gzserver-1] \u001b[1;33mWarning [parser_urdf.cc:1134]\u001b[0m multiple inconsistent <name> exists due to fixed joint reduction overwriting previous value [Gazebo/Silver] with [Gazebo/Gold]."}
+{"wall": 8133.729340997, "line": "[gzserver-1] \u001b[1;33mWarning [parser_urdf.cc:1134]\u001b[0m multiple inconsistent <name> exists due to fixed joint reduction overwriting previous value [Gazebo/Silver] with [Gazebo/Gold]."}
+{"wall": 8133.729376663, "line": "[gzserver-1] \u001b[1;33mWarning [parser_urdf.cc:1134]\u001b[0m multiple inconsistent <name> exists due to fixed joint reduction overwriting previous value [Gazebo/Silver] with [Gazebo/Black]."}
+{"wall": 8133.729527539, "line": "[gzserver-1] \u001b[1;33mWarning [parser_urdf.cc:1134]\u001b[0m multiple inconsistent <name> exists due to fixed joint reduction overwriting previous value [Gazebo/Silver] with [Gazebo/Black]."}
+{"wall": 8133.729707479, "line": "[gzserver-1] \u001b[1;33mWarning [parser_urdf.cc:1134]\u001b[0m multiple inconsistent <name> exists due to fixed joint reduction overwriting previous value [Gazebo/Silver] with [Gazebo/Gold]."}
+{"wall": 8133.729754934, "line": "[gzserver-1] \u001b[1;33mWarning [parser_urdf.cc:1134]\u001b[0m multiple inconsistent <name> exists due to fixed joint reduction overwriting previous value [Gazebo/Silver] with [Gazebo/Gold]."}
+{"wall": 8133.729795562, "line": "[gzserver-1] \u001b[1;33mWarning [parser_urdf.cc:1134]\u001b[0m multiple inconsistent <name> exists due to fixed joint reduction overwriting previous value [Gazebo/Silver] with [Gazebo/Gold]."}
+{"wall": 8133.729833397, "line": "[gzserver-1] \u001b[1;33mWarning [parser_urdf.cc:1134]\u001b[0m multiple inconsistent <name> exists due to fixed joint reduction overwriting previous value [Gazebo/Silver] with [Gazebo/Black]."}
+{"wall": 8133.729870556, "line": "[gzserver-1] \u001b[1;33mWarning [parser_urdf.cc:1134]\u001b[0m multiple inconsistent <name> exists due to fixed joint reduction overwriting previous value [Gazebo/Silver] with [Gazebo/Black]."}
+{"wall": 8133.729960786, "line": "[gzserver-1] \u001b[1;33mWarning [parser_urdf.cc:1134]\u001b[0m multiple inconsistent <name> exists due to fixed joint reduction overwriting previous value [Gazebo/Silver] with [Gazebo/Gold]."}
+{"wall": 8133.729986543, "line": "[gzserver-1] \u001b[1;33mWarning [parser_urdf.cc:1134]\u001b[0m multiple inconsistent <name> exists due to fixed joint reduction overwriting previous value [Gazebo/Silver] with [Gazebo/Gold]."}
+{"wall": 8133.730021649, "line": "[gzserver-1] \u001b[1;33mWarning [parser_urdf.cc:1134]\u001b[0m multiple inconsistent <name> exists due to fixed joint reduction overwriting previous value [Gazebo/Silver] with [Gazebo/Gold]."}
+{"wall": 8133.73015042, "line": "[gzserver-1] \u001b[1;33mWarning [parser_urdf.cc:1134]\u001b[0m multiple inconsistent <name> exists due to fixed joint reduction overwriting previous value [Gazebo/Silver] with [Gazebo/Black]."}
+{"wall": 8133.730196159, "line": "[gzserver-1] \u001b[1;33mWarning [parser_urdf.cc:1134]\u001b[0m multiple inconsistent <name> exists due to fixed joint reduction overwriting previous value [Gazebo/Silver] with [Gazebo/Black]."}
+{"wall": 8133.730404323, "line": "[spawn_entity.py-5] [INFO] [1790449163.760082080] [spawn_entity]: Calling service /spawn_entity"}
+{"wall": 8134.004464498, "line": "[spawn_entity.py-3] [INFO] [1790449164.034742657] [spawn_entity]: Spawn status: SpawnEntity: Successfully spawned entity [my_mobile_manipulator]"}
+{"wall": 8134.135200815, "line": "[INFO] [spawn_entity.py-3]: process has finished cleanly [pid 196662]"}
+{"wall": 8134.138765841, "line": "[INFO] [spawner-8]: process started with pid [196892]"}
+{"wall": 8134.508428504, "line": "[gzserver-1] [INFO] [1790449164.538779531] [body_camera.d455_simulator]: Publishing camera info to [/body_camera/d455/camera_info]"}
+{"wall": 8134.508956385, "line": "[gzserver-1] [INFO] [1790449164.539462374] [body_camera.d455_simulator]: Publishing depth camera info to [/body_camera/d455/depth/camera_info]"}
+{"wall": 8134.509255265, "line": "[gzserver-1] [INFO] [1790449164.539744167] [body_camera.d455_simulator]: Publishing pointcloud to [/body_camera/d455/points]"}
+{"wall": 8134.614662356, "line": "[gzserver-1] [INFO] [1790449164.644919158] [gazebo_ros2_control]: Loading gazebo_ros2_control plugin"}
+{"wall": 8134.616578892, "line": "[gzserver-1] [INFO] [1790449164.647019443] [gazebo_ros2_control]: Starting gazebo_ros2_control plugin in namespace: /"}
+{"wall": 8134.61661647, "line": "[gzserver-1] [INFO] [1790449164.647042560] [gazebo_ros2_control]: Starting gazebo_ros2_control plugin in ros 2 node: gazebo_ros2_control"}
+{"wall": 8134.618259981, "line": "[gzserver-1] [INFO] [1790449164.648757708] [gazebo_ros2_control]: connected to service!! robot_state_publisher"}
+{"wall": 8134.618555683, "line": "[gzserver-1] [INFO] [1790449164.649091028] [gazebo_ros2_control]: Received urdf from param server, parsing..."}
+{"wall": 8134.618656643, "line": "[gzserver-1] [INFO] [1790449164.649109800] [gazebo_ros2_control]: Loading parameter files /tmp/vinuni_sim_bqj1cmdx/controllers.yaml"}
+{"wall": 8134.624801407, "line": "[gzserver-1] [INFO] [1790449164.655283185] [gazebo_ros2_control]: Loading joint: Revolute1_to_base_link"}
+{"wall": 8134.624825899, "line": "[gzserver-1] [INFO] [1790449164.655299707] [gazebo_ros2_control]: \tState:"}
+{"wall": 8134.624848099, "line": "[gzserver-1] [INFO] [1790449164.655305188] [gazebo_ros2_control]: \t\t velocity"}
+{"wall": 8134.624866619, "line": "[gzserver-1] [INFO] [1790449164.655309569] [gazebo_ros2_control]: \t\t position"}
+{"wall": 8134.624884823, "line": "[gzserver-1] [INFO] [1790449164.655313156] [gazebo_ros2_control]: \tCommand:"}
+{"wall": 8134.624909547, "line": "[gzserver-1] [INFO] [1790449164.655316257] [gazebo_ros2_control]: \t\t position"}
+{"wall": 8134.625020612, "line": "[gzserver-1] [INFO] [1790449164.655393389] [gazebo_ros2_control]: Loading joint: Revolute2_to_base_link"}
+{"wall": 8134.625044168, "line": "[gzserver-1] [INFO] [1790449164.655398045] [gazebo_ros2_control]: \tState:"}
+{"wall": 8134.625064407, "line": "[gzserver-1] [INFO] [1790449164.655401403] [gazebo_ros2_control]: \t\t velocity"}
+{"wall": 8134.62508492, "line": "[gzserver-1] [INFO] [1790449164.655404678] [gazebo_ros2_control]: \t\t position"}
+{"wall": 8134.625102278, "line": "[gzserver-1] [INFO] [1790449164.655407734] [gazebo_ros2_control]: \tCommand:"}
+{"wall": 8134.625120375, "line": "[gzserver-1] [INFO] [1790449164.655410790] [gazebo_ros2_control]: \t\t position"}
+{"wall": 8134.625138973, "line": "[gzserver-1] [INFO] [1790449164.655445889] [gazebo_ros2_control]: Loading joint: Revolute3_to_base_link"}
+{"wall": 8134.625156785, "line": "[gzserver-1] [INFO] [1790449164.655449526] [gazebo_ros2_control]: \tState:"}
+{"wall": 8134.625174255, "line": "[gzserver-1] [INFO] [1790449164.655452654] [gazebo_ros2_control]: \t\t velocity"}
+{"wall": 8134.625191321, "line": "[gzserver-1] [INFO] [1790449164.655455947] [gazebo_ros2_control]: \t\t position"}
+{"wall": 8134.625208785, "line": "[gzserver-1] [INFO] [1790449164.655458818] [gazebo_ros2_control]: \tCommand:"}
+{"wall": 8134.625225987, "line": "[gzserver-1] [INFO] [1790449164.655461884] [gazebo_ros2_control]: \t\t position"}
+{"wall": 8134.625243791, "line": "[gzserver-1] [INFO] [1790449164.655495704] [gazebo_ros2_control]: Loading joint: Revolute4_to_base_link"}
+{"wall": 8134.625268253, "line": "[gzserver-1] [INFO] [1790449164.655499072] [gazebo_ros2_control]: \tState:"}
+{"wall": 8134.625286576, "line": "[gzserver-1] [INFO] [1790449164.655502061] [gazebo_ros2_control]: \t\t velocity"}
+{"wall": 8134.625297386, "line": "[gzserver-1] [INFO] [1790449164.655505166] [gazebo_ros2_control]: \t\t position"}
+{"wall": 8134.625313897, "line": "[gzserver-1] [INFO] [1790449164.655508039] [gazebo_ros2_control]: \tCommand:"}
+{"wall": 8134.625329023, "line": "[gzserver-1] [INFO] [1790449164.655510872] [gazebo_ros2_control]: \t\t position"}
+{"wall": 8134.625431735, "line": "[gzserver-1] [INFO] [1790449164.655601144] [gazebo_ros2_control]: Loading joint: Wheel1_to_Revolute1"}
+{"wall": 8134.625456706, "line": "[gzserver-1] [INFO] [1790449164.655605006] [gazebo_ros2_control]: \tState:"}
+{"wall": 8134.625477379, "line": "[gzserver-1] [INFO] [1790449164.655608067] [gazebo_ros2_control]: \t\t velocity"}
+{"wall": 8134.625496561, "line": "[gzserver-1] [INFO] [1790449164.655611697] [gazebo_ros2_control]: \t\t position"}
+{"wall": 8134.62551387, "line": "[gzserver-1] [INFO] [1790449164.655614741] [gazebo_ros2_control]: \tCommand:"}
+{"wall": 8134.625531787, "line": "[gzserver-1] [INFO] [1790449164.655624028] [gazebo_ros2_control]: \t\t velocity"}
+{"wall": 8134.625549491, "line": "[gzserver-1] [INFO] [1790449164.655657661] [gazebo_ros2_control]: Loading joint: Wheel2_to_Revolute2"}
+{"wall": 8134.625566976, "line": "[gzserver-1] [INFO] [1790449164.655661860] [gazebo_ros2_control]: \tState:"}
+{"wall": 8134.625584588, "line": "[gzserver-1] [INFO] [1790449164.655664910] [gazebo_ros2_control]: \t\t velocity"}
+{"wall": 8134.625601374, "line": "[gzserver-1] [INFO] [1790449164.655667823] [gazebo_ros2_control]: \t\t position"}
+{"wall": 8134.625639857, "line": "[gzserver-1] [INFO] [1790449164.655670697] [gazebo_ros2_control]: \tCommand:"}
+{"wall": 8134.625646613, "line": "[gzserver-1] [INFO] [1790449164.655674140] [gazebo_ros2_control]: \t\t velocity"}
+{"wall": 8134.625655116, "line": "[gzserver-1] [INFO] [1790449164.655704948] [gazebo_ros2_control]: Loading joint: Wheel3_to_Revolute3"}
+{"wall": 8134.62567044, "line": "[gzserver-1] [INFO] [1790449164.655708217] [gazebo_ros2_control]: \tState:"}
+{"wall": 8134.625690245, "line": "[gzserver-1] [INFO] [1790449164.655711133] [gazebo_ros2_control]: \t\t velocity"}
+{"wall": 8134.625708258, "line": "[gzserver-1] [INFO] [1790449164.655714570] [gazebo_ros2_control]: \t\t position"}
+{"wall": 8134.625725004, "line": "[gzserver-1] [INFO] [1790449164.655717482] [gazebo_ros2_control]: \tCommand:"}
+{"wall": 8134.625750113, "line": "[gzserver-1] [INFO] [1790449164.655720949] [gazebo_ros2_control]: \t\t velocity"}
+{"wall": 8134.625772028, "line": "[gzserver-1] [INFO] [1790449164.655753591] [gazebo_ros2_control]: Loading joint: Wheel4_to_Revolute4"}
+{"wall": 8134.62578458, "line": "[gzserver-1] [INFO] [1790449164.655771553] [gazebo_ros2_control]: \tState:"}
+{"wall": 8134.625794698, "line": "[gzserver-1] [INFO] [1790449164.655774741] [gazebo_ros2_control]: \t\t velocity"}
+{"wall": 8134.625813612, "line": "[gzserver-1] [INFO] [1790449164.655777790] [gazebo_ros2_control]: \t\t position"}
+{"wall": 8134.625826507, "line": "[gzserver-1] [INFO] [1790449164.655780981] [gazebo_ros2_control]: \tCommand:"}
+{"wall": 8134.625843297, "line": "[gzserver-1] [INFO] [1790449164.655784480] [gazebo_ros2_control]: \t\t velocity"}
+{"wall": 8134.625860762, "line": "[gzserver-1] [INFO] [1790449164.655833437] [resource_manager]: Initialize hardware 'GazeboSystem'"}
+{"wall": 8134.625877748, "line": "[gzserver-1] [INFO] [1790449164.655903376] [resource_manager]: Successful initialization of hardware 'GazeboSystem'"}
+{"wall": 8134.625892326, "line": "[gzserver-1] [INFO] [1790449164.655948796] [resource_manager]: 'configure' hardware 'GazeboSystem'"}
+{"wall": 8134.625911229, "line": "[gzserver-1] [INFO] [1790449164.655954265] [resource_manager]: Successful 'configure' of hardware 'GazeboSystem'"}
+{"wall": 8134.625927399, "line": "[gzserver-1] [INFO] [1790449164.655959679] [resource_manager]: 'activate' hardware 'GazeboSystem'"}
+{"wall": 8134.625943691, "line": "[gzserver-1] [INFO] [1790449164.655962948] [resource_manager]: Successful 'activate' of hardware 'GazeboSystem'"}
+{"wall": 8134.626051678, "line": "[gzserver-1] [INFO] [1790449164.655998255] [gazebo_ros2_control]: Loading controller_manager"}
+{"wall": 8134.634986384, "line": "[gzserver-1] [WARN] [1790449164.665385644] [gazebo_ros2_control]:  Desired controller update period (0.01 s) is slower than the gazebo simulation period (0.001 s)."}
+{"wall": 8134.635150042, "line": "[gzserver-1] [INFO] [1790449164.665488015] [gazebo_ros2_control]: Loaded gazebo_ros2_control."}
+{"wall": 8134.669994302, "line": "[gzserver-1] [INFO] [1790449164.700339452] [controller_manager]: Loading controller 'joint_state_broadcaster'"}
+{"wall": 8134.693388921, "line": "[spawner-8] [INFO] [1790449164.723778315] [spawner_joint_state_broadcaster]: \u001b[94mLoaded \u001b[1mjoint_state_broadcaster\u001b[0m"}
+{"wall": 8134.694051799, "line": "[gzserver-1] [INFO] [1790449164.724532522] [controller_manager]: Configuring controller 'joint_state_broadcaster'"}
+{"wall": 8134.694210628, "line": "[gzserver-1] [INFO] [1790449164.724738395] [joint_state_broadcaster]: 'joints' or 'interfaces' parameter is empty. All available state interfaces will be published"}
+{"wall": 8134.720085963, "line": "[spawner-8] [INFO] [1790449164.750482561] [spawner_joint_state_broadcaster]: \u001b[92mConfigured and activated \u001b[1mjoint_state_broadcaster\u001b[0m"}
+{"wall": 8134.847712723, "line": "[INFO] [spawner-8]: process has finished cleanly [pid 196892]"}
+{"wall": 8134.85565414, "line": "[INFO] [spawner-9]: process started with pid [196913]"}
+{"wall": 8134.85574606, "line": "[INFO] [spawner-10]: process started with pid [196915]"}
+{"wall": 8134.8695414, "line": "[spawn_entity.py-6] [INFO] [1790449164.899879243] [spawn_entity]: Spawn status: SpawnEntity: Successfully spawned entity [tram_sac_VF3]"}
+{"wall": 8134.993675158, "line": "[INFO] [spawn_entity.py-6]: process has finished cleanly [pid 196668]"}
+{"wall": 8135.120208656, "line": "[spawn_entity.py-4] [INFO] [1790449165.150424176] [spawn_entity]: Spawn status: SpawnEntity: Successfully spawned entity [tram_sac_VF1]"}
+{"wall": 8135.246301184, "line": "[INFO] [spawn_entity.py-4]: process has finished cleanly [pid 196664]"}
+{"wall": 8135.358328011, "line": "[spawn_entity.py-5] [INFO] [1790449165.388557927] [spawn_entity]: Spawn status: SpawnEntity: Successfully spawned entity [tram_sac_VF2]"}
+{"wall": 8135.488382548, "line": "[INFO] [spawn_entity.py-5]: process has finished cleanly [pid 196666]"}
+{"wall": 8136.112311111, "line": "[gzserver-1] [INFO] [1790449166.142247348] [controller_manager]: Loading controller 'steering_controller'"}
+{"wall": 8136.127730282, "line": "[gzserver-1] [INFO] [1790449166.157883778] [controller_manager]: Loading controller 'drive_controller'"}
+{"wall": 8136.137398218, "line": "[spawner-9] [INFO] [1790449166.167777012] [spawner_steering_controller]: \u001b[94mLoaded \u001b[1msteering_controller\u001b[0m"}
+{"wall": 8136.137944748, "line": "[gzserver-1] [INFO] [1790449166.168377951] [controller_manager]: Configuring controller 'steering_controller'"}
+{"wall": 8136.138629977, "line": "[gzserver-1] [INFO] [1790449166.169075105] [steering_controller]: configure successful"}
+{"wall": 8136.145195512, "line": "[spawner-10] [INFO] [1790449166.175583761] [spawner_drive_controller]: \u001b[94mLoaded \u001b[1mdrive_controller\u001b[0m"}
+{"wall": 8136.146128932, "line": "[gzserver-1] [INFO] [1790449166.176460349] [controller_manager]: Configuring controller 'drive_controller'"}
+{"wall": 8136.146303971, "line": "[gzserver-1] [INFO] [1790449166.176707910] [drive_controller]: configure successful"}
+{"wall": 8136.166411619, "line": "[gzserver-1] [INFO] [1790449166.196467643] [steering_controller]: activate successful"}
+{"wall": 8136.177571594, "line": "[spawner-9] [INFO] [1790449166.207785260] [spawner_steering_controller]: \u001b[92mConfigured and activated \u001b[1msteering_controller\u001b[0m"}
+{"wall": 8136.186132293, "line": "[gzserver-1] [INFO] [1790449166.216375575] [drive_controller]: activate successful"}
+{"wall": 8136.197077261, "line": "[spawner-10] [INFO] [1790449166.227258088] [spawner_drive_controller]: \u001b[92mConfigured and activated \u001b[1mdrive_controller\u001b[0m"}
+{"wall": 8136.324582668, "line": "[INFO] [spawner-9]: process has finished cleanly [pid 196913]"}
+{"wall": 8136.325562574, "line": "[INFO] [spawner-10]: process has finished cleanly [pid 196915]"}
+{"wall": 8147.790947442, "line": "[WARNING] [launch]: user interrupted with ctrl-c (SIGINT)"}
+{"wall": 8147.798260626, "line": "[INFO] [swerve_drive-7]: sending signal 'SIGINT' to process[swerve_drive-7]"}
+{"wall": 8147.800244959, "line": "[INFO] [robot_state_publisher-2]: sending signal 'SIGINT' to process[robot_state_publisher-2]"}
+{"wall": 8147.801350988, "line": "[INFO] [gzserver-1]: sending signal 'SIGINT' to process[gzserver-1]"}
+{"wall": 8147.801598004, "line": "[robot_state_publisher-2] [INFO] [1790449177.821081218] [rclcpp]: signal_handler(SIGINT/SIGTERM)"}
+{"wall": 8147.80175056, "line": "[swerve_drive-7] [INFO] [1790449177.821180224] [rclcpp]: signal_handler(SIGINT/SIGTERM)"}
+{"wall": 8147.801909416, "line": "[swerve_drive-7] [INFO] [1790449177.829015676] [rclcpp]: signal_handler(SIGINT/SIGTERM)"}
+{"wall": 8147.802555659, "line": "[ERROR] [robot_state_publisher-2]: process has died [pid 196660, exit code -2, cmd '/opt/ros/humble/lib/robot_state_publisher/robot_state_publisher --ros-args --params-file /tmp/launch_params_ki5uwcx_ --params-file /tmp/launch_params_tzqqt0y6']."}
+{"wall": 8147.903290774, "line": "[INFO] [swerve_drive-7]: process has finished cleanly [pid 196670]"}
+{"wall": 8148.03845306, "line": "[INFO] [gzserver-1]: process has finished cleanly [pid 196658]"}
+{"wall": 8148.038740173, "line": "[INFO] [launch]: process[gzserver-1] was required: shutting down launched system"}
