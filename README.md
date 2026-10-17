@@ -39,6 +39,8 @@ tay và Gazebo nằm tại `src/vehicle_bringup/test/integration`; không còn t
 - [Bố trí đầu sạc CCS2 DC và camera D455](docs/fr10_photo_dc_d455.md).
 - [Kiểm tra SDK FR10 độc lập](src/hardware_interface/fr10_sdk_tests/README.md).
 
-Các báo cáo audit/debug được giữ tại vị trí hiện có. Dữ liệu đo không rõ khả
-năng tái tạo được giữ nguyên; dữ liệu JSONL cục bộ và kết quả trong
+Các báo cáo khảo sát cũ ở thư mục gốc đã được bỏ khỏi phiên bản hiện tại;
+cách khôi phục từ lịch sử nằm trong [chính sách dữ liệu](docs/data_inventory.md#báo-cáo-cũ-ở-thư-mục-gốc).
+`PROGRESS_LEDGER.md` được giữ vì script lập manifest kiểm chứng vẫn đọc file này.
+Dữ liệu đo được giữ nguyên; dữ liệu JSONL cục bộ và kết quả trong
 `test_results/` không được thêm vào các commit mới. Lịch sử Git được giữ nguyên.

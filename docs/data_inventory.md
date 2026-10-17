@@ -36,8 +36,9 @@ tương ứng. Không chạy `filter-repo`, prune reflog hoặc force push.
 Phân loại dựa trên vai trò tên file, phần mở rộng và tham chiếu tĩnh trong các
 file Git đang theo dõi. Không có tham chiếu tĩnh **không** chứng minh file không
 được script bên ngoài hoặc quy trình nghiên cứu sử dụng. Không file thí nghiệm
-nào được xác nhận đủ điều kiện xóa trong lượt này. Các bản `.orig`/`.rej` được
-giữ vì chưa chứng minh tương đương với bản hiện hành.
+nào được xác nhận đủ điều kiện xóa trong lượt này. Các bản `.orig`/`.rej` dưới
+`src/docs/archive/` được giữ vì chưa chứng minh tương đương với bản hiện hành.
+Các bản dự phòng báo cáo ở gốc được xử lý theo mục bên dưới.
 
 Các nhóm chiếm nhiều dung lượng nhất trong `test_results/`:
 
@@ -52,6 +53,30 @@ Các nhóm chiếm nhiều dung lượng nhất trong `test_results/`:
 Riêng `stage43/gazebo_yaw2_cached_125us/transport_contacts.jsonl` trong nhóm
 admittance khoảng 15,78 GiB. Chưa có bằng chứng rằng dữ liệu đo này là bản sao
 hoặc có thể tái lập chính xác nên không xóa/nén/đổi đường dẫn.
+
+## Báo cáo cũ ở thư mục gốc
+
+Đã bỏ bảy báo cáo khảo sát lịch sử khỏi thư mục làm việc và cây file Git hiện
+tại: `AUDIT_REPORT.md`, `DEBUG_ODE_REPORT.md`, `FR10_AUDIT_REGRESSION_REPORT.md`,
+`MODULE_GRANULARITY_AUDIT.md`, `MOTION_ADAPTER_REFACTOR_REPORT.md`,
+`UNUSED_FILES_REPORT.md`, `VEHICLE_LCP_ROOT_CAUSE.md`. Chúng mô tả các giai đoạn
+trước đây và nhiều đường dẫn/package đã thay đổi; không phải hướng dẫn vận
+hành hiện hành. Không tìm thấy tham chiếu tới chúng trong mã thực thi đang
+được Git theo dõi. Các báo cáo tham chiếu chéo trong nhóm được bỏ cùng nhau.
+Hai bản `.md.orig` tương ứng và `KIEM_TRA.txt` rỗng cũng được bỏ.
+
+Không tạo thư mục archive và không xóa dữ liệu đo đi kèm. Nội dung tài liệu
+vẫn có đầy đủ trong commit **7f96bd2b03e75d657536ff44aa85e2c569c00b56**. Có thể
+đọc lại mà không khôi phục file vào thư mục gốc:
+
+```bash
+git show 7f96bd2b03e75d657536ff44aa85e2c569c00b56:VEHICLE_LCP_ROOT_CAUSE.md
+```
+
+`PROGRESS_LEDGER.md` được giữ: script
+`src/vehicle_bringup/test/integration/fr10_force_artifact_manifest.py` vẫn
+đưa checksum của file vào manifest kiểm chứng. Nhật ký này là bằng chứng lịch
+sử, không thay thế hướng dẫn vận hành trong README chính.
 
 ## Kiểm kê lại mà không thay đổi dữ liệu
 
